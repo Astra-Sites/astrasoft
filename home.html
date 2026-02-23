@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra Softwares | AI Innovation & Education</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --astra-dark-blue: #0C3658;
+            --astra-teal: #26697D;
+            --astra-lime: #D9E990;
+            --astra-light-grey: #f8fafc;
+            --dark-text: #1a1a1a;
+        }
+
+        body { font-family: 'Open Sans', sans-serif; color: var(--dark-text); scroll-behavior: smooth; overflow-x: hidden; background: white; line-height: 1.6; }
+        h1, h2, h3, h4, .navbar-brand { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        /* Balanced Spacing System */
+        section { padding: 100px 0; position: relative; }
+        .py-small { padding: 60px 0; }
+        .bg-alt { background-color: var(--astra-light-grey); }
+
+        /* Navbar */
+        .navbar { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.8) !important; border-bottom: 1px solid rgba(0,0,0,0.05); z-index: 1000; padding: 15px 0; }
+        .navbar-brand { font-weight: 800; color: var(--astra-dark-blue) !important; letter-spacing: -1px; }
+
+        /* Hero */
+        .hero-software { 
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #fff;
+            padding: 0; /* Let flex handle it */
+        }
+
+        #neural-net-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            opacity: 0.5;
+        }
+
+        .hero-content { position: relative; z-index: 2; width: 100%; }
+        .hero-software h1 { font-size: 4.5rem; font-weight: 800; color: var(--astra-dark-blue); line-height: 1.1; letter-spacing: -2px; }
+        .text-gradient { background: linear-gradient(45deg, var(--astra-dark-blue), var(--astra-teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Buttons */
+        .btn-astra { padding: 14px 36px; font-weight: 700; border-radius: 8px; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; }
+        .btn-primary-astra { background-color: var(--astra-dark-blue); color: white; border: none; }
+        .btn-primary-astra:hover { background-color: var(--astra-teal); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(12, 54, 88, 0.15); color: white; }
+
+        /* Tech Stack Autoscroll */
+        .scroll-container { overflow: hidden; white-space: nowrap; padding: 50px 0; background: white; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; margin-top: -1px; }
+        .scroll-content { display: inline-flex; gap: 6rem; animation: scroll 50s linear infinite; }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .tech-item { display: flex; align-items: center; font-weight: 700; color: var(--astra-dark-blue); opacity: 0.4; font-size: 1.1rem; }
+        .tech-item i { font-size: 1.8rem; color: var(--astra-teal); }
+
+        /* Stats Section */
+        .stats-section { background-color: var(--astra-dark-blue); color: white; padding: 80px 0; }
+        .stat-val { color: var(--astra-lime); font-weight: 800; font-size: 3.5rem; line-height: 1; margin-bottom: 10px; }
+
+        /* Partner Logos */
+        .partner-logo { max-height: 32px; filter: grayscale(100%); opacity: 0.35; transition: all 0.4s ease; }
+        .partner-logo:hover { filter: grayscale(0%); opacity: 0.8; }
+
+        /* Glass CTA */
+        .glass-cta { background: white; border: 1px solid #eee !important; border-radius: 40px; padding: 100px 50px; }
+
+        /* Scholars */
+        .scholars-preview { background-color: var(--astra-dark-blue); border-radius: 30px; padding: 80px; color: white; position: relative; z-index: 5; margin-bottom: -120px; box-shadow: 0 40px 100px rgba(12, 54, 88, 0.2); }
+        .scholars-tag { background: var(--astra-lime); color: var(--astra-dark-blue); padding: 6px 16px; border-radius: 6px; font-weight: 800; font-size: 0.7rem; letter-spacing: 1.5px; }
+
+        @media (max-width: 991px) {
+            .hero-software h1 { font-size: 3rem; }
+            section { padding: 80px 0; }
+            .scholars-preview { padding: 40px; margin-bottom: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <i class="bi bi-asterisk me-2" style="color: var(--astra-teal);"></i>ASTRA SOFTWARES
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item dropdown px-2">
+                    <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Solutions</a>
+                    <ul class="dropdown-menu shadow-lg border-0">
+                        <li><a class="dropdown-item" href="#">AstraPay</a></li>
+                        <li><a class="dropdown-item" href="#">Astra Cosmo</a></li>
+                        <li><a class="dropdown-item" href="#">Custom AI Dev</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown px-2">
+                    <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Astra Scholars</a>
+                    <ul class="dropdown-menu shadow-lg border-0">
+                        <li><a class="dropdown-item" href="#">K-12 Coding</a></li>
+                        <li><a class="dropdown-item" href="#">AI Fellowship</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-4">
+                    <a href="#contact" class="btn btn-astra btn-primary-astra px-4">Partner With Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero-software">
+    <div id="neural-net-canvas"></div>
+    <div class="container hero-content">
+        <div class="row py-5">
+            <div class="col-lg-9" data-aos="fade-right">
+                <h6 class="text-uppercase fw-bold mb-4" style="color: var(--astra-teal); letter-spacing: 3px;">Intelligence Inherent</h6>
+                <h1>Building the <span class="text-gradient">Intelligence</span> <br>that Powers Tomorrow.</h1>
+                <p class="lead my-4 text-muted col-md-10 fs-4">We engineer bespoke AI solutions and high-performance applications that scale with the modern enterprise.</p>
+                <div class="d-flex flex-wrap gap-3 mt-5">
+                    <a href="#solutions" class="btn btn-astra btn-primary-astra">View Services</a>
+                    <a href="#contact" class="btn btn-astra btn-outline-dark border-2">Consult an Engineer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="scroll-container">
+    <div class="scroll-content">
+        <div class="tech-item"><i class="bi bi-code-slash me-3"></i><span>Laravel/PHP</span></div>
+        <div class="tech-item"><i class="bi bi-terminal me-3"></i><span>Python/AI</span></div>
+        <div class="tech-item"><i class="bi bi-database me-3"></i><span>MySQL</span></div>
+        <div class="tech-item"><i class="bi bi-cpu me-3"></i><span>C++</span></div>
+        <div class="tech-item"><i class="bi bi-layers me-3"></i><span>React</span></div>
+        <div class="tech-item"><i class="bi bi-gpu-card me-3"></i><span>Vision AI</span></div>
+        <div class="tech-item"><i class="bi bi-shield-lock me-3"></i><span>Security</span></div>
+        <div class="tech-item"><i class="bi bi-code-slash me-3"></i><span>Laravel/PHP</span></div>
+        <div class="tech-item"><i class="bi bi-terminal me-3"></i><span>Python/AI</span></div>
+        <div class="tech-item"><i class="bi bi-database me-3"></i><span>MySQL</span></div>
+        <div class="tech-item"><i class="bi bi-cpu me-3"></i><span>C++</span></div>
+        <div class="tech-item"><i class="bi bi-layers me-3"></i><span>React</span></div>
+        <div class="tech-item"><i class="bi bi-gpu-card me-3"></i><span>Vision AI</span></div>
+        <div class="tech-item"><i class="bi bi-shield-lock me-3"></i><span>Security</span></div>
+    </div>
+</div>
+
+<section class="stats-section">
+    <div class="container">
+        <div class="row text-center g-5" data-aos="fade-up">
+            <div class="col-md-4">
+                <p class="stat-val">50+</p>
+                <p class="mb-0 text-uppercase small opacity-75 fw-bold tracking-widest">Solutions Deployed</p>
+            </div>
+            <div class="col-md-4">
+                <p class="stat-val">500+</p>
+                <p class="mb-0 text-uppercase small opacity-75 fw-bold tracking-widest">Graduates</p>
+            </div>
+            <div class="col-md-4">
+                <p class="stat-val">99.9%</p>
+                <p class="mb-0 text-uppercase small opacity-75 fw-bold tracking-widest">System Reliability</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-small bg-white">
+    <div class="container text-center">
+        <div class="row align-items-center justify-content-center g-5">
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="partner-logo">
+            </div>
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="partner-logo">
+            </div>
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" class="partner-logo">
+            </div>
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" class="partner-logo">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-alt">
+    <div class="container">
+        <div class="glass-cta text-center shadow-sm" data-aos="zoom-in">
+            <h2 class="fw-bold mb-4">Partner with Astra Softwares</h2>
+            <p class="lead text-muted mx-auto mb-5" style="max-width: 650px;">We specialize in helping founders and enterprises bridge the gap between vision and production-ready intelligence.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="mailto:partners@astrasoftwares.com" class="btn btn-astra btn-primary-astra">Get Started</a>
+                <a href="#contact" class="btn btn-astra btn-outline-dark border-2">Speak to Engineering</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="background-color: white; padding-bottom: 200px;">
+    <div class="container">
+        <div class="scholars-preview" data-aos="fade-up">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="scholars-tag mb-3 d-inline-block text-uppercase">Educational Division</span>
+                    <h2 class="display-6 fw-bold mb-3 text-white">Astra Scholars</h2>
+                    <p class="mb-4 opacity-75 fs-5">Empowering the next generation of engineers through intensive, industry-led training in AI and Full-Stack development.</p>
+                    <div class="row g-3">
+                        <div class="col-md-4 small fw-bold"><i class="bi bi-check-circle-fill text-lime me-2"></i>AI Fellowships</div>
+                        <div class="col-md-4 small fw-bold"><i class="bi bi-check-circle-fill text-lime me-2"></i>K-12 Pathways</div>
+                        <div class="col-md-4 small fw-bold"><i class="bi bi-check-circle-fill text-lime me-2"></i>Mentorship</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end mt-5 mt-lg-0">
+                    <a href="#" class="btn btn-astra px-5 py-3 shadow" style="background: var(--astra-lime); color: var(--astra-dark-blue);">Visit Academy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-5 bg-white pt-5 mt-lg-5 text-center">
+    <div class="container pt-5">
+        <p class="text-muted small fw-bold opacity-50">&copy; 2026 Astra Softwares Group. Built for the future.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+    // Optimized 40-node network
+    const container = document.getElementById('neural-net-canvas');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
+
+    const particleCount = 40; 
+    const particlesData = [];
+    const positions = new Float32Array(particleCount * 3);
+    const particles = new THREE.BufferGeometry();
+
+    for (let i = 0; i < particleCount; i++) {
+        positions[i*3] = (Math.random()-0.5)*30;
+        positions[i*3+1] = (Math.random()-0.5)*20;
+        positions[i*3+2] = (Math.random()-0.5)*15;
+        particlesData.push({ velocity: new THREE.Vector3(-1+Math.random()*2,-1+Math.random()*2,-1+Math.random()*2).multiplyScalar(0.005) });
+    }
+    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const pointCloud = new THREE.Points(particles, new THREE.PointsMaterial({ color: 0xD9E990, size: 0.12, transparent: true, opacity: 0.45, blending: THREE.AdditiveBlending }));
+    scene.add(pointCloud);
+    const lineMesh = new THREE.LineSegments(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({ color: 0x26697D, transparent: true, opacity: 0.1 }));
+    scene.add(lineMesh);
+    camera.position.z = 12;
+
+    let mouseX = 0, mouseY = 0;
+    document.addEventListener('mousemove', (e) => { mouseX = e.clientX - window.innerWidth/2; mouseY = e.clientY - window.innerHeight/2; });
+
+    function animate() {
+        requestAnimationFrame(animate);
+        const pos = particles.attributes.position.array;
+        let lp = [];
+        for (let i = 0; i < particleCount; i++) {
+            pos[i*3]+=particlesData[i].velocity.x; pos[i*3+1]+=particlesData[i].velocity.y; pos[i*3+2]+=particlesData[i].velocity.z;
+            if(Math.abs(pos[i*3])>18) particlesData[i].velocity.x*=-1;
+            if(Math.abs(pos[i*3+1])>12) particlesData[i].velocity.y*=-1;
+            for (let j=i+1; j<particleCount; j++) {
+                if(Math.sqrt((pos[i*3]-pos[j*3])**2+(pos[i*3+1]-pos[j*3+1])**2)<6) lp.push(pos[i*3],pos[i*3+1],pos[i*3+2],pos[j*3],pos[j*3+1],pos[j*3+2]);
+            }
+        }
+        particles.attributes.position.needsUpdate = true;
+        lineMesh.geometry.setAttribute('position', new THREE.Float32BufferAttribute(lp, 3));
+        scene.rotation.y += (mouseX*0.00015 - scene.rotation.y)*0.04;
+        scene.rotation.x += (mouseY*0.00015 - scene.rotation.x)*0.04;
+        renderer.render(scene, camera);
+    }
+    animate();
+    window.addEventListener('resize', () => { camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
+    AOS.init({ duration: 1000, once: true });
+</script>
+</body>
+</html>

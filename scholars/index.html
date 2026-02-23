@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra Scholars | Professional Coding Education</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Colors extracted from the logo */
+            --astra-dark-blue: #0C3658;
+            --astra-teal: #26697D;
+            --astra-lime: #D9E990;
+            --astra-light-grey: #f4f7f6;
+            --dark-text: #333333;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark-text);
+        }
+
+        /* Buttons */
+        .btn-primary-astra {
+            background-color: var(--astra-dark-blue);
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            font-weight: 600;
+            border-radius: 4px; /* More professional than pill */
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-astra:hover {
+            background-color: var(--astra-teal);
+            color: white;
+        }
+
+        .btn-outline-astra {
+            color: var(--astra-dark-blue);
+            border: 2px solid var(--astra-dark-blue);
+            padding: 10px 30px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-astra:hover {
+            background-color: var(--astra-dark-blue);
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--astra-dark-blue) !important;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--astra-dark-blue) !important;
+            font-weight: 600;
+            margin-left: 1rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 100px 0;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--astra-dark-blue);
+        }
+
+        .hero-text .highlight {
+            color: var(--astra-teal);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background-color: var(--astra-lime);
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .hero-image-container img {
+            max-width: 100%;
+            height: auto;
+            /* Removed the float animation for a more stable, professional feel */
+        }
+
+        /* Features */
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-weight: 700;
+            color: var(--astra-dark-blue);
+        }
+
+        .feature-card {
+            border: none;
+            border-radius: 8px;
+            padding: 40px 30px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            height: 100%;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--astra-teal);
+            margin-bottom: 25px;
+        }
+
+        /* Curriculum Section */
+        .pathway-badge {
+            background-color: var(--astra-lime);
+            color: var(--astra-dark-blue);
+            padding: 6px 15px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .card-title {
+            color: var(--astra-dark-blue);
+        }
+
+        .curriculum-card {
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        
+        .curriculum-card:hover {
+            border-color: var(--astra-teal);
+            box-shadow: 0 5px 15px rgba(38, 105, 125, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--astra-dark-blue);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        footer a {
+            color: #b0c4de !important;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: var(--astra-lime) !important;
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 2.2rem; }
+            .hero-section { padding: 60px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/images/brand/logo1.png" alt="Astra Scholars Logo" height="40" class="me-2">
+                Astra Scholars
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#curriculum">Curriculum</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="#register" class="btn btn-primary-astra">Enroll Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center gx-5">
+                <div class="col-lg-6 hero-text mb-5 mb-lg-0">
+                    <span class="fw-bold text-muted mb-2 d-block ls-2" style="color: var(--astra-teal) !important;">GRADES 1 - 12 PROGRAMMING</span>
+                    <h1>Empowering the Next Generation of <span class="highlight">Tech Innovators</span></h1>
+                    <p class="lead mb-4" style="font-weight: 400;">
+                        Astra Scholars provides world-class coding education, equipping students with the skills to shape the future through technology.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#curriculum" class="btn btn-primary-astra">View Courses</a>
+                        <a href="#demo" class="btn btn-outline-astra">Book a Demo</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 hero-image-container text-center">
+                    <img src="assets/images/illustrations/students.png" 
+                         alt="Diverse children with programming awards and icons" 
+                         class="img-fluid"
+                         id="heroImage">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="ai-cta" class="py-5" style="background-color: var(--astra-light-grey);">
+        <div class="container">
+            <div class="row align-items-center p-4 p-md-5" style="background-color: var(--astra-dark-blue); border-radius: 20px; box-shadow: 0 15px 40px rgba(12, 54, 88, 0.2); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: var(--astra-teal); opacity: 0.1; border-radius: 50%;"></div>
+                
+                <div class="col-lg-8 text-white position-relative">
+                    <div class="d-inline-block px-3 py-1 mb-3" style="background-color: var(--astra-lime); color: var(--astra-dark-blue); border-radius: 4px; font-weight: 700; font-size: 0.8rem; letter-spacing: 1px;">
+                        NEW: FEB 15TH INTAKE
+                    </div>
+                    <h2 class="display-5 fw-bold mb-3" style="line-height: 1.1;">Intensive AI Engineering <span style="color: var(--astra-lime);">Fellowship</span></h2>
+                    <p class="lead mb-4" style="opacity: 0.9; font-weight: 400;">
+                        An 8-week intensive program for university students and professionals. Go from API basics to building autonomous AI agents with industry-standard tools.
+                    </p>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-cpu text-warning fs-4 me-3"></i>
+                                <span>Advanced LLM Integration</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-geo-alt text-warning fs-4 me-3"></i>
+                                <span>Physical Meetup in Nairobi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 text-center text-lg-end position-relative">
+                    <a href="#register" class="btn btn-lg w-100 py-3 mb-3" style="background-color: var(--astra-lime); color: var(--astra-dark-blue); font-weight: 800; border-radius: 8px; transition: all 0.3s;">
+                        APPLY FOR FELLOWSHIP
+                    </a>
+                    <p class="text-white-50 small mb-0">Limited to 25 seats for quality mentorship.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white border-bottom">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-1" style="color: var(--astra-teal);">WEEK 1-2</h6>
+                    <p class="small text-muted">Core Dev Tools & cURL</p>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-1" style="color: var(--astra-teal);">WEEK 3-4</h6>
+                    <p class="small text-muted">Gemini & OpenAI APIs</p>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-1" style="color: var(--astra-teal);">WEEK 5-6</h6>
+                    <p class="small text-muted">Agent Architecture</p>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-1" style="color: var(--astra-teal);">WEEK 7-8</h6>
+                    <p class="small text-muted">Capstone & Graduation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 section-bg" style="background-color: var(--astra-light-grey);">
+        <div class="container">
+            <div class="row text-center section-header">
+                <div class="col-lg-8 mx-auto">
+                    <h2>The Astra Advantage</h2>
+                    <p class="text-muted">A structured, professional approach to computer science education.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-code-square"></i></div>
+                        <h5>Project-Based Learning</h5>
+                        <p class="text-muted small">Students build real-world applications, fostering practical skills and problem-solving abilities.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-person-video3"></i></div>
+                        <h5>Expert Instructors</h5>
+                        <p class="text-muted small">Learn from experienced software engineers dedicated to mentoring the next generation.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                        <h5>Career Pathways</h5>
+                        <p class="text-muted small">Our curriculum is designed to prepare students for future academic and professional success in tech.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="curriculum" class="py-5 bg-white">
+        <div class="container">
+            <div class="row text-center section-header">
+                <div class="col-12">
+                    <h2>Structured Learning Pathways</h2>
+                    <p class="text-muted">Comprehensive programs tailored for every stage of development.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 curriculum-card">
+                        <div class="card-body p-4">
+                            <span class="pathway-badge mb-3 d-inline-block">Grades 1 - 4</span>
+                            <h4 class="card-title fw-bold">Junior Foundation</h4>
+                            <p class="card-text text-muted">Building logic and creativity through visual programming and game design.</p>
+                            <hr>
+                            <ul class="list-unstyled small text-muted">
+                                <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--astra-teal);"></i>Scratch Programming</li>
+                                <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--astra-teal);"></i>Computational Thinking</li>
+                                <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--astra-teal);"></i>Interactive Stories</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-0 p-4 pt-0">
+                            <a href="#" class="btn btn-outline-astra w-100">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 curriculum-card">
+                        <div class="card-body p-4">
+                            <span class="pathway-badge mb-3 d-inline-block">Grades 5 - 8</span>
+                            <h4 class="card-title fw-bold">Middle Core</h4>
+                            <p class="card-text text-muted">Transitioning to text-based coding and fundamental web development.</p>
+                            <hr>
+                            <ul class="list-unstyled small text-muted">
+                                <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--astra-teal);"></i>Python Fundamentals</li>
+                                <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--astra-teal);"></i>HTML & CSS</li>
+                                <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--astra-teal);"></i>Intro to Algorithms</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-0 p-4 pt-0">
+                            <a href="#" class="btn btn-outline-astra w-100">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 curriculum-card">
+                        <div class="card-body p-4">
+                            <span class="pathway-badge mb-3 d-inline-block">Grades 9 - 12</span>
+                            <h4 class="card-title fw-bold">Senior Advanced</h4>
+                            <p class="card-text text-muted">Mastering industry-standard languages and preparing for higher education.</p>
+                            <hr>
+                            <ul class="list-unstyled small text-muted">
+                                <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--astra-teal);"></i>Advanced Python & Data</li>
+                                <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--astra-teal);"></i>JavaScript Development</li>
+                                <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--astra-teal);"></i>Software Engineering Principles</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-0 p-4 pt-0">
+                            <a href="#" class="btn btn-outline-astra w-100">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+               <!--  -->
+            <div class="col-md-4">
+                <div class="card h-100 curriculum-card">
+                    <div class="card-body p-4">
+                        <span class="pathway-badge mb-3 d-inline-block">University</span>
+                        <h4 class="card-title fw-bold">University Advanced</h4>
+                        <p class="card-text text-muted">Professional-grade development for higher education and career readiness.</p>
+                        <hr>
+                        <ul class="list-unstyled small text-muted">
+                            <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--astra-teal);"></i>Full-Stack Web Development</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--astra-teal);"></i>Mobile App Development</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--astra-teal);"></i>Cloud & DevOps</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-white border-0 p-4 pt-0">
+                        <a href="#" class="btn btn-outline-astra w-100">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- our partners -->
+    <section class="py-5" style="background-color: var(--astra-light-grey);">
+        <div class="container">
+            <div class="row text-center section-header">
+                <div class="col-12">
+                    <h2>Our Trusted Partners</h2>
+                    <p class="text-muted">Collaborating with industry leaders to enhance learning experiences.</p>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-center g-4">
+                <div class="col-6 col-md-3 col-lg-2 text-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Code.org_logo.svg" alt="Google" class="img-fluid" style="max-height: 60px;">
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 text-center">
+                    <img src="assets/images/partners/gclogo.png" alt="Microsoft" class="img-fluid" style="max-height: 60px;">
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 text-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="IBM" class="img-fluid" style="max-height: 60px;">
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 text-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="AWS" class="img-fluid" style="max-height: 60px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">Astra Scholars</h5>
+                    <p class="small" style="color: #b0c4de;">
+                        Developing the future leaders of technology through comprehensive and professional coding education.
+                    </p>
+                </div>
+                <div class="col-lg-2 mb-4">
+                    <h6 class="fw-bold mb-3">Programs</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="#">Junior Foundation</a></li>
+                        <li><a href="#">Middle Core</a></li>
+                        <li><a href="#">Senior Advanced</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 mb-4">
+                    <h6 class="fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h6 class="fw-bold mb-3">Stay Informed</h6>
+                    <p class="small" style="color: #b0c4de;">Subscribe to our newsletter for updates.</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Email Address" aria-label="Email">
+                        <button class="btn btn-primary-astra" type="button" style="padding: 10px 20px;">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary" style="opacity: 0.3;">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <small style="color: #b0c4de;">&copy; 2026 Astra Scholars. All rights reserved.</small>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="me-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="me-3"><i class="bi bi-twitter"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

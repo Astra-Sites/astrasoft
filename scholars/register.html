@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply - Intensive AI Course</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* BRAND COLORS (Kept the same) */
+            --astra-teal: #005f73;
+            --astra-gold: #d4a017;
+            
+            /* LIGHT MODE VARIABLES */
+            --bg-main: #f4f6f9;            /* Soft Cloud Grey */
+            --glass-bg: rgba(255, 255, 255, 0.95); /* White Glass */
+            --glass-border: rgba(0, 0, 0, 0.08);   /* Faint Grey Border */
+            --input-bg: #ffffff;           /* Pure White Inputs */
+            --text-primary: #1a1a1a;       /* Near Black */
+            --text-secondary: #6c757d;     /* Grey */
+            --shadow: 0 20px 40px -10px rgba(0, 95, 115, 0.15); /* Soft Teal Shadow */
+        }
+
+        body {
+            background-color: var(--bg-main);
+            /* Subtle Gradients */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 95, 115, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(212, 160, 23, 0.08) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        /* CARD STYLES */
+        .form-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid white; /* Clean white border */
+            border-radius: 24px;
+            padding: 0;
+            width: 100%;
+            max-width: 950px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 600px;
+        }
+
+        /* PROGRESS BAR */
+        .progress-line {
+            height: 4px;
+            background: rgba(0,0,0,0.05);
+            width: 100%;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--astra-teal), var(--astra-gold));
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        .card-body-custom {
+            padding: 40px 50px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2 { font-weight: 700; color: var(--astra-teal); margin-bottom: 10px; }
+        h5 { color: var(--astra-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 30px; font-weight: 600; }
+
+        /* --- FIXED INPUTS (LIGHT MODE) --- */
+        .form-floating > label {
+            color: var(--text-secondary);
+            background-color: transparent !important;
+            padding-left: 15px;
+            z-index: 5;
+        }
+        
+        .form-floating > .form-control, .form-floating > .form-select {
+            background-color: var(--input-bg) !important;
+            border: 1px solid #dee2e6; /* Standard Bootstrap Grey Border */
+            color: var(--text-primary);
+            border-radius: 12px;
+            height: 58px; 
+            z-index: 1;
+        }
+
+        .form-floating > .form-control:focus, .form-floating > .form-select:focus {
+            background-color: #fff !important;
+            border-color: var(--astra-teal);
+            box-shadow: 0 0 0 4px rgba(0, 95, 115, 0.1); /* Subtle Teal Glow */
+            color: var(--text-primary);
+        }
+
+        /* KILL THE WHITE LABEL BOX (Bootstrap Override) */
+        .form-floating > .form-control::after, 
+        .form-floating > .form-select::after { 
+            display: none !important;
+            content: none !important; 
+        }
+
+        /* Active Label State */
+        .form-floating > .form-control:focus ~ label,
+        .form-floating > .form-control:not(:placeholder-shown) ~ label,
+        .form-floating > .form-select ~ label {
+            color: var(--astra-teal);
+            font-weight: 600;
+            background-color: transparent !important;
+            transform: scale(0.85) translateY(-0.7rem) translateX(0.15rem);
+        }
+
+        .form-select option { background-color: white; color: black; }
+
+        /* SEARCH SUGGESTIONS (Light Mode) */
+        #language-suggestions {
+            background: white;
+            border: 1px solid #dee2e6;
+            color: var(--text-primary);
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .suggestion-item:hover { background-color: #f0f8ff; color: var(--astra-teal); cursor: pointer; }
+
+        /* BADGES */
+        .badge-custom {
+            background: rgba(0, 95, 115, 0.1);
+            border: 1px solid rgba(0, 95, 115, 0.2);
+            color: var(--astra-teal);
+            padding: 8px 14px;
+            border-radius: 30px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 500;
+        }
+        .remove-lang { margin-left: 8px; cursor: pointer; color: #dc3545; }
+
+        /* BUTTONS */
+        .btn-nav {
+            padding: 12px 30px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-next { background: var(--astra-teal); color: white; border: none; }
+        .btn-next:hover { background: #004e5f; transform: translateX(3px); color: white; box-shadow: 0 5px 15px rgba(0, 95, 115, 0.3); }
+        
+        .btn-prev { background: transparent; border: 1px solid #dee2e6; color: var(--text-secondary); }
+        .btn-prev:hover { border-color: var(--text-primary); color: var(--text-primary); }
+
+        /* WIZARD ANIMATIONS */
+        .quiz-section { display: none; animation: fadeIn 0.4s ease; }
+        .quiz-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* MODAL STYLES (Light Mode) */
+        .modal-content {
+            background-color: white;
+            border: none;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            color: var(--text-primary);
+        }
+        .modal-header { border-bottom: 1px solid #eee; }
+        .modal-footer { border-top: 1px solid #eee; }
+        .form-select.bg-dark { background-color: white !important; color: black !important; border: 1px solid #dee2e6 !important; }
+
+        /* SUCCESS OVERLAY */
+        #success-overlay {
+            background: rgba(255, 255, 255, 0.98);
+        }
+        
+        @media (max-width: 768px) { .card-body-custom { padding: 30px; } }
+    </style>
+</head>
+<body>
+
+    <div class="form-card">
+        <div class="progress-line">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <form id="wizardForm" class="card-body-custom">
+            
+            <div class="quiz-section active">
+                <h5>Step 1/4: Identity</h5>
+                <h2>Intensive AI Course Application</h2>
+                <p class="text-secondary mb-4">Let's generate your student profile and admission number.</p>
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="fname" placeholder="First Name" required>
+                            <label>First Name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="lname" placeholder="Last Name" required>
+                            <label>Last Name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                            <label>Email Address</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <select class="form-select" id="country-select" name="country" required>
+                                <option value="">Loading Countries...</option>
+                            </select>
+                            <label>Country</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="tel" class="form-control" name="phone" id="phone-input" placeholder="Phone" required>
+                            <label>Phone Number</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-section">
+                <h5>Step 2/4: Learning Profile</h5>
+                <h2>How do you learn best?</h2>
+                <p class="text-secondary mb-4">We will customize the AI Tutor based on your style.</p>
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <select class="form-select" name="experience" required>
+                                <option value="" disabled selected>Select...</option>
+                                <option value="Beginner">Beginner (New)</option>
+                                <option value="Intermediate">Intermediate</option>
+                                <option value="Advanced">Advanced</option>
+                            </select>
+                            <label>Current Experience</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <select class="form-select" name="pace" required>
+                                <option value="" disabled selected>Select...</option>
+                                <option value="Fast Track">Fast-Track (Intensive)</option>
+                                <option value="Regular">Regular Pace</option>
+                                <option value="Flexible">Flexible / Part-time</option>
+                            </select>
+                            <label>Desired Pace</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <select class="form-select" name="style" required>
+                                <option value="" disabled selected>Select...</option>
+                                <option value="Visual">Visual (Videos & Diagrams)</option>
+                                <option value="Hands-On">Hands-on (Building Projects)</option>
+                                <option value="Text-Based">Text-based (Documentation)</option>
+                            </select>
+                            <label>Learning Style</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-section">
+                <h5>Step 3/4: Goals</h5>
+                <h2>What is your mission?</h2>
+                <p class="text-secondary mb-4">Tell us what you want to achieve with AI Engineering.</p>
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <select class="form-select" name="goal" required>
+                                <option value="" disabled selected>Select...</option>
+                                <option value="AI Engineer">AI Engineer</option>
+                                <option value="Full Stack Developer">Full-Stack Developer</option>
+                                <option value="Backend Developer">Backend Specialist</option>
+                                <option value="Frontend Developer">Frontend Engineer</option>
+                                <option value="DevOps Engineer">DevOps / Cloud</option>
+                            </select>
+                            <label>Career Goal</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <select class="form-select" name="motivation" required>
+                                <option value="" disabled selected>Select...</option>
+                                <option value="Career">Career Change</option>
+                                <option value="Hobby">Hobby / Passion</option>
+                                <option value="Startup">Building a Startup</option>
+                                <option value="Freelance">Freelancing</option>
+                            </select>
+                            <label>Primary Motivation</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <select class="form-select" name="time" required>
+                                <option value="" disabled selected>Select...</option>
+                                <option value="Daily">Daily (2+ Hours)</option>
+                                <option value="Weekly">Weekly (Weekends)</option>
+                                <option value="Flexible">Flexible</option>
+                            </select>
+                            <label>Time Availability</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-section">
+                <h5>Step 4/4: Skills</h5>
+                <h2>Your Tech Stack</h2>
+                <p class="text-secondary mb-4">Search for languages/tools you know. If none, select "None".</p>
+
+                <div class="mb-3 position-relative">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="language-search" placeholder="Search languages...">
+                        <label>Search Languages (e.g. Python, JS)</label>
+                    </div>
+                    <div id="language-suggestions" class="position-absolute w-100 shadow-lg" style="max-height: 200px; overflow-y: auto; display:none; z-index: 10;"></div>
+                </div>
+
+                <div id="selected-languages" class="mb-3" style="min-height: 40px;"></div>
+                
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="no-languages-btn">
+                    I don't know any languages yet
+                </button>
+            </div>
+
+            <div class="mt-auto d-flex justify-content-between align-items-center pt-4 border-top">
+                <button type="button" class="btn btn-nav btn-prev" id="prev-btn" disabled>Back</button>
+                <button type="button" class="btn btn-nav btn-next" id="next-btn">Next</button>
+                <button type="submit" class="btn btn-nav btn-next d-none" id="submit-btn">Complete Registration</button>
+            </div>
+        </form>
+
+        <div id="success-overlay" class="position-absolute w-100 h-100 flex-column align-items-center justify-content-center text-center" style="z-index: 20; display: none;">
+            <div class="mb-4" style="width: 80px; height: 80px; background: rgba(0, 95, 115, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--astra-teal); border: 1px solid rgba(0, 95, 115, 0.2);">
+                <i class="fas fa-check fa-3x"></i>
+            </div>
+            <h2 class="text-dark">Registration Complete!</h2>
+            <p class="text-secondary">Your Admission Number: <strong style="color: var(--astra-teal);" id="adm-display">...</strong></p>
+            <p class="text-muted small">Check your email for login details.</p>
+        </div>
+    </div>
+
+    <div class="modal fade" id="expModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Experience Level</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>How experienced are you with <strong id="modal-lang-name" style="color: var(--astra-teal);"></strong>?</p>
+                    <select class="form-select" id="modal-exp-select">
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success w-100" id="save-lang-btn" style="background-color: var(--astra-teal); border:none;">Add to Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ⚠️ PASTE YOUR DEPLOYED GOOGLE SCRIPT URL HERE
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyr1eDjpVA5Pdc2an6W796KPNFurAvhW9MWrYNVimCYP1Q-p7IhPhtFACtqYh0BkzRc/exec"; 
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('wizardForm');
+            const sections = document.querySelectorAll('.quiz-section');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const submitBtn = document.getElementById('submit-btn');
+            const progressFill = document.getElementById('progress-fill');
+            let currentStep = 0;
+
+            // --- 1. WIZARD LOGIC ---
+            function updateWizard() {
+                sections.forEach((sec, idx) => {
+                    if (idx === currentStep) {
+                        sec.classList.add('active');
+                    } else {
+                        sec.classList.remove('active');
+                    }
+                });
+
+                // Update Buttons
+                prevBtn.disabled = currentStep === 0;
+                if (currentStep === sections.length - 1) {
+                    nextBtn.classList.add('d-none');
+                    submitBtn.classList.remove('d-none');
+                } else {
+                    nextBtn.classList.remove('d-none');
+                    submitBtn.classList.add('d-none');
+                }
+
+                // Update Progress
+                const pct = ((currentStep + 1) / sections.length) * 100;
+                progressFill.style.width = pct + '%';
+            }
+
+            function validateStep() {
+                const activeSection = sections[currentStep];
+                const inputs = activeSection.querySelectorAll('input[required], select[required]');
+                let valid = true;
+                inputs.forEach(input => {
+                    if (!input.value) {
+                        input.classList.add('is-invalid');
+                        valid = false;
+                    } else {
+                        input.classList.remove('is-invalid');
+                    }
+                });
+                return valid;
+            }
+
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (validateStep()) {
+                    currentStep++;
+                    updateWizard();
+                }
+            });
+
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentStep--;
+                updateWizard();
+            });
+
+            // --- 2. COUNTRY & PHONE FETCH ---
+            fetch('https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json')
+                .then(res => res.json())
+                .then(data => {
+                    const select = document.getElementById('country-select');
+                    select.innerHTML = '<option value="">Select Country</option>';
+                    data.forEach(c => {
+                        const opt = document.createElement('option');
+                        opt.value = c.name;
+                        opt.dataset.code = c.dial_code;
+                        opt.textContent = `${c.name} (${c.dial_code})`;
+                        select.appendChild(opt);
+                    });
+
+                    select.addEventListener('change', () => {
+                        const code = select.options[select.selectedIndex].dataset.code;
+                        document.getElementById('phone-input').value = code || "";
+                    });
+                })
+                .catch(err => console.log('Country API Error', err));
+
+
+            // --- 3. LANGUAGE SEARCH & MODAL ---
+            const langSearch = document.getElementById('language-search');
+            const langSuggest = document.getElementById('language-suggestions');
+            const selectedLangsDiv = document.getElementById('selected-languages');
+            const noLangBtn = document.getElementById('no-languages-btn');
+            
+            const commonLangs = ["Python", "JavaScript", "Java", "C++", "C#", "PHP", "Swift", "Go", "Rust", "HTML/CSS", "SQL", "React", "Node.js", "Flutter", "TypeScript"];
+            let chosenLangs = []; 
+            let tempLang = "";
+            const modal = new bootstrap.Modal(document.getElementById('expModal'));
+
+            langSearch.addEventListener('input', (e) => {
+                const val = e.target.value.toLowerCase();
+                langSuggest.innerHTML = "";
+                if (val.length < 1) { langSuggest.style.display = 'none'; return; }
+
+                const matches = commonLangs.filter(l => l.toLowerCase().includes(val));
+                matches.forEach(l => {
+                    const div = document.createElement('div');
+                    div.className = "suggestion-item p-3 border-bottom";
+                    div.textContent = l;
+                    div.onclick = () => {
+                        tempLang = l;
+                        document.getElementById('modal-lang-name').textContent = l;
+                        modal.show();
+                        langSearch.value = "";
+                        langSuggest.style.display = 'none';
+                    };
+                    langSuggest.appendChild(div);
+                });
+                langSuggest.style.display = matches.length ? 'block' : 'none';
+            });
+
+            document.getElementById('save-lang-btn').addEventListener('click', () => {
+                const exp = document.getElementById('modal-exp-select').value;
+                chosenLangs.push(`${tempLang} (${exp})`);
+                renderLangs();
+                modal.hide();
+            });
+
+            function renderLangs() {
+                selectedLangsDiv.innerHTML = "";
+                chosenLangs.forEach((l, idx) => {
+                    const span = document.createElement('span');
+                    span.className = "badge-custom";
+                    span.innerHTML = `${l} <i class="fas fa-times remove-lang" onclick="removeLang(${idx})"></i>`;
+                    selectedLangsDiv.appendChild(span);
+                });
+                noLangBtn.style.display = chosenLangs.length > 0 ? 'none' : 'inline-block';
+            }
+
+            window.removeLang = (idx) => {
+                chosenLangs.splice(idx, 1);
+                renderLangs();
+            };
+
+            noLangBtn.addEventListener('click', () => {
+                chosenLangs = ["None"];
+                renderLangs();
+            });
+
+
+            // --- 4. SUBMISSION LOGIC ---
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const originalText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+                // 1. Generate Admission Number Client-Side
+                const year = new Date().getFullYear();
+                const rand = Math.floor(1000 + Math.random() * 9000);
+                const newAdmNum = `PR-${rand}-${year}`;
+
+                // 2. Prepare Data
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                
+                data.languages = chosenLangs.join(", ");
+                data.admissionNumber = newAdmNum; // Send ID to Sheet
+
+                fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    mode: 'no-cors'
+                })
+                .then(() => {
+                    // Turn on Flex ONLY when success happens
+                    document.getElementById('success-overlay').style.display = 'flex';
+                    document.getElementById('adm-display').innerText = newAdmNum;
+                })
+                .catch(err => {
+                    alert("Submission failed. Check internet.");
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                });
+            });
+
+            // Initial UI Update
+            updateWizard();
+        });
+    </script>
+</body>
+</html>

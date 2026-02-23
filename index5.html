@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra Softwares | AI Innovation & Education</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --astra-dark-blue: #0C3658;
+            --astra-teal: #26697D;
+            --astra-lime: #D9E990;
+            --astra-light-grey: #f8fafc;
+            --dark-text: #1a1a1a;
+        }
+
+        body { font-family: 'Open Sans', sans-serif; color: var(--dark-text); scroll-behavior: smooth; }
+        h1, h2, h3, h4, .navbar-brand { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        /* Navigation & Dropdowns */
+        .navbar { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.95) !important; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .navbar-brand { font-weight: 800; color: var(--astra-dark-blue) !important; letter-spacing: -1px; }
+        .dropdown-menu { border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 8px; padding: 10px; margin-top: 10px; }
+        .dropdown-item { font-weight: 600; color: var(--astra-dark-blue); padding: 10px 15px; border-radius: 4px; transition: all 0.2s; }
+        .dropdown-item:hover { background-color: var(--astra-light-grey); color: var(--astra-teal); }
+        .dropdown-item i { margin-right: 10px; color: var(--astra-teal); }
+
+        /* Buttons */
+        .btn-astra { padding: 12px 28px; font-weight: 700; border-radius: 6px; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.9rem; }
+        .btn-primary-astra { background-color: var(--astra-dark-blue); color: white; border: none; }
+        .btn-primary-astra:hover { background-color: var(--astra-teal); transform: translateY(-2px); color: white; }
+
+        /* Hero */
+        .hero-software { padding: 140px 0 100px; background: radial-gradient(circle at top right, #f0f9ff, white); }
+        .hero-software h1 { font-size: 3.5rem; font-weight: 800; color: var(--astra-dark-blue); line-height: 1.1; }
+        .text-gradient { background: linear-gradient(45deg, var(--astra-dark-blue), var(--astra-teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Autoscroll Tech Stack */
+        .scroll-container { overflow: hidden; white-space: nowrap; padding: 30px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .scroll-content { display: inline-flex; gap: 5rem; animation: scroll 30s linear infinite; }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .tech-item { display: flex; align-items: center; font-weight: 600; color: var(--astra-dark-blue); opacity: 0.8; }
+        .tech-item i { font-size: 1.5rem; color: var(--astra-teal); }
+
+        /* Cards */
+        .service-card, .eco-card { border: 1px solid #edf2f7; border-radius: 16px; padding: 40px; transition: all 0.4s ease; background: white; height: 100%; }
+        .service-card:hover, .eco-card:hover { border-color: var(--astra-lime); box-shadow: 0 20px 40px rgba(0,0,0,0.05); transform: translateY(-10px); }
+        .icon-box { width: 60px; height: 60px; background: var(--astra-light-grey); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--astra-teal); margin-bottom: 20px; }
+
+        /* Scholars Section */
+        .scholars-preview { background-color: var(--astra-dark-blue); border-radius: 24px; padding: 60px; color: white; margin-bottom: -100px; position: relative; z-index: 5; }
+        .scholars-tag { background: var(--astra-lime); color: var(--astra-dark-blue); padding: 4px 12px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; }
+
+        @media (max-width: 991px) {
+            .hero-software h1 { font-size: 2.5rem; }
+            .scholars-preview { padding: 30px; margin-bottom: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <i class="bi bi-asterisk me-2"></i>ASTRA SOFTWARES
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item dropdown px-2">
+                    <a class="nav-link dropdown-toggle fw-semibold" href="#" id="solutionsDrop" data-bs-toggle="dropdown">Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-wallet2"></i> AstraPay</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-rocket-takeoff"></i> Astra Cosmo</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-cpu"></i> Custom AI Dev</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown px-2">
+                    <a class="nav-link dropdown-toggle fw-semibold" href="#" id="scholarsDrop" data-bs-toggle="dropdown">Astra Scholars</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-book"></i> K-12 Programming</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-mortarboard"></i> AI Fellowship</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown px-2">
+                    <a class="nav-link dropdown-toggle fw-semibold" href="#" id="companyDrop" data-bs-toggle="dropdown">Company</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">About Us</a></li>
+                        <li><a class="dropdown-item" href="#">Careers</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-3">
+                    <a href="#contact" class="btn btn-astra btn-primary-astra">Work With Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero-software">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <h6 class="text-uppercase fw-bold mb-3" style="color: var(--astra-teal); letter-spacing: 2px;">Next-Gen AI Development</h6>
+                <h1>Building the <span class="text-gradient">Intelligence</span> that Powers Tomorrow.</h1>
+                <p class="lead my-4 text-muted">Astra Softwares crafts bespoke AI solutions, automated ecosystems, and high-performance applications for the modern enterprise.</p>
+                <div class="d-flex gap-3">
+                    <a href="#solutions" class="btn btn-astra btn-primary-astra">Our Solutions</a>
+                    <a href="#contact" class="btn btn-astra btn-outline-dark border-2">Get a Quote</a>
+                </div>
+            </div>
+            <div class="col-lg-5 d-none d-lg-block text-center">
+                <div class="p-5 bg-white shadow-lg rounded-circle d-inline-block" style="opacity: 0.1; border: 20px solid var(--astra-teal);"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-white overflow-hidden">
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <div class="tech-item"><i class="bi bi-code-slash me-2"></i><span>Laravel/PHP</span></div>
+            <div class="tech-item"><i class="bi bi-terminal me-2"></i><span>Python/AI</span></div>
+            <div class="tech-item"><i class="bi bi-database me-2"></i><span>MySQL/PostgreSQL</span></div>
+            <div class="tech-item"><i class="bi bi-cpu me-2"></i><span>C++ & Electronics</span></div>
+            <div class="tech-item"><i class="bi bi-layers me-2"></i><span>React/Next.js</span></div>
+            <div class="tech-item"><i class="bi bi-gpu-card me-2"></i><span>Computer Vision</span></div>
+            <div class="tech-item"><i class="bi bi-shield-lock me-2"></i><span>Cybersecurity</span></div>
+            <div class="tech-item"><i class="bi bi-code-slash me-2"></i><span>Laravel/PHP</span></div>
+            <div class="tech-item"><i class="bi bi-terminal me-2"></i><span>Python/AI</span></div>
+            <div class="tech-item"><i class="bi bi-database me-2"></i><span>MySQL/PostgreSQL</span></div>
+            <div class="tech-item"><i class="bi bi-cpu me-2"></i><span>C++ & Electronics</span></div>
+            <div class="tech-item"><i class="bi bi-layers me-2"></i><span>React/Next.js</span></div>
+            <div class="tech-item"><i class="bi bi-gpu-card me-2"></i><span>Computer Vision</span></div>
+            <div class="tech-item"><i class="bi bi-shield-lock me-2"></i><span>Cybersecurity</span></div>
+        </div>
+    </div>
+</section>
+
+<section id="solutions" class="py-5" style="padding: 100px 0;">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Enterprise AI Solutions</h2>
+            <p class="text-muted">High-impact software engineered for scale.</p>
+        </div>
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="icon-box mx-auto"><i class="bi bi-cpu"></i></div>
+                    <h4>AI Integration</h4>
+                    <p class="text-muted small">Embedding LLMs and custom machine learning models into your business workflows.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="icon-box mx-auto"><i class="bi bi-code-slash"></i></div>
+                    <h4>Custom Software</h4>
+                    <p class="text-muted small">Full-stack development using Laravel, Python, and modern JS frameworks.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="icon-box mx-auto"><i class="bi bi-robot"></i></div>
+                    <h4>Automation</h4>
+                    <p class="text-muted small">Building autonomous agents and RPA tools to eliminate manual tasks.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5" style="background-color: var(--astra-dark-blue); color: white;">
+    <div class="container">
+        <div class="row text-center g-4">
+            <div class="col-md-4">
+                <h2 class="fw-bold" style="color: var(--astra-lime);">500+</h2>
+                <p class="mb-0 opacity-75">Scholars Trained</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="fw-bold" style="color: var(--astra-lime);">12+</h2>
+                <p class="mb-0 opacity-75">AI Solutions Deployed</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="fw-bold" style="color: var(--astra-lime);">99.9%</h2>
+                <p class="mb-0 opacity-75">System Uptime</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="ecosystem" class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-6">
+                <h2 class="fw-bold">Our Living Ecosystem</h2>
+                <p class="text-muted">Proprietary solutions developed and maintained by Astra Softwares.</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="eco-card p-4 shadow-sm">
+                    <i class="bi bi-wallet2 fs-2 text-primary mb-3"></i>
+                    <h5 class="fw-bold">AstraPay</h5>
+                    <p class="small text-muted">Next-gen fintech API for borderless payments.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="eco-card p-4 shadow-sm">
+                    <i class="bi bi-tree fs-2 text-success mb-3"></i>
+                    <h5 class="fw-bold">SalamaFarm</h5>
+                    <p class="small text-muted">AI-driven agricultural management platform.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="eco-card p-4 shadow-sm">
+                    <i class="bi bi-rocket-takeoff fs-2 text-info mb-3"></i>
+                    <h5 class="fw-bold">Astra Cosmo</h5>
+                    <p class="small text-muted">Cloud ERP systems for enterprise operations.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="eco-card p-4 shadow-sm">
+                    <i class="bi bi-controller fs-2 text-danger mb-3"></i>
+                    <h5 class="fw-bold">Game Changer</h5>
+                    <p class="small text-muted">High-performance simulation tools.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light mt-5">
+    <div class="container">
+        <div class="scholars-preview shadow-lg">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="scholars-tag mb-3 d-inline-block">EDUCATIONAL WING</span>
+                    <h2 class="display-6 fw-bold mb-3">Astra Scholars: The Academy</h2>
+                    <p class="mb-4 opacity-75">We train the next generation of tech leaders through industry-standard curriculums and intensive AI engineering fellowships.</p>
+                    <div class="row g-3">
+                        <div class="col-md-4 small"><i class="bi bi-check2-all me-2 text-lime"></i>K-12 Pathways</div>
+                        <div class="col-md-4 small"><i class="bi bi-check2-all me-2 text-lime"></i>AI Fellowship</div>
+                        <div class="col-md-4 small"><i class="bi bi-check2-all me-2 text-lime"></i>API Mastery</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                    <a href="#" class="btn btn-astra px-5 py-3" style="background: var(--astra-lime); color: var(--astra-dark-blue);">Explore Academy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-5 bg-white border-top pt-5">
+    <div class="container pt-5">
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <h5 class="fw-bold mb-3">Astra Softwares</h5>
+                <p class="text-muted small">Engineering the digital infrastructure of tomorrow.</p>
+            </div>
+            <div class="col-lg-2">
+                <h6 class="fw-bold">Software</h6>
+                <ul class="list-unstyled small text-muted">
+                    <li>AI Agents</li>
+                    <li>Fintech</li>
+                    <li>ERP Systems</li>
+                </ul>
+            </div>
+            <div class="col-lg-2">
+                <h6 class="fw-bold">Education</h6>
+                <ul class="list-unstyled small text-muted">
+                    <li>K-12 Coding</li>
+                    <li>Fellowships</li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h6 class="fw-bold">Stay Connected</h6>
+                <div class="input-group">
+                    <input type="text" class="form-control border-2" placeholder="Email">
+                    <button class="btn btn-primary-astra">Join</button>
+                </div>
+            </div>
+        </div>
+        <hr class="my-5 opacity-10">
+        <div class="text-center text-muted small">
+            &copy; 2026 Astra Softwares Group. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
