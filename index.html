@@ -10,6 +10,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
+
+    
     <style>
         :root {
             --astra-dark-blue: #0C3658;
@@ -24,7 +26,16 @@
 
         /* --- Navbar --- */
         .navbar { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.8) !important; border-bottom: 1px solid rgba(0,0,0,0.05); z-index: 1000; }
-        .navbar-brand { font-weight: 800; color: var(--astra-dark-blue) !important; letter-spacing: -1px; }
+        /* .navbar-brand { font-weight: 800; color: var(--astra-dark-blue) !important; letter-spacing: -1px; } */
+
+          .navbar-brand {
+            font-weight: 700;
+            color: var(--astra-dark-blue) !important;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
 
         /* --- Hero with Full Background Animation --- */
         .hero-software { 
@@ -88,10 +99,14 @@
 </head>
 <body>
 
+
+
+
 <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <i class="bi bi-asterisk me-2"></i>ASTRA SOFTWARES
+            <img src="./scholars/assets/images/brand/logo1.png" height="40" class="me-2" alt="">
+            Astrasoft
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -102,7 +117,7 @@
                     <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Solutions</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#"><i class="bi bi-wallet2 me-2"></i>AstraPay</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-rocket-takeoff me-2"></i>Astra Cosmo</a></li>
+                        <li><a class="dropdown-item" href="./scholars/index.html"><i class="bi bi-rocket-takeoff me-2"></i>Astra Scholars</a></li>
                         <li><a class="dropdown-item" href="#"><i class="bi bi-cpu me-2"></i>Custom AI Dev</a></li>
                     </ul>
                 </li>
@@ -121,6 +136,9 @@
     </div>
 </nav>
 
+
+
+
 <section class="hero-software">
     <div id="neural-net-canvas"></div>
 
@@ -131,8 +149,8 @@
                 <h1>Building the <span class="text-gradient">Intelligence</span> <br>that Powers Tomorrow.</h1>
                 <p class="lead my-4 text-muted col-md-9">Astra Softwares crafts bespoke AI solutions, automated ecosystems, and high-performance applications for the modern enterprise.</p>
                 <div class="d-flex gap-3 mt-5">
-                    <a href="#solutions" class="btn btn-astra btn-primary-astra shadow">View Our Apps</a>
-                    <a href="#contact" class="btn btn-astra btn-outline-dark border-2">Get a Quote</a>
+                    <a href="#solutions" class="btn btn-astra btn-primary-astra shadow">View Our Services</a>
+                    <a href="https://wa.me/254727405667" class="btn btn-astra btn-outline-dark border-2">Consult an Engineer</a>
                 </div>
             </div>
         </div>
@@ -164,10 +182,12 @@
 
 
 
+
+
 <section id="solutions" class="py-5" style="padding: 100px 0;">
     <div class="container">
         <div class="text-center mb-5" data-aos="fade-up">
-            <h2 class="fw-bold">Enterprise AI Solutions</h2>
+            <h2 class="fw-bold">Enterprise Software Solutions</h2>
             <p class="text-muted">High-impact engineering tailored to your business needs.</p>
         </div>
         <div class="row g-4 text-center">
@@ -196,6 +216,9 @@
     </div>
 </section>
 
+
+
+
 <section class="py-5" style="background-color: var(--astra-dark-blue); color: white;">
     <div class="container">
         <div class="row text-center g-4" data-aos="zoom-in">
@@ -214,6 +237,8 @@
         </div>
     </div>
 </section>
+
+
 
 <section id="ecosystem" class="py-5 bg-light">
     <div class="container">
@@ -234,27 +259,28 @@
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                 <div class="eco-card">
                     <i class="bi bi-tree fs-2 text-success mb-3"></i>
-                    <h5 class="fw-bold">SalamaFarm</h5>
+                    <h5 class="fw-bold">Astra Kilimo</h5>
                     <p class="small text-muted">Leveraging AI to optimize agricultural yields and monitoring.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
                 <div class="eco-card">
                     <i class="bi bi-rocket-takeoff fs-2 text-info mb-3"></i>
-                    <h5 class="fw-bold">Astra Cosmo</h5>
-                    <p class="small text-muted">Enterprise resource planning (ERP) for hyper-growth companies.</p>
+                    <h5 class="fw-bold">Astra Tosha</h5>
+                    <p class="small text-muted">AI-powered platform for next-generation enterprise solutions.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
                 <div class="eco-card">
                     <i class="bi bi-controller fs-2 text-danger mb-3"></i>
-                    <h5 class="fw-bold">Game Changer</h5>
-                    <p class="small text-muted">High-performance engines for educational and industrial simulations.</p>
+                    <h5 class="fw-bold">Portfolio Ready</h5>
+                    <p class="small text-muted">AI-powered portfolio development for aspiring developers.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <section class="py-5 mt-5">
     <div class="container">
@@ -271,12 +297,15 @@
                     </div>
                 </div>
                 <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
-                    <a href="#" class="btn btn-astra px-5 py-3" style="background: var(--astra-lime); color: var(--astra-dark-blue);">Explore Academy</a>
+                    <a href="./scholars/index.html" class="btn btn-astra px-5 py-3" style="background: var(--astra-lime); color: var(--astra-dark-blue);">Explore Academy</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
+
 
 <footer class="py-5 bg-white border-top pt-5 mt-lg-5">
     <div class="container pt-5">
@@ -289,8 +318,8 @@
                 <h6 class="fw-bold mb-3">Products</h6>
                 <ul class="list-unstyled small text-muted">
                     <li>AstraPay</li>
-                    <li>SalamaFarm</li>
-                    <li>Astra Cosmo</li>
+                    <li>Astra Kilimo</li>
+                    <li>Astra Tosha</li>
                 </ul>
             </div>
             <div class="col-lg-2">
