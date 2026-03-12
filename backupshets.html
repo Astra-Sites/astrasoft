@@ -1,0 +1,30 @@
+function doPost(e) {
+  try {
+    var data = JSON.parse(e.postData.contents);
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ss.getSheetByName("Sheet1") || ss.getSheets()[0];
+    
+    sheet.appendRow([
+      new Date(), 
+      data.fname, 
+      data.lname, 
+      data.email, 
+      "'" + data.phone, // Force string to prevent #ERROR!
+      data.country, 
+      data.role, 
+      data.work_type, 
+      data.years_exp, 
+      data.skills, 
+      data.bio,
+      data.portfolio,
+      data.cv_link, 
+      data.rec_link
+    ]);
+
+    MailApp.sendEmail(data.email, "Application Received", "Hi " + data.fname + ", your application has been received!");
+
+    return ContentService.createTextOutput(JSON.stringify({"result": "success"})).setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({"result": "error", "error": err.toString()})).setMimeType(ContentService.MimeType.JSON);
+  }
+}
