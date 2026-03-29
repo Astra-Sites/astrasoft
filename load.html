@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrasoft | Welcome</title>
+    <style>
+        /* --- LOADER CSS --- */
+        .ui-abstergo {
+            --primary: #fff;
+            --secondary: rgba(255, 255, 255, 0.3);
+            --shadow-blur: 3px;
+            --text-shadow-blur: 3px;
+            --animation-duration: 2s;
+            --size: 1;
+        }
+
+        .abstergo-loader * { box-sizing: content-box; }
+
+        .ui-abstergo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 30px;
+            scale: var(--size);
+        }
+
+        .ui-abstergo .ui-text {
+            color: var(--primary);
+            text-shadow: 0 0 var(--text-shadow-blur) var(--secondary);
+            font-family: Menlo, sans-serif;
+            display: flex;
+            align-items: baseline;
+            column-gap: 3px;
+        }
+
+        .ui-abstergo .ui-dot {
+            width: 3px;
+            height: 3px;
+            animation: dots var(--animation-duration) infinite linear;
+            background-color: var(--primary);
+        }
+
+        .ui-abstergo .ui-dot:nth-child(2) { animation-delay: .4s; }
+        .ui-abstergo .ui-dot:nth-child(3) { animation-delay: .8s; }
+
+        .abstergo-loader { width: 103px; height: 90px; position: relative; }
+
+        .abstergo-loader div {
+            width: 50px;
+            border-right: 12px solid transparent;
+            border-left: 12px solid transparent;
+            border-top: 21px solid var(--primary);
+            position: absolute;
+            filter: drop-shadow(0 0 var(--shadow-blur) var(--secondary));
+        }
+
+        .abstergo-loader div:nth-child(1) { top: 27px; left: 7px; rotate: -60deg; animation: line1 var(--animation-duration) linear infinite alternate; }
+        .abstergo-loader div:nth-child(2) { bottom: 2px; left: 0; rotate: 180deg; animation: line2 var(--animation-duration) linear infinite alternate; }
+        .abstergo-loader div:nth-child(3) { bottom: 16px; right: -9px; rotate: 60deg; animation: line3 var(--animation-duration) linear infinite alternate; }
+
+        @keyframes line1 { 0%, 40% { top: 27px; left: 7px; rotate: -60deg; } 60%, 100% { top: 22px; left: 14px; rotate: 60deg; } }
+        @keyframes line2 { 0%, 40% { bottom: 2px; left: 0; rotate: 180deg; } 60%, 100% { bottom: 5px; left: -8px; rotate: 300deg; } }
+        @keyframes line3 { 0%, 40% { bottom: 16px; right: -9px; rotate: 60deg; } 60%, 100% { bottom: 7px; right: -11px; rotate: 180deg; } }
+        @keyframes dots { 0%, 70%, 100% { opacity: 0.3; } 30% { opacity: 1; } }
+
+        /* --- PAGE STYLES --- */
+        body {
+            margin: 0;
+            background-color: #1c2540;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden; /* Prevent scroll during load */
+        }
+
+        #loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1c2540;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s;
+        }
+
+        #main-content {
+            opacity: 0;
+            transition: opacity 1s ease;
+            padding: 40px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title { font-size: 3rem; margin-top: 20vh; }
+        .hero-sub { color: #aab; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+
+    <div id="loader-container">
+        <div class="ui-abstergo">
+            <div class="abstergo-loader">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="ui-text">
+                Astrasoft
+                <div class="ui-dot"></div>
+                <div class="ui-dot"></div>
+                <div class="ui-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <h1 class="hero-title">Welcome to the Future</h1>
+        <p class="hero-sub">Systems initialized. Experience the Astrasoft interface.</p>
+        <button style="padding: 12px 24px; background: #fff; border: none; cursor: pointer; margin-top: 20px;">Get Started</button>
+    </div>
+
+    <script>
+        // Start the clock as soon as the script hits
+        const startTime = Date.now();
+
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader-container');
+            const content = document.getElementById('main-content');
+            
+            const minTime = 2000; // 2 seconds
+            const currentTime = Date.now();
+            const elapsed = currentTime - startTime;
+            const delay = Math.max(0, minTime - elapsed);
+
+            setTimeout(() => {
+                // 1. Fade out the loader
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+                
+                // 2. Fade in the content
+                content.style.opacity = '1';
+                
+                // 3. Re-enable scrolling
+                document.body.style.overflow = 'auto';
+            }, delay);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra Scholars Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --astra-dark-blue: #0C3658;
+            --astra-teal: #26697D;  
+            --astra-lime: #D9E990;
+            --astra-light-grey: #f4f7f6;
+            --dark-text: #333333;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f9fa;
+            color: #0C3658;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+            background-color: white !important;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--astra-dark-blue) !important;
+            display: flex;
+            align-items: center;
+        }
+
+        .gallery-hero {
+            background: url('assets/images/gallery/Gu1Z7QqWQAAGPEr.jpg') center/cover no-repeat;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+        }
+        .gallery-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(12, 54, 88, 0.7);
+            z-index: 1;
+        }
+        .gallery-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .gallery-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+        }
+        .gallery-hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .gallery-grid {
+            row-gap: 0;
+            column-gap: 0;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .gallery-grid .card {
+            border: none;
+            background: transparent;
+            margin: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .gallery-grid .card-body,
+        .gallery-grid .label {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+
+     <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-image: ;">
+        <div class="container">
+            <a class="navbar-brand" href="ai.html">
+                <img src="assets/images/brand/logo1.png" alt="Astra Logo" height="40" class="me-2">
+                ASTRA <span class="ms-1" style="color: var(--astra-teal);">SCHOLARS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link px-3" href="ai.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#curriculum">Syllabus</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#roadmap">Roadmap</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="https://drive.google.com/file/d/1e3e_WEqTeF4AuwQJgY9Rbpp7nZwBPdqO/view?usp=sharing">Fee</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="register.html" class="btn btn-primary-astra btn-sm">Apply for Fellowship</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <section class="gallery-hero">
+        <div class="container">
+            <h1>Astra Scholars Gallery</h1>
+            <p>Explore life in the cohort — events, hands-on training, demo days, and community moments.</p>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row gallery-grid">
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card">
+                        <img src="assets/images/gallery/Gu1Z7QqWQAAGPEr.jpg" alt="Gallery image 1">
+                        <div class="card-body">
+                            <div class="label">Group reflection at nature retreat</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card">
+                        <img src="assets/images/gallery/IMG-20250705-WA0094.jpg" alt="Gallery image 2">
+                        <div class="card-body">
+                            <div class="label">Evening city coding session</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card">
+                        <img src="assets/images/gallery/IMG_2611.jpg" alt="Gallery image 3">
+                        <div class="card-body">
+                            <div class="label">Workshop hands-on demo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card">
+                        <img src="assets/images/gallery/IMG_2693.jpg" alt="Gallery image 4">
+                        <div class="card-body">
+                            <div class="label">AI presentation in the auditorium</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card">
+                        <img src="assets/images/gallery/IMG_2696.jpg" alt="Gallery image 5">
+                        <div class="card-body">
+                            <div class="label">Capstone team collaboration</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card">
+                        <img src="assets/images/gallery/IMG_2802.jpg" alt="Gallery image 6">
+                        <div class="card-body">
+                            <div class="label">Nairobi Demo Day showcase</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card">
+                        <img src="assets/images/gallery/IMG_2880.jpg" alt="Gallery image 6">
+                        <div class="card-body">
+                            <div class="label">Nairobi Demo Day showcase</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card">
+                        <img src="assets/images/gallery/IMG_2862.jpg" alt="Gallery image 6">
+                        <div class="card-body">
+                            <div class="label">Nairobi Demo Day showcase</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card">
+                        <img src="assets/images/gallery/IMG_2867 (1).jpg" alt="Gallery image 6">
+                        <div class="card-body">
+                            <div class="label">Nairobi Demo Day showcase</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card">
+                        <img src="assets/images/gallery/IMG_2707.jpg" alt="Gallery image 6">
+                        <div class="card-body">
+                            <div class="label">Nairobi Demo Day showcase</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

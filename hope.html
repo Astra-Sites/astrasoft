@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrasoft Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --glass: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+        }
+
+        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Inter', sans-serif; overflow: hidden; color: white; }
+        
+        #background {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            transition: opacity 1.5s ease-in-out; z-index: -1;
+            /* Fallback Image: You can replace this URL with a local path like './fallback.jpg' */
+            background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80');
+        }
+
+        .overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .container {
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; height: 100vh; position: relative; z-index: 1;
+        }
+
+        .logo-text { font-size: 3.5rem; font-weight: 700; margin-bottom: 30px; letter-spacing: -1px; }
+
+        .search-container {
+            display: flex; align-items: center; background: var(--glass);
+            backdrop-filter: blur(15px); padding: 8px; border-radius: 100px;
+            width: 90%; max-width: 650px; border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* The Engine Selector */
+        .engine-picker {
+            display: flex; align-items: center; padding: 0 15px; border-right: 1px solid var(--glass-border);
+        }
+
+        .engine-picker select {
+            background: transparent; border: none; outline: none; color: white;
+            font-size: 1rem; cursor: pointer; padding: 5px;
+        }
+
+        .engine-picker select option {
+            background: rgba(0,0,0,0.8); color: white;
+        }
+
+        input {
+            flex: 1; background: transparent; border: none; outline: none;
+            color: white; padding: 12px 20px; font-size: 1.1rem;
+        }
+
+        input::placeholder { color: rgba(255,255,255,0.7); }
+
+        .search-btn {
+            background: #fff; color: #000; border: none; width: 45px; height: 45px;
+            border-radius: 50%; cursor: pointer; display: grid; place-items: center; transition: 0.3s;
+        }
+        .search-btn:hover { background: #007bff; color: white; }
+
+        .attribution { position: absolute; bottom: 20px; left: 20px; font-size: 0.75rem; opacity: 0.6; }
+    </style>
+</head>
+<body>
+
+    <div id="background"></div>
+    <div class="overlay"></div>
+
+    <div class="container">
+        <div class="logo-text">Astrasoft</div>
+        
+        <form class="search-container" id="searchForm">
+            <div class="engine-picker">
+                <select id="engineSelect">
+                    <option value="google">Google</option>
+                    <option value="bing">Bing</option>
+                    <option value="ddg">DuckDuckGo</option>
+                </select>
+            </div>
+            
+            <input type="text" id="searchInput" placeholder="Search with Google..." autocomplete="off">
+            
+            <button type="submit" class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+
+    </div>
+
+    <div class="attribution" id="photoCredit">Background by Unsplash (Fallback)</div>
+
+
+
+    <script>
+        const PEXELS_API_KEY = 'j4Of6nz2I6VjJm6VH8HZDSwwoDztJNZQXdsWQ1s5PGZRPDigtmT8tXsr';
+const bgElement = document.getElementById('background');
+const creditElement = document.getElementById('photoCredit');
+const engineSelect = document.getElementById('engineSelect');
+const searchInput = document.getElementById('searchInput');
+
+const engines = {
+    google: { url: "https://www.google.com/search?q=", icon: "fab fa-google", label: "Google" },
+    bing: { url: "https://www.bing.com/search?q=", icon: "fab fa-microsoft", label: "Bing" },
+    ddg: { url: "https://duckduckgo.com/?q=", icon: "fab fa-duck-duck-go", label: "DuckDuckGo" }
+};
+
+let activeEngine = localStorage.getItem('selectedEngine') || 'google';
+
+// Update engine UI
+function setEngine(choice) {
+    activeEngine = choice;
+    localStorage.setItem('selectedEngine', choice);
+    engineSelect.value = choice;
+    searchInput.placeholder = `Search with ${engines[choice].label}...`;
+}
+
+// Fetch Pexels Image
+async function fetchBackground() {
+    try {
+        const response = await fetch('https://api.pexels.com/v1/search?query=landscape&per_page=1&page=' + Math.floor(Math.random() * 50), {
+            headers: { Authorization: PEXELS_API_KEY }
+        });
+        
+        if (!response.ok) throw new Error("API Limit Reached");
+
+        const data = await response.json();
+        const photo = data.photos[0];
+        
+        // Pre-load image before showing to prevent flickering
+        const img = new Image();
+        img.src = photo.src.large2x;
+        img.onload = () => {
+            bgElement.style.backgroundImage = `url('${photo.src.large2x}')`;
+            creditElement.innerHTML = `Photo by <a href="${photo.photographer_url}" target="_blank" style="color:white;">${photo.photographer}</a> via Pexels`;
+        };
+    } catch (error) {
+        console.warn("Using fallback background:", error.message);
+        // The CSS already has the fallback image set as the default background-image
+    }
+}
+
+// Search execution
+document.getElementById('searchForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const query = searchInput.value;
+    if (query.trim()) {
+        window.location.href = engines[activeEngine].url + encodeURIComponent(query);
+    }
+});
+
+// Engine select change
+engineSelect.addEventListener('change', (e) => {
+    setEngine(e.target.value);
+});
+
+// Init
+setEngine(activeEngine);
+fetchBackground();
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

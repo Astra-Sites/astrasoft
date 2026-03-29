@@ -112,6 +112,128 @@
 <body>
 
 
+
+
+    <!-- Loader css -->
+         <style>
+        /* --- LOADER CSS --- */
+        .ui-abstergo {
+            --primary: #fff;
+            --secondary: rgba(255, 255, 255, 0.3);
+            --shadow-blur: 3px;
+            --text-shadow-blur: 3px;
+            --animation-duration: 2s;
+            --size: 1;
+        }
+
+        .abstergo-loader * { box-sizing: content-box; }
+
+        .ui-abstergo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 30px;
+            scale: var(--size);
+        }
+
+        .ui-abstergo .ui-text {
+            color: var(--primary);
+            text-shadow: 0 0 var(--text-shadow-blur) var(--secondary);
+            font-family: Menlo, sans-serif;
+            display: flex;
+            align-items: baseline;
+            column-gap: 3px;
+        }
+
+        .ui-abstergo .ui-dot {
+            width: 3px;
+            height: 3px;
+            animation: dots var(--animation-duration) infinite linear;
+            background-color: var(--primary);
+        }
+
+        .ui-abstergo .ui-dot:nth-child(2) { animation-delay: .4s; }
+        .ui-abstergo .ui-dot:nth-child(3) { animation-delay: .8s; }
+
+        .abstergo-loader { width: 103px; height: 90px; position: relative; }
+
+        .abstergo-loader div {
+            width: 50px;
+            border-right: 12px solid transparent;
+            border-left: 12px solid transparent;
+            border-top: 21px solid var(--primary);
+            position: absolute;
+            filter: drop-shadow(0 0 var(--shadow-blur) var(--secondary));
+        }
+
+        .abstergo-loader div:nth-child(1) { top: 27px; left: 7px; rotate: -60deg; animation: line1 var(--animation-duration) linear infinite alternate; }
+        .abstergo-loader div:nth-child(2) { bottom: 2px; left: 0; rotate: 180deg; animation: line2 var(--animation-duration) linear infinite alternate; }
+        .abstergo-loader div:nth-child(3) { bottom: 16px; right: -9px; rotate: 60deg; animation: line3 var(--animation-duration) linear infinite alternate; }
+
+        @keyframes line1 { 0%, 40% { top: 27px; left: 7px; rotate: -60deg; } 60%, 100% { top: 22px; left: 14px; rotate: 60deg; } }
+        @keyframes line2 { 0%, 40% { bottom: 2px; left: 0; rotate: 180deg; } 60%, 100% { bottom: 5px; left: -8px; rotate: 300deg; } }
+        @keyframes line3 { 0%, 40% { bottom: 16px; right: -9px; rotate: 60deg; } 60%, 100% { bottom: 7px; right: -11px; rotate: 180deg; } }
+        @keyframes dots { 0%, 70%, 100% { opacity: 0.3; } 30% { opacity: 1; } }
+
+        /* --- PAGE STYLES --- */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            overflow:unset; /* Prevent scroll during load */
+        }
+
+        #loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1c2540;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s;
+        }
+
+        #main-content {
+            opacity: 0;
+            transition: opacity 1s ease;
+            padding: 40px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title { font-size: 3rem; margin-top: 20vh; }
+        .hero-sub { color: #aab; font-size: 1.2rem; }
+    </style>
+
+
+
+    <!-- Loader -->
+     
+    <div id="loader-container">
+        <div class="ui-abstergo">
+            <div class="abstergo-loader">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="ui-text">
+                Astrasoft
+                <div class="ui-dot"></div>
+                <div class="ui-dot"></div>
+                <div class="ui-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loader end -->
+
+
+
+
     <!-- top adbar "We are urgently hiring mobile app Developer ./careers/index.html" -->
     <div class="alert alert-warning alert-dismissible fade show mb-0" role="alert" style="border-radius: 0; border: none;">
         <div class="container">
@@ -151,9 +273,11 @@
                     <ul class="dropdown-menu border-0 shadow-sm">
                         <li><a class="dropdown-item py-2" href="https://astra-sites.github.io/astrapay/"><i class="bi bi-wallet2 me-2 text-primary"></i>AstraPay</a></li>
                         <li><a class="dropdown-item py-2" href="./scholars/index.html"><i class="bi bi-rocket-takeoff me-2 text-primary"></i>Astra Scholars</a></li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item py-2" href="https://astra-sites.github.io/astarvida/"><i class="bi bi-rocket-takeoff me-2 text-primary"></i>Astra Vida</a></li>
+                        
+                        <!-- <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item py-2" href="#"><i class="bi bi-cpu me-2 text-primary"></i>Custom AI Dev</a></li>
-                        <li><a class="dropdown-item py-2" href="#"><i class="bi bi-code-square me-2 text-primary"></i>Web & App Dev</a></li>
+                        <li><a class="dropdown-item py-2" href="#"><i class="bi bi-code-square me-2 text-primary"></i>Web & App Dev</a></li> -->
                     </ul>
                 </li>
 
@@ -162,12 +286,15 @@
                     <ul class="dropdown-menu border-0 shadow-sm">
                         <li><a class="dropdown-item py-2" href="./scholars/index.html">Astra Scholars</a></li>
                         <li><a class="dropdown-item py-2" href="./scholars/ai.html">Intensive AI Course</a></li>
-                        <li><a class="dropdown-item py-2" href="#">Corporate Training</a></li>
+                        <!-- <li><a class="dropdown-item py-2" href="#">Corporate Training</a></li> -->
                     </ul>
                 </li>
 
                 <li class="nav-item px-2">
                     <a class="nav-link fw-semibold" href="#solutions">Services</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link fw-semibold" href="search.html">Search</a>
                 </li>
 
                 <li class="nav-item dropdown px-2">
@@ -531,6 +658,176 @@
 </section>
 
 
+<!-- Our Partners -->
+
+<section id="partners" class="py-5 bg-white border-top">
+    <div class="container py-4">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h6 class="text-uppercase fw-bold text-muted mb-2" style="letter-spacing: 3px; font-size: 0.75rem;">Trusted By Industry Leaders</h6>
+        </div>
+        
+        <div class="row align-items-center justify-content-center g-5 partner-logos" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-4 col-md-2 text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Code.org_logo.svg/330px-Code.org_logo.svg.png" class="img-fluid partner-img" alt="Google Partner">
+            </div>
+            <div class="col-4 col-md-2 text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/1200px-Ethereum_logo_2014.svg.png" class="img-fluid partner-img" alt="Web3 Partner" style="max-height: 50px;">
+            </div>
+            <div class="col-4 col-md-2 text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Amazon_Web_Services_2025.svg" class="img-fluid partner-img" alt="AWS Partner">
+            </div>
+            <div class="col-4 col-md-2 text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" class="img-fluid partner-img" alt="React Partner" style="max-height: 50px;">
+            </div>
+            <div class="col-4 col-md-2 text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Vercel_logo_black.svg/2560px-Vercel_logo_black.svg.png" class="img-fluid partner-img" alt="Vercel Partner">
+            </div>
+            <div class="col-4 col-md-2 text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Python_logo_and_wordmark.svg/2560px-Python_logo_and_wordmark.svg.png" class="img-fluid partner-img" alt="Python Partner">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    /* Partners Section Styling */
+.partner-logos .partner-img {
+    max-height: 40px;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.partner-logos .partner-img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Ensure images don't get too big on mobile */
+@media (max-width: 768px) {
+    .partner-logos .partner-img {
+        max-height: 30px;
+        margin-bottom: 20px;
+    }
+}
+</style>
+
+
+
+<section id="faq" class="py-5 bg-white">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8" data-aos="fade-up">
+                <div class="text-center mb-5">
+                    <h6 class="text-uppercase fw-bold text-primary mb-3" style="letter-spacing: 2px;">Got Questions?</h6>
+                    <h2 class="fw-bold display-6">Frequently Asked Questions</h2>
+                    <p class="text-muted">Everything you need to know about our AI solutions and the Astra Academy.</p>
+                </div>
+
+                <div class="accordion accordion-flush shadow-sm rounded-4 overflow-hidden" id="accordionAstra">
+                    
+                    <div class="accordion-item border-bottom">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold py-4 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                What kind of AI solutions does Astra Softwares specialize in?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#accordionAstra">
+                            <div class="accordion-body px-4 pb-4 text-muted">
+                                We specialize in <strong>Agentic AI</strong> and <strong>Autonomous Systems</strong>. From building custom LLM-powered internal tools to implementing computer vision for manufacturing, we focus on high-impact automation that solves real-world business bottlenecks.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border-bottom">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold py-4 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                How long is the Astra Scholars AI Course?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
+                            <div class="accordion-body px-4 pb-4 text-muted">
+                                Our flagship <strong>Intensive AI Course</strong> runs for <strong>8 weeks</strong>. It is designed to take developers from basic Python knowledge to building full-scale autonomous agents and integrating advanced AI models like Gemini.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border-bottom">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold py-4 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Can you integrate AI into my existing legacy software?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
+                            <div class="accordion-body px-4 pb-4 text-muted">
+                                Absolutely. We specialize in <strong>AI Modernization</strong>. We can build secure API bridges to connect your current databases and workflows with modern AI intelligence without needing a total system overhaul.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border-bottom">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold py-4 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                Is AstraPay available for international transactions?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
+                            <div class="accordion-body px-4 pb-4 text-muted">
+                                AstraPay is designed as a borderless fintech gateway. We are currently rolling out support for cross-border digital transactions with a focus on high security and low-latency processing.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold py-4 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                How do I apply for the Mobile App Developer roles?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
+                            <div class="accordion-body px-4 pb-4 text-muted">
+                                You can visit our <a href="./careers/index.html" class="text-primary fw-bold text-decoration-none">Careers Page</a> to view open positions. We are looking for engineers passionate about Flutter, React Native, and AI-driven mobile interfaces.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    /* FAQ Styling */
+.accordion-button:not(.collapsed) {
+    background-color: var(--astra-light-grey);
+    color: var(--astra-dark-blue);
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0,0,0,0.125);
+}
+
+.accordion-item {
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 12px !important;
+}
+
+.accordion-button {
+    font-size: 1.1rem;
+    border-radius: 12px !important;
+}
+</style>
+
+
 
 
 
@@ -703,5 +1000,36 @@
     AOS.init({ duration: 1000, once: true });
 </script>
 
+
+
+<!-- loader -->
+ <script>
+        // Start the clock as soon as the script hits
+        const startTime = Date.now();
+
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader-container');
+            const content = document.getElementById('main-content');
+            
+            const minTime = 2000; // 2 seconds
+            const currentTime = Date.now();
+            const elapsed = currentTime - startTime;
+            const delay = Math.max(0, minTime - elapsed);
+
+            setTimeout(() => {
+                // 1. Fade out the loader
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+                
+                // 2. Fade in the content
+                content.style.opacity = '1';
+                
+                // 3. Re-enable scrolling
+                document.body.style.overflow = 'auto';
+            }, delay);
+        });
+    </script>
+
 </body>
 </html>
+
