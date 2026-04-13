@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="k--D-ApfElqM7o6vShvMTO1HpMVdJ9yVL08DSc36-8s" />
+
+
+
+     <!-- favicons -->
+        <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg" />
+        <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Astrasoft" />
+        <link rel="manifest" href="/assets/images/favicon/site.webmanifest" />
+
+
+
      
             <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0EKQCJ3DH"></script>
@@ -22,6 +35,9 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
+
+
+
 
     
     <style>
@@ -79,8 +95,17 @@
             z-index: 2; /* Sits above the animation */
         }
 
-        .hero-software h1 { font-size: 4rem; font-weight: 800; color: var(--astra-dark-blue); line-height: 1.1; }
-        .text-gradient { background: linear-gradient(45deg, var(--astra-dark-blue), var(--astra-teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-software h1 { 
+            font-size: 4rem; 
+            font-weight: 800; 
+            color: var(--astra-dark-blue); line-height: 1.1; 
+        }
+
+        .text-gradient { 
+            background: linear-gradient(45deg, var(--astra-dark-blue), var(--astra-teal)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
 
         /* --- Buttons --- */
         .btn-astra { padding: 14px 32px; font-weight: 700; border-radius: 6px; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -97,11 +122,40 @@
         /* --- Cards --- */
         .service-card, .eco-card { border: 1px solid #edf2f7; border-radius: 20px; padding: 40px; transition: all 0.4s ease; background: white; height: 100%; }
         .service-card:hover, .eco-card:hover { border-color: var(--astra-lime); box-shadow: 0 20px 40px rgba(0,0,0,0.05); transform: translateY(-10px); }
-        .icon-box { width: 64px; height: 64px; background: var(--astra-light-grey); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--astra-teal); margin-bottom: 25px; }
+        
+        .icon-box { 
+            width: 64px; 
+            height: 64px; 
+            background: var(--astra-light-grey); 
+            border-radius: 14px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 1.8rem; 
+            color: var(--astra-teal); 
+            margin-bottom: 25px; 
+        }
 
         /* --- Scholars Section --- */
-        .scholars-preview { background-color: var(--astra-dark-blue); border-radius: 24px; padding: 60px; color: white; position: relative; z-index: 5; margin-bottom: -80px; }
-        .scholars-tag { background: var(--astra-lime); color: var(--astra-dark-blue); padding: 5px 15px; border-radius: 4px; font-weight: 800; font-size: 0.7rem; letter-spacing: 1px; }
+        .scholars-preview { 
+            background-color: var(--astra-dark-blue); 
+            border-radius: 24px; 
+            padding: 60px; 
+            color: white; 
+            position: relative; 
+            z-index: 5; 
+            margin-bottom: -80px; 
+        }
+
+        .scholars-tag { 
+            background: var(--astra-lime); 
+            color: var(--astra-dark-blue); 
+            padding: 5px 15px; 
+            border-radius: 4px; 
+            font-weight: 800; 
+            font-size: 0.7rem; 
+            letter-spacing: 1px; 
+        }
 
         @media (max-width: 991px) {
             .hero-software h1 { font-size: 2.8rem; }
@@ -321,13 +375,9 @@
 
 
 
-<section class="hero-software" style="background-image: url('./assets/images/robots.png'); background-size: cover; background-position: center;">
-
-      
+<section class="hero-software" style="background-image: url('./assets/images/team.jpg'); background-size: cover; background-position: center;">
    <div class="overlay"></div>
-
     <div id="neural-net-canvas"></div>
-
     <div class="container hero-content">
         <div class="row">
             <div class="col-lg-8" data-aos="fade-right">
