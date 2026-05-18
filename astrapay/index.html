@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AstraPay</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #010306;
+      color: #e6edf3;
+      line-height: 1.6;
+    }
+    .navbar-brand {
+      font-weight: 700;
+      color: #58a6ff !important;
+    }
+    .hero {
+      padding: 6rem 0;
+      background: linear-gradient(to right, #0f172a, #1e293b);
+      text-align: center;
+    }
+    .btn-lg {
+      padding: 0.75rem 2rem;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    .feature-icon {
+      font-size: 2.5rem;
+      color: #58a6ff;
+      margin-bottom: 1rem;
+    }
+    .feature-box {
+      padding: 1.5rem 1rem;
+      border-radius: 10px;
+      background-color: #161b22;
+      margin-bottom: 2rem;
+      transition: 0.3s ease;
+    }
+    .feature-box:hover {
+      background-color: #1f2937;
+    }
+    pre {
+      background-color: #161b22 !important;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      font-size: 0.9rem;
+      background-color: #21262d;
+      border: none;
+      color: #58a6ff;
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+    code {
+      font-family: Consolas, Monaco, monospace;
+      /* color: #e6edf3; */
+    }
+    .nav-tabs .nav-link {
+      color: #c9d1d9;
+    }
+    .nav-tabs .nav-link.active {
+      color: #58a6ff;
+      background-color: #0d1117;
+      border-bottom: 2px solid #58a6ff;
+    }
+    footer {
+      padding: 2rem 0;
+      background-color: #010409;
+      color: #8b949e;
+      text-align: center;
+    }
+    a.text-light {
+      color: #58a6ff !important;
+    }
+    @media (max-width: 768px) {
+      .btn-lg {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">AstraPay</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://github.com/astrasoftwares/astrapay/blob/main/README.md">Docs</a></li>
+          <li class="nav-item"><a class="nav-link" href="#community">Community</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero d-flex align-items-center justify-content-center" style="height:80vh">
+    <div class="container">
+      <h1 class="display-4 my-3">AstraPay SDK</h1>
+      <p class="lead">Multi-language SDK for integrating M-Pesa STK Push — Python, Node.js, React & more.</p>
+      <div class="btns">
+        <a href="https://pypi.org/project/astrapay" class="btn btn-info btn-lg m-2">Install Python</a>
+        <a href="https://www.npmjs.com/package/astrapay" class="btn btn-success btn-lg m-2">Install JS</a>
+        <a href="https://github.com/astrasoftwares/astrapay/blob/main/Astrapay-python.md" class="btn btn-outline-light btn-lg m-2">Python Docs</a>
+        <a href="https://github.com/astrasoftwares/astrapay/blob/main/astrapay-js.md" class="btn btn-outline-light btn-lg m-2">JavaScript Docs</a>
+      </div>
+    </div>
+  </section>
+
+
+ <!-- Features -->
+<section class="container py-5">
+  <div class="row text-center">
+    <div class="col-md-4">
+      <div class="feature-box">
+        <div class="feature-icon"><i class="bi bi-plug"></i></div>
+        <h5>Easy Integration</h5>
+        <p>Plug & play SDK for fast payments in your app, backend, or frontend.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature-box">
+        <div class="feature-icon"><i class="bi bi-shield-lock"></i></div>
+        <h5>Secure & Reliable</h5>
+        <p>Built-in token handling, encrypted credentials, and callback verification.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature-box">
+        <div class="feature-icon"><i class="bi bi-layers"></i></div>
+        <h5>Multi-Platform</h5>
+        <p>Supports Python, Flask, Django, Node.js, Express, React & Next.js.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Install -->
+  <section class="container py-5 text-center">
+    <h3 class="mb-4">Install</h3>
+    <pre class="text-center"><code class="language-bash">pip install astrapay</code></pre>
+    <pre class="text-center"><code class="language-bash">npm install astrapay</code></pre>
+    <pre class="text-center"><code class="language-bash">composer require astrasoftwares/astrapay</code></pre>
+  </section>
+
+
+
+<!-- Examples -->
+<section class="container py-5">
+    <h3 class="text-center mb-4">Quick Examples</h3>
+
+    <div class="d-md-none text-center mb-3">
+        <select class="form-select w-75 mx-auto" id="langSelector">
+            <option value="python">Python</option>
+            <option value="typescript">TypeScript</option> <option value="flask">Flask</option>
+            <option value="django">Django</option>
+            <option value="node">Node.js</option>
+            <option value="express">Express.js</option>
+            <option value="react">React (API)</option>
+            <option value="vue">Vue (API)</option>
+            <option value="next">Next.js (API)</option>
+            <option value="php">PHP</option>
+            <option value="laravel">Laravel</option>
+        </select>
+    </div>
+
+    <div class="d-none d-md-block">
+        <ul class="nav nav-tabs mb-3" id="exampleTabs" role="tablist">
+            <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#python" type="button">Python</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#typescript" type="button">TypeScript</button></li> <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#flask" type="button">Flask</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#django" type="button">Django</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#node" type="button">Node.js</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#express" type="button">Express.js</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#react" type="button">React (API)</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#vue" type="button">Vue (API)</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#next" type="button">Next.js (API)</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#php" type="button">PHP</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#laravel" type="button">Laravel</button></li>
+        </ul>
+    </div>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="python">
+            <pre><code class="language-python">
+              # pip install astrapay
+
+            from astrapay import AstraMpesa
+
+            client = AstraMpesa(
+              consumer_key="YOUR_KEY",
+              consumer_secret="YOUR_SECRET",
+              shortcode="174379",
+              passkey="YOUR_PASSKEY",
+              callback_url="https://yourdomain.com/callback"
+            )
+
+            res = client.pay(phone="254712345678", amount=10)
+            print(res)
+        </code></pre>
+        </div>
+
+        <div class="tab-pane fade" id="typescript">
+            <pre>
+              <code class="language-javascript">
+                    // npm install astrapay
+
+                    import AstraPay from 'astrapay';
+
+                    interface PayResponse {
+                      MerchantRequestID: string;
+                      CheckoutRequestID: string;
+                      ResponseDescription: string;
+                    }
+
+                    const client = new AstraPay({
+                      consumerKey: "YOUR_KEY",
+                      consumerSecret: "YOUR_SECRET",
+                      shortcode: "174379",
+                      passkey: "YOUR_PASSKEY",
+                      callbackUrl: "https://yourdomain.com/callback"
+                    });
+
+                    async function makePayment(): Promise&lt;void&gt; {
+                      try {
+                        const res: PayResponse = await client.pay({ phone: "254712345678", amount: 10 });
+                        console.log(res);
+                      } catch (error) {
+                        console.error(error);
+                      }
+                    }
+            </code>
+          </pre>
+        </div>
+
+        <div class="tab-pane fade" id="flask">
+        <pre>
+          <code class="language-python">
+              # pip install astrapay
+
+              from flask import Flask, request, jsonify
+              from astrapay import AstraMpesa
+
+              app = Flask(__name__)
+
+              client = AstraMpesa(
+                consumer_key="YOUR_KEY",
+                consumer_secret="YOUR_SECRET",
+                shortcode="174379",
+                passkey="YOUR_PASSKEY",
+                callback_url="https://yourdomain.com/callback"
+              )
+
+              @app.route("/pay", methods=["POST"])
+              def pay():
+                data = request.json
+                res = client.pay(phone=data["phone"], amount=data["amount"])
+                return jsonify(res)
+          </code>
+        </pre>
+        </div>
+
+        <div class="tab-pane fade" id="django">
+            <pre>
+              <code class="language-python">
+                  # pip install astrapay
+
+                    from django.http import JsonResponse
+                    from astrapay import AstraMpesa
+
+                    client = AstraMpesa(
+                      consumer_key="YOUR_KEY",
+                      consumer_secret="YOUR_SECRET",
+                      shortcode="174379",
+                      passkey="YOUR_PASSKEY",
+                      callback_url="https://yourdomain.com/callback"
+                    )
+
+                    def pay_view(request):
+                      phone = request.POST.get("phone")
+                      amount = request.POST.get("amount")
+                      res = client.pay(phone, amount)
+                      return JsonResponse(res)
+            </code> 
+          </pre>
+     </div>
+
+        <div class="tab-pane fade" id="node">
+            <pre><code class="language-javascript">
+              
+              // npm install astrapay
+
+                const AstraPay = require("astrapay");
+
+                const client = new AstraPay({
+                  consumerKey: "YOUR_KEY",
+                  consumerSecret: "YOUR_SECRET",
+                  shortcode: "174379",
+                  passkey: "YOUR_PASSKEY",
+                  callbackUrl: "https://yourdomain.com/callback"
+                });
+
+                client.pay({ phone: "254712345678", amount: 10 })
+                  .then(console.log)
+                  .catch(console.error);
+                </code>
+              </pre>
+        </div>
+
+        <div class="tab-pane fade" id="express">
+            <pre>
+              <code class="language-javascript">
+                  // npm install astrapay
+
+                      const express = require("express");
+                      const AstraPay = require("astrapay");
+                      const app = express();
+                      app.use(express.json());
+
+                      const client = new AstraPay({
+                        consumerKey: "YOUR_KEY",
+                        consumerSecret: "YOUR_SECRET",
+                        shortcode: "174379",
+                        passkey: "YOUR_PASSKEY",
+                        callbackUrl: "https://yourdomain.com/callback"
+                      });
+
+                      app.post("/pay", async (req, res) => {
+                        const { phone, amount } = req.body;
+                        const result = await client.pay({ phone, amount });
+                        res.json(result);
+                      });
+
+                      app.listen(3000);
+              </code>
+          </pre>
+        </div>
+
+        <div class="tab-pane fade" id="react">
+            <pre>
+              <code class="language-javascript">
+                 // React frontend using Fetch API
+                  fetch("/pay", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ phone: "254712345678", amount: 10 })
+                  })
+                    .then(res => res.json())
+                    .then(data => console.log(data));
+                </code>
+             </pre>
+        </div>
+
+        <div class="tab-pane fade" id="vue">
+            <pre>
+              <code class="language-javascript">
+                  // Vue.js setup
+
+                  export default {
+                    methods: {
+                      pay() {
+                        fetch("/pay", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({ phone: "254712345678", amount: 10 })
+                        })
+                        .then(res => res.json())
+                        .then(data => console.log(data));
+                      }
+                    }
+                  }
+            </code>
+          </pre>
+        </div>
+
+        <div class="tab-pane fade" id="next">
+            <pre><code class="language-javascript">
+              
+              // pages/api/pay.js
+
+
+              // npm install astrapay
+
+                import AstraPay from "astrapay";
+
+                const client = new AstraPay({
+                  consumerKey: process.env.KEY,
+                  consumerSecret: process.env.SECRET,
+                  shortcode: "174379",
+                  passkey: process.env.PASSKEY,
+                  callbackUrl: "https://yourdomain.com/callback"
+                });
+
+                export default async function handler(req, res) {
+                  if (req.method === "POST") {
+                    const { phone, amount } = req.body;
+                    const result = await client.pay({ phone, amount });
+                    res.status(200).json(result);
+                  } else {
+                    res.status(405).end(); // Method Not Allowed
+                  }
+                }
+          </code>
+       </pre>
+    </div>
+
+    <div class="tab-pane fade" id="php">
+            <pre><code class="language-php">
+                  // Install via Composer
+
+                  // composer require astrasoftwares/astrapay
+
+                  require 'vendor/autoload.php';
+
+                  use Astrapay\AstraMpesa;
+
+                  $client = new AstraMpesa([
+                    'consumerKey' => 'YOUR_KEY',
+                    'consumerSecret' => 'YOUR_SECRET',
+                    'shortcode' => '174379',
+                    'passkey' => 'YOUR_PASSKEY',
+                    'callbackUrl' => 'https://yourdomain.com/callback'
+                  ]);
+
+                  $response = $client->pay('254712345678', 10);
+                  print_r($response);
+            </code>
+          </pre>
+        </div>
+
+        <div class="tab-pane fade" id="laravel">
+            <pre>
+              <code class="language-php">
+                   // Install via Composer
+
+
+                  // composer require astrasoftwares/astrapay
+
+                  require 'vendor/autoload.php';
+
+                  use Astrapay\AstraMpesa;
+
+                  public function stkPush(Request $request)
+                  {
+                      $client = new AstraMpesa([
+                          'consumerKey' => env('MPESA_CONSUMER_KEY'),
+                          'consumerSecret' => env('MPESA_CONSUMER_SECRET'),
+                          'shortcode' => env('MPESA_SHORTCODE'),
+                          'passkey' => env('MPESA_PASSKEY'),
+                          'callbackUrl' => env('MPESA_CALLBACK_URL')
+                      ]);
+
+                      $response = $client->pay($request->phone, $request->amount);
+
+                      return response()->json($response);
+                  }
+
+                      </code>
+                    </pre>
+              </div>
+          </div>
+      </section>
+
+
+  <!-- Community -->
+<section class="container py-5 text-center" id="community">
+  <h3 class="mb-3">Join Our Community</h3>
+  <p>Collaborate with devs building payments for Africa. Connect with us on:</p>
+  <div class="d-flex justify-content-center gap-4 flex-wrap mt-4">
+    <a href="https://github.com/astrasoftwares" target="_blank" class="text-light fs-3" aria-label="GitHub">
+      <i class="bi bi-github"></i>
+    </a>
+    <a href="https://discord.gg/YOUR_INVITE_CODE" target="_blank" class="text-light fs-3" aria-label="Discord">
+      <i class="bi bi-discord"></i>
+    </a>
+    <a href="https://daily.dev/@yourprofile" target="_blank" class="text-light fs-3" aria-label="Daily.dev">
+      <i class="bi bi-journal-code"></i> <!-- closest match -->
+    </a>
+    <a href="https://www.youtube.com/@yourchannel" target="_blank" class="text-light fs-3" aria-label="YouTube">
+      <i class="bi bi-youtube"></i>
+    </a>
+    <a href="https://t.me/yourchannel" target="_blank" class="text-light fs-3" aria-label="Telegram">
+      <i class="bi bi-telegram"></i>
+    </a>
+  </div>
+</section>
+
+
+  <!-- About -->
+  <section class="container py-5 text-center" id="about">
+    <h3 class="mb-3">About AstraPay</h3>
+    <p>AstraPay SDK is a product by <strong>Astra Softwares</strong>, empowering developers with seamless mobile money integration across multiple languages and platforms.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Product of Astra Softwares | <a href="https://www.astrasoft.tech" class="text-light">www.astrasoft.tech</a></p>
+  </footer>
+  <script>
+    // Mobile language selector
+    document.getElementById("langSelector")?.addEventListener("change", function () {
+      const tabs = document.querySelectorAll(".tab-pane");
+      const buttons = document.querySelectorAll(".nav-tabs .nav-link");
+      tabs.forEach(t => t.classList.remove("show", "active"));
+      buttons.forEach(b => b.classList.remove("active"));
+      const targetId = this.value;
+      document.getElementById(targetId).classList.add("show", "active");
+      document.querySelector(`[data-bs-target="#${targetId}"]`).classList.add("active");
+
+    });
+
+    // Copy to clipboard buttons
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('pre').forEach(pre => {
+        const button = document.createElement('button');
+        button.className = 'copy-btn';
+        button.innerHTML = '<i class="bi bi-clipboard"></i>';
+        button.addEventListener('click', () => {
+          navigator.clipboard.writeText(pre.innerText).then(() => {
+            button.innerHTML = '<i class="bi bi-check-lg"></i>';
+            setTimeout(() => button.innerHTML = '<i class="bi bi-clipboard"></i>', 1500);
+          });
+        });
+        pre.appendChild(button);
+      });
+    });
+  </script>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Prism.js Core -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+
+<!-- Required for PHP highlighting -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>
+
+<!-- Prism.js Language Components -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
+
+<!-- Call highlight -->
+<script>Prism.highlightAll();</script>
+
+</body>
+</html>
