@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra BIM | Digital Structural Modeling & Computational Analysis</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --astra-blue: #0C3658;
+            --astra-teal: #26697D;
+            --astra-lime: #D9E990;
+            --surface-subtle: #F9FBFC;
+            --line-color: #E5ECF1;
+            --text-primary: #16222F;
+            --text-secondary: #5A6877;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-primary);
+            background-color: #FFFFFF;
+            line-height: 1.68;
+            font-size: 15.5px;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6, .navbar-brand, .metric-num, .index-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Minimalist Layout Rhythm */
+        section {
+            padding: 112px 0;
+            position: relative;
+        }
+
+        .section-subtle {
+            background-color: var(--surface-subtle);
+            border-top: 1px solid var(--line-color);
+            border-bottom: 1px solid var(--line-color);
+        }
+
+        .text-astra-blue { color: var(--astra-blue); }
+        .text-astra-teal { color: var(--astra-teal); }
+
+        /* Restrained Typography Scale */
+        .eyebrow {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.4px;
+            color: var(--astra-teal);
+            margin-bottom: 14px;
+        }
+
+        .heading-lg {
+            font-size: clamp(1.65rem, 2.3vw, 2.15rem);
+            font-weight: 700;
+            color: var(--astra-blue);
+            line-height: 1.24;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .heading-sm {
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: var(--astra-blue);
+            line-height: 1.38;
+            margin-bottom: 10px;
+        }
+
+        .copy-muted {
+            font-size: 0.93rem;
+            color: var(--text-secondary);
+            line-height: 1.68;
+        }
+
+        /* Minimalist Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.94) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line-color);
+            padding: 16px 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.4px;
+            color: var(--astra-blue) !important;
+        }
+
+        .nav-link {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-secondary) !important;
+            padding: 8px 14px !important;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--astra-blue) !important;
+        }
+
+        /* Clean Buttons */
+        .btn-minimal {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            padding: 13px 26px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-minimal-primary {
+            background-color: var(--astra-blue);
+            color: #FFFFFF;
+            border: 1px solid var(--astra-blue);
+        }
+
+        .btn-minimal-primary:hover {
+            background-color: var(--astra-teal);
+            border-color: var(--astra-teal);
+            color: #FFFFFF;
+        }
+
+        .btn-minimal-ghost {
+            background-color: transparent;
+            color: var(--astra-blue);
+            border: 1px solid #CBD6E0;
+        }
+
+        .btn-minimal-ghost:hover {
+            border-color: var(--astra-blue);
+            background-color: var(--surface-subtle);
+            color: var(--astra-blue);
+        }
+
+        /* Hero */
+        .hero-minimal {
+            position: relative;
+            min-height: 82vh;
+            display: flex;
+            align-items: center;
+            padding: 72px 0;
+            overflow: hidden;
+        }
+
+        #neural-net-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.35;
+            mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 3.6vw, 3.25rem);
+            font-weight: 800;
+            color: var(--astra-blue);
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 22px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.04rem;
+            color: var(--text-secondary);
+            max-width: 540px;
+            line-height: 1.72;
+            margin-bottom: 34px;
+        }
+
+        .hero-frame {
+            border: 1px solid var(--line-color);
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--surface-subtle);
+        }
+
+        .hero-frame-img {
+            height: 290px;
+            background: linear-gradient(135deg, var(--astra-blue), var(--astra-teal));
+            overflow: hidden;
+        }
+
+        .hero-frame-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.88);
+        }
+
+        .hero-frame-meta {
+            padding: 20px 24px;
+            background: #FFFFFF;
+            border-top: 1px solid var(--line-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        /* Minimalist Key Metrics Strip */
+        .metrics-strip {
+            border-top: 1px solid var(--line-color);
+            border-bottom: 1px solid var(--line-color);
+            background: var(--surface-subtle);
+            padding: 44px 0;
+        }
+
+        .metric-num {
+            font-size: clamp(1.6rem, 2.2vw, 2.05rem);
+            font-weight: 800;
+            color: var(--astra-blue);
+            line-height: 1.1;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+
+        .metric-caption {
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        /* Hairline Grid System */
+        .hairline-card {
+            border: 1px solid var(--line-color);
+            border-radius: 10px;
+            padding: 30px;
+            height: 100%;
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.25s ease;
+        }
+
+        .hairline-card:hover {
+            border-color: var(--astra-teal);
+        }
+
+        .index-num {
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--astra-teal);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .deliverable-note {
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid var(--line-color);
+            font-size: 0.82rem;
+            color: var(--text-primary);
+        }
+
+        .deliverable-note strong {
+            color: var(--astra-teal);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 0.8px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        /* Minimalist Editorial Image Frame */
+        .editorial-photo {
+            border: 1px solid var(--line-color);
+            border-radius: 10px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 280px;
+            background: linear-gradient(135deg, var(--astra-blue), var(--astra-teal));
+        }
+
+        .editorial-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.88);
+        }
+
+        /* Minimalist Tabs for Services */
+        .minimal-tabs {
+            border-bottom: 1px solid var(--line-color);
+            gap: 28px;
+            margin-bottom: 40px;
+        }
+
+        .minimal-tabs .nav-link {
+            border: none;
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+            padding: 12px 2px !important;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-secondary) !important;
+            background: transparent !important;
+        }
+
+        .minimal-tabs .nav-link.active {
+            color: var(--astra-blue) !important;
+            border-bottom-color: var(--astra-blue);
+        }
+
+        /* Specification Lists (Software & Codes) */
+        .spec-list-item {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--line-color);
+        }
+
+        .spec-list-item:first-child { padding-top: 0; }
+        .spec-list-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+        /* 5-Stage QA Table Rows */
+        .qa-line-row {
+            display: grid;
+            grid-template-columns: 72px 220px 1fr 270px;
+            gap: 24px;
+            align-items: start;
+            padding: 26px 0;
+            border-bottom: 1px solid var(--line-color);
+        }
+
+        .qa-line-row:first-child {
+            border-top: 1px solid var(--line-color);
+        }
+
+        .qa-step-tag {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--astra-teal);
+            letter-spacing: 1px;
+        }
+
+        .qa-output-pill {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--astra-blue);
+            background: var(--surface-subtle);
+            border: 1px solid var(--line-color);
+            border-radius: 6px;
+            padding: 9px 13px;
+        }
+
+        /* High-Contrast Minimalist Engagement Band */
+        .engagement-band {
+            background-color: var(--astra-blue);
+            color: #FFFFFF;
+            padding: 96px 0;
+        }
+
+        .engagement-col {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 24px;
+            height: 100%;
+        }
+
+        .engagement-audience {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            color: var(--astra-lime);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Minimalist Footer */
+        footer {
+            background: #FFFFFF;
+            padding: 72px 0 48px;
+            border-top: 1px solid var(--line-color);
+        }
+
+        .compliance-note {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--line-color);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 991px) {
+            section { padding: 80px 0; }
+            .qa-line-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .editorial-photo { min-height: 220px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+            <img src="./assets/images/logo1.png" alt="Astra BIM" style="height: 32px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+            <span style="display: none; width: 28px; height: 28px; align-items: center; justify-content: center;">
+                <svg viewBox="0 0 40 36" width="28" height="26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <polygon points="20,2 38,34 29,34 20,17 11,34 2,34" fill="#26697D"/>
+                    <polygon points="20,2 29,18 20,18" fill="#0C3658"/>
+                    <polygon points="11,34 38,34 33,26 15,26" fill="#4FA3BD"/>
+                </svg>
+            </span>
+            <span>ASTRA BIM</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Capabilities</a></li>
+                <li class="nav-item"><a class="nav-link" href="#standards">Standards</a></li>
+                <li class="nav-item"><a class="nav-link" href="#methodology">QA Workflow</a></li>
+                <li class="nav-item"><a class="nav-link" href="#engagement">Engagement</a></li>
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                    <a href="mailto:info@astrasoft.tech" class="btn-minimal btn-minimal-primary">Consult With Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero-minimal">
+    <div id="neural-net-canvas"></div>
+    <div class="container hero-inner">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-aos="fade-up">
+                <span class="eyebrow">Astrasoft Division &bull; We Are The Future</span>
+                <h1 class="hero-title">Digital Structural Modeling &amp; Computational Analysis.</h1>
+                <p class="hero-subtitle">We partner with consulting engineers, architects, and contractors to transform architectural concepts into clash-free, code-compliant, and fabrication-ready 3D structural packages.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#services" class="btn-minimal btn-minimal-primary">Explore Capabilities</a>
+                    <a href="mailto:info@astrasoft.tech" class="btn-minimal btn-minimal-ghost">Request Technical Dossier</a>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="hero-frame">
+                    <div class="hero-frame-img">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80" alt="Structural engineering blueprints and 3D BIM modeling" onerror="this.style.display='none'">
+                    </div>
+                    <div class="hero-frame-meta">
+                        <div>
+                            <span class="d-block fw-bold text-astra-blue" style="font-size: 0.9rem;">3D Analytical Models &amp; LOD 200–350 BIM</span>
+                            <span class="copy-muted" style="font-size: 0.82rem;">Revit &bull; Robot FEA &bull; Navisworks &bull; GA &amp; BBS Detailing</span>
+                        </div>
+                        <span class="badge" style="background: var(--astra-lime); color: var(--astra-blue); font-weight: 700; padding: 6px 10px;">AEC Partner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="metrics-strip">
+    <div class="container">
+        <div class="row g-4 text-center text-md-start">
+            <div class="col-6 col-md-3">
+                <p class="metric-num">LOD 200–350</p>
+                <p class="metric-caption">Parametric BIM Coordination</p>
+            </div>
+            <div class="col-6 col-md-3">
+                <p class="metric-num">Zero Clashes</p>
+                <p class="metric-caption">Pre-Site MEP &amp; Rebar Audit</p>
+            </div>
+            <div class="col-6 col-md-3">
+                <p class="metric-num">5-Stage QA</p>
+                <p class="metric-caption">Gated Verification Workflow</p>
+            </div>
+            <div class="col-6 col-md-3">
+                <p class="metric-num">Eurocode / BS</p>
+                <p class="metric-caption">&amp; NCA Regulatory Alignment</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="about">
+    <div class="container">
+        <div class="row g-5 align-items-stretch mb-5 pb-4 border-bottom">
+            <div class="col-lg-5" data-aos="fade-up">
+                <div class="editorial-photo">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80" alt="Structural framing and digital construction engineering" onerror="this.style.display='none'">
+                </div>
+            </div>
+            <div class="col-lg-7 d-flex flex-column justify-content-between" data-aos="fade-up" data-aos-delay="100">
+                <div class="mb-4">
+                    <span class="eyebrow">Who We Are</span>
+                    <h2 class="heading-lg">Precision Engineering at the Intersection of Computation &amp; Construction.</h2>
+                    <p class="copy-muted mb-0">Astra Structural BIM is the specialized structural modeling, building planning, and BIM consultancy division of Astrasoft—serving consulting structural engineers, architects, main contractors, and real estate developers.</p>
+                </div>
+                <div class="row g-4 pt-3 border-top">
+                    <div class="col-md-6">
+                        <span class="eyebrow mb-2">Mission</span>
+                        <h4 class="heading-sm">Africa’s Premier Digital Structural Partner</h4>
+                        <p class="copy-muted mb-0">Setting the benchmark for clash-free, data-driven, and constructible building delivery across the AEC sector.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <span class="eyebrow mb-2">Vision</span>
+                        <h4 class="heading-sm">Zero On-Site Errors &amp; Optimal Material Use</h4>
+                        <p class="copy-muted mb-0">Empowering engineering consultancies and builders with high-precision 3D modeling, FEA, and automated detailing workflows.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 pt-2">
+            <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                <span class="index-num">01 / PRECISION</span>
+                <h5 class="heading-sm">Engineering Precision</h5>
+                <p class="copy-muted mb-0">Every grid line, node, rebar cage, and anchor calculation is verified against international structural standards prior to handover.</p>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
+                <span class="index-num">02 / EXECUTION</span>
+                <h5 class="heading-sm">Constructability First</h5>
+                <p class="copy-muted mb-0">Bridging theoretical design and site reality with clear General Arrangement (GA) drawings, Bar Bending Schedules (BBS), and CNC steel data.</p>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <span class="index-num">03 / WORKFLOW</span>
+                <h5 class="heading-sm">Seamless Interoperability</h5>
+                <p class="copy-muted mb-0">Bi-directional Revit–Robot workflows and Navisworks federation keep structural, architectural, and MEP teams aligned.</p>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+                <span class="index-num">04 / GOVERNANCE</span>
+                <h5 class="heading-sm">Statutory Integrity</h5>
+                <p class="copy-muted mb-0">Direct collaboration with licensed, registered Professional Engineers (PEs) for statutory verification and county permit stamping.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="section-subtle">
+    <div class="container">
+        <div class="row align-items-end justify-content-between mb-4" data-aos="fade-up">
+            <div class="col-lg-7">
+                <span class="eyebrow">Capabilities</span>
+                <h2 class="heading-lg mb-0">End-to-End Structural Planning &amp; BIM Modeling</h2>
+            </div>
+            <div class="col-lg-5 mt-3 mt-lg-0">
+                <p class="copy-muted mb-0">From early schematic framing comparisons to fabrication-ready reinforcement and structural steel packages.</p>
+            </div>
+        </div>
+
+        <ul class="nav minimal-tabs" id="serviceTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="modeling-tab" data-bs-toggle="tab" data-bs-target="#modeling-pane" type="button" role="tab">Core Technical Modeling &amp; Analysis</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="planning-tab" data-bs-toggle="tab" data-bs-target="#planning-pane" type="button" role="tab">Structural &amp; Building Planning</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="serviceTabsContent">
+            <div class="tab-pane fade show active" id="modeling-pane" role="tabpanel">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="hairline-card">
+                            <span class="index-num">01 / COMPUTATIONAL FEA</span>
+                            <h5 class="heading-sm">Computational Structural Modeling</h5>
+                            <p class="copy-muted">Full 3D analytical geometry configuration, gravity and lateral load allocations, preliminary member sizing, and finite element meshing.</p>
+                            <div class="deliverable-note">
+                                <strong>Deliverables</strong>
+                                Analytical Models (.edb, .pro, .sdb), Force Diagram Packages, Deflection Check Sheets.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="hairline-card">
+                            <span class="index-num">02 / CLASH COORDINATION</span>
+                            <h5 class="heading-sm">Structural BIM Coordination (LOD 200–350)</h5>
+                            <p class="copy-muted">Parametric concrete and steel modeling with multi-disciplinary clash detection across MEP and architectural systems prior to construction.</p>
+                            <div class="deliverable-note">
+                                <strong>Deliverables</strong>
+                                Revit Models (.rvt), Navisworks Federated Coordination Reports (.nwc/.nwd), IFC Exchanges.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="hairline-card">
+                            <span class="index-num">03 / REINFORCED CONCRETE</span>
+                            <h5 class="heading-sm">Reinforced Concrete Detailing</h5>
+                            <p class="copy-muted">3D placement modeling of rebar cages, slab layout detailing, bar shape coding, and automated schedule generation per standard detailing manuals.</p>
+                            <div class="deliverable-note">
+                                <strong>Deliverables</strong>
+                                General Arrangement (GA) Drawings, Bar Bending Schedules (BBS), Rebar Callouts.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="hairline-card">
+                            <span class="index-num">04 / STRUCTURAL STEEL</span>
+                            <h5 class="heading-sm">Structural Steel Shop Drafting</h5>
+                            <p class="copy-muted">Fabrication-level structural steel framing, connection modeling, bolt and weld scheduling, and plate preparation layouts.</p>
+                            <div class="deliverable-note">
+                                <strong>Deliverables</strong>
+                                Assembly Drawings, Erection Layout Plans, CNC Data Outputs, Steel Material Takeoffs.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="planning-pane" role="tabpanel">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="hairline-card">
+                            <span class="index-num">01 / SCHEMATIC GRIDS</span>
+                            <h5 class="heading-sm">Structural Grid &amp; Column Layout Planning</h5>
+                            <p class="copy-muted">Coordination with architectural floor plans to align column grids, optimize spans, minimize beam drops, and eliminate transfer conflicts.</p>
+                            <div class="deliverable-note">
+                                <strong>Deliverables</strong>
+                                Schematic Structural Grid Layouts, Column Placement Options, Vertical Clearance Studies.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="hairline-card">
+                            <span class="index-num">02 / WIND &amp; SEISMIC</span>
+                            <h5 class="heading-sm">Lateral Stability &amp; Shear Core Planning</h5>
+                            <p class="copy-muted">Positioning of shear walls, reinforced elevator/stair cores, and braced frames for optimal torsional resistance and stiffness symmetry.</p>
+                            <div class="deliverable-note">
+                                <strong>Deliverables</strong>
+                                Center of Mass vs. Rigidity Diagrams, Shear Core Framing Schematics, Drift Allocation Plans.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="hairline-card">
+                            <span class="index-num">03 / TYPOLOGY STUDIES</span>
+                            <h5 class="heading-sm">Framing System Evaluation &amp; Selection</h5>
+                            <p class="copy-muted">Comparative evaluation of solid slabs, flat slabs with drop panels, post-tensioned systems, ribbed slabs, or steel decking based on spans and cost.</p>
+                            <div class="deliverable-note">
+                                <strong>Deliverables</strong>
+                                Structural Scheme Option Reports, Quantity/Cost Comparison Matrix, Deflection Sensitivity Studies.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="hairline-card">
+                            <span class="index-num">04 / GEOTECHNICAL INTERFACE</span>
+                            <h5 class="heading-sm">Substructure &amp; Foundation Strategy</h5>
+                            <p class="copy-muted">Preliminary foundation layout formulation based on geotechnical parameters, assessing isolated footings, strips, raft/mat, or piled solutions.</p>
+                            <div class="deliverable-note">
+                                <strong>Deliverables</strong>
+                                Preliminary Substructure Layouts, Foundation Load Takeoff Schedules, Earthwork Interface Models.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="standards">
+    <div class="container">
+        <div class="row g-5 align-items-start">
+            <div class="col-lg-6" data-aos="fade-up">
+                <span class="eyebrow">Software Matrix</span>
+                <h2 class="heading-lg mb-4">Computational &amp; BIM Toolset</h2>
+                <div class="spec-list-item">
+                    <h5 class="heading-sm mb-1">Autodesk Revit</h5>
+                    <p class="copy-muted mb-0">3D physical and analytical modeling (LOD 200–350), 3D rebar cages, automated Bar Bending Schedules (BBS), and .rvt / .ifc exports.</p>
+                </div>
+                <div class="spec-list-item">
+                    <h5 class="heading-sm mb-1">Autodesk Robot Structural Analysis</h5>
+                    <p class="copy-muted mb-0">Bi-directional Revit link for 3D frame/shell FEA, wind/seismic load simulations, and Eurocode/BS concrete and steel member checks.</p>
+                </div>
+                <div class="spec-list-item">
+                    <h5 class="heading-sm mb-1">Autodesk Navisworks Manage</h5>
+                    <p class="copy-muted mb-0">Federates structural, architectural, and MEP models for automated clash detection and interference clearance reports (.nwc/.nwd).</p>
+                </div>
+                <div class="spec-list-item">
+                    <h5 class="heading-sm mb-1">AutoCAD</h5>
+                    <p class="copy-muted mb-0">Fast 2D General Arrangement drafting, county/municipal submission sheet cleanups, and legacy .dwg file exchange.</p>
+                </div>
+                <div class="spec-list-item">
+                    <h5 class="heading-sm mb-1">fischer FiXperience</h5>
+                    <p class="copy-muted mb-0">Verifies steel-to-concrete baseplates, post-installed rebar connections (REBAR-FIX), masonry anchors (C-FIX), and CFRP strengthening.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <span class="eyebrow">Compliance &amp; Standards</span>
+                <h2 class="heading-lg mb-4">Supported Design Codes</h2>
+                <div class="spec-list-item">
+                    <h5 class="heading-sm mb-1">Eurocode 0 (EN 1990) &amp; Eurocode 1 (EN 1991)</h5>
+                    <p class="copy-muted mb-0">Basis of structural design and gravity, imposed, wind, and seismic load actions.</p>
+                </div>
+                <div class="spec-list-item">
+                    <h5 class="heading-sm mb-1">Eurocode 2 (EN 1992-1-1) &amp; BS 8110</h5>
+                    <p class="copy-muted mb-0">Reinforced concrete design executed alongside IStructE Standard Detailing Manuals and BS 8666 Bar Shape Codes.</p>
+                </div>
+                <div class="spec-list-item">
+                    <h5 class="heading-sm mb-1">Eurocode 3 (EN 1993-1-1 / 1-8) &amp; BS 5950</h5>
+                    <p class="copy-muted mb-0">Structural steelwork member design, bolted/welded connection checks, and shop fabrication tolerances.</p>
+                </div>
+                <div class="spec-list-item">
+                    <h5 class="heading-sm mb-1">EN 1992-4 &amp; ETAG 001 / EAD Guidelines</h5>
+                    <p class="copy-muted mb-0">Post-installed rebar and baseplate anchor verifications backed by auditable fischer FiXperience calculation reports.</p>
+                </div>
+                <div class="spec-list-item">
+                    <h5 class="heading-sm mb-1">Kenya Building Code &amp; NCA Standards</h5>
+                    <p class="copy-muted mb-0">Local regulatory alignment formatted for National Construction Authority (NCA) and county building permit submissions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="methodology" class="section-subtle">
+    <div class="container">
+        <div class="row align-items-end justify-content-between mb-5" data-aos="fade-up">
+            <div class="col-lg-7">
+                <span class="eyebrow">Quality Assurance</span>
+                <h2 class="heading-lg mb-0">5-Stage Project Delivery Methodology</h2>
+            </div>
+            <div class="col-lg-5 mt-3 mt-lg-0">
+                <p class="copy-muted mb-0">Gated quality milestones from initial architectural grid audit to final Professional Engineer audit dossier handover.</p>
+            </div>
+        </div>
+
+        <div data-aos="fade-up">
+            <div class="qa-line-row">
+                <span class="qa-step-tag">STAGE 01</span>
+                <h5 class="heading-sm mb-0">Ingestion &amp; Grid Audit</h5>
+                <p class="copy-muted mb-0">Review architectural drawings, MEP spatial requirements, and geotechnical parameters; establish standard building grid, levels, and origins.</p>
+                <div class="qa-output-pill">Grid Alignment Sheet &amp; Discrepancy Log</div>
+            </div>
+            <div class="qa-line-row">
+                <span class="qa-step-tag">STAGE 02</span>
+                <h5 class="heading-sm mb-0">Analytical &amp; BIM Modeling</h5>
+                <p class="copy-muted mb-0">Build parametric 3D models in Revit, push wireframes bi-directionally to Robot FEA for load envelopes, and verify baseplate/rebar anchors.</p>
+                <div class="qa-output-pill">Sizing Package &amp; Node Integrity Check</div>
+            </div>
+            <div class="qa-line-row">
+                <span class="qa-step-tag">STAGE 03</span>
+                <h5 class="heading-sm mb-0">Clash Detection &amp; Coordination</h5>
+                <p class="copy-muted mb-0">Federate structural models against architectural and MEP services in Navisworks to resolve penetrations, sleeves, and headroom limits.</p>
+                <div class="qa-output-pill">Interference Clearance Report</div>
+            </div>
+            <div class="qa-line-row">
+                <span class="qa-step-tag">STAGE 04</span>
+                <h5 class="heading-sm mb-0">Detailing &amp; Fabrication</h5>
+                <p class="copy-muted mb-0">Generate reinforcement layouts, hooks/laps, Bar Bending Schedules (BBS), steel connection assemblies, and complete drafting sheets.</p>
+                <div class="qa-output-pill">Full GA Drawing Set &amp; BBS</div>
+            </div>
+            <div class="qa-line-row">
+                <span class="qa-step-tag">STAGE 05</span>
+                <h5 class="heading-sm mb-0">Engineering Handover &amp; Audit</h5>
+                <p class="copy-muted mb-0">Compile native analytical files (.rtd, .edb, .pro, .sdb), model exports, and drawing sets for review and stamping by the supervising PE.</p>
+                <div class="qa-output-pill">Final Engineer Audit Dossier</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="engagement" class="engagement-band">
+    <div class="container">
+        <div class="row align-items-end justify-content-between mb-5" data-aos="fade-up">
+            <div class="col-lg-8">
+                <span class="eyebrow" style="color: var(--astra-lime);">Engagement Models</span>
+                <h2 class="heading-lg text-white mb-2">Scalable Technical Capacity Without Permanent Overhead</h2>
+                <p class="mb-0" style="color: rgba(255,255,255,0.75); max-width: 640px;">Flexible collaboration structures built for consulting structural engineers, architects, main contractors, and fabricators.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                <a href="mailto:info@astrasoft.tech" class="btn-minimal" style="background: var(--astra-lime); color: var(--astra-blue);">Request a Proposal</a>
+            </div>
+        </div>
+
+        <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-4">
+                <div class="engagement-col">
+                    <span class="engagement-audience">Developers, Architects &amp; Contractors</span>
+                    <h4 class="heading-sm text-white">Project-Based Turnkey Packages</h4>
+                    <p class="mb-0" style="color: rgba(255,255,255,0.72); font-size: 0.92rem;">Fixed-scope delivery from schematic grid planning and 3D BIM coordination through to complete GA drawings, BBS, and steel shop drawings on a milestone schedule.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="engagement-col">
+                    <span class="engagement-audience">Contractors, Precast &amp; Steel Fabricators</span>
+                    <h4 class="heading-sm text-white">On-Demand Detailing &amp; Clash Sprints</h4>
+                    <p class="mb-0" style="color: rgba(255,255,255,0.72); font-size: 0.92rem;">Rapid conversion of approved structural drawings into 3D rebar models, verifiable Bar Bending Schedules, Navisworks clash reports, or CNC steel packages.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="engagement-col">
+                    <span class="engagement-audience">Consulting Engineers &amp; Studios</span>
+                    <h4 class="heading-sm text-white">Dedicated BIM &amp; Detailing Seat</h4>
+                    <p class="mb-0" style="color: rgba(255,255,255,0.72); font-size: 0.92rem;">Monthly retainer embedding an Astra Structural BIM modeler/detailer directly into your workflow under your lead engineer's supervision.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p class="compliance-note">
+            <strong class="text-astra-blue">Operating Model &amp; Statutory Compliance Framework:</strong> Astra Structural BIM provides specialized computational analysis, building planning schematics, 3D BIM drafting, and detailing documentation. In compliance with statutory regulatory frameworks governing engineering practice, final structural engineering calculations intended for municipal/county building permits, statutory life-safety sign-offs, and site integrity certifications are executed in collaboration with licensed, registered Professional Engineers (PE / Consulting Engineers) who audit, verify, and stamp permit documentation packages.
+        </p>
+
+        <div class="row g-4 align-items-start">
+            <div class="col-lg-4">
+                <h5 class="fw-bold text-astra-blue mb-1" style="font-size: 1rem;">ASTRA BIM</h5>
+                <p class="copy-muted mb-1" style="font-size: 0.86rem;">Digital Structural Modeling &amp; Computational Analysis &mdash; Astrasoft Division.</p>
+                <span class="small fw-bold text-astra-teal">We Are The Future!</span>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <span class="eyebrow mb-2" style="font-size: 0.7rem;">Nairobi Office</span>
+                <p class="copy-muted mb-1" style="font-size: 0.86rem;">Western Heights, Karuna Rd, Nairobi, Kenya</p>
+                <p class="copy-muted mb-0" style="font-size: 0.86rem;">+254 727 405 667 / +254 726 298 561</p>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <span class="eyebrow mb-2" style="font-size: 0.7rem;">Inquiries &amp; Web</span>
+                <p class="copy-muted mb-1" style="font-size: 0.86rem;">info@astrasoft.tech / info@astrasoft.online</p>
+                <p class="copy-muted mb-0" style="font-size: 0.86rem;">www.astrasoft.tech / www.astrasoft.online</p>
+            </div>
+        </div>
+
+        <div class="mt-5 pt-3 border-top text-center">
+            <p class="text-muted small mb-0">&copy; 2026 Astra Structural BIM (Astrasoft). All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+    const container = document.getElementById('neural-net-canvas');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
+
+    const particleCount = 32;
+    const particlesData = [];
+    const positions = new Float32Array(particleCount * 3);
+    const particles = new THREE.BufferGeometry();
+
+    for (let i = 0; i < particleCount; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * 30;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 15;
+        particlesData.push({
+            velocity: new THREE.Vector3(-1 + Math.random() * 2, -1 + Math.random() * 2, -1 + Math.random() * 2).multiplyScalar(0.003)
+        });
+    }
+
+    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const pointCloud = new THREE.Points(
+        particles,
+        new THREE.PointsMaterial({ color: 0x26697D, size: 0.1, transparent: true, opacity: 0.3 })
+    );
+    scene.add(pointCloud);
+
+    const lineMesh = new THREE.LineSegments(
+        new THREE.BufferGeometry(),
+        new THREE.LineBasicMaterial({ color: 0x0C3658, transparent: true, opacity: 0.08 })
+    );
+    scene.add(lineMesh);
+    camera.position.z = 12;
+
+    let mouseX = 0, mouseY = 0;
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX - window.innerWidth / 2;
+        mouseY = e.clientY - window.innerHeight / 2;
+    });
+
+    function animate() {
+        requestAnimationFrame(animate);
+        const pos = particles.attributes.position.array;
+        const lp = [];
+        for (let i = 0; i < particleCount; i++) {
+            pos[i * 3] += particlesData[i].velocity.x;
+            pos[i * 3 + 1] += particlesData[i].velocity.y;
+            pos[i * 3 + 2] += particlesData[i].velocity.z;
+            if (Math.abs(pos[i * 3]) > 18) particlesData[i].velocity.x *= -1;
+            if (Math.abs(pos[i * 3 + 1]) > 12) particlesData[i].velocity.y *= -1;
+            for (let j = i + 1; j < particleCount; j++) {
+                const dist = Math.sqrt((pos[i * 3] - pos[j * 3]) ** 2 + (pos[i * 3 + 1] - pos[j * 3 + 1]) ** 2);
+                if (dist < 6) {
+                    lp.push(pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2], pos[j * 3], pos[j * 3 + 1], pos[j * 3 + 2]);
+                }
+            }
+        }
+        particles.attributes.position.needsUpdate = true;
+        lineMesh.geometry.setAttribute('position', new THREE.Float32BufferAttribute(lp, 3));
+        scene.rotation.y += (mouseX * 0.0001 - scene.rotation.y) * 0.04;
+        scene.rotation.x += (mouseY * 0.0001 - scene.rotation.x) * 0.04;
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    AOS.init({ duration: 750, once: true });
+</script>
+</body>
+</html>
