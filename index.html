@@ -5,169 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="k--D-ApfElqM7o6vShvMTO1HpMVdJ9yVL08DSc36-8s" />
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Astrasoft" />
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest" />
 
-
-     <!-- favicons -->
-        <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg" />
-        <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png" />
-        <meta name="apple-mobile-web-app-title" content="Astrasoft" />
-        <link rel="manifest" href="/assets/images/favicon/site.webmanifest" />
-
-
-
-     
-            <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0EKQCJ3DH"></script>
-        <script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0EKQCJ3DH"></script>
+    <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-Z0EKQCJ3DH');
-        </script>
+    </script>
 
-    <title>Astra Softwares | Softwares Development | AI Innovation & Education</title>
+    <title>Astrasoft | Access Control & Surveillance, Structural BIM & Custom Software</title>
+    <meta name="description" content="Astra Softwares (Astrasoft) delivers end-to-end Access Control & Video Surveillance, Digital Structural Modeling & Computational Analysis, and Custom Software Development in Nairobi, Kenya." />
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
-
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Open+Sans:wght@400;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --astra-dark-blue: #0C3658;
+            --astra-navy: #0C3658;
+            --astra-navy-deep: #072238;
             --astra-teal: #26697D;
             --astra-lime: #D9E990;
-            --astra-light-grey: #f8fafc;
-            --dark-text: #1a1a1a;
+            --surface-white: #FFFFFF;
+            --surface-slate: #F6F9FC;
+            --border-subtle: #E2EAF1;
+            --text-dark: #111D2B;
+            --text-muted: #556475;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        body { font-family: 'Open Sans', sans-serif; color: var(--dark-text); scroll-behavior: smooth; overflow-x: hidden; }
-        h1, h2, h3, h4, .navbar-brand { font-family: 'Plus Jakarta Sans', sans-serif; }
-
-        /* --- Navbar --- */
-        .navbar { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.8) !important; border-bottom: 1px solid rgba(0,0,0,0.05); z-index: 1000; }
-        /* .navbar-brand { font-weight: 800; color: var(--astra-dark-blue) !important; letter-spacing: -1px; } */
-
-          .navbar-brand {
-            font-weight: 700;
-            color: var(--astra-dark-blue) !important;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
         }
 
-
-        /* --- Hero with Full Background Animation --- */
-        .hero-software { 
-            position: relative;
-            padding: 160px 0; 
-            min-height: 80vh;
-            background: #ffffff; 
-            display: flex;
-            align-items: center;
-            overflow: hidden;
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
-        /* The Canvas Wrapper */
-        #neural-net-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            /* Fade effect at the bottom */
-            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-            opacity: 0.6; /* Subtle fade */
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--surface-white);
+            font-size: 15.5px;
+            line-height: 1.68;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2; /* Sits above the animation */
+        h1, h2, h3, h4, h5, h6, .navbar-brand, .stat-figure {
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        .hero-software h1 { 
-            font-size: 4rem; 
-            font-weight: 800; 
-            color: var(--astra-dark-blue); line-height: 1.1; 
+        .mono-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
         }
 
-        .text-gradient { 
-            background: linear-gradient(45deg, var(--astra-dark-blue), var(--astra-teal)); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-        }
-
-        /* --- Buttons --- */
-        .btn-astra { padding: 14px 32px; font-weight: 700; border-radius: 6px; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; }
-        .btn-primary-astra { background-color: var(--astra-dark-blue); color: white; border: none; }
-        .btn-primary-astra:hover { background-color: var(--astra-teal); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(12, 54, 88, 0.2); color: white; }
-
-        /* --- Autoscroll Tech Stack --- */
-        .scroll-container { overflow: hidden; white-space: nowrap; padding: 40px 0; background: white; border-top: 1px solid #eee; }
-        .scroll-content { display: inline-flex; gap: 5rem; animation: scroll 35s linear infinite; }
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        .tech-item { display: flex; align-items: center; font-weight: 700; color: var(--astra-dark-blue); opacity: 0.7; font-size: 1.1rem; }
-        .tech-item i { font-size: 1.8rem; color: var(--astra-teal); }
-
-        /* --- Cards --- */
-        .service-card, .eco-card { border: 1px solid #edf2f7; border-radius: 20px; padding: 40px; transition: all 0.4s ease; background: white; height: 100%; }
-        .service-card:hover, .eco-card:hover { border-color: var(--astra-lime); box-shadow: 0 20px 40px rgba(0,0,0,0.05); transform: translateY(-10px); }
-        
-        .icon-box { 
-            width: 64px; 
-            height: 64px; 
-            background: var(--astra-light-grey); 
-            border-radius: 14px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: 1.8rem; 
-            color: var(--astra-teal); 
-            margin-bottom: 25px; 
-        }
-
-        /* --- Scholars Section --- */
-        .scholars-preview { 
-            background-color: var(--astra-dark-blue); 
-            border-radius: 24px; 
-            padding: 60px; 
-            color: white; 
-            position: relative; 
-            z-index: 5; 
-            margin-bottom: -80px; 
-        }
-
-        .scholars-tag { 
-            background: var(--astra-lime); 
-            color: var(--astra-dark-blue); 
-            padding: 5px 15px; 
-            border-radius: 4px; 
-            font-weight: 800; 
-            font-size: 0.7rem; 
-            letter-spacing: 1px; 
-        }
-
-        @media (max-width: 991px) {
-            .hero-software h1 { font-size: 2.8rem; }
-            .scholars-preview { padding: 30px; margin-bottom: 0; }
-        }
-    </style>
-</head>
-<body>
-
-
-
-
-    <!-- Loader css -->
-         <style>
-        /* --- LOADER CSS --- */
+        /* --- Loader CSS --- */
         .ui-abstergo {
             --primary: #fff;
             --secondary: rgba(255, 255, 255, 0.3);
@@ -175,11 +85,6 @@
             --text-shadow-blur: 3px;
             --animation-duration: 2s;
             --size: 1;
-        }
-
-        .abstergo-loader * { box-sizing: content-box; }
-
-        .ui-abstergo {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -187,13 +92,16 @@
             scale: var(--size);
         }
 
+        .abstergo-loader * { box-sizing: content-box; }
+
         .ui-abstergo .ui-text {
             color: var(--primary);
             text-shadow: 0 0 var(--text-shadow-blur) var(--secondary);
-            font-family: Menlo, sans-serif;
+            font-family: 'JetBrains Mono', monospace;
             display: flex;
             align-items: baseline;
             column-gap: 3px;
+            letter-spacing: 1px;
         }
 
         .ui-abstergo .ui-dot {
@@ -226,868 +134,1748 @@
         @keyframes line3 { 0%, 40% { bottom: 16px; right: -9px; rotate: 60deg; } 60%, 100% { bottom: 7px; right: -11px; rotate: 180deg; } }
         @keyframes dots { 0%, 70%, 100% { opacity: 0.3; } 30% { opacity: 1; } }
 
-        /* --- PAGE STYLES --- */
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            overflow:unset; /* Prevent scroll during load */
-        }
-
         #loader-container {
             position: fixed;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100vw;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #1c2540;
+            background-color: var(--astra-navy-deep);
             z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s;
+            transition: opacity 0.45s ease, visibility 0.45s;
         }
 
-        #main-content {
+        /* Top Scroll Progress Indicator */
+        #scroll-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--astra-navy), var(--astra-teal), var(--astra-lime));
+            z-index: 2000;
+            transition: width 0.08s linear;
+        }
+
+        /* Architectural CAD Grid Surface */
+        .cad-grid-bg {
+            background-image:
+                linear-gradient(to right, rgba(12, 54, 88, 0.035) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(12, 54, 88, 0.035) 1px, transparent 1px);
+            background-size: 44px 44px;
+        }
+
+        .cad-grid-dark {
+            background-color: var(--astra-navy-deep);
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 44px 44px;
+        }
+
+        /* Section Rhythm */
+        section {
+            padding: 104px 0;
+            position: relative;
+        }
+
+        .section-slate {
+            background-color: var(--surface-slate);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        /* Balanced Typographic Hierarchy */
+        .eyebrow-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(38, 105, 125, 0.09);
+            border: 1px solid rgba(38, 105, 125, 0.2);
+            color: var(--astra-teal);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            margin-bottom: 18px;
+            max-width: 100%;
+        }
+
+        .eyebrow-pill .pulse-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: var(--astra-teal);
+            flex-shrink: 0;
+            animation: pulseGlow 2.2s infinite ease-in-out;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.45); opacity: 0.45; }
+        }
+
+        .section-heading {
+            font-size: clamp(1.6rem, 2.4vw, 2.25rem);
+            font-weight: 800;
+            color: var(--astra-navy);
+            line-height: 1.22;
+            letter-spacing: -0.025em;
+            margin-bottom: 16px;
+        }
+
+        .section-subcopy {
+            font-size: clamp(0.95rem, 1.1vw, 1rem);
+            color: var(--text-muted);
+            line-height: 1.7;
+            max-width: 660px;
+        }
+
+        .card-title-md {
+            font-size: clamp(1.04rem, 1.2vw, 1.14rem);
+            font-weight: 700;
+            color: var(--astra-navy);
+            line-height: 1.36;
+            margin-bottom: 10px;
+        }
+
+        .card-text-sm {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.66;
+        }
+
+        /* Scroll Reveal Utility */
+        [data-animate] {
             opacity: 0;
-            transition: opacity 1s ease;
-            padding: 40px;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+            transform: translateY(20px);
+            transition: opacity 0.75s var(--ease-out-expo), transform 0.75s var(--ease-out-expo);
         }
 
-        .hero-title { font-size: 3rem; margin-top: 20vh; }
-        .hero-sub { color: #aab; font-size: 1.2rem; }
+        [data-animate].in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.94) !important;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 12px 0;
+            z-index: 1050;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--astra-navy) !important;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-link {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-muted) !important;
+            padding: 10px 14px !important;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--astra-navy) !important;
+            background-color: rgba(12, 54, 88, 0.04);
+        }
+
+        .dropdown-menu {
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 8px;
+            box-shadow: 0 18px 40px rgba(12, 54, 88, 0.08);
+        }
+
+        .dropdown-item {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--astra-navy);
+            border-radius: 8px;
+            padding: 9px 14px;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--surface-slate);
+            color: var(--astra-teal);
+        }
+
+        /* Buttons */
+        .btn-modern {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            padding: 13px 24px;
+            min-height: 46px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.28s var(--ease-out-expo);
+        }
+
+        .btn-modern-primary {
+            background-color: var(--astra-navy);
+            color: #FFFFFF;
+            border: 1px solid var(--astra-navy);
+            box-shadow: 0 8px 20px rgba(12, 54, 88, 0.16);
+        }
+
+        .btn-modern-primary:hover {
+            background-color: var(--astra-teal);
+            border-color: var(--astra-teal);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(38, 105, 125, 0.24);
+        }
+
+        .btn-modern-outline {
+            background-color: #FFFFFF;
+            color: var(--astra-navy);
+            border: 1px solid #CBD6E2;
+        }
+
+        .btn-modern-outline:hover {
+            border-color: var(--astra-navy);
+            background-color: var(--surface-slate);
+            color: var(--astra-navy);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-modern {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 72px 0;
+            overflow: hidden;
+        }
+
+        #neural-net-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.34;
+            pointer-events: none;
+            mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
+        }
+
+        .hero-z {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2.05rem, 3.6vw, 3.35rem);
+            font-weight: 800;
+            color: var(--astra-navy);
+            line-height: 1.14;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+        }
+
+        .hero-gradient-text {
+            background: linear-gradient(120deg, var(--astra-navy) 15%, var(--astra-teal) 85%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-lead {
+            font-size: clamp(0.96rem, 1.15vw, 1.04rem);
+            color: var(--text-muted);
+            line-height: 1.72;
+            max-width: 550px;
+            margin-bottom: 30px;
+        }
+
+        /* Hero 3-Pillar Console Card */
+        .hero-console {
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 28px 64px rgba(12, 54, 88, 0.1);
+        }
+
+        .hero-console-media {
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, var(--astra-navy), var(--astra-teal));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-console-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s var(--ease-out-expo);
+        }
+
+        .hero-console:hover .hero-console-media img {
+            transform: scale(1.03);
+        }
+
+        .hero-console-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(7, 34, 56, 0.9) 0%, rgba(7, 34, 56, 0.15) 65%, transparent 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 20px 24px;
+            color: #FFFFFF;
+        }
+
+        .hero-pillar-list {
+            padding: 18px 24px 22px;
+        }
+
+        .hero-pillar-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 13px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            text-decoration: none;
+            color: var(--astra-navy);
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .hero-pillar-item:first-child { padding-top: 2px; }
+        .hero-pillar-item:last-child { border-bottom: none; padding-bottom: 2px; }
+
+        .hero-pillar-item:hover {
+            color: var(--astra-teal);
+            transform: translateX(4px);
+        }
+
+        .pillar-num-badge {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: rgba(12, 54, 88, 0.06);
+            color: var(--astra-teal);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Executive Strip */
+        .stats-band {
+            background-color: var(--astra-navy);
+            color: #FFFFFF;
+            padding: 46px 0;
+        }
+
+        .stat-figure {
+            font-size: clamp(1.5rem, 2.3vw, 2.15rem);
+            font-weight: 800;
+            color: var(--astra-lime);
+            line-height: 1.12;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-caption {
+            font-size: 0.74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            color: rgba(255, 255, 255, 0.82);
+            margin-bottom: 0;
+        }
+
+        /* Media Aspect Ratio Helpers */
+        .media-16-9 {
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, var(--astra-navy), var(--astra-teal));
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .media-4-3 {
+            width: 100%;
+            height: 100%;
+            min-height: 340px;
+            border-radius: 16px;
+            border: 1px solid var(--border-subtle);
+            background: linear-gradient(135deg, var(--astra-navy), var(--astra-teal));
+            overflow: hidden;
+            position: relative;
+        }
+
+        .media-4-3 img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s var(--ease-out-expo);
+        }
+
+        .media-16-9 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s var(--ease-out-expo);
+        }
+
+        .media-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(7, 34, 56, 0.88);
+            backdrop-filter: blur(8px);
+            color: var(--astra-lime);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        /* 3 Core Service Cards */
+        .pillar-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.32s var(--ease-out-expo), box-shadow 0.32s var(--ease-out-expo), border-color 0.25s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 22px 46px rgba(12, 54, 88, 0.08);
+            border-color: rgba(38, 105, 125, 0.48);
+        }
+
+        .pillar-card:hover .media-16-9 img {
+            transform: scale(1.04);
+        }
+
+        .pillar-card-body {
+            padding: 26px 28px 28px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .pillar-spec-list {
+            list-style: none;
+            padding: 14px 0 0;
+            margin: auto 0 18px;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.84rem;
+            color: var(--text-dark);
+        }
+
+        .pillar-spec-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .pillar-spec-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .pillar-spec-list i {
+            color: var(--astra-teal);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        /* Segmented Service Deep-Dive Tabs */
+        .service-switcher {
+            display: inline-flex;
+            flex-wrap: wrap;
+            background: #FFFFFF;
+            padding: 6px;
+            border-radius: 14px;
+            border: 1px solid var(--border-subtle);
+            gap: 6px;
+            box-shadow: 0 6px 18px rgba(12, 54, 88, 0.04);
+        }
+
+        .service-switcher .nav-link {
+            border-radius: 10px !important;
+            padding: 11px 18px !important;
+            font-size: 0.84rem;
+            font-weight: 700;
+            color: var(--text-muted) !important;
+            background: transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-switcher .nav-link.active {
+            background: var(--astra-navy) !important;
+            color: #FFFFFF !important;
+        }
+
+        .detail-panel {
+            background: #FFFFFF;
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 36px;
+            box-shadow: 0 18px 44px rgba(12, 54, 88, 0.05);
+        }
+
+        .sub-feature-box {
+            background: var(--surface-slate);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 22px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sub-feature-box .tag-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.69rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--astra-teal);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .sub-feature-box .footer-meta {
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--astra-navy);
+        }
+
+        /* Workflow Steps */
+        .process-step-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 24px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s var(--ease-out-expo), border-color 0.25s ease;
+        }
+
+        .process-step-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--astra-teal);
+        }
+
+        /* Partner Ecosystem Badges */
+        .partner-tile {
+            background: #FFFFFF;
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 22px 18px;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+        }
+
+        .partner-tile:hover {
+            border-color: var(--astra-teal);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 26px rgba(12, 54, 88, 0.06);
+        }
+
+        .partner-name {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: var(--astra-navy);
+            letter-spacing: -0.3px;
+            margin-bottom: 4px;
+        }
+
+        .partner-domain {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--astra-teal);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        /* FAQ Styling */
+        .accordion-item {
+            border: 1px solid var(--border-subtle) !important;
+            margin-bottom: 12px;
+            border-radius: 14px !important;
+            overflow: hidden;
+            background: #FFFFFF;
+        }
+
+        .accordion-button {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--astra-navy);
+            background-color: #FFFFFF;
+            padding: 20px 24px;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: var(--surface-slate);
+            color: var(--astra-navy);
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: var(--astra-teal);
+        }
+
+        /* Conversion CTA Band */
+        .cta-band {
+            background-color: var(--astra-navy);
+            color: #FFFFFF;
+            border-radius: 24px;
+            padding: 56px 48px;
+            box-shadow: 0 28px 64px rgba(12, 54, 88, 0.18);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #FFFFFF;
+            padding: 72px 0 44px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .statutory-note {
+            background: var(--surface-slate);
+            border: 1px solid var(--border-subtle);
+            border-left: 4px solid var(--astra-navy);
+            border-radius: 12px;
+            padding: 20px 24px;
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            margin-bottom: 44px;
+            line-height: 1.72;
+        }
+
+        .footer-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            word-break: break-word;
+        }
+
+        .footer-link:hover {
+            color: var(--astra-navy);
+            text-decoration: underline;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            background-color: #25d366;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1040;
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.35);
+            transition: transform 0.25s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-3px) scale(1.04);
+        }
+
+        /* Tablet Breakpoint (<= 991px) */
+        @media (max-width: 991px) {
+            section {
+                padding: 80px 0;
+            }
+
+            .navbar-collapse {
+                background: #FFFFFF;
+                border: 1px solid var(--border-subtle);
+                border-radius: 14px;
+                padding: 14px;
+                margin-top: 12px;
+                box-shadow: 0 18px 40px rgba(12, 54, 88, 0.08);
+            }
+
+            .navbar-collapse .btn-modern {
+                width: 100%;
+            }
+
+            .hero-modern {
+                min-height: auto;
+                padding: 56px 0 68px;
+            }
+
+            .media-4-3 {
+                min-height: 290px;
+                aspect-ratio: 16 / 10;
+            }
+
+            .detail-panel {
+                padding: 26px;
+            }
+
+            .cta-band {
+                padding: 44px 32px;
+            }
+        }
+
+        /* Mobile Breakpoint (<= 767px) */
+        @media (max-width: 767px) {
+            section {
+                padding: 64px 0;
+            }
+
+            .service-switcher {
+                display: flex;
+                width: 100%;
+            }
+
+            .service-switcher .nav-item {
+                flex: 1 1 100%;
+            }
+
+            .service-switcher .nav-link {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .detail-panel {
+                padding: 22px 18px;
+            }
+
+            .pillar-card-body {
+                padding: 22px;
+            }
+
+            .cta-band {
+                padding: 36px 24px;
+                border-radius: 18px;
+            }
+        }
+
+        /* Small Mobile Breakpoint (<= 575px) */
+        @media (max-width: 575px) {
+            .hero-modern {
+                padding: 40px 0 56px;
+            }
+
+            .hero-cta-group,
+            .cta-btn-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-cta-group .btn-modern,
+            .cta-btn-group .btn-modern {
+                width: 100%;
+            }
+
+            .hero-console-overlay {
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-end;
+                padding: 16px;
+            }
+
+            .media-4-3 {
+                min-height: 230px;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 18px;
+                right: 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            [data-animate] {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .eyebrow-pill .pulse-dot {
+                animation: none !important;
+            }
+        }
     </style>
+</head>
+<body>
 
+<div id="scroll-bar" aria-hidden="true"></div>
 
-
-    <!-- Loader -->
-     
-    <div id="loader-container">
-        <div class="ui-abstergo">
-            <div class="abstergo-loader">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="ui-text">
-                Astrasoft
-                <div class="ui-dot"></div>
-                <div class="ui-dot"></div>
-                <div class="ui-dot"></div>
-            </div>
+<!-- Signature Astrasoft Triangle Loader -->
+<div id="loader-container">
+    <div class="ui-abstergo">
+        <div class="abstergo-loader">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-    </div>
-
-    <!-- Loader end -->
-
-
-
-
-    <!-- top adbar "We are urgently hiring mobile app Developer ./careers/index.html" -->
-    <div class="alert alert-warning alert-dismissible fade show mb-0" role="alert" style="border-radius: 0; border: none;">
-        <div class="container">
-            <div class="d-flex align-items-center justify-content-between">
-                <span class="fw-semibold">
-                    <i class="bi bi-exclamation-circle me-2"></i>We're urgently hiring Mobile App Developers!
-                </span>
-                <a href="./careers/index.html" class="btn btn-sm btn-warning fw-bold">View Openings</a>
-            </div>
-        </div>
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>
-    
-
-
-
-<nav class="navbar navbar-expand-lg sticky-top bg-white shadow-sm">
-    <div class="container">
-        <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
-            <img src="./scholars/assets/images/brand/logo1.png" height="40" class="me-2" alt="Astrasoft Logo">
+        <div class="ui-text">
             Astrasoft
+            <div class="ui-dot"></div>
+            <div class="ui-dot"></div>
+            <div class="ui-dot"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Focused Main Navigation -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+            <img src="./scholars/assets/images/brand/logo1.png" height="36" alt="Astrasoft Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+            <span style="display: none; width: 32px; height: 32px; align-items: center; justify-content: center;">
+                <svg viewBox="0 0 40 36" width="32" height="30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <polygon points="20,2 38,34 29,34 20,17 11,34 2,34" fill="#26697D"/>
+                    <polygon points="20,2 29,18 20,18" fill="#0C3658"/>
+                    <polygon points="11,34 38,34 33,26 15,26" fill="#4FA3BD"/>
+                </svg>
+            </span>
+            <span>ASTRASOFT</span>
         </a>
         
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-center">
-                
-                <li class="nav-item px-2">
-                    <a class="nav-link fw-semibold" href="index.html">Home</a>
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+                <li class="nav-item">
+                    <a class="nav-link" href="#overview">Overview</a>
                 </li>
 
-                <li class="nav-item dropdown px-2">
-                    <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Solutions</a>
-                    <ul class="dropdown-menu border-0 shadow-sm">
-                        <li><a class="dropdown-item py-2" href="./astrapay/index.html"><i class="bi bi-camera-video me-2 text-primary"></i>Video Surveillance and access Control</a></li>
-                        <li><a class="dropdown-item py-2" href="./scholars/index.html"><i class="bi bi-rocket-takeoff me-2 text-primary"></i>Astra Scholars</a></li>
-                        <li><a class="dropdown-item py-2" href="https://astra-sites.github.io/astravida/"><i class="bi bi-rocket-takeoff me-2 text-primary"></i>Astra Prime</a></li>
-                        
-                        <!-- <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item py-2" href="#"><i class="bi bi-cpu me-2 text-primary"></i>Custom AI Dev</a></li>
-                        <li><a class="dropdown-item py-2" href="#"><i class="bi bi-code-square me-2 text-primary"></i>Web & App Dev</a></li> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#services" role="button" data-bs-toggle="dropdown" aria-expanded="false">Core Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#services" onclick="activateServiceTab('tab-security')"><i class="bi bi-shield-lock me-2 text-primary"></i>Access Control &amp; Surveillance</a></li>
+                        <li><a class="dropdown-item" href="#services" onclick="activateServiceTab('tab-bim')"><i class="bi bi-buildings me-2 text-primary"></i>Digital Structural Modeling &amp; BIM</a></li>
+                        <li><a class="dropdown-item" href="#services" onclick="activateServiceTab('tab-software')"><i class="bi bi-code-slash me-2 text-primary"></i>Custom Software Development</a></li>
                     </ul>
                 </li>
 
-                <li class="nav-item dropdown px-2">
-                    <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Education</a>
-                    <ul class="dropdown-menu border-0 shadow-sm">
-                        <li><a class="dropdown-item py-2" href="./scholars/index.html">Astra Scholars</a></li>
-                        <li><a class="dropdown-item py-2" href="./scholars/ai.html">Intensive AI Course</a></li>
-                        <!-- <li><a class="dropdown-item py-2" href="#">Corporate Training</a></li> -->
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="#capabilities">Deep Dive</a>
                 </li>
 
-                <li class="nav-item px-2">
-                    <a class="nav-link fw-semibold" href="#solutions">Services</a>
-                </li>
-                <li class="nav-item px-2">
-                    <a class="nav-link fw-semibold" href="search.html">Search</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#partners">Partners</a>
                 </li>
 
-                <li class="nav-item dropdown px-2">
-                    <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Resources</a>
-                    <ul class="dropdown-menu border-0 shadow-sm">
-                        <li><a class="dropdown-item py-2" href="#blog">Blog & Insights</a></li>
-                        <li><a class="dropdown-item py-2" href="#">Latest News</a></li>
-                        <li><a class="dropdown-item py-2" href="#">Events</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="#faq">FAQ</a>
                 </li>
 
-                <li class="nav-item px-2">
-                    <a class="nav-link fw-semibold" href="./careers/index.html">Careers</a>
-                </li>
-
-                <li class="nav-item ms-lg-3">
-                    <a href="#contact" class="btn btn-astra btn-primary-astra rounded-pill px-4">Work With Us</a>
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                    <a href="#contact" class="btn-modern btn-modern-primary">Work With Us</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-
-
-
-<section class="hero-software" style="background-image: url('./assets/images/team.jpg'); background-size: cover; background-position: center;">
-   <div class="overlay"></div>
+<!-- Hero Section -->
+<section class="hero-modern cad-grid-bg">
     <div id="neural-net-canvas"></div>
-    <div class="container hero-content">
-        <div class="row">
-            <div class="col-lg-8" data-aos="fade-right">
-                <h6 class="text-uppercase fw-bold mb-3" style="color:#edf2f7; letter-spacing: 2px;">We Are The Future!</h6>
-                <h1 style="color: #edf2f7;">Building the <span class="" style="color: #D9E990;">Intelligence</span> 
-                    <br>that Powers Tomorrow.</h1>
-                <p class="lead my-4 text-light col-md-9">Astra Softwares crafts bespoke AI solutions, automated ecosystems, and high-performance applications for the modern enterprise.</p>
-                <div class="d-flex gap-3 mt-5">
-                    <a href="#solutions" class="btn btn-astra btn-primary-astra shadow">View Our Services</a>
-                    <a href="https://wa.me/254727405667" class="btn btn-astra  border-2 text-light" style="border: 2px solid #edf2f7;">Consult an Engineer</a>
+    <div class="container hero-z">
+        <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6" data-animate>
+                <div class="eyebrow-pill">
+                    <span class="pulse-dot"></span>
+                    <span>We Are The Future!
+                         <!-- &bull; Nairobi, Kenya -->
+                        </span>
+                </div>
+                <h1 class="hero-title">Engineering <span class="hero-gradient-text">Intelligent Security,</span> Structures &amp; Software.</h1>
+                <p class="hero-lead">Astra Softwares equips modern enterprises, engineering firms, and commercial facilities with end-to-end physical security systems, 3D structural BIM modeling, and tailored enterprise software.</p>
+                <div class="d-flex flex-wrap gap-4 hero-cta-group">
+                    <a href="#services" class="btn-modern btn-modern-primary">Explore Our 3 Services <i class="bi bi-arrow-right"></i></a>
+                    <a href="https://wa.me/254727405667" target="_blank" rel="noopener" class="btn-modern btn-modern-outline">Consult an Engineer</a>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-animate data-delay="120">
+                <div class="hero-console">
+                    <div class="hero-console-media">
+                        <img src="./assets/images/nairobi.jpg" alt="Astrasoft engineering and digital infrastructure solutions" onerror="this.src='https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1050&q=85'">
+                        <div class="hero-console-overlay">
+                            <div>
+                                <span class="mono-tag d-block" style="color: var(--astra-lime);">MULTIDISCIPLINARY EXECUTION</span>
+                                <span class="fw-bold d-block" style="font-size: 0.96rem;">Three Core Engineering &amp; Technology Pillars</span>
+                            </div>
+                            <span class="badge flex-shrink-0" style="background: var(--astra-lime); color: var(--astra-navy); font-weight: 800; padding: 6px 12px;">Enterprise Grade</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-pillar-list">
+                        <a href="#capabilities" onclick="activateServiceTab('tab-security')" class="hero-pillar-item">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="pillar-num-badge">01</span>
+                                <div>
+                                    <span class="d-block fw-bold" style="font-size: 0.92rem;">Access Control &amp; Video Surveillance</span>
+                                    <span class="text-muted" style="font-size: 0.8rem;">Biometric access, ANPR boom barriers &amp; AI IP surveillance</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-arrow-up-right text-muted"></i>
+                        </a>
+
+                        <a href="#capabilities" onclick="activateServiceTab('tab-bim')" class="hero-pillar-item">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="pillar-num-badge">02</span>
+                                <div>
+                                    <span class="d-block fw-bold" style="font-size: 0.92rem;">Digital Structural Modeling &amp; Analysis</span>
+                                    <span class="text-muted" style="font-size: 0.8rem;">LOD 200 to 350 BIM, Finite Element Analysis &amp; GA/BBS detailing</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-arrow-up-right text-muted"></i>
+                        </a>
+
+                        <a href="#capabilities" onclick="activateServiceTab('tab-software')" class="hero-pillar-item">
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="pillar-num-badge">03</span>
+                                <div>
+                                    <span class="d-block fw-bold" style="font-size: 0.92rem;">Custom Software Development</span>
+                                    <span class="text-muted" style="font-size: 0.8rem;">Bespoke web, mobile &amp; enterprise apps, AI agents &amp; Enterprise SEO</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-arrow-up-right text-muted"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<style>
-
-    .hero-content{
-        position: relative;
-        z-index: 2;
-    }
-
-    .overlay{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(12, 54, 88, 0.6); /* Darker overlay for better text contrast */
-        z-index: 1;
-    }
-
-    
-
-</style>
+<!-- our partners -->
 
 
 
-<section class="overflow-hidden">
-    <div class="scroll-container">
-        <div class="scroll-content">
-            <div class="tech-item"><i class="bi bi-code-slash me-2"></i><span>Laravel/PHP</span></div>
-            <div class="tech-item"><i class="bi bi-terminal me-2"></i><span>Python/AI</span></div>
-            <div class="tech-item"><i class="bi bi-database me-2"></i><span>MySQL/PostgreSQL</span></div>
-            <div class="tech-item"><i class="bi bi-cpu me-2"></i><span>C++ & Electronics</span></div>
-            <div class="tech-item"><i class="bi bi-layers me-2"></i><span>React/Next.js</span></div>
-            <div class="tech-item"><i class="bi bi-gpu-card me-2"></i><span>Computer Vision</span></div>
-            <div class="tech-item"><i class="bi bi-shield-lock me-2"></i><span>Cybersecurity</span></div>
-            <div class="tech-item"><i class="bi bi-code-slash me-2"></i><span>Laravel/PHP</span></div>
-            <div class="tech-item"><i class="bi bi-terminal me-2"></i><span>Python/AI</span></div>
-            <div class="tech-item"><i class="bi bi-database me-2"></i><span>MySQL/PostgreSQL</span></div>
-            <div class="tech-item"><i class="bi bi-cpu me-2"></i><span>C++ & Electronics</span></div>
-            <div class="tech-item"><i class="bi bi-layers me-2"></i><span>React/Next.js</span></div>
-            <div class="tech-item"><i class="bi bi-gpu-card me-2"></i><span>Computer Vision</span></div>
-            <div class="tech-item"><i class="bi bi-shield-lock me-2"></i><span>Cybersecurity</span></div>
-        </div>
-    </div>
-</section>
-
-
-
-
-
-<section id="solutions" class="py-5" style="padding: 100px 0;">
+<!-- Company Overview -->
+<section id="overview" class="bg-white">
     <div class="container">
-        <div class="text-center mb-5" data-aos="fade-up">
-            <h2 class="fw-bold">Our Enterprise Solutions</h2>
-            <p class="text-muted">High-impact engineering tailored to your business needs.</p>
-        </div>
-        <div class="row g-4 text-center">
-        
-             <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-card" style="position: relative; overflow: hidden;">
-                    <span style="position: absolute; top: 14px; right: -34px; width: 130px; transform: rotate(45deg); background: var(--bs-primary); color: #fff; padding: 5px 0; font-size: 0.75rem; font-weight: 700; text-align: center;">New</span>
-                    <div class="icon-box mx-auto"><i class="bi bi-camera-video"></i></div>
-                    <h4 class="fw-bold">Access Control and Video Surveillance</h4>
-                    <p class="text-muted small">Comprehensive access control systems and video surveillance solutions for enhanced security.</p>
+        <div class="row g-4 g-lg-5 align-items-center">
+            <div class="col-lg-5" data-animate>
+                <div class="media-4-3">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=950&q=85" alt="Astrasoft engineering consultancy and technology infrastructure" onerror="this.style.display='none'">
+                    <span class="media-badge">ASTRASOFT &bull; NAIROBI</span>
                 </div>
             </div>
 
+            <div class="col-lg-7" data-animate data-delay="100">
+                <div class="eyebrow-pill"><span>Company Overview</span></div>
+                <h2 class="section-heading">Practical, High-Impact Execution From Initial Concept to Full Deployment.</h2>
+                <p class="card-text-sm mb-3">Astra Softwares (Astrasoft) is a multidisciplinary engineering and technology solutions provider dedicated to equipping modern enterprises, construction and engineering firms, and commercial facilities with intelligent digital infrastructure.</p>
+                <p class="card-text-sm mb-4">By combining in-house engineering expertise with strategic global hardware and software partnerships, Astrasoft delivers tailored architectures across physical security and access control, digital structural engineering, and custom software development.</p>
 
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-card">
-                    <div class="icon-box mx-auto"><i class="bi bi-cpu"></i></div>
-                    <h4 class="fw-bold">AI Integration</h4>
-                    <p class="text-muted small">Embedding Large Language Models and custom ML into existing legacy workflows.</p>
+                <div class="row g-3 pt-2">
+                    <div class="col-sm-4">
+                        <div class="p-3 rounded-3 border bg-light h-100">
+                            <span class="mono-tag d-block mb-1" style="color: var(--astra-teal);">HARDWARE</span>
+                            <span class="fw-bold d-block" style="font-size: 0.92rem; color: var(--astra-navy);">Global Security Ecosystems</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="p-3 rounded-3 border bg-light h-100">
+                            <span class="mono-tag d-block mb-1" style="color: var(--astra-teal);">AEC / BIM</span>
+                            <span class="fw-bold d-block" style="font-size: 0.92rem; color: var(--astra-navy);">Clash-Free 3D Structural Packages</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="p-3 rounded-3 border bg-light h-100">
+                            <span class="mono-tag d-block mb-1" style="color: var(--astra-teal);">SOFTWARE</span>
+                            <span class="fw-bold d-block" style="font-size: 0.92rem; color: var(--astra-navy);">Workflow-First Apps &amp; AI</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-card">
-                    <div class="icon-box mx-auto"><i class="bi bi-code-slash"></i></div>
-                    <h4 class="fw-bold">Custom Software</h4>
-                    <p class="text-muted small">Scalable web and mobile platforms built with robust backend architectures.</p>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-card">
-                    <div class="icon-box mx-auto"><i class="bi bi-robot"></i></div>
-                    <h4 class="fw-bold">Automation</h4>
-                    <p class="text-muted small">Autonomous agentic systems and RPA tools to streamline enterprise productivity.</p>
-                </div>
-            </div>
-            
-
-            <!-- Training -->
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-card">
-                    <div class="icon-box mx-auto"><i class="bi bi-mortarboard"></i></div>
-                    <h4 class="fw-bold">Technical Training</h4>
-                    <p class="text-muted small">Corporate workshops and training programs to upskill yourself or your team in AI and software development.</p>
-                </div>
-            </div>
-
-            <!-- Research / Currently exploring Quantum  -->
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
-                <div class="service-card">
-                    <div class="icon-box mx-auto"><i class="bi bi-lightning-charge"></i></div>
-                    <h4 class="fw-bold">Emerging Tech Research</h4>
-                    <p class="text-muted small">Cutting-edge research and prototyping in emerging technologies like quantum computing and advanced AI architectures.</p>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-</section>
-
-
-
-
-<section class="py-5" style="background-color: var(--astra-dark-blue); color: white;">
-    <div class="container">
-        <div class="row text-center g-4" data-aos="zoom-in">
-            <div class="col-md-4">
-                <h2 class="fw-bold display-5" style="color: var(--astra-lime);">50+</h2>
-                <p class="mb-0 text-uppercase small opacity-75 fw-bold">AI Solutions Deployed</p>
-            </div>
-            <div class="col-md-4">
-                <h2 class="fw-bold display-5" style="color: var(--astra-lime);">500+</h2>
-                <p class="mb-0 text-uppercase small opacity-75 fw-bold">Scholars Trained</p>
-            </div>
-            <div class="col-md-4">
-                <h2 class="fw-bold display-5" style="color: var(--astra-lime);">99.9%</h2>
-                <p class="mb-0 text-uppercase small opacity-75 fw-bold">System Reliability</p>
             </div>
         </div>
     </div>
 </section>
 
-
-
-<section id="ecosystem" class="py-5 bg-light">
+<!-- The 3 Main Services Overview -->
+<section id="services" class="section-slate">
     <div class="container">
-        <div class="row mb-5" data-aos="fade-right">
-            <div class="col-lg-6">
-                <h2 class="fw-bold">Our Living Ecosystem</h2>
-                <p class="text-muted">Proprietary products built to drive the future of fintech and agriculture.</p>
-            </div>
+        <div class="text-center mx-auto mb-5" style="max-width: 720px;" data-animate>
+            <div class="eyebrow-pill"><span>Our 3 Core Services</span></div>
+            <h2 class="section-heading">Focused Engineering &amp; Enterprise Technology Pillars</h2>
+            <p class="section-subcopy mx-auto">Every solution is engineered around proven global ecosystems, regulatory compliance, and measurable operational reliability.</p>
         </div>
+
         <div class="row g-4">
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                <div class="eco-card">
-                    <i class="bi bi-wallet2 fs-2 text-primary mb-3"></i>
-                    <h5 class="fw-bold">AstraPay</h5>
-                    <p class="small text-muted">A borderless fintech gateway built for modern digital transactions.</p>
+            <!-- Service 1 -->
+            <div class="col-lg-4" data-animate>
+                <div class="pillar-card">
+                    <div class="media-16-9">
+                        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=900&q=85" alt="Access control and IP video surveillance systems" onerror="this.style.display='none'">
+                        <span class="media-badge">01 / PHYSICAL SECURITY</span>
+                    </div>
+                    <div class="pillar-card-body">
+                        <h3 class="card-title-md">Access Control &amp; Video Surveillance</h3>
+                        <p class="card-text-sm">Delivered in partnership with Hikvision, Dahua, and Matrix Comsec for commercial, industrial, and residential environments with remote monitoring and maintenance.</p>
+                        <ul class="pillar-spec-list">
+                            <li><i class="bi bi-check2-circle"></i><span>Biometric &amp; Facial Door Access (COSEC ARGO)</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>ANPR License Plate Cameras &amp; Boom Barriers</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>Project Bullet, Dome &amp; Ruggedized IP Cameras</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>Centralized VMS &amp; NVR Recording (up to 144TB)</span></li>
+                        </ul>
+                        <a href="#capabilities" onclick="activateServiceTab('tab-security')" class="btn-modern btn-modern-outline w-100">View Security Specs <i class="bi bi-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                <div class="eco-card">
-                    <i class="bi bi-tree fs-2 text-success mb-3"></i>
-                    <h5 class="fw-bold">Astra Kilimo</h5>
-                    <p class="small text-muted">Leveraging AI to optimize agricultural yields and monitoring.</p>
+
+            <!-- Service 2 -->
+            <div class="col-lg-4" data-animate data-delay="90">
+                <div class="pillar-card">
+                    <div class="media-16-9">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85" alt="Digital structural modeling and computational BIM analysis" onerror="this.style.display='none'">
+                        <span class="media-badge">02 / ASTRA STRUCTURAL BIM</span>
+                    </div>
+                    <div class="pillar-card-body">
+                        <h3 class="card-title-md">Digital Structural Modeling &amp; Computational Analysis</h3>
+                        <p class="card-text-sm">High-precision 3D BIM structural modeling, Finite Element Analysis (FEA), and code-compliant detailing that optimize load paths, material tonnage, and constructability.</p>
+                        <ul class="pillar-spec-list">
+                            <li><i class="bi bi-check2-circle"></i><span>Structural Grid, Shear Core &amp; Foundation Planning</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>3D Finite Element Modeling (.edb, .pro, .sdb)</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>LOD 200 to 350 Revit &amp; Navisworks Clash Audits</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>RC Detailing (GA &amp; BBS) &amp; Steel Shop Drafting</span></li>
+                        </ul>
+                        <a href="#capabilities" onclick="activateServiceTab('tab-bim')" class="btn-modern btn-modern-outline w-100">View Structural BIM <i class="bi bi-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                <div class="eco-card">
-                    <i class="bi bi-rocket-takeoff fs-2 text-info mb-3"></i>
-                    <h5 class="fw-bold">Astra Tosha</h5>
-                    <p class="small text-muted">AI-powered platform for next-generation enterprise solutions.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                <div class="eco-card">
-                    <i class="bi bi-controller fs-2 text-danger mb-3"></i>
-                    <h5 class="fw-bold">Portfolio Ready</h5>
-                    <p class="small text-muted">AI-powered portfolio development for aspiring developers.</p>
+
+            <!-- Service 3 -->
+            <div class="col-lg-4" data-animate data-delay="180">
+                <div class="pillar-card">
+                    <div class="media-16-9">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=85" alt="Custom web, mobile, and enterprise software development" onerror="this.style.display='none'">
+                        <span class="media-badge">03 / BESPOKE SOFTWARE</span>
+                    </div>
+                    <div class="pillar-card-body">
+                        <h3 class="card-title-md">Custom Software Development</h3>
+                        <p class="card-text-sm">Tailored web platforms, mobile apps, desktop software, and enterprise systems engineered around your exact daily workflows with optional AI and digital growth.</p>
+                        <ul class="pillar-spec-list">
+                            <li><i class="bi bi-check2-circle"></i><span>Custom Web, Mobile &amp; Enterprise Platforms</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>AI Assistants, Predictive Analytics &amp; APIs</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>5-Stage Agile Engineering &amp; QA Delivery</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>Enterprise SEO &amp; Targeted Digital Growth</span></li>
+                        </ul>
+                        <a href="#capabilities" onclick="activateServiceTab('tab-software')" class="btn-modern btn-modern-outline w-100">View Software Scope <i class="bi bi-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-
-<section class="py-5 mt-5">
+<!-- Interactive Deep-Dive Technical Explorer -->
+<section id="capabilities" class="bg-white">
     <div class="container">
-        <div class="scholars-preview shadow-lg" data-aos="fade-up" data-aos-offset="300">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <span class="scholars-tag mb-3 d-inline-block text-uppercase">Educational Division</span>
-                    <h2 class="display-6 fw-bold mb-3 text-white">Astra Scholars: The Academy</h2>
-                    <p class="mb-4 opacity-75">We bridge the gap between education and industry by training engineers in high-demand technologies like Gemini AI and full-stack Laravel.</p>
-                    <div class="row g-3">
-                        <div class="col-md-4 small fw-bold"><i class="bi bi-check-circle-fill text-lime me-2"></i>K-12 Pathways</div>
-                        <div class="col-md-4 small fw-bold"><i class="bi bi-check-circle-fill text-lime me-2"></i>AI Fellowships</div>
-                        <div class="col-md-4 small fw-bold"><i class="bi bi-check-circle-fill text-lime me-2"></i>Career Coaching</div>
+        <div class="row align-items-end justify-content-between mb-4 mb-lg-5" data-animate>
+            <div class="col-lg-5">
+                <div class="eyebrow-pill"><span>Technical Specifications</span></div>
+                <h2 class="section-heading mb-0">Explore Each Service Division in Detail</h2>
+            </div>
+            <div class="col-lg-7 text-lg-end mt-3 mt-lg-0">
+                <ul class="nav service-switcher" id="divisionTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="tab-security" data-bs-toggle="pill" data-bs-target="#pane-security" type="button" role="tab" aria-controls="pane-security" aria-selected="true">
+                            <i class="bi bi-camera-video"></i> 01. Security &amp; Access
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab-bim" data-bs-toggle="pill" data-bs-target="#pane-bim" type="button" role="tab" aria-controls="pane-bim" aria-selected="false">
+                            <i class="bi bi-buildings"></i> 02. Structural BIM
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab-software" data-bs-toggle="pill" data-bs-target="#pane-software" type="button" role="tab" aria-controls="pane-software" aria-selected="false">
+                            <i class="bi bi-code-slash"></i> 03. Custom Software
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tab-content" id="divisionTabsContent" data-animate>
+            <!-- TAB 1: ACCESS CONTROL & VIDEO SURVEILLANCE -->
+            <div class="tab-pane fade show active" id="pane-security" role="tabpanel" aria-labelledby="tab-security">
+                <div class="detail-panel">
+                    <div class="row g-4 align-items-center mb-4 pb-4 border-bottom">
+                        <div class="col-lg-8">
+                            <span class="mono-tag d-block mb-1" style="color: var(--astra-teal);">HIKVISION &bull; DAHUA &bull; MATRIX COMSEC</span>
+                            <h3 class="section-heading mb-2" style="font-size: 1.55rem;">Access Control &amp; Video Surveillance Systems</h3>
+                            <p class="card-text-sm mb-0">End-to-end physical security, workforce attendance, and intelligent surveillance architectures for offices, banks, healthcare facilities, factories, gated communities, and transit fleets.</p>
+                        </div>
+                        <div class="col-lg-4 text-lg-end">
+                            <a href="mailto:info@astrasoft.tech?subject=Security%20and%20Access%20Control%20Inquiry" class="btn-modern btn-modern-primary">Request Site Survey</a>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 g-md-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">BIOMETRIC &amp; FACIAL ACCESS</span>
+                                <h5 class="card-title-md">COSEC ARGO &amp; ARGO FACE Controllers</h5>
+                                <p class="card-text-sm">Touchless adaptive facial recognition and biometric door controllers supporting Face, BLE, QR, RFID, and PIN credentials with IP65 weather resistance and IK06/IK07 tamper protection.</p>
+                                <div class="footer-meta">Up to 50,000 Users &bull; Time Attendance &amp; Visitor Logs</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">PERIMETER &amp; FLEET</span>
+                                <h5 class="card-title-md">ANPR Cameras &amp; Motorized Boom Barriers</h5>
+                                <p class="card-text-sm">Real-time Optical Character Recognition (OCR) license plate scanning with IR night vision, anti-tailgating loops, and sub-second boom barrier actuation for touchless vehicle entry.</p>
+                                <div class="footer-meta">Wiegand &amp; TCP/IP &bull; Edge Storage Sync</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">OUTDOOR &amp; INDUSTRIAL</span>
+                                <h5 class="card-title-md">Project Series Bullet &amp; Dome IP Cameras</h5>
+                                <p class="card-text-sm">NDAA-compliant 2MP/5MP/8MP metal-body network cameras featuring True WDR, H.265 smart streaming, 512GB edge recording, and intelligent intrusion/tripwire analytics.</p>
+                                <div class="footer-meta">125&deg; Field of View &bull; Quad Stream Support</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">TRANSIT &amp; CENTRAL VMS</span>
+                                <h5 class="card-title-md">Ruggedized Cameras, VMS &amp; Enterprise NVR</h5>
+                                <p class="card-text-sm">Vibration-resistant mobile surveillance for buses, railways, and mining sites paired with centralized Video Management Systems and 4 to 96-channel NVRs.</p>
+                                <div class="footer-meta">Up to 144TB Storage &bull; Remote Maintenance</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
-                    <a href="./scholars/index.html" class="btn btn-astra px-5 py-3" style="background: var(--astra-lime); color: var(--astra-dark-blue);">Explore Academy</a>
+            </div>
+
+            <!-- TAB 2: DIGITAL STRUCTURAL MODELING & COMPUTATIONAL ANALYSIS -->
+            <div class="tab-pane fade" id="pane-bim" role="tabpanel" aria-labelledby="tab-bim">
+                <div class="detail-panel">
+                    <div class="row g-4 align-items-center mb-4 pb-4 border-bottom">
+                        <div class="col-lg-8">
+                            <span class="mono-tag d-block mb-1" style="color: var(--astra-teal);">REVIT &bull; ROBOT FEA &bull; NAVISWORKS &bull; AUTOCAD &bull; FISCHER FIXPERIENCE</span>
+                            <h3 class="section-heading mb-2" style="font-size: 1.55rem;">Digital Structural Modeling &amp; Computational Analysis</h3>
+                            <p class="card-text-sm mb-0">Acting as a technical partner to consulting structural engineers, architects, main contractors, and developers to deliver clash-free, Eurocode/BS/NCA-aligned 3D structural packages.</p>
+                        </div>
+                        <div class="col-lg-4 text-lg-end">
+                            <a href="mailto:info@astrasoft.tech?subject=Structural%20BIM%20and%20Analysis%20Inquiry" class="btn-modern btn-modern-primary">Request BIM Dossier</a>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 g-md-4 mb-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">SCHEMATIC PHASE</span>
+                                <h5 class="card-title-md">Structural &amp; Building Planning</h5>
+                                <p class="card-text-sm">Architectural column grid alignment, lateral shear core positioning, framing system comparisons (flat, ribbed, PT slabs), and geotechnical foundation layouts.</p>
+                                <div class="footer-meta">Grid Layouts &bull; Cost/Quantity Matrix</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">FINITE ELEMENT ANALYSIS</span>
+                                <h5 class="card-title-md">Computational Structural Modeling</h5>
+                                <p class="card-text-sm">Full 3D analytical geometry configuration, gravity and wind/seismic load envelopes, member sizing, and baseplate/rebar anchor verification in fischer FiXperience.</p>
+                                <div class="footer-meta">Native .edb, .pro, .sdb &amp; Force Diagrams</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">LOD 200 TO 350</span>
+                                <h5 class="card-title-md">Multi-Disciplinary BIM Coordination</h5>
+                                <p class="card-text-sm">Parametric concrete and steel modeling in Autodesk Revit federated with Architectural and MEP models in Navisworks to eliminate site clashes before excavation.</p>
+                                <div class="footer-meta">.rvt, .ifc &amp; Navisworks Clearance Reports</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">FABRICATION PACKAGES</span>
+                                <h5 class="card-title-md">RC Detailing &amp; Steel Shop Drafting</h5>
+                                <p class="card-text-sm">3D rebar cage modeling with automated Bar Bending Schedules (BS 8666) plus fabrication-grade structural steel connection assemblies and CNC outputs.</p>
+                                <div class="footer-meta">GA Drawings, BBS &amp; CNC Steel Data</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-3 border bg-light d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-2">
+                        <span class="small text-muted"><strong style="color: var(--astra-navy);">Design Standards:</strong> Eurocode 0/1/2/3, BS 8110, BS 5950, EN 1992-4, Kenya Building Code &amp; NCA Alignment.</span>
+                        <span class="mono-tag flex-shrink-0" style="color: var(--astra-teal);">5-Stage PE Audit Workflow</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: CUSTOM SOFTWARE DEVELOPMENT -->
+            <div class="tab-pane fade" id="pane-software" role="tabpanel" aria-labelledby="tab-software">
+                <div class="detail-panel">
+                    <div class="row g-4 align-items-center mb-4 pb-4 border-bottom">
+                        <div class="col-lg-8">
+                            <span class="mono-tag d-block mb-1" style="color: var(--astra-teal);">WEB &bull; MOBILE &bull; ENTERPRISE SYSTEMS &bull; AI &bull; ENTERPRISE SEO</span>
+                            <h3 class="section-heading mb-2" style="font-size: 1.55rem;">Custom Software Development &amp; Digital Growth</h3>
+                            <p class="card-text-sm mb-0">Instead of forcing your organization into rigid off-the-shelf tools, we engineer secure, scalable software tailored to your exact operations, backed by technical SEO and conversion growth.</p>
+                        </div>
+                        <div class="col-lg-4 text-lg-end">
+                            <a href="mailto:info@astrasoft.tech?subject=Custom%20Software%20Development%20Inquiry" class="btn-modern btn-modern-primary">Start a Software Build</a>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 g-md-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">CORE PLATFORMS</span>
+                                <h5 class="card-title-md">Web, Mobile &amp; Enterprise Apps</h5>
+                                <p class="card-text-sm">Custom SaaS platforms, cross-platform mobile applications, desktop tools, and internal ERP/workflow systems built with clean, maintainable architectures.</p>
+                                <div class="footer-meta">Full Ownership &bull; Scalable Cloud Hosting</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">APPLIED INTELLIGENCE</span>
+                                <h5 class="card-title-md">AI Assistants &amp; API Integrations</h5>
+                                <p class="card-text-sm">Embed intelligent AI assistants, predictive analytics, and bi-directional REST/webhook API integrations directly into your existing business databases.</p>
+                                <div class="footer-meta">Automated Workflows &amp; Legacy Bridges</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">STRUCTURED DELIVERY</span>
+                                <h5 class="card-title-md">5-Stage Software Engineering</h5>
+                                <p class="card-text-sm">1. Discovery &amp; Strategy, 2. Interactive UI/UX Prototyping, 3. Custom Development, 4. Security &amp; Speed QA Testing, and 5. Live Deployment &amp; Team Training.</p>
+                                <div class="footer-meta">On-Time Milestones &amp; Full Documentation</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">VISIBILITY &amp; LEADS</span>
+                                <h5 class="card-title-md">Enterprise SEO &amp; Targeted Ads</h5>
+                                <p class="card-text-sm">Technical SEO audits, high-intent B2B keyword strategy, conversion rate optimization (CRO), and targeted Google/LinkedIn ad campaigns with ROI tracking.</p>
+                                <div class="footer-meta">Organic Search Authority &amp; Lead Analytics</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<style>
-    /* Custom Blog Card Container */
-    .blog-card-custom {
-        position: relative;
-        overflow: hidden;
-        min-height: 450px; /* Increased height for a more premium feel */
-        border: none;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
 
-    /* Hover Effect: Slight lift and deeper shadow */
-    .blog-card-custom:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.2) !important;
-    }
-
-    /* Background Image Layer */
-    .blog-card-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        transition: transform 0.5s ease;
-        z-index: 1;
-    }
-
-    /* Zoom image on hover */
-    .blog-card-custom:hover .blog-card-bg {
-        transform: scale(1.08);
-    }
-
-    /* Dark Overlay for Text Legibility */
-    .blog-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        /* Darker at the bottom to make the title/description pop */
-        background: linear-gradient(to top, 
-            rgba(0, 0, 0, 0.9) 0%, 
-            rgba(0, 0, 0, 0.4) 40%, 
-            transparent 100%);
-        z-index: 2;
-    }
-
-    /* Content Wrapper: Pushes items to the bottom */
-    .blog-content {
-        position: relative;
-        z-index: 3;
-        padding: 2rem;
-        height: 450px; /* Must match card min-height */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end; /* This anchors text to the bottom */
-        color: #ffffff;
-    }
-
-    /* Floating Badge at Top Right */
-    .blog-badge {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 4;
-        padding: 8px 16px;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-    }
-</style>
-
-<section class="py-5 my-5" style="background-color: var(--astra-light-grey);">
+<!-- How We Execute -->
+<section class="section-slate">
     <div class="container">
-        <div class="row mb-5" data-aos="fade-right">
-            <div class="col-lg-6">
-                <h2 class="fw-bold">From Our Blog</h2>
-                <p class="text-muted">Insights, stories, and updates from the world of AI and software development.</p>
+        <div class="row align-items-end justify-content-between mb-4 mb-lg-5" data-animate>
+            <div class="col-lg-7">
+                <div class="eyebrow-pill"><span>Delivery Governance</span></div>
+                <h2 class="section-heading mb-0">Disciplined Engineering Across Every Deployment</h2>
+            </div>
+            <div class="col-lg-5 mt-3 mt-lg-0">
+                <p class="card-text-sm mb-0">Whether installing access control hardware, auditing a 3D structural model, or launching enterprise software, every engagement follows a transparent lifecycle.</p>
             </div>
         </div>
-        
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="card blog-card-custom shadow-sm rounded-4">
-                    <div class="blog-card-bg" style="background-image: url('./assets/images/student.png');"></div>
-                    <div class="blog-overlay"></div>
-                    <span class="badge rounded-pill bg-primary blog-badge">News</span>
-                    <div class="blog-content">
-                        <h3 class="fw-bold mb-2">The Future of AI in Business</h3>
-                        <p class="small opacity-75 mb-3">Exploring how AI is transforming industries and what to expect in the next decade.</p>
-                        <a href="#" class="stretched-link text-white text-decoration-none fw-bold">Read More →</a>
-                    </div>
+
+        <div class="row g-3 g-md-4">
+            <div class="col-sm-6 col-lg-3" data-animate>
+                <div class="process-step-card">
+                    <span class="mono-tag mb-2" style="color: var(--astra-teal);">STEP 01</span>
+                    <h4 class="card-title-md">Site &amp; Workflow Audit</h4>
+                    <p class="card-text-sm mb-0">Technical assessment of facility security perimeters, architectural/geotechnical inputs, or business operational bottlenecks.</p>
                 </div>
             </div>
-
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card blog-card-custom shadow-sm rounded-4">
-                    <div class="blog-card-bg" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600');"></div>
-                    <div class="blog-overlay"></div>
-                    <span class="badge rounded-pill bg-success blog-badge">Job</span>
-                    <div class="blog-content">
-                        <h3 class="fw-bold mb-2">Senior Developer Roles 2026</h3>
-                        <p class="small opacity-75 mb-3">A look at the most popular languages and their use cases in the coming years.</p>
-                        <a href="#" class="stretched-link text-white text-decoration-none fw-bold">Read More →</a>
-                    </div>
+            <div class="col-sm-6 col-lg-3" data-animate data-delay="70">
+                <div class="process-step-card">
+                    <span class="mono-tag mb-2" style="color: var(--astra-teal);">STEP 02</span>
+                    <h4 class="card-title-md">System Architecture</h4>
+                    <p class="card-text-sm mb-0">Camera/controller topology, parametric Revit &amp; Robot structural modeling, or interactive UI/UX software prototyping.</p>
                 </div>
             </div>
-
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="card blog-card-custom shadow-sm rounded-4">
-                    <div class="blog-card-bg" style="background-image: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600');"></div>
-                    <div class="blog-overlay"></div>
-                    <span class="badge rounded-pill bg-warning text-dark blog-badge">Event</span>
-                    <div class="blog-content">
-                        <h3 class="fw-bold mb-2">The Rise of Low-Code</h3>
-                        <p class="small opacity-75 mb-3">How low-code platforms are changing the way enterprise applications are built.</p>
-                        <a href="#" class="stretched-link text-white text-decoration-none fw-bold">Read More →</a>
-                    </div>
+            <div class="col-sm-6 col-lg-3" data-animate data-delay="140">
+                <div class="process-step-card">
+                    <span class="mono-tag mb-2" style="color: var(--astra-teal);">STEP 03</span>
+                    <h4 class="card-title-md">Verification &amp; QA</h4>
+                    <p class="card-text-sm mb-0">Navisworks clash clearance and PE audit dossiers, network stress testing, and cybersecurity hardening across all endpoints.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3" data-animate data-delay="210">
+                <div class="process-step-card">
+                    <span class="mono-tag mb-2" style="color: var(--astra-teal);">STEP 04</span>
+                    <h4 class="card-title-md">Commissioning &amp; Support</h4>
+                    <p class="card-text-sm mb-0">Live deployment, staff handover training, scheduled preventive maintenance, and ongoing technical &amp; SEO growth support.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-
-<!-- Our Partners -->
-
-<section id="partners" class="py-5 bg-white border-top">
-    <div class="container py-4">
-        <div class="text-center mb-5" data-aos="fade-up">
-            <h6 class="text-uppercase fw-bold text-muted mb-2" style="letter-spacing: 3px; font-size: 0.75rem;">Trusted By Industry Leaders</h6>
+<!-- Technology & Hardware Partners -->
+<section id="partners" class="bg-white">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 680px;" data-animate>
+            <div class="eyebrow-pill"><span>Strategic Ecosystem</span></div>
+            <h2 class="section-heading">Industry-Leading Hardware &amp; Software Partners</h2>
+            <p class="section-subcopy mx-auto">We deploy certified enterprise hardware and globally recognized engineering platforms for long-term reliability.</p>
         </div>
-        
-        <div class="row align-items-center justify-content-center g-5 partner-logos" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-4 col-md-2 text-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Code.org_logo.svg/330px-Code.org_logo.svg.png" class="img-fluid partner-img" alt="Google Partner">
+
+        <div class="row g-3 g-md-4 justify-content-center" data-animate>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="partner-tile">
+                    <img src="assets/partners/hikvision.png" alt="Hikvision logo" class="partner-logo" style="max-height: 80px;" onerror="this.style.display='none'">
+                    <!-- <span class="partner-name">HIKVISION</span> -->
+                    <span class="partner-domain">Video &amp; Access</span>
+                </div>
             </div>
-            <div class="col-4 col-md-2 text-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/1200px-Ethereum_logo_2014.svg.png" class="img-fluid partner-img" alt="Web3 Partner" style="max-height: 50px;">
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="partner-tile">
+                    <img src="assets/partners/dahua.png" alt="Dahua logo" class="partner-logo" style="max-height: 80px; width: 100%;" onerror="this.style.display='none'">
+                    <!-- <span class="partner-name">DAHUA</span> -->
+                    <span class="partner-domain">AI Surveillance</span>
+                </div>
             </div>
-            <div class="col-4 col-md-2 text-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Amazon_Web_Services_2025.svg" class="img-fluid partner-img" alt="AWS Partner">
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="partner-tile">
+                    <img src="assets/partners/matrix_comsec.png" alt="MATRIX COMSEC logo" class="partner-logo" style=" width: 100%;" onerror="this.style.display='none'">
+                    <!-- <span class="partner-name">MATRIX COMSEC</span> -->
+                    <span class="partner-domain">COSEC &amp; IP CCTV</span>
+                </div>
             </div>
-            <div class="col-4 col-md-2 text-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" class="img-fluid partner-img" alt="React Partner" style="max-height: 50px;">
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="partner-tile">
+                    <img src="assets/partners/autodesk.png" alt="Autodesk logo" class="partner-logo" style="max-height: 80px;" onerror="this.style.display='none'">
+                    <!-- <span class="partner-name">AUTODESK</span> -->
+                    <span class="partner-domain">Revit &bull; Robot &bull; Navis</span>
+                </div>
             </div>
-            <div class="col-4 col-md-2 text-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Vercel_logo_black.svg/2560px-Vercel_logo_black.svg.png" class="img-fluid partner-img" alt="Vercel Partner">
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="partner-tile"> 
+                    <img src="assets/partners/fischer.png" alt="Fischer logo" class="partner-logo" style="max-height: 80px;" onerror="this.style.display='none'">
+                    <span class="partner-name">FISCHER</span>
+                    <span class="partner-domain">FiXperience Anchors</span>
+                </div>
             </div>
-            <div class="col-4 col-md-2 text-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Python_logo_and_wordmark.svg/2560px-Python_logo_and_wordmark.svg.png" class="img-fluid partner-img" alt="Python Partner">
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="partner-tile">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/CLOUD_AI_logo.svg/2560px-CLOUD_AI_logo.svg.png" alt="CLOUD & AI logo" class="partner-logo" onerror="this.style.display='none'">
+                    <span class="partner-name">CLOUD &amp; AI</span>
+                    <span class="partner-domain">Enterprise Stacks</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-
-<style>
-    /* Partners Section Styling */
-.partner-logos .partner-img {
-    max-height: 40px;
-    width: auto;
-    filter: grayscale(100%);
-    opacity: 0.5;
-    transition: all 0.4s ease;
-    cursor: pointer;
-}
-
-.partner-logos .partner-img:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-/* Ensure images don't get too big on mobile */
-@media (max-width: 768px) {
-    .partner-logos .partner-img {
-        max-height: 30px;
-        margin-bottom: 20px;
-    }
-}
-</style>
-
-
-
-<section id="faq" class="py-5 bg-white">
-    <div class="container py-5">
+<!-- Focused FAQ Section -->
+<section id="faq" class="section-slate">
+    <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-8" data-aos="fade-up">
+            <div class="col-lg-8" data-animate>
                 <div class="text-center mb-5">
-                    <h6 class="text-uppercase fw-bold text-primary mb-3" style="letter-spacing: 2px;">Got Questions?</h6>
-                    <h2 class="fw-bold display-6">Frequently Asked Questions</h2>
-                    <p class="text-muted">Everything you need to know about our AI solutions and the Astra Academy.</p>
+                    <div class="eyebrow-pill"><span>Frequently Asked Questions</span></div>
+                    <h2 class="section-heading">Common Inquiries Across Our 3 Divisions</h2>
+                    <p class="section-subcopy mx-auto">Clear answers regarding security installations, structural BIM deliverables, and custom software engineering.</p>
                 </div>
 
-                <div class="accordion accordion-flush shadow-sm rounded-4 overflow-hidden" id="accordionAstra">
-                    
-                    <div class="accordion-item border-bottom">
+                <div class="accordion accordion-flush" id="accordionAstra">
+                    <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button fw-bold py-4 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                What kind of AI solutions does Astra Softwares specialize in?
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">
+                                Which access control and surveillance brands do you supply and install?
                             </button>
                         </h2>
                         <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#accordionAstra">
-                            <div class="accordion-body px-4 pb-4 text-muted">
-                                We specialize in <strong>Agentic AI</strong> and <strong>Autonomous Systems</strong>. From building custom LLM-powered internal tools to implementing computer vision for manufacturing, we focus on high-impact automation that solves real-world business bottlenecks.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item border-bottom">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed fw-bold py-4 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                How long is the Astra Scholars AI Course?
-                            </button>
-                        </h2>
-                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
-                            <div class="accordion-body px-4 pb-4 text-muted">
-                                Our flagship <strong>Intensive AI Course</strong> runs for <strong>8 weeks</strong>. It is designed to take developers from basic Python knowledge to building full-scale autonomous agents and integrating advanced AI models like Gemini.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item border-bottom">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed fw-bold py-4 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                Can you integrate AI into my existing legacy software?
-                            </button>
-                        </h2>
-                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
-                            <div class="accordion-body px-4 pb-4 text-muted">
-                                Absolutely. We specialize in <strong>AI Modernization</strong>. We can build secure API bridges to connect your current databases and workflows with modern AI intelligence without needing a total system overhaul.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item border-bottom">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed fw-bold py-4 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                                Is AstraPay available for international transactions?
-                            </button>
-                        </h2>
-                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
-                            <div class="accordion-body px-4 pb-4 text-muted">
-                                AstraPay is designed as a borderless fintech gateway. We are currently rolling out support for cross-border digital transactions with a focus on high security and low-latency processing.
+                            <div class="accordion-body text-muted">
+                                We partner directly with <strong>Hikvision, Dahua, and Matrix Comsec</strong> to supply, install, and maintain biometric and facial recognition door controllers (such as the COSEC ARGO series), Automatic Number Plate Recognition (ANPR) cameras with motorized boom barriers, ruggedized transit cameras, and centralized NVR/VMS platforms.
                             </div>
                         </div>
                     </div>
 
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button collapsed fw-bold py-4 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-                                How do I apply for the Mobile App Developer roles?
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false">
+                                What deliverables are included in Digital Structural Modeling &amp; Analysis?
                             </button>
                         </h2>
-                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
-                            <div class="accordion-body px-4 pb-4 text-muted">
-                                You can visit our <a href="./careers/index.html" class="text-primary fw-bold text-decoration-none">Careers Page</a> to view open positions. We are looking for engineers passionate about Flutter, React Native, and AI-driven mobile interfaces.
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
+                            <div class="accordion-body text-muted">
+                                Depending on project scope, we deliver schematic structural grid and framing studies, 3D Finite Element Analysis packages (<code>.edb</code>, <code>.pro</code>, <code>.sdb</code>), LOD 200 to 350 Autodesk Revit models (<code>.rvt</code> / <code>.ifc</code>), Navisworks clash clearance reports, General Arrangement (GA) drawings, Bar Bending Schedules (BBS), and CNC-ready structural steel shop drawings.
                             </div>
                         </div>
                     </div>
 
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false">
+                                How do you handle statutory permit stamping for structural engineering packages?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
+                            <div class="accordion-body text-muted">
+                                In strict adherence to statutory engineering regulations, Astra Structural BIM prepares complete, audit-ready analytical models and detailing dossiers in collaboration with licensed, registered Professional Engineers (PEs / Consulting Engineers) who review, verify, and formally stamp documentation for county and NCA building permits.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false">
+                                Can you integrate AI assistants or connect custom software with our existing tools?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
+                            <div class="accordion-body text-muted">
+                                Yes. Our custom web, mobile, and enterprise software solutions are built around your existing operations. We develop secure API bridges to connect your current databases with intelligent AI assistants, automated reporting, and predictive analytics without disrupting daily operations.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false">
+                                Do you provide ongoing maintenance, technical support, and Enterprise SEO?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
+                            <div class="accordion-body text-muted">
+                                Yes. We offer scheduled maintenance and remote monitoring for all security and access control deployments, dedicated BIM modeling retainers for engineering studios, and ongoing post-launch software support paired with Enterprise Search Engine Optimization (SEO) and targeted digital advertising.
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-
-<style>
-    /* FAQ Styling */
-.accordion-button:not(.collapsed) {
-    background-color: var(--astra-light-grey);
-    color: var(--astra-dark-blue);
-    box-shadow: none;
-}
-
-.accordion-button:focus {
-    box-shadow: none;
-    border-color: rgba(0,0,0,0.125);
-}
-
-.accordion-item {
-    border: none;
-    margin-bottom: 10px;
-    border-radius: 12px !important;
-}
-
-.accordion-button {
-    font-size: 1.1rem;
-    border-radius: 12px !important;
-}
-</style>
-
-
-
-
-
-<!-- floating whatsapp Button -->
-<a href="https://wa.me/254727405667" class="btn rounded-circle shadow-lg" style=" background-color: #25d366; position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; z-index: 1000;">
-    <i class="bi bi-whatsapp fs-3 text-white"></i>
-</a>
-
-<!-- Our PARTNERS logos -->
-<footer class="py-5 bg-white border-top pt-5 mt-lg-5">
-    <div class="container pt-5">
-        <div class="row g-5">
-            <div class="col-lg-4">
-                <h5 class="fw-bold mb-3">Astra Softwares</h5>
-                <p class="text-muted small">Building robust, secure, and intelligent systems for a better digital future.</p>
-            </div>
-            <div class="col-lg-2">
-                <h6 class="fw-bold mb-3">Products</h6>
-                <ul class="list-unstyled small text-muted">
-                    <li> <a href="https://astra-sites.github.io/astrapay/" class="text-decoration-none text-dark">AstraPay</a> </li>
-                    <li> <a href="./scholars/index.html" class="text-decoration-none text-dark">Astra Kilimo</a> </li>
-                    <li> <a href="./scholars/index.html" class="text-decoration-none text-dark">Astra Tosha</a> </li>
-                </ul>
-            </div>
-            <div class="col-lg-2">
-                <h6 class="fw-bold mb-3">Academy</h6>
-                <ul class="list-unstyled small text-muted">
-                    <li> <a href="./scholars/index.html" class="text-decoration-none text-dark">K-12 Coding</a> </li>
-                    <li> <a href="./scholars/ai.html" class="text-decoration-none text-dark">Intensive AI Course</a> </li>
-                    <li> <a href="./scholars/index.html" class="text-decoration-none text-dark">Astra Scholars</a> </li>
-                </ul>
-            </div>
-            <div class="col-lg-4">
-                <h6 class="fw-bold mb-3">Subscribe</h6>
-                <div class="input-group">
-                    <input type="text" class="form-control border-2" placeholder="Email Address">
-                    <button class="btn btn-primary-astra">Join</button>
+<!-- Conversion CTA Section -->
+<section id="contact" class="bg-white">
+    <div class="container">
+        <div class="cta-band cad-grid-dark" data-animate>
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <span class="mono-tag text-uppercase d-block mb-2" style="color: var(--astra-lime);">Start a Conversation</span>
+                    <h2 class="section-heading text-white mb-2">Ready to Secure, Model, or Build With Astrasoft?</h2>
+                    <p class="mb-0" style="color: rgba(255, 255, 255, 0.78); max-width: 580px;">Reach our Nairobi engineering desk to schedule a physical security site survey, request a structural BIM proposal, or scope your custom software platform.</p>
+                </div>
+                <div class="col-lg-5 text-lg-end">
+                    <div class="d-flex flex-wrap justify-content-lg-end gap-3 cta-btn-group">
+                        <a href="mailto:info@astrasoft.tech" class="btn-modern" style="background: var(--astra-lime); color: var(--astra-navy); border-color: var(--astra-lime);">
+                            <i class="bi bi-envelope"></i> Email Engineering Desk
+                        </a>
+                        <a href="https://wa.me/254727405667" target="_blank" rel="noopener" class="btn-modern" style="background: rgba(255,255,255,0.1); color: #FFFFFF; border-color: rgba(255,255,255,0.28);">
+                            <i class="bi bi-whatsapp"></i> WhatsApp Us
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-        <hr class="my-5 opacity-10">
-        <div class="text-center text-muted small pb-4">
-            &copy; 2026 Astra Softwares Group. All Rights Reserved.
+    </div>
+</section>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/254727405667" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat with Astrasoft on WhatsApp">
+    <i class="bi bi-whatsapp fs-4 text-white"></i>
+</a>
+
+<!-- Focused Footer -->
+<footer>
+    <div class="container">
+        <div class="statutory-note">
+            <strong style="color: var(--astra-navy);">Engineering Governance &amp; Statutory Compliance:</strong> For Digital Structural Modeling and Computational Analysis projects, Astra Structural BIM provides specialized computational analysis, building planning schematics, 3D BIM drafting, and detailing documentation. Final structural engineering calculations intended for municipal/county building permits, statutory life-safety sign-offs, and site integrity certifications are executed in collaboration with licensed, registered Professional Engineers (PE / Consulting Engineers) who audit, verify, and stamp permit documentation packages.
+        </div>
+
+        <div class="row g-4 align-items-start pb-4 border-bottom">
+            <div class="col-lg-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <svg viewBox="0 0 40 36" width="26" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <polygon points="20,2 38,34 29,34 20,17 11,34 2,34" fill="#26697D"/>
+                        <polygon points="20,2 29,18 20,18" fill="#0C3658"/>
+                        <polygon points="11,34 38,34 33,26 15,26" fill="#4FA3BD"/>
+                    </svg>
+                    <h5 class="fw-bold mb-0" style="font-size: 1.05rem; color: var(--astra-navy);">ASTRASOFT</h5>
+                </div>
+                <p class="card-text-sm mb-1" style="font-size: 0.86rem;">Astra Softwares &bull; Multidisciplinary Engineering, Physical Security &amp; Custom Software Solutions.</p>
+                <span class="mono-tag" style="color: var(--astra-teal);">WE ARE THE FUTURE!</span>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <span class="mono-tag text-uppercase d-block mb-2" style="color: var(--astra-teal);">Core Services</span>
+                <ul class="list-unstyled mb-0" style="font-size: 0.86rem;">
+                    <li class="mb-1"><a href="#capabilities" onclick="activateServiceTab('tab-security')" class="footer-link">Access Control &amp; Video Surveillance</a></li>
+                    <li class="mb-1"><a href="#capabilities" onclick="activateServiceTab('tab-bim')" class="footer-link">Digital Structural Modeling &amp; Analysis</a></li>
+                    <li><a href="#capabilities" onclick="activateServiceTab('tab-software')" class="footer-link">Custom Software Development &amp; SEO</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <span class="mono-tag text-uppercase d-block mb-2" style="color: var(--astra-teal);">Nairobi Office &amp; Contact</span>
+                <p class="card-text-sm mb-1" style="font-size: 0.86rem;"><i class="bi bi-geo-alt me-2" style="color: var(--astra-teal);"></i>Western Heights, Karuna Rd, Nairobi, Kenya</p>
+                <p class="card-text-sm mb-1" style="font-size: 0.86rem;">
+                    <i class="bi bi-telephone me-2" style="color: var(--astra-teal);"></i>
+                    <a href="tel:+254727405667" class="footer-link">+254 727 405 667</a> / <a href="tel:+254726298561" class="footer-link">+254 726 298 561</a>
+                </p>
+                <p class="card-text-sm mb-1" style="font-size: 0.86rem;">
+                    <i class="bi bi-envelope me-2" style="color: var(--astra-teal);"></i>
+                    <a href="mailto:info@astrasoft.tech" class="footer-link">info@astrasoft.tech</a> / <a href="mailto:info@astrasoft.online" class="footer-link">info@astrasoft.online</a>
+                </p>
+                <p class="card-text-sm mb-0" style="font-size: 0.86rem;">
+                    <i class="bi bi-globe me-2" style="color: var(--astra-teal);"></i>
+                    <a href="https://www.astrasoft.tech" target="_blank" rel="noopener" class="footer-link">www.astrasoft.tech</a> / <a href="https://www.astrasoft.online" target="_blank" rel="noopener" class="footer-link">www.astrasoft.online</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="pt-4 text-center">
+            <p class="text-muted small fw-semibold mb-0">&copy; 2026 Astra Softwares (Astrasoft). All Rights Reserved.</p>
         </div>
     </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <script>
-    // --- Optimized Neural Network Background ---
-    const container = document.getElementById('neural-net-canvas');
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    // 1. Astrasoft Triangle Loader Controller
+    const loaderStart = Date.now();
+    window.addEventListener('load', () => {
+        const loader = document.getElementById('loader-container');
+        if (!loader) return;
+        const minDuration = 1200;
+        const remaining = Math.max(0, minDuration - (Date.now() - loaderStart));
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            loader.style.visibility = 'hidden';
+        }, remaining);
+    });
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    container.appendChild(renderer.domElement);
+    // 2. Scroll Progress Hairline
+    const scrollBar = document.getElementById('scroll-bar');
+    window.addEventListener('scroll', () => {
+        const top = window.scrollY;
+        const height = document.documentElement.scrollHeight - window.innerHeight;
+        scrollBar.style.width = (height > 0 ? (top / height) * 100 : 0) + '%';
+    }, { passive: true });
 
-    const particleCount = 100; // Increased for full-screen coverage
-    const particlesData = [];
-    const positions = new Float32Array(particleCount * 3);
-    const particles = new THREE.BufferGeometry();
+    // 3. Programmatic Service Tab Switcher
+    function activateServiceTab(tabId) {
+        const tabButton = document.getElementById(tabId);
+        if (tabButton && window.bootstrap) {
+            const tabInstance = bootstrap.Tab.getOrCreateInstance(tabButton);
+            tabInstance.show();
+        }
+    }
 
-    for (let i = 0; i < particleCount; i++) {
-        const x = (Math.random() - 0.5) * 20;
-        const y = (Math.random() - 0.5) * 15;
-        const z = (Math.random() - 0.5) * 15;
-
-        positions[i * 3] = x;
-        positions[i * 3 + 1] = y;
-        positions[i * 3 + 2] = z;
-
-        particlesData.push({
-            velocity: new THREE.Vector3(-1 + Math.random() * 2, -1 + Math.random() * 2, -1 + Math.random() * 2).multiplyScalar(0.008)
+    // 4. Auto-collapse Mobile Navbar on Navigation Click
+    const navbarCollapseEl = document.getElementById('navbarNav');
+    if (navbarCollapseEl && window.bootstrap) {
+        navbarCollapseEl.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item, .btn-modern').forEach((el) => {
+            el.addEventListener('click', () => {
+                if (window.innerWidth < 992 && navbarCollapseEl.classList.contains('show')) {
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapseEl);
+                    if (bsCollapse) bsCollapse.hide();
+                }
+            });
         });
     }
 
-    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-    const pMaterial = new THREE.PointsMaterial({
-        color: 0xD9E990,
-        size: 0.15,
-        transparent: true,
-        opacity: 0.9,
-        blending: THREE.AdditiveBlending
-    });
-
-    const pointCloud = new THREE.Points(particles, pMaterial);
-    scene.add(pointCloud);
-
-    const lineMaterial = new THREE.LineBasicMaterial({
-        color: 0x26697D,
-        transparent: true,
-        opacity: 0.15
-    });
-
-    const linesGeometry = new THREE.BufferGeometry();
-    const lineMesh = new THREE.LineSegments(linesGeometry, lineMaterial);
-    scene.add(lineMesh);
-
-    camera.position.z = 10;
-
-    let targetRotationX = 0;
-    let targetRotationY = 0;
-    let mouseX = 0;
-    let mouseY = 0;
-
-    document.addEventListener('mousemove', (event) => {
-        mouseX = (event.clientX - window.innerWidth / 2);
-        mouseY = (event.clientY - window.innerHeight / 2);
-    });
-
-    function animate() {
-        requestAnimationFrame(animate);
-
-        const posArray = particles.attributes.position.array;
-        let linePositions = [];
-
-        for (let i = 0; i < particleCount; i++) {
-            const data = particlesData[i];
-
-            posArray[i * 3] += data.velocity.x;
-            posArray[i * 3 + 1] += data.velocity.y;
-            posArray[i * 3 + 2] += data.velocity.z;
-
-            // Bounce check
-            if (posArray[i * 3] < -12 || posArray[i * 3] > 12) data.velocity.x *= -1;
-            if (posArray[i * 3 + 1] < -8 || posArray[i * 3 + 1] > 8) data.velocity.y *= -1;
-            if (posArray[i * 3 + 2] < -10 || posArray[i * 3 + 2] > 10) data.velocity.z *= -1;
-
-            for (let j = i + 1; j < particleCount; j++) {
-                const dx = posArray[i * 3] - posArray[j * 3];
-                const dy = posArray[i * 3 + 1] - posArray[j * 3 + 1];
-                const dz = posArray[i * 3 + 2] - posArray[j * 3 + 2];
-                const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-
-                if (dist < 4) { // Larger connection distance for full screen
-                    linePositions.push(
-                        posArray[i * 3], posArray[i * 3 + 1], posArray[i * 3 + 2],
-                        posArray[j * 3], posArray[j * 3 + 1], posArray[j * 3 + 2]
-                    );
-                }
-            }
-        }
-
-        particles.attributes.position.needsUpdate = true;
-        lineMesh.geometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
-
-        targetRotationY = mouseX * 0.0003;
-        targetRotationX = mouseY * 0.0003;
-
-        scene.rotation.y += (targetRotationY - scene.rotation.y) * 0.05;
-        scene.rotation.x += (targetRotationX - scene.rotation.x) * 0.05;
-
-        renderer.render(scene, camera);
-    }
-
-    animate();
-
-    window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-
-    AOS.init({ duration: 1000, once: true });
-</script>
-
-
-
-<!-- loader -->
- <script>
-        // Start the clock as soon as the script hits
-        const startTime = Date.now();
-
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader-container');
-            const content = document.getElementById('main-content');
-            
-            const minTime = 2000; // 2 seconds
-            const currentTime = Date.now();
-            const elapsed = currentTime - startTime;
-            const delay = Math.max(0, minTime - elapsed);
+    // 5. Staggered Scroll Reveals & Animated Metric Counters
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const targetEl = entry.target;
+            const delay = parseInt(targetEl.getAttribute('data-delay') || '0', 10);
 
             setTimeout(() => {
-                // 1. Fade out the loader
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
-                
-                // 2. Fade in the content
-                content.style.opacity = '1';
-                
-                // 3. Re-enable scrolling
-                document.body.style.overflow = 'auto';
+                targetEl.classList.add('in-view');
             }, delay);
-        });
-    </script>
 
+            targetEl.querySelectorAll('[data-counter]').forEach((numEl) => {
+                const endVal = parseFloat(numEl.getAttribute('data-counter'));
+                const decimals = parseInt(numEl.getAttribute('data-decimals') || '0', 10);
+                if (endVal === 0) {
+                    numEl.textContent = '0';
+                    return;
+                }
+                const duration = 1100;
+                const start = performance.now();
+                function update(now) {
+                    const t = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - t, 3);
+                    const current = eased * endVal;
+                    numEl.textContent = decimals > 0 ? current.toFixed(decimals) : Math.round(current);
+                    if (t < 1) requestAnimationFrame(update);
+                }
+                requestAnimationFrame(update);
+            });
+
+            obs.unobserve(targetEl);
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-animate]').forEach((el) => revealObserver.observe(el));
+
+    // 6. Responsive 3D Structural & Neural Network Backdrop (Three.js)
+    const canvasContainer = document.getElementById('neural-net-canvas');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (canvasContainer && window.THREE && !prefersReducedMotion) {
+        const isMobile = window.innerWidth < 768;
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(
+            70,
+            canvasContainer.clientWidth / Math.max(canvasContainer.clientHeight, 1),
+            0.1,
+            1000
+        );
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: !isMobile });
+        renderer.setSize(canvasContainer.clientWidth, canvasContainer.clientHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.domElement.style.display = 'block';
+        renderer.domElement.style.width = '100%';
+        renderer.domElement.style.height = '100%';
+        canvasContainer.appendChild(renderer.domElement);
+
+        const count = isMobile ? 20 : 38;
+        const connectDist = isMobile ? 5.2 : 6;
+        const nodes = [];
+        const positions = new Float32Array(count * 3);
+        const geom = new THREE.BufferGeometry();
+
+        for (let i = 0; i < count; i++) {
+            positions[i * 3] = (Math.random() - 0.5) * 28;
+            positions[i * 3 + 1] = (Math.random() - 0.5) * 18;
+            positions[i * 3 + 2] = (Math.random() - 0.5) * 12;
+            nodes.push({
+                vel: new THREE.Vector3(
+                    (Math.random() - 0.5) * 0.0045,
+                    (Math.random() - 0.5) * 0.0045,
+                    (Math.random() - 0.5) * 0.003
+                )
+            });
+        }
+
+        geom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        const pts = new THREE.Points(
+            geom,
+            new THREE.PointsMaterial({ color: 0x26697D, size: 0.12, transparent: true, opacity: 0.45 })
+        );
+        scene.add(pts);
+
+        const segs = new THREE.LineSegments(
+            new THREE.BufferGeometry(),
+            new THREE.LineBasicMaterial({ color: 0x0C3658, transparent: true, opacity: 0.12 })
+        );
+        scene.add(segs);
+        camera.position.z = 12;
+
+        let rotX = 0;
+        let rotY = 0;
+        document.addEventListener('mousemove', (e) => {
+            rotY = (e.clientX - window.innerWidth / 2) * 0.00009;
+            rotX = (e.clientY - window.innerHeight / 2) * 0.00009;
+        }, { passive: true });
+
+        function tick() {
+            requestAnimationFrame(tick);
+            const p = geom.attributes.position.array;
+            const lineVerts = [];
+
+            for (let i = 0; i < count; i++) {
+                p[i * 3] += nodes[i].vel.x;
+                p[i * 3 + 1] += nodes[i].vel.y;
+                p[i * 3 + 2] += nodes[i].vel.z;
+
+                if (Math.abs(p[i * 3]) > 16) nodes[i].vel.x *= -1;
+                if (Math.abs(p[i * 3 + 1]) > 10) nodes[i].vel.y *= -1;
+                if (Math.abs(p[i * 3 + 2]) > 7) nodes[i].vel.z *= -1;
+
+                for (let j = i + 1; j < count; j++) {
+                    const dx = p[i * 3] - p[j * 3];
+                    const dy = p[i * 3 + 1] - p[j * 3 + 1];
+                    if (Math.sqrt(dx * dx + dy * dy) < connectDist) {
+                        lineVerts.push(p[i * 3], p[i * 3 + 1], p[i * 3 + 2], p[j * 3], p[j * 3 + 1], p[j * 3 + 2]);
+                    }
+                }
+            }
+
+            geom.attributes.position.needsUpdate = true;
+            segs.geometry.setAttribute('position', new THREE.Float32BufferAttribute(lineVerts, 3));
+            scene.rotation.y += (rotY - scene.rotation.y) * 0.04;
+            scene.rotation.x += (rotX - scene.rotation.x) * 0.04;
+            renderer.render(scene, camera);
+        }
+        tick();
+
+        window.addEventListener('resize', () => {
+            const w = canvasContainer.clientWidth;
+            const h = Math.max(canvasContainer.clientHeight, 1);
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        });
+    }
+</script>
 </body>
 </html>
-

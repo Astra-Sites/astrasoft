@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Astra BIM | Digital Structural Modeling & Computational Analysis</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Open+Sans:wght@400;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Open+Sans:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- font awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,891 +19,267 @@
             --astra-teal: #26697D;
             --astra-lime: #D9E990;
             --surface-white: #FFFFFF;
-            --surface-slate: #F6F9FC;
-            --border-subtle: #E2EAF1;
-            --text-dark: #111D2B;
-            --text-muted: #556475;
+            --surface-slate: #F9FBFC;
+            --border-subtle: rgba(12, 54, 88, 0.08);
+            --text-dark: #0A1624;
+            --text-muted: #5A6B7C;
             --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --shadow-float: 0 24px 48px rgba(12, 54, 88, 0.06);
+            --shadow-hover: 0 32px 64px rgba(12, 54, 88, 0.12);
         }
 
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            max-width: 100%;
-            overflow-x: hidden;
-        }
+        *, *::before, *::after { box-sizing: border-box; }
+        
+        /* Prevent horizontal scroll on mobile */
+        html, body { max-width: 100vw; overflow-x: hidden; }
 
         body {
+            margin: 0;
             font-family: 'Open Sans', sans-serif;
             color: var(--text-dark);
-            background-color: var(--surface-white);
-            font-size: 15.5px;
-            line-height: 1.68;
+            background-color: var(--surface-slate);
+            font-size: 16px;
+            line-height: 1.7;
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
         }
 
         h1, h2, h3, h4, h5, h6, .navbar-brand, .kpi-number {
             font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
         }
 
         .mono-tag {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.74rem;
-            font-weight: 600;
-            letter-spacing: 0.4px;
-        }
-
-        /* Top Scroll Progress Indicator */
-        #scroll-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            width: 0%;
-            background: linear-gradient(90deg, var(--astra-navy), var(--astra-teal), var(--astra-lime));
-            z-index: 2000;
-            transition: width 0.08s linear;
-        }
-
-        /* Architectural CAD Grid Pattern */
-        .cad-grid-bg {
-            background-image:
-                linear-gradient(to right, rgba(12, 54, 88, 0.035) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(12, 54, 88, 0.035) 1px, transparent 1px);
-            background-size: 44px 44px;
-        }
-
-        .cad-grid-dark {
-            background-color: var(--astra-navy-deep);
-            background-image:
-                linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-            background-size: 44px 44px;
-        }
-
-        /* Section Rhythm */
-        section {
-            padding: 108px 0;
-            position: relative;
-        }
-
-        .section-slate {
-            background-color: var(--surface-slate);
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        /* Balanced Typographic Hierarchy */
-        .eyebrow-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 14px;
-            border-radius: 999px;
-            background: rgba(38, 105, 125, 0.09);
-            border: 1px solid rgba(38, 105, 125, 0.2);
-            color: var(--astra-teal);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             font-weight: 700;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            letter-spacing: 1.4px;
-            margin-bottom: 18px;
-            max-width: 100%;
         }
 
+        #scroll-bar { position: fixed; top: 0; left: 0; height: 4px; width: 0%; background: linear-gradient(90deg, var(--astra-navy), var(--astra-teal), var(--astra-lime)); z-index: 2000; transition: width 0.08s linear; }
+
+        /* Backgrounds */
+        .bg-white { background-color: var(--surface-white); }
+        .cad-grid-bg { background-color: var(--surface-slate); background-image: linear-gradient(to right, rgba(12, 54, 88, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(12, 54, 88, 0.04) 1px, transparent 1px); background-size: 40px 40px; }
+        .cad-grid-dark { background-color: var(--astra-navy-deep); background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 40px 40px; }
+
+        section { padding: 120px 0; position: relative; }
+
+        /* Modernized Eyebrow Pill */
+        .eyebrow-pill {
+            display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 100px;
+            background: #FFFFFF; border: 1px solid var(--border-subtle);
+            color: var(--astra-teal); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(12, 54, 88, 0.03);
+        }
         .eyebrow-pill .pulse-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background-color: var(--astra-teal);
-            flex-shrink: 0;
+            width: 8px; height: 8px; border-radius: 50%; background-color: var(--astra-teal); flex-shrink: 0;
             animation: pulseGlow 2.2s infinite ease-in-out;
         }
+        @keyframes pulseGlow { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.4; box-shadow: 0 0 8px var(--astra-teal); } }
 
-        @keyframes pulseGlow {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.45); opacity: 0.45; }
-        }
-
-        .section-heading {
-            font-size: clamp(1.55rem, 2.4vw, 2.25rem);
-            font-weight: 800;
-            color: var(--astra-navy);
-            line-height: 1.22;
-            letter-spacing: -0.025em;
-            margin-bottom: 16px;
-        }
-
-        .section-subcopy {
-            font-size: clamp(0.95rem, 1.1vw, 1rem);
-            color: var(--text-muted);
-            line-height: 1.7;
-            max-width: 640px;
-        }
-
-        .card-title-md {
-            font-size: clamp(1.02rem, 1.2vw, 1.1rem);
-            font-weight: 700;
-            color: var(--astra-navy);
-            line-height: 1.36;
-            margin-bottom: 10px;
-        }
-
-        .card-text-sm {
-            font-size: 0.92rem;
-            color: var(--text-muted);
-            line-height: 1.66;
-        }
+        /* Typography scaling */
+        .section-heading { font-size: clamp(1.8rem, 3.5vw, 2.75rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 20px; }
+        .section-subcopy { font-size: clamp(1rem, 1.2vw, 1.15rem); color: var(--text-muted); line-height: 1.6; max-width: 680px; }
+        .card-title-md { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 12px; color: var(--astra-navy); }
+        .card-text-sm { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
 
         /* Scroll Reveal Utility */
-        [data-animate] {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.75s var(--ease-out-expo), transform 0.75s var(--ease-out-expo);
-        }
+        [data-animate] { opacity: 0; transform: translateY(30px); transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo); }
+        [data-animate].in-view { opacity: 1; transform: translateY(0); }
 
-        [data-animate].in-view {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Modern Glass Navbar */
-        .navbar {
-            background: rgba(255, 255, 255, 0.94) !important;
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--border-subtle);
-            padding: 12px 0;
-            z-index: 1050;
-        }
-
-        .navbar-brand {
-            font-weight: 800;
-            font-size: 1.15rem;
-            color: var(--astra-navy) !important;
-            letter-spacing: -0.5px;
-        }
-
-        .navbar-toggler {
-            padding: 8px 10px;
-            border-radius: 8px;
-        }
-
-        .navbar-toggler:focus {
-            box-shadow: 0 0 0 2px rgba(12, 54, 88, 0.18);
-        }
-
-        .nav-link {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: var(--text-muted) !important;
-            padding: 10px 14px !important;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--astra-navy) !important;
-            background-color: rgba(12, 54, 88, 0.04);
-        }
+        /* Floating Capsule Navbar */
+        .navbar-wrapper { position: sticky; top: 20px; z-index: 1050; padding: 0 20px; transition: all 0.3s ease; }
+        .navbar { background: rgba(255, 255, 255, 0.85) !important; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 100px; padding: 10px 24px; box-shadow: 0 12px 32px rgba(12, 54, 88, 0.06); max-width: 1400px; margin: 0 auto; transition: all 0.3s ease; }
+        .navbar-brand { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.03em; }
+        .navbar-toggler { padding: 8px 10px; border-radius: 8px; border: none; }
+        .navbar-toggler:focus { box-shadow: none; outline: none; }
+        .nav-link { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text-muted) !important; padding: 8px 18px !important; border-radius: 100px; transition: all 0.3s ease; }
+        .nav-link:hover, .nav-link:focus { color: var(--astra-navy) !important; background-color: var(--surface-slate); }
 
         /* Modern Buttons */
-        .btn-modern {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.7px;
-            text-transform: uppercase;
-            padding: 13px 24px;
-            min-height: 46px;
-            border-radius: 10px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-decoration: none;
-            transition: all 0.28s var(--ease-out-expo);
-        }
-
-        .btn-modern-primary {
-            background-color: var(--astra-navy);
-            color: #FFFFFF;
-            border: 1px solid var(--astra-navy);
-            box-shadow: 0 8px 20px rgba(12, 54, 88, 0.16);
-        }
-
-        .btn-modern-primary:hover {
-            background-color: var(--astra-teal);
-            border-color: var(--astra-teal);
-            color: #FFFFFF;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 26px rgba(38, 105, 125, 0.24);
-        }
-
-        .btn-modern-outline {
-            background-color: #FFFFFF;
-            color: var(--astra-navy);
-            border: 1px solid #CBD6E2;
-        }
-
-        .btn-modern-outline:hover {
-            border-color: var(--astra-navy);
-            background-color: var(--surface-slate);
-            color: var(--astra-navy);
-            transform: translateY(-2px);
-        }
+        .btn-modern { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 14px 28px; border-radius: 100px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; transition: all 0.3s var(--ease-out-expo); cursor: pointer; border: 1px solid transparent; }
+        .btn-modern-primary { background-color: var(--astra-navy); color: #FFFFFF; box-shadow: 0 8px 24px rgba(12, 54, 88, 0.2); }
+        .btn-modern-primary:hover { background-color: var(--astra-teal); color: #FFFFFF; transform: translateY(-3px); box-shadow: 0 12px 32px rgba(38, 105, 125, 0.3); }
+        .btn-modern-outline { background-color: #FFFFFF; color: var(--astra-navy); border-color: var(--border-subtle); box-shadow: 0 4px 12px rgba(12, 54, 88, 0.04); }
+        .btn-modern-outline:hover { border-color: var(--astra-navy); color: var(--astra-navy); transform: translateY(-3px); box-shadow: 0 12px 24px rgba(12, 54, 88, 0.08); }
 
         /* Hero Section */
-        .hero-modern {
-            position: relative;
-            min-height: 84vh;
-            display: flex;
-            align-items: center;
-            padding: 72px 0;
-            overflow: hidden;
-        }
+        .hero-modern { position: relative; min-height: 90vh; display: flex; align-items: center; padding: 120px 0 80px; overflow: hidden; }
+        #hero-spaceframe { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.4; pointer-events: none; mask-image: linear-gradient(to bottom, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%); }
+        .hero-z { position: relative; z-index: 2; width: 100%; }
+        
+        .hero-title { font-size: clamp(2.3rem, 4.5vw, 4.5rem); font-weight: 800; color: var(--astra-navy-deep); line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 24px; }
+        .hero-gradient-text { background: linear-gradient(135deg, var(--astra-navy) 0%, var(--astra-teal) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-lead { font-size: clamp(1.05rem, 1.3vw, 1.25rem); color: var(--text-muted); line-height: 1.6; max-width: 580px; margin-bottom: 40px; font-weight: 500; }
+        
+        .hero-trust-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+        .code-chip { padding: 6px 14px; border-radius: 100px; background: #FFFFFF; border: 1px solid var(--border-subtle); color: var(--astra-navy); font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 12px rgba(12, 54, 88, 0.03); }
 
-        #hero-spaceframe {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            opacity: 0.36;
-            pointer-events: none;
-            mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
-        }
-
-        .hero-z {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-size: clamp(2rem, 3.6vw, 3.3rem);
-            font-weight: 800;
-            color: var(--astra-navy);
-            line-height: 1.15;
-            letter-spacing: -0.03em;
-            margin-bottom: 20px;
-        }
-
-        .hero-gradient-text {
-            background: linear-gradient(120deg, var(--astra-navy) 15%, var(--astra-teal) 85%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-lead {
-            font-size: clamp(0.96rem, 1.15vw, 1.04rem);
-            color: var(--text-muted);
-            line-height: 1.72;
-            max-width: 540px;
-            margin-bottom: 30px;
-        }
-
-        .hero-trust-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 28px;
-        }
-
-        .code-chip {
-            padding: 5px 10px;
-            border-radius: 6px;
-            background: #FFFFFF;
-            border: 1px solid var(--border-subtle);
-            color: var(--astra-navy);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.71rem;
-            font-weight: 600;
-        }
-
-        /* Hero Balanced Visual Frame */
-        .hero-visual-stack {
-            position: relative;
-        }
-
-        .hero-media-frame {
-            border-radius: 18px;
-            overflow: hidden;
-            border: 1px solid var(--border-subtle);
-            background: linear-gradient(135deg, var(--astra-navy), var(--astra-teal));
-            box-shadow: 0 28px 64px rgba(12, 54, 88, 0.12);
-            aspect-ratio: 16 / 10;
-            position: relative;
-        }
-
-        .hero-media-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.7s var(--ease-out-expo);
-        }
-
-        .hero-visual-stack:hover .hero-media-frame img {
-            transform: scale(1.03);
-        }
-
-        .hero-media-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(7, 34, 56, 0.88) 0%, rgba(7, 34, 56, 0.14) 60%, transparent 100%);
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 12px;
-            padding: 20px 22px;
-            color: #FFFFFF;
-        }
-
-        .hero-sub-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-            margin-top: 14px;
-        }
-
-        .hero-mini-tile {
-            background: #FFFFFF;
-            border: 1px solid var(--border-subtle);
-            border-radius: 14px;
-            padding: 15px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 10px 26px rgba(12, 54, 88, 0.04);
-            min-width: 0;
-        }
-
-        .hero-mini-tile > div:last-child {
-            min-width: 0;
-        }
-
-        .mini-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            background: rgba(38, 105, 125, 0.1);
-            color: var(--astra-teal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
+        /* Hero Visual Frame (Bento Style) */
+        .hero-visual-stack { position: relative; display: flex; flex-direction: column; gap: 16px; }
+        .hero-media-frame { border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--border-subtle); background: linear-gradient(135deg, var(--astra-navy), var(--astra-teal)); box-shadow: var(--shadow-float); aspect-ratio: 16 / 11; position: relative; }
+        .hero-media-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s var(--ease-out-expo); }
+        .hero-visual-stack:hover .hero-media-frame img { transform: scale(1.05); }
+        .hero-media-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(7, 34, 56, 0.95) 0%, rgba(7, 34, 56, 0.15) 60%, transparent 100%); display: flex; align-items: flex-end; align-content: flex-end; justify-content: space-between; padding: 24px 32px; color: #FFFFFF; flex-wrap: wrap; gap: 16px; }        
+        .hero-sub-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+        .hero-mini-tile { background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: 20px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; box-shadow: 0 12px 32px rgba(12, 54, 88, 0.04); transition: transform 0.3s ease; }
+        .hero-mini-tile:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(12, 54, 88, 0.08); border-color: rgba(38, 105, 125, 0.3); }
+        .hero-mini-tile > div:last-child { min-width: 0; }
+        .mini-icon { width: 48px; height: 48px; border-radius: 14px; background: rgba(38, 105, 125, 0.1); color: var(--astra-teal); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
 
         /* Executive KPI Bar */
-        .kpi-strip {
-            background-color: var(--astra-navy);
-            color: #FFFFFF;
-            padding: 48px 0;
-        }
-
-        .kpi-number {
-            font-size: clamp(1.55rem, 2.5vw, 2.3rem);
-            font-weight: 800;
-            color: var(--astra-lime);
-            line-height: 1.12;
-            margin-bottom: 6px;
-            letter-spacing: -0.02em;
-        }
-
-        .kpi-label {
-            font-size: 0.74rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.4px;
-            color: rgba(255, 255, 255, 0.82);
-            margin-bottom: 0;
-        }
+        .kpi-strip { background: linear-gradient(135deg, var(--astra-navy-deep), var(--astra-navy)); color: #FFFFFF; padding: 60px 0; border-radius: var(--radius-xl); margin: 0 20px; position: relative; z-index: 10; transform: translateY(-40px); box-shadow: var(--shadow-hover); }
+        .kpi-number { font-size: clamp(1.8rem, 3vw, 2.75rem); font-weight: 800; color: var(--astra-lime); line-height: 1.1; margin-bottom: 8px; letter-spacing: -0.02em; }
+        .kpi-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.8); margin-bottom: 0; }
 
         /* Modern Bento Cards */
-        .bento-card {
-            background: #FFFFFF;
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            padding: 28px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.32s var(--ease-out-expo), box-shadow 0.32s var(--ease-out-expo), border-color 0.25s ease;
-        }
+        .bento-card { background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px; height: 100%; display: flex; flex-direction: column; transition: all 0.4s var(--ease-out-expo); box-shadow: 0 4px 20px rgba(12, 54, 88, 0.03); }
+        .bento-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: rgba(38, 105, 125, 0.4); }
 
-        .bento-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 42px rgba(12, 54, 88, 0.07);
-            border-color: rgba(38, 105, 125, 0.45);
-        }
+        .bento-media-card { background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; height: 100%; display: flex; flex-direction: column; transition: all 0.4s var(--ease-out-expo); box-shadow: 0 4px 20px rgba(12, 54, 88, 0.03); }
+        .bento-media-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: rgba(38, 105, 125, 0.4); }
 
-        .bento-media-card {
-            background: #FFFFFF;
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.32s var(--ease-out-expo), box-shadow 0.32s var(--ease-out-expo), border-color 0.25s ease;
-        }
+        /* Media Elements */
+        .media-ratio-16-9, .media-ratio-4-3, .media-ratio-21-9 { position: relative; overflow: hidden; background: var(--surface-slate); }
+        .media-ratio-16-9 { aspect-ratio: 16 / 9; flex-shrink: 0; }
+        .media-ratio-4-3 { width: 100%; height: 100%; min-height: 400px; border-radius: var(--radius-lg); }
+        .media-ratio-21-9 { aspect-ratio: 21 / 9; border-radius: 20px; border: 1px solid var(--border-subtle); }
+        
+        .media-ratio-4-3 img, .media-ratio-16-9 img, .media-ratio-21-9 img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s var(--ease-out-expo); }
+        .bento-media-card:hover .media-ratio-16-9 img, .media-ratio-4-3:hover img, .bento-card:hover .media-ratio-21-9 img { transform: scale(1.05); }
 
-        .bento-media-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 44px rgba(12, 54, 88, 0.08);
-            border-color: rgba(38, 105, 125, 0.45);
-        }
+        .media-badge-corner { position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); color: var(--astra-navy); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700; padding: 6px 12px; border-radius: 100px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 2; }
 
-        .media-ratio-16-9 {
-            aspect-ratio: 16 / 9;
-            background: linear-gradient(135deg, var(--astra-navy), var(--astra-teal));
-            overflow: hidden;
-            position: relative;
-            flex-shrink: 0;
-        }
+        .bento-card-content { padding: 32px; display: flex; flex-direction: column; flex-grow: 1; }
+        
+        .deliverables-footer { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border-subtle); font-size: 0.9rem; color: var(--text-dark); font-weight: 500; }
+        .deliverables-footer .deliv-label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--astra-teal); margin-bottom: 8px; }
 
-        .media-ratio-4-3 {
-            width: 100%;
-            height: 100%;
-            min-height: 360px;
-            border-radius: 16px;
-            border: 1px solid var(--border-subtle);
-            background: linear-gradient(135deg, var(--astra-navy), var(--astra-teal));
-            overflow: hidden;
-            position: relative;
-        }
-
-        .media-ratio-4-3 img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s var(--ease-out-expo);
-        }
-
-        .media-ratio-21-9 {
-            aspect-ratio: 21 / 9;
-            border-radius: 14px;
-            border: 1px solid var(--border-subtle);
-            background: linear-gradient(135deg, var(--astra-navy), var(--astra-teal));
-            overflow: hidden;
-            position: relative;
-        }
-
-        .media-ratio-16-9 img,
-        .media-ratio-21-9 img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s var(--ease-out-expo);
-        }
-
-        .bento-media-card:hover .media-ratio-16-9 img,
-        .media-ratio-4-3:hover img {
-            transform: scale(1.04);
-        }
-
-        .media-badge-corner {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(7, 34, 56, 0.88);
-            backdrop-filter: blur(8px);
-            color: var(--astra-lime);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.68rem;
-            font-weight: 600;
-            padding: 5px 10px;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-        }
-
-        .bento-card-content {
-            padding: 24px 26px 26px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .deliverables-footer {
-            margin-top: auto;
-            padding-top: 14px;
-            border-top: 1px solid var(--border-subtle);
-            font-size: 0.82rem;
-            color: var(--text-dark);
-        }
-
-        .deliverables-footer .deliv-label {
-            display: block;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.68rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: var(--astra-teal);
-            margin-bottom: 4px;
-        }
-
-        .icon-square {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: rgba(12, 54, 88, 0.06);
-            color: var(--astra-teal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            margin-bottom: 16px;
-            flex-shrink: 0;
-        }
+        .icon-square { width: 56px; height: 56px; border-radius: 16px; background: rgba(38, 105, 125, 0.1); color: var(--astra-teal); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 24px; flex-shrink: 0; }
 
         /* Modern Segmented Pill Tabs */
-        .segmented-pills {
-            display: inline-flex;
-            flex-wrap: wrap;
-            background: #EBF1F6;
-            padding: 5px;
-            border-radius: 12px;
-            border: 1px solid var(--border-subtle);
-            gap: 4px;
-        }
-
-        .segmented-pills .nav-link {
-            border-radius: 9px !important;
-            padding: 10px 18px !important;
-            font-size: 0.84rem;
-            font-weight: 700;
-            color: var(--text-muted) !important;
-            background: transparent;
-            text-align: center;
-        }
-
-        .segmented-pills .nav-link.active {
-            background: #FFFFFF !important;
-            color: var(--astra-navy) !important;
-            box-shadow: 0 4px 12px rgba(12, 54, 88, 0.08);
-        }
+        .segmented-pills { display: inline-flex; background: #FFFFFF; padding: 8px; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle); gap: 4px; box-shadow: 0 8px 24px rgba(12, 54, 88, 0.04); }
+        .segmented-pills .nav-link { border-radius: var(--radius-md) !important; padding: 12px 24px !important; font-size: 0.9rem; font-weight: 700; color: var(--text-muted) !important; background: transparent; text-align: center; border: none; }
+        .segmented-pills .nav-link.active { background: var(--astra-navy) !important; color: #FFFFFF !important; box-shadow: 0 4px 12px rgba(12, 54, 88, 0.2); }
 
         /* Software & Design Codes Matrix */
-        .matrix-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
+        .matrix-row { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border-subtle); }
         .matrix-row:first-child { padding-top: 0; }
         .matrix-row:last-child { border-bottom: none; padding-bottom: 0; }
-
-        .tool-monogram {
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            font-size: 0.76rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
+        .tool-monogram { width: 48px; height: 48px; border-radius: 14px; font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
         /* Interactive 5-Stage QA Workflow */
-        .qa-stage-card {
-            background: #FFFFFF;
-            border: 1px solid var(--border-subtle);
-            border-radius: 14px;
-            padding: 22px 26px;
-            margin-bottom: 14px;
-            display: grid;
-            grid-template-columns: 88px 220px 1fr 270px;
-            gap: 20px;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.25s var(--ease-out-expo);
-        }
-
+        .qa-stage-card { background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: 20px; padding: 28px 32px; margin-bottom: 16px; display: grid; grid-template-columns: 90px 240px 1fr 280px; gap: 24px; align-items: center; cursor: pointer; transition: all 0.3s var(--ease-out-expo); box-shadow: 0 4px 12px rgba(12, 54, 88, 0.02); }
         .qa-stage-card:last-child { margin-bottom: 0; }
+        .qa-stage-card:hover { border-color: rgba(38, 105, 125, 0.3); box-shadow: 0 16px 32px rgba(12, 54, 88, 0.06); transform: translateX(6px); }
+        .qa-stage-card.is-active { border-color: var(--astra-teal); border-left: 6px solid var(--astra-navy); box-shadow: 0 16px 40px rgba(12, 54, 88, 0.08); transform: translateX(6px); }
 
-        .qa-stage-card:hover,
-        .qa-stage-card.is-active {
-            border-color: var(--astra-teal);
-            box-shadow: 0 12px 28px rgba(12, 54, 88, 0.06);
-            transform: translateX(4px);
-        }
-
-        .qa-stage-card.is-active {
-            border-left: 4px solid var(--astra-navy);
-        }
-
-        .stage-pill {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.74rem;
-            font-weight: 700;
-            padding: 6px 10px;
-            border-radius: 6px;
-            background: rgba(12, 54, 88, 0.06);
-            color: var(--astra-navy);
-            text-align: center;
-        }
-
-        .qa-stage-card.is-active .stage-pill {
-            background: var(--astra-navy);
-            color: var(--astra-lime);
-        }
-
-        .milestone-chip {
-            background: var(--surface-slate);
-            border: 1px solid var(--border-subtle);
-            border-radius: 8px;
-            padding: 10px 14px;
-            font-size: 0.81rem;
-            font-weight: 600;
-            color: var(--astra-navy);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .stage-pill { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 800; padding: 8px 12px; border-radius: 8px; background: var(--surface-slate); color: var(--astra-navy); text-align: center; border: 1px solid var(--border-subtle); }
+        .qa-stage-card.is-active .stage-pill { background: var(--astra-navy); color: var(--astra-lime); border-color: var(--astra-navy); }
+        
+        .milestone-chip { background: var(--surface-slate); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 12px 16px; font-size: 0.85rem; font-weight: 700; color: var(--astra-navy); display: flex; align-items: center; gap: 12px; }
 
         /* Dark Executive Engagement Section */
-        .dark-engagement-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 16px;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s var(--ease-out-expo), border-color 0.25s ease;
-        }
+        .dark-engagement-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg); overflow: hidden; height: 100%; display: flex; flex-direction: column; transition: all 0.4s var(--ease-out-expo); backdrop-filter: blur(10px); }
+        .dark-engagement-card:hover { transform: translateY(-8px); border-color: rgba(217, 233, 144, 0.4); box-shadow: 0 24px 48px rgba(0,0,0,0.2); }
+        .dark-engagement-body { padding: 32px; display: flex; flex-direction: column; flex-grow: 1; }
+        .audience-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--astra-lime); margin-bottom: 12px; display: block; }
 
-        .dark-engagement-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--astra-lime);
-        }
-
-        .dark-engagement-body {
-            padding: 24px 26px 26px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .audience-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.69rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--astra-lime);
-            margin-bottom: 8px;
-            display: block;
-        }
+        /* Custom Floating WhatsApp Button */
+        .float-button { text-decoration: none; position: fixed; display: inline-flex; align-items: center; padding: 10px 15px 10px 10px; bottom: 30px; right: 30px; color: #fff; background-color: #25D366; border-radius: 100px; z-index: 1040; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 700; line-height: 1; animation: whatsapp-animation 0.5s ease-in-out; box-shadow: 0 12px 28px rgba(37, 211, 102, 0.35); transition: all 0.3s ease-out; }
+        .float-button:hover { background-color: #128C7E; color: #fff; transform: translateY(-4px) scale(1.04); }
+        .float-button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+        .float-button .fa-whatsapp { font-size: 24px !important; padding-right: 8px; padding-left: 5px; }
+        @keyframes whatsapp-animation { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Footer & Statutory Notice */
-        .modern-footer {
-            background-color: #FFFFFF;
-            padding: 72px 0 44px;
-            border-top: 1px solid var(--border-subtle);
+        .modern-footer { background-color: var(--surface-white); padding: 100px 0 40px; border-top: 1px solid var(--border-subtle); }
+        .statutory-panel { background: var(--surface-slate); border: 1px solid var(--border-subtle); border-left: 4px solid var(--astra-teal); border-radius: 16px; padding: 24px 32px; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 64px; line-height: 1.7; }
+        .footer-link { color: var(--text-muted); text-decoration: none; transition: all 0.2s ease; font-weight: 500; display: inline-block; padding: 4px 0; }
+        .footer-link:hover { color: var(--astra-teal); transform: translateX(4px); }
+
+        /* =========================================
+           MOBILE RESPONSIVENESS (HYPER-OPTIMIZED)
+           ========================================= */
+        
+        /* TABLET & SMALL DESKTOP */
+        @media (max-width: 1199px) {
+            .qa-stage-card { grid-template-columns: 1fr; gap: 16px; }
+            .qa-stage-card.is-active { transform: translateY(-4px); border-left-width: 1px; border-top: 6px solid var(--astra-navy); }
+            .stage-pill { width: fit-content; }
         }
 
-        .statutory-panel {
-            background: var(--surface-slate);
-            border: 1px solid var(--border-subtle);
-            border-left: 4px solid var(--astra-navy);
-            border-radius: 12px;
-            padding: 20px 24px;
-            font-size: 0.84rem;
-            color: var(--text-muted);
-            margin-bottom: 44px;
-            line-height: 1.72;
-        }
-
-        .footer-link {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.2s ease;
-            word-break: break-word;
-        }
-
-        .footer-link:hover {
-            color: var(--astra-navy);
-            text-decoration: underline;
-        }
-
-        /* Tablet Breakpoint (<= 991px) */
         @media (max-width: 991px) {
-            section {
-                padding: 80px 0;
-            }
-
-            .navbar-collapse {
-                background: #FFFFFF;
-                border: 1px solid var(--border-subtle);
-                border-radius: 14px;
-                padding: 14px;
-                margin-top: 12px;
-                box-shadow: 0 18px 40px rgba(12, 54, 88, 0.08);
-            }
-
-            .navbar-collapse .btn-modern {
-                width: 100%;
-            }
-
-            .hero-modern {
-                min-height: auto;
-                padding: 56px 0 68px;
-            }
-
-            .media-ratio-4-3 {
-                min-height: 300px;
-                aspect-ratio: 16 / 10;
-            }
-
-            .qa-stage-card {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-
-            .qa-stage-card:hover,
-            .qa-stage-card.is-active {
-                transform: translateY(-2px);
-            }
-
-            .stage-pill {
-                width: fit-content;
-            }
+            section { padding: 80px 0; }
+            
+            /* Navbar Mobile Adaptations */
+            .navbar-wrapper { padding: 10px 16px; }
+            .navbar { border-radius: 20px; padding: 12px 20px; }
+            .navbar-collapse { background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: 16px; padding: 20px; margin-top: 16px; box-shadow: var(--shadow-float); }
+            .navbar-collapse .btn-modern { width: 100%; margin-top: 16px; }
+            
+            .hero-modern { min-height: auto; padding: 80px 0 60px; }
+            .media-ratio-4-3 { min-height: 300px; aspect-ratio: 16 / 10; }
+            
+            /* Un-float KPI Strip */
+            .kpi-strip { margin: 0; border-radius: 0; transform: none; padding: 60px 0; }
         }
 
-        /* Mobile Breakpoint (<= 767px) */
+        /* MOBILE (PHONES) */
         @media (max-width: 767px) {
-            section {
-                padding: 64px 0;
-            }
-
-            .segmented-pills {
-                display: flex;
-                width: 100%;
-            }
-
-            .segmented-pills .nav-item {
-                flex: 1 1 auto;
-            }
-
-            .segmented-pills .nav-link {
-                width: 100%;
-                padding: 10px 12px !important;
-                font-size: 0.8rem;
-            }
-
-            .bento-card {
-                padding: 22px;
-            }
-
-            .bento-card-content,
-            .dark-engagement-body {
-                padding: 20px 22px 22px;
-            }
-
-            .qa-stage-card {
-                padding: 20px;
-            }
-
-            .modern-footer {
-                padding: 56px 0 36px;
-            }
+            section { padding: 60px 0; }
+            .hero-title { font-size: 2.2rem; }
+            
+            /* Segmented Pills for touch */
+            .segmented-pills { flex-direction: column; width: 100%; border-radius: var(--radius-md); padding: 8px; }
+            .segmented-pills .nav-item { width: 100%; }
+            .segmented-pills .nav-link { width: 100%; padding: 14px 16px !important; margin-bottom: 4px; }
+            .segmented-pills .nav-item:last-child .nav-link { margin-bottom: 0; }
+            
+            /* Adjust padding globally for smaller screens */
+            .bento-card, .bento-card-content, .dark-engagement-body { padding: 24px; }
+            .qa-stage-card { padding: 24px; }
+            .modern-footer { padding: 60px 0 36px; }
+            .statutory-panel { padding: 20px; }
         }
 
-        /* Small Mobile Breakpoint (<= 575px) */
+        /* SMALL MOBILE */
         @media (max-width: 575px) {
-            .hero-modern {
-                padding: 40px 0 56px;
-            }
-
-            .hero-cta-group {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .hero-cta-group .btn-modern,
-            .engagement-cta-btn {
-                width: 100%;
-            }
-
-            .hero-media-frame {
-                aspect-ratio: 4 / 3;
-                border-radius: 14px;
-            }
-
-            .hero-media-overlay {
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-end;
-                padding: 16px;
-            }
-
-            .hero-sub-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-
-            .media-ratio-4-3 {
-                min-height: 230px;
-            }
-
-            .media-ratio-21-9 {
-                aspect-ratio: 16 / 9;
-            }
-
-            .segmented-pills {
-                flex-direction: column;
-            }
-
-            .matrix-row {
-                gap: 12px;
-            }
-
-            .tool-monogram {
-                width: 36px;
-                height: 36px;
-                font-size: 0.7rem;
-            }
-
-            .kpi-strip {
-                padding: 40px 0;
-            }
-
-            .statutory-panel {
-                padding: 18px;
-                font-size: 0.81rem;
-            }
+            .hero-modern { padding: 40px 0 50px; }
+            
+            /* Hero Buttons Full Width */
+            .hero-cta-group { flex-direction: column; width: 100%; }
+            .hero-cta-group .btn-modern, .engagement-cta-btn { width: 100%; justify-content: center; }
+            
+            .hero-media-frame { aspect-ratio: 4 / 3; border-radius: 20px; }
+            .hero-media-overlay { flex-direction: column; align-items: flex-start; justify-content: flex-end; padding: 20px; }
+            .hero-sub-grid { grid-template-columns: 1fr; gap: 12px; }
+            
+            .media-ratio-4-3 { min-height: 240px; }
+            .media-ratio-21-9 { aspect-ratio: 16 / 9; }
+            
+            .matrix-row { gap: 12px; flex-direction: column; }
+            .tool-monogram { width: 42px; height: 42px; font-size: 0.8rem; margin-bottom: 8px; }
+            
+            .kpi-strip { padding: 40px 0; }
+            .kpi-number { font-size: 1.8rem; }
+            
+            /* Optimize Floating WhatsApp for thumbs */
+            .float-button { bottom: 20px; right: 20px; width: 56px; height: 56px; padding: 0; justify-content: center; border-radius: 50%; }
+            .float-button-label { display: none; }
+            .float-button .fa-whatsapp { font-size: 28px !important; padding: 0; }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            [data-animate] {
-                opacity: 1 !important;
-                transform: none !important;
-                transition: none !important;
-            }
-
-            .eyebrow-pill .pulse-dot {
-                animation: none !important;
-            }
+            [data-animate] { opacity: 1 !important; transform: none !important; transition: none !important; }
+            .eyebrow-pill .pulse-dot { animation: none !important; }
+            html { scroll-behavior: auto; }
         }
     </style>
 </head>
@@ -911,50 +287,52 @@
 
 <div id="scroll-bar" aria-hidden="true"></div>
 
-<nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-            <img src="./assets/images/logo1.png" alt="Astra BIM" style="height: 34px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-            <span style="display: none; width: 30px; height: 30px; align-items: center; justify-content: center;">
-                <svg viewBox="0 0 40 36" width="30" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <polygon points="20,2 38,34 29,34 20,17 11,34 2,34" fill="#26697D"/>
-                    <polygon points="20,2 29,18 20,18" fill="#0C3658"/>
-                    <polygon points="11,34 38,34 33,26 15,26" fill="#4FA3BD"/>
-                </svg>
-            </span>
-            <span>ASTRA BIM</span>
-        </a>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="#standards">Software &amp; Codes</a></li>
-                <li class="nav-item"><a class="nav-link" href="#methodology">QA Workflow</a></li>
-                <li class="nav-item"><a class="nav-link" href="#advantage">Why Astra</a></li>
-                <li class="nav-item"><a class="nav-link" href="#engagement">Engagement</a></li>
-                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                    <a href="mailto:info@astrasoft.tech" class="btn-modern btn-modern-primary">Consult With Us</a>
-                </li>
-            </ul>
+<!-- Floating Capsule Navigation -->
+<div class="navbar-wrapper">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid px-lg-3">
+            <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+                <img src="./assets/images/logo1.png" alt="Astra BIM" style="height: 34px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                <span style="display: none; width: 30px; height: 30px; align-items: center; justify-content: center;">
+                    <svg viewBox="0 0 40 36" width="30" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <polygon points="20,2 38,34 29,34 20,17 11,34 2,34" fill="#26697D"/>
+                        <polygon points="20,2 29,18 20,18" fill="#0C3658"/>
+                        <polygon points="11,34 38,34 33,26 15,26" fill="#4FA3BD"/>
+                    </svg>
+                </span>
+                <span>ASTRA BIM</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#standards">Software &amp; Codes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#methodology">QA Workflow</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#advantage">Why Astra</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#engagement">Engagement</a></li>
+                    <li class="nav-item ms-lg-4">
+                        <a href="mailto:info@astrasoft.tech" class="btn-modern btn-modern-primary">Consult With Us</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</div>
 
+<!-- Hero Section -->
 <section class="hero-modern cad-grid-bg">
     <div id="hero-spaceframe"></div>
     <div class="container hero-z">
-        <div class="row align-items-center g-4 g-lg-5">
+        <div class="row align-items-center g-5">
             <div class="col-lg-6" data-animate>
                 <div class="eyebrow-pill">
                     <span class="pulse-dot"></span>
-                    <span>
-                        <!-- Astrasoft Division &bull;  -->
-                        We Are The Future</span>
+                    <span>We Are The Future</span>
                 </div>
-                <h1 class="hero-title">Digital Structural <span class="hero-gradient-text">Modeling &amp; BIM</span> Engineering.</h1>
+                <h1 class="hero-title">Digital Structural <br><span class="hero-gradient-text">Modeling &amp; BIM</span><br> Engineering.</h1>
                 <p class="hero-lead">We are a dedicated technical partner to consulting structural engineers, architects, main contractors, and developers, transforming complex architectural concepts into clash-free, code-compliant, and buildable 3D packages.</p>
                 <div class="d-flex flex-wrap gap-3 hero-cta-group">
                     <a href="#services" class="btn-modern btn-modern-primary">Explore Services <i class="bi bi-arrow-right"></i></a>
@@ -968,16 +346,16 @@
                 </div>
             </div>
 
-            <div class="col-lg-6" data-animate data-delay="120">
+            <div class="col-lg-6" data-animate data-delay="150">
                 <div class="hero-visual-stack">
                     <div class="hero-media-frame">
                         <img src="assets/img/image.png" alt="Digital structural BIM modeling and engineering blueprints" onerror="this.style.display='none'">
                         <div class="hero-media-overlay">
                             <div>
                                 <span class="mono-tag d-block" style="color: var(--astra-lime);">COMPUTATIONAL AEC WORKFLOW</span>
-                                <span class="fw-bold d-block" style="font-size: 0.94rem;">3D Analytical Models, GA Drawings &amp; Bar Bending Schedules</span>
+                                <span class="fw-bold d-block mt-1" style="font-size: 1.05rem;">3D Analytical Models, GA Drawings &amp; Bar Bending Schedules</span>
                             </div>
-                            <span class="badge flex-shrink-0" style="background: var(--astra-lime); color: var(--astra-navy); font-weight: 800; padding: 6px 12px;">PE Audit Ready</span>
+                            <span class="badge flex-shrink-0 rounded-pill shadow-sm" style="background: var(--astra-lime); color: var(--astra-navy); font-weight: 800; padding: 8px 16px;">PE Audit Ready</span>
                         </div>
                     </div>
 
@@ -985,15 +363,15 @@
                         <div class="hero-mini-tile">
                             <div class="mini-icon"><i class="bi bi-layers-half"></i></div>
                             <div>
-                                <span class="d-block fw-bold" style="font-size: 0.88rem; color: var(--astra-navy);">Bi-Directional FEA</span>
-                                <span class="mono-tag text-muted d-block">.rvt / .rtd / .edb / .sdb</span>
+                                <span class="d-block fw-bold mb-1" style="font-size: 0.95rem; color: var(--astra-navy);">Bi-Directional FEA</span>
+                                <span class="mono-tag text-muted d-block" style="font-size: 0.7rem;">.rvt / .rtd / .edb / .sdb</span>
                             </div>
                         </div>
                         <div class="hero-mini-tile">
                             <div class="mini-icon"><i class="bi bi-shield-check"></i></div>
                             <div>
-                                <span class="d-block fw-bold" style="font-size: 0.88rem; color: var(--astra-navy);">Zero Site Clashes</span>
-                                <span class="mono-tag text-muted d-block">Navisworks .nwc / .nwd</span>
+                                <span class="d-block fw-bold mb-1" style="font-size: 0.95rem; color: var(--astra-navy);">Zero Site Clashes</span>
+                                <span class="mono-tag text-muted d-block" style="font-size: 0.7rem;">Navisworks .nwc / .nwd</span>
                             </div>
                         </div>
                     </div>
@@ -1003,6 +381,7 @@
     </div>
 </section>
 
+<!-- KPI Executive Strip -->
 <div class="kpi-strip">
     <div class="container">
         <div class="row g-4 text-center text-md-start">
@@ -1010,15 +389,15 @@
                 <p class="kpi-number">LOD <span data-counter="350">350</span></p>
                 <p class="kpi-label">Parametric BIM Depth</p>
             </div>
-            <div class="col-6 col-lg-3" data-animate data-delay="70">
+            <div class="col-6 col-lg-3" data-animate data-delay="100">
                 <p class="kpi-number"><span data-counter="0">0</span> Clashes</p>
                 <p class="kpi-label">Pre-Excavation MEP &amp; Rebar Audit</p>
             </div>
-            <div class="col-6 col-lg-3" data-animate data-delay="140">
+            <div class="col-6 col-lg-3" data-animate data-delay="200">
                 <p class="kpi-number"><span data-counter="5">5</span>-Stage QA</p>
                 <p class="kpi-label">Gated Delivery Methodology</p>
             </div>
-            <div class="col-6 col-lg-3" data-animate data-delay="210">
+            <div class="col-6 col-lg-3" data-animate data-delay="300">
                 <p class="kpi-number"><span data-counter="100">100</span>%</p>
                 <p class="kpi-label">Eurocode, BS &amp; NCA Compliant</p>
             </div>
@@ -1026,34 +405,34 @@
     </div>
 </div>
 
-<section id="about" class="bg-white">
+<section id="about" class="bg-white" style="padding-top: 40px;">
     <div class="container">
-        <div class="row g-4 g-lg-5 align-items-stretch mb-5">
+        <div class="row g-5 align-items-stretch mb-5">
             <div class="col-lg-5" data-animate>
-                <div class="media-ratio-4-3">
+                <div class="media-ratio-4-3 shadow-lg">
                     <img src="assets/img/constructuion.jpg" alt="Structural framing and digital construction engineering" onerror="this.style.display='none'">
                     <span class="media-badge-corner">NAIROBI &bull; EAST AFRICA</span>
                 </div>
             </div>
 
             <div class="col-lg-7 d-flex flex-column justify-content-between" data-animate data-delay="100">
-                <div class="mb-4">
+                <div class="mb-5">
                     <div class="eyebrow-pill"><span>Who We Are</span></div>
                     <h2 class="section-heading">Operating at the Intersection of Computational Engineering &amp; Digital Construction.</h2>
-                    <p class="card-text-sm mb-0">Astra Structural BIM is the specialized structural engineering modeling, building planning, and Building Information Modeling (BIM) consultancy division of Astrasoft. We serve consulting structural engineers, architects, main contractors, and real estate developers with precision-engineered 3D analytical models and fabrication-ready detailing packages.</p>
+                    <p class="section-subcopy mb-0">Astra Structural BIM is the specialized structural engineering modeling, building planning, and Building Information Modeling (BIM) consultancy division of Astrasoft. We serve consulting structural engineers, architects, main contractors, and real estate developers with precision-engineered 3D analytical models and fabrication-ready detailing packages.</p>
                 </div>
 
-                <div class="row g-3 g-md-4">
+                <div class="row g-4">
                     <div class="col-md-6">
-                        <div class="bento-card" style="border-top: 3px solid var(--astra-navy);">
-                            <span class="mono-tag text-uppercase mb-2" style="color: var(--astra-teal);">01 // Our Mission</span>
+                        <div class="bento-card" style="border-top: 4px solid var(--astra-navy);">
+                            <span class="mono-tag text-uppercase mb-3" style="color: var(--astra-teal);">01 // Our Mission</span>
                             <h4 class="card-title-md">Africa's Premier Digital Structural Partner</h4>
                             <p class="card-text-sm mb-0">To be Africa's premier digital structural modeling and computational engineering partner, setting the benchmark for clash-free, data-driven, and constructible building delivery.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="bento-card" style="border-top: 3px solid var(--astra-teal);">
-                            <span class="mono-tag text-uppercase mb-2" style="color: var(--astra-teal);">02 // Our Vision</span>
+                        <div class="bento-card" style="border-top: 4px solid var(--astra-teal);">
+                            <span class="mono-tag text-uppercase mb-3" style="color: var(--astra-teal);">02 // Our Vision</span>
                             <h4 class="card-title-md">Zero On-Site Errors &amp; Optimal Efficiency</h4>
                             <p class="card-text-sm mb-0">To empower engineering consultancies, architects, and builders with high-precision 3D structural modeling, finite element analysis, and automated detailing workflows.</p>
                         </div>
@@ -1062,7 +441,7 @@
             </div>
         </div>
 
-        <div class="row g-3 g-md-4 pt-2">
+        <div class="row g-4 pt-4">
             <div class="col-sm-6 col-lg-3" data-animate>
                 <div class="bento-card">
                     <div class="icon-square"><i class="bi bi-rulers"></i></div>
@@ -1070,21 +449,21 @@
                     <p class="card-text-sm mb-0">Every grid line, node, rebar cage, and anchor calculation is verified against international structural standards before handover.</p>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3" data-animate data-delay="70">
+            <div class="col-sm-6 col-lg-3" data-animate data-delay="100">
                 <div class="bento-card">
                     <div class="icon-square"><i class="bi bi-buildings"></i></div>
                     <h5 class="card-title-md">Constructability First</h5>
                     <p class="card-text-sm mb-0">Bridging theoretical design and site reality with clear General Arrangement (GA) drawings, Bar Bending Schedules (BBS), and CNC steel data.</p>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3" data-animate data-delay="140">
+            <div class="col-sm-6 col-lg-3" data-animate data-delay="200">
                 <div class="bento-card">
                     <div class="icon-square"><i class="bi bi-arrow-left-right"></i></div>
                     <h5 class="card-title-md">Seamless Interoperability</h5>
                     <p class="card-text-sm mb-0">Bi-directional Revit and Robot workflows paired with Navisworks federation keep structural, architectural, and MEP teams aligned.</p>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3" data-animate data-delay="210">
+            <div class="col-sm-6 col-lg-3" data-animate data-delay="300">
                 <div class="bento-card">
                     <div class="icon-square"><i class="bi bi-patch-check"></i></div>
                     <h5 class="card-title-md">Statutory Integrity</h5>
@@ -1095,26 +474,27 @@
     </div>
 </section>
 
-<section id="services" class="section-slate">
+<section id="services" class="cad-grid-bg">
     <div class="container">
-        <div class="row align-items-end justify-content-between mb-4 mb-lg-5" data-animate>
+        <div class="row align-items-end justify-content-between mb-5" data-animate>
             <div class="col-lg-6">
                 <div class="eyebrow-pill"><span>Technical Capabilities</span></div>
                 <h2 class="section-heading mb-0">End-to-End Structural Planning &amp; BIM Modeling</h2>
             </div>
-            <div class="col-lg-6 text-lg-end mt-3 mt-lg-0">
+            <div class="col-lg-6 text-lg-end mt-4 mt-lg-0">
                 <ul class="nav segmented-pills" id="capabilityTabs" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active btn-modern-primary" id="tab-core" data-bs-toggle="pill" data-bs-target="#pane-core" type="button" role="tab" aria-controls="pane-core" aria-selected="true">Core Technical Modeling</button>
+                        <button class="nav-link active" id="tab-core" data-bs-toggle="pill" data-bs-target="#pane-core" type="button" role="tab" aria-controls="pane-core" aria-selected="true">Core Technical Modeling</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link btn-modern-primary" id="tab-plan" data-bs-toggle="pill" data-bs-target="#pane-plan" type="button" role="tab" aria-controls="pane-plan" aria-selected="false">Structural &amp; Building Planning</button>
+                        <button class="nav-link" id="tab-plan" data-bs-toggle="pill" data-bs-target="#pane-plan" type="button" role="tab" aria-controls="pane-plan" aria-selected="false">Structural &amp; Building Planning</button>
                     </li>
                 </ul>
             </div>
         </div>
 
         <div class="tab-content" id="capabilityTabsContent">
+            <!-- TAB 1 -->
             <div class="tab-pane fade show active" id="pane-core" role="tabpanel" aria-labelledby="tab-core">
                 <div class="row g-4">
                     <div class="col-md-6" data-animate>
@@ -1124,7 +504,7 @@
                                 <span class="media-badge-corner">.EDB / .PRO / .SDB</span>
                             </div>
                             <div class="bento-card-content">
-                                <h4 class="card-title-md">Computational Structural Modeling</h4>
+                                <h4 class="card-title-md fs-4">Computational Structural Modeling</h4>
                                 <p class="card-text-sm">Full 3D analytical geometry configuration, gravity and lateral load allocations, preliminary member sizing, and finite element meshing.</p>
                                 <div class="deliverables-footer">
                                     <span class="deliv-label">Deliverables</span>
@@ -1134,14 +514,14 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6" data-animate data-delay="80">
+                    <div class="col-md-6" data-animate data-delay="100">
                         <div class="bento-media-card">
                             <div class="media-ratio-16-9">
                                 <img src="assets/img/Structural_BIM_Coordination.jpg" alt="Multi-disciplinary structural BIM coordination" onerror="this.style.display='none'">
                                 <span class="media-badge-corner">LOD 200 to 350</span>
                             </div>
                             <div class="bento-card-content">
-                                <h4 class="card-title-md">Structural BIM Coordination</h4>
+                                <h4 class="card-title-md fs-4">Structural BIM Coordination</h4>
                                 <p class="card-text-sm">Parametric structural concrete and steel modeling with multi-disciplinary clash detection across MEP and architectural systems prior to construction.</p>
                                 <div class="deliverables-footer">
                                     <span class="deliv-label">Deliverables</span>
@@ -1158,7 +538,7 @@
                                 <span class="media-badge-corner">GA &amp; BBS PACKAGES</span>
                             </div>
                             <div class="bento-card-content">
-                                <h4 class="card-title-md">Reinforced Concrete Detailing</h4>
+                                <h4 class="card-title-md fs-4">Reinforced Concrete Detailing</h4>
                                 <p class="card-text-sm">3D placement modeling of rebar cages, slab layout detailing, bar shape coding, and automated bar schedule generation per standard detailing manuals.</p>
                                 <div class="deliverables-footer">
                                     <span class="deliv-label">Deliverables</span>
@@ -1168,14 +548,14 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6" data-animate data-delay="80">
+                    <div class="col-md-6" data-animate data-delay="100">
                         <div class="bento-media-card">
                             <div class="media-ratio-16-9">
                                 <img src="assets/img/Structural_Steel_Shop_Drafting.jpg" alt="Structural steel framing and shop drafting" onerror="this.style.display='none'">
                                 <span class="media-badge-corner">CNC &amp; SHOP DRAFTING</span>
                             </div>
                             <div class="bento-card-content">
-                                <h4 class="card-title-md">Structural Steel Shop Drafting</h4>
+                                <h4 class="card-title-md fs-4">Structural Steel Shop Drafting</h4>
                                 <p class="card-text-sm">Fabrication-level structural steel framing, connection modeling, bolt and weld scheduling, and plate preparation layouts.</p>
                                 <div class="deliverables-footer">
                                     <span class="deliv-label">Deliverables</span>
@@ -1187,6 +567,7 @@
                 </div>
             </div>
 
+            <!-- TAB 2 -->
             <div class="tab-pane fade" id="pane-plan" role="tabpanel" aria-labelledby="tab-plan">
                 <div class="row g-4">
                     <div class="col-md-6">
@@ -1196,7 +577,7 @@
                                 <span class="media-badge-corner">SCHEMATIC GRIDS</span>
                             </div>
                             <div class="bento-card-content">
-                                <h4 class="card-title-md">Structural Grid &amp; Column Layout Planning</h4>
+                                <h4 class="card-title-md fs-4">Structural Grid &amp; Column Layout Planning</h4>
                                 <p class="card-text-sm">Coordination with architectural floor plans to align column grids, optimize spans, minimize beam drops in usable spaces, and eliminate transfer conflicts.</p>
                                 <div class="deliverables-footer">
                                     <span class="deliv-label">Deliverables</span>
@@ -1213,7 +594,7 @@
                                 <span class="media-badge-corner">WIND &amp; SEISMIC</span>
                             </div>
                             <div class="bento-card-content">
-                                <h4 class="card-title-md">Lateral Stability &amp; Shear Core Planning</h4>
+                                <h4 class="card-title-md fs-4">Lateral Stability &amp; Shear Core Planning</h4>
                                 <p class="card-text-sm">Positioning of shear walls, reinforced elevator/stair cores, and braced frames to ensure optimal torsional resistance, stiffness symmetry, and wind/seismic stability.</p>
                                 <div class="deliverables-footer">
                                     <span class="deliv-label">Deliverables</span>
@@ -1230,7 +611,7 @@
                                 <span class="media-badge-corner">TYPOLOGY MATRIX</span>
                             </div>
                             <div class="bento-card-content">
-                                <h4 class="card-title-md">Framing System Evaluation &amp; Selection</h4>
+                                <h4 class="card-title-md fs-4">Framing System Evaluation &amp; Selection</h4>
                                 <p class="card-text-sm">Comparative evaluation of solid slabs with beams, flat slabs with drop panels, post-tensioned systems, ribbed slabs, or steel decking based on spans and cost.</p>
                                 <div class="deliverables-footer">
                                     <span class="deliv-label">Deliverables</span>
@@ -1247,7 +628,7 @@
                                 <span class="media-badge-corner">SUBSTRUCTURE</span>
                             </div>
                             <div class="bento-card-content">
-                                <h4 class="card-title-md">Substructure &amp; Foundation Strategy</h4>
+                                <h4 class="card-title-md fs-4">Substructure &amp; Foundation Strategy</h4>
                                 <p class="card-text-sm">Preliminary foundation layout formulation based on geotechnical data, assessing isolated footings, strip footings, raft/mat foundations, or piled solutions.</p>
                                 <div class="deliverables-footer">
                                     <span class="deliv-label">Deliverables</span>
@@ -1264,53 +645,53 @@
 
 <section id="standards" class="bg-white">
     <div class="container">
-        <div class="text-center mx-auto mb-5" style="max-width: 700px;" data-animate>
+        <div class="text-center mx-auto mb-5 pb-4" style="max-width: 800px;" data-animate>
             <div class="eyebrow-pill"><span>Interoperability &amp; Governance</span></div>
             <h2 class="section-heading">Software Suite &amp; Design Standards</h2>
             <p class="section-subcopy mx-auto">Industry-standard computational tools paired with strict adherence to international design codes and Kenyan statutory regulations.</p>
         </div>
 
-        <div class="row g-4 align-items-stretch">
+        <div class="row g-5 align-items-stretch">
             <div class="col-lg-6" data-animate>
                 <div class="bento-card">
-                    <div class="media-ratio-21-9 mb-4">
+                    <div class="media-ratio-21-9 mb-5 shadow-sm">
                         <img src="assets/img/software.jpg" alt="Engineering software workstation and CAD modeling" onerror="this.style.display='none'">
                         <span class="media-badge-corner">BIM &amp; FEA STACK</span>
                     </div>
-                    <h4 class="card-title-md pb-3 mb-3 border-bottom">Engineering Software Matrix</h4>
+                    <h4 class="card-title-md fs-4 pb-4 mb-4 border-bottom">Engineering Software Matrix</h4>
 
                     <div class="matrix-row">
                         <div class="tool-monogram" style="background: rgba(24, 88, 168, 0.1); color: #1858A8;">RVT</div>
                         <div>
-                            <h5 class="fw-bold mb-1" style="font-size: 0.96rem; color: var(--astra-navy);">Autodesk Revit</h5>
+                            <h5 class="fw-bold mb-1" style="font-size: 1rem; color: var(--astra-navy);">Autodesk Revit</h5>
                             <p class="card-text-sm mb-0">Builds 3D physical and analytical models (LOD 200 to 350), models 3D rebar, generates automated Bar Bending Schedules (BBS), and exports .rvt / .ifc files.</p>
                         </div>
                     </div>
                     <div class="matrix-row">
                         <div class="tool-monogram" style="background: rgba(12, 54, 88, 0.1); color: var(--astra-navy);">RSA</div>
                         <div>
-                            <h5 class="fw-bold mb-1" style="font-size: 0.96rem; color: var(--astra-navy);">Autodesk Robot Structural Analysis</h5>
+                            <h5 class="fw-bold mb-1" style="font-size: 1rem; color: var(--astra-navy);">Autodesk Robot Structural Analysis</h5>
                             <p class="card-text-sm mb-0">Connects bi-directionally with Revit to run 3D frame/shell analysis, wind/seismic load simulations, and Eurocode/BS concrete and steel checks.</p>
                         </div>
                     </div>
                     <div class="matrix-row">
                         <div class="tool-monogram" style="background: rgba(0, 128, 96, 0.1); color: #008060;">NWD</div>
                         <div>
-                            <h5 class="fw-bold mb-1" style="font-size: 0.96rem; color: var(--astra-navy);">Autodesk Navisworks Manage</h5>
+                            <h5 class="fw-bold mb-1" style="font-size: 1rem; color: var(--astra-navy);">Autodesk Navisworks Manage</h5>
                             <p class="card-text-sm mb-0">Federates structural, architectural, and MEP models for automated clash detection, identifying penetrations, sleeve requirements, and headroom conflicts.</p>
                         </div>
                     </div>
                     <div class="matrix-row">
                         <div class="tool-monogram" style="background: rgba(200, 35, 51, 0.1); color: #C82333;">DWG</div>
                         <div>
-                            <h5 class="fw-bold mb-1" style="font-size: 0.96rem; color: var(--astra-navy);">AutoCAD</h5>
+                            <h5 class="fw-bold mb-1" style="font-size: 1rem; color: var(--astra-navy);">AutoCAD</h5>
                             <p class="card-text-sm mb-0">Handles fast 2D General Arrangement (GA) drafting, standard county/municipal submission sheet cleanups, and legacy .dwg exchange.</p>
                         </div>
                     </div>
-                    <div class="matrix-row">
+                    <div class="matrix-row border-bottom-0 pb-0">
                         <div class="tool-monogram" style="background: rgba(38, 105, 125, 0.12); color: var(--astra-teal);">FIX</div>
                         <div>
-                            <h5 class="fw-bold mb-1" style="font-size: 0.96rem; color: var(--astra-navy);">fischer FiXperience</h5>
+                            <h5 class="fw-bold mb-1" style="font-size: 1rem; color: var(--astra-navy);">fischer FiXperience</h5>
                             <p class="card-text-sm mb-0">Verifies steel-to-concrete baseplates, post-installed rebar connections (REBAR-FIX), masonry anchors (C-FIX), and CFRP strengthening (REINFORCE-FIX).</p>
                         </div>
                     </div>
@@ -1319,44 +700,44 @@
 
             <div class="col-lg-6" data-animate data-delay="100">
                 <div class="bento-card">
-                    <div class="media-ratio-21-9 mb-4">
+                    <div class="media-ratio-21-9 mb-5 shadow-sm">
                         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=950&q=85" alt="International structural design codes and compliance" onerror="this.style.display='none'">
                         <span class="media-badge-corner">CODES &amp; STATUTORY</span>
                     </div>
-                    <h4 class="card-title-md pb-3 mb-3 border-bottom">Supported Design Codes &amp; Detailing Standards</h4>
+                    <h4 class="card-title-md fs-4 pb-4 mb-4 border-bottom">Supported Design Codes &amp; Detailing Standards</h4>
 
                     <div class="matrix-row">
                         <div class="tool-monogram" style="background: rgba(12, 54, 88, 0.08); color: var(--astra-navy);">EC0/1</div>
                         <div>
-                            <h5 class="fw-bold mb-1" style="font-size: 0.96rem; color: var(--astra-navy);">Basis of Structural Design &amp; Actions</h5>
+                            <h5 class="fw-bold mb-1" style="font-size: 1rem; color: var(--astra-navy);">Basis of Structural Design &amp; Actions</h5>
                             <p class="card-text-sm mb-0">Eurocode 0 (EN 1990) and Eurocode 1 (EN 1991: Gravity, Wind &amp; Seismic Actions).</p>
                         </div>
                     </div>
                     <div class="matrix-row">
                         <div class="tool-monogram" style="background: rgba(12, 54, 88, 0.08); color: var(--astra-navy);">EC2</div>
                         <div>
-                            <h5 class="fw-bold mb-1" style="font-size: 0.96rem; color: var(--astra-navy);">Reinforced Concrete Design &amp; Detailing</h5>
+                            <h5 class="fw-bold mb-1" style="font-size: 1rem; color: var(--astra-navy);">Reinforced Concrete Design &amp; Detailing</h5>
                             <p class="card-text-sm mb-0">Eurocode 2 (EN 1992-1-1), BS 8110, and Standard Detailing Manuals (IStructE / BS 8666 Bar Shape Codes).</p>
                         </div>
                     </div>
                     <div class="matrix-row">
                         <div class="tool-monogram" style="background: rgba(12, 54, 88, 0.08); color: var(--astra-navy);">EC3</div>
                         <div>
-                            <h5 class="fw-bold mb-1" style="font-size: 0.96rem; color: var(--astra-navy);">Structural Steelwork &amp; Connections</h5>
+                            <h5 class="fw-bold mb-1" style="font-size: 1rem; color: var(--astra-navy);">Structural Steelwork &amp; Connections</h5>
                             <p class="card-text-sm mb-0">Eurocode 3 (EN 1993-1-1/1-8) and BS 5950 for member stability and connection tolerances.</p>
                         </div>
                     </div>
                     <div class="matrix-row">
                         <div class="tool-monogram" style="background: rgba(12, 54, 88, 0.08); color: var(--astra-navy);">ETAG</div>
                         <div>
-                            <h5 class="fw-bold mb-1" style="font-size: 0.96rem; color: var(--astra-navy);">Post-Installed Rebar &amp; Baseplate Anchors</h5>
+                            <h5 class="fw-bold mb-1" style="font-size: 1rem; color: var(--astra-navy);">Post-Installed Rebar &amp; Baseplate Anchors</h5>
                             <p class="card-text-sm mb-0">EN 1992-4 and ETAG 001 / EAD Guidelines verified with auditable fischer FiXperience printouts.</p>
                         </div>
                     </div>
-                    <div class="matrix-row">
+                    <div class="matrix-row border-bottom-0 pb-0">
                         <div class="tool-monogram" style="background: rgba(38, 105, 125, 0.14); color: var(--astra-teal);">NCA</div>
                         <div>
-                            <h5 class="fw-bold mb-1" style="font-size: 0.96rem; color: var(--astra-navy);">Local Regulatory Alignment</h5>
+                            <h5 class="fw-bold mb-1" style="font-size: 1rem; color: var(--astra-navy);">Local Regulatory Alignment</h5>
                             <p class="card-text-sm mb-0">Kenya Building Code and National Construction Authority (NCA) submission standards.</p>
                         </div>
                     </div>
@@ -1366,65 +747,65 @@
     </div>
 </section>
 
-<section id="methodology" class="section-slate">
+<section id="methodology" class="cad-grid-bg">
     <div class="container">
-        <div class="row align-items-end justify-content-between mb-4 mb-lg-5" data-animate>
+        <div class="row align-items-end justify-content-between mb-5" data-animate>
             <div class="col-lg-7">
                 <div class="eyebrow-pill"><span>Quality Assurance</span></div>
                 <h2 class="section-heading mb-0">5-Stage Project Delivery Methodology</h2>
             </div>
-            <div class="col-lg-5 mt-3 mt-lg-0">
-                <p class="card-text-sm mb-0">Select any stage below to inspect its quality verification gate and handover deliverables.</p>
+            <div class="col-lg-5 mt-4 mt-lg-0">
+                <p class="section-subcopy mb-0">Select any stage below to inspect its quality verification gate and handover deliverables.</p>
             </div>
         </div>
 
         <div data-animate>
             <div class="qa-stage-card is-active" onclick="selectStage(this)">
                 <span class="stage-pill">STAGE 01</span>
-                <h5 class="card-title-md mb-0">Ingestion &amp; Grid Audit</h5>
+                <h5 class="card-title-md mb-0 fs-5">Ingestion &amp; Grid Audit</h5>
                 <p class="card-text-sm mb-0">Review architectural drawings, MEP spatial requirements, and geotechnical parameters. Establish standard building grid, structural levels, and coordinate origins.</p>
                 <div class="milestone-chip">
-                    <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                    <i class="bi bi-check-circle-fill text-success flex-shrink-0 fs-5"></i>
                     <span>Grid Alignment Sheet &amp; Discrepancy Log</span>
                 </div>
             </div>
 
             <div class="qa-stage-card" onclick="selectStage(this)">
                 <span class="stage-pill">STAGE 02</span>
-                <h5 class="card-title-md mb-0">Analytical &amp; BIM Modeling</h5>
+                <h5 class="card-title-md mb-0 fs-5">Analytical &amp; BIM Modeling</h5>
                 <p class="card-text-sm mb-0">Build parametric 3D models in Revit and push wireframes bi-directionally into Robot FEA. Apply gravity/wind/seismic envelopes and verify anchors in fischer FiXperience.</p>
                 <div class="milestone-chip">
-                    <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                    <i class="bi bi-check-circle-fill text-success flex-shrink-0 fs-5"></i>
                     <span>Preliminary Sizing &amp; Node Integrity Check</span>
                 </div>
             </div>
 
             <div class="qa-stage-card" onclick="selectStage(this)">
                 <span class="stage-pill">STAGE 03</span>
-                <h5 class="card-title-md mb-0">Clash Detection &amp; Coordination</h5>
+                <h5 class="card-title-md mb-0 fs-5">Clash Detection &amp; Coordination</h5>
                 <p class="card-text-sm mb-0">Federate structural models against architectural and MEP services in Navisworks to resolve structural penetrations, sleeve requirements, and headroom constraints.</p>
                 <div class="milestone-chip">
-                    <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                    <i class="bi bi-check-circle-fill text-success flex-shrink-0 fs-5"></i>
                     <span>Interference Clearance Report</span>
                 </div>
             </div>
 
             <div class="qa-stage-card" onclick="selectStage(this)">
                 <span class="stage-pill">STAGE 04</span>
-                <h5 class="card-title-md mb-0">Detailing &amp; Fabrication Packages</h5>
+                <h5 class="card-title-md mb-0 fs-5">Detailing &amp; Fabrication Packages</h5>
                 <p class="card-text-sm mb-0">Generate reinforcement layouts, standard hooks/laps, Bar Bending Schedules (BBS), steel connection assemblies, and complete drafting sheets.</p>
                 <div class="milestone-chip">
-                    <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                    <i class="bi bi-check-circle-fill text-success flex-shrink-0 fs-5"></i>
                     <span>Full General Arrangement (GA) Set &amp; BBS</span>
                 </div>
             </div>
 
             <div class="qa-stage-card" onclick="selectStage(this)">
                 <span class="stage-pill">STAGE 05</span>
-                <h5 class="card-title-md mb-0">Engineering Handover &amp; Audit</h5>
+                <h5 class="card-title-md mb-0 fs-5">Engineering Handover &amp; Audit</h5>
                 <p class="card-text-sm mb-0">Package native analytical calculation files, model exports, and drawing sets for review and formal stamping by the supervising Professional Engineer (PE).</p>
                 <div class="milestone-chip">
-                    <i class="bi bi-check-circle-fill text-success flex-shrink-0"></i>
+                    <i class="bi bi-check-circle-fill text-success flex-shrink-0 fs-5"></i>
                     <span>Final Engineer Audit Dossier &amp; Permit Set</span>
                 </div>
             </div>
@@ -1434,49 +815,49 @@
 
 <section id="advantage" class="bg-white">
     <div class="container">
-        <div class="row g-4 g-lg-5 align-items-stretch">
+        <div class="row g-5 align-items-stretch">
             <div class="col-lg-5" data-animate>
-                <div class="media-ratio-4-3">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=950&q=85" alt="Structural engineering team reviewing 3D BIM coordination" onerror="this.style.display='none'">
+                <div class="media-ratio-4-3 shadow-lg">
+                    <img src="assets/img/cta.jpg" alt="Structural engineering team reviewing 3D BIM coordination" onerror="this.style.display='none'">
                     <span class="media-badge-corner">VALUE ENGINEERING</span>
                 </div>
             </div>
             <div class="col-lg-7 d-flex flex-column justify-content-between" data-animate data-delay="100">
-                <div class="mb-4">
+                <div class="mb-5">
                     <div class="eyebrow-pill"><span>Why Partner With Astra</span></div>
                     <h2 class="section-heading">Eliminating Bottlenecks Before a Single Trench is Excavated.</h2>
-                    <p class="card-text-sm mb-0">Modern construction projects face tight schedules, rising material costs, and costly delays caused by uncoordinated 2D drawings. Astra Structural BIM resolves these risks digitally.</p>
+                    <p class="section-subcopy mb-0">Modern construction projects face tight schedules, rising material costs, and costly delays caused by uncoordinated 2D drawings. Astra Structural BIM resolves these risks digitally.</p>
                 </div>
 
-                <div class="row g-3">
+                <div class="row g-4">
                     <div class="col-md-6">
-                        <div class="bento-card p-3 p-sm-4">
-                            <h5 class="card-title-md mb-1" style="font-size: 0.98rem;"><i class="bi bi-intersect me-2" style="color: var(--astra-teal);"></i>Zero On-Site Rebar &amp; MEP Clashes</h5>
-                            <p class="card-text-sm mb-0" style="font-size: 0.86rem;">LOD 200 to 350 Navisworks federation resolves sleeve penetrations and beam-duct conflicts prior to site works.</p>
+                        <div class="bento-card p-4">
+                            <h5 class="card-title-md mb-2" style="font-size: 1.05rem;"><i class="bi bi-intersect me-3" style="color: var(--astra-teal); font-size: 1.2rem;"></i>Zero On-Site Clashes</h5>
+                            <p class="card-text-sm mb-0" style="font-size: 0.9rem;">LOD 200 to 350 Navisworks federation resolves sleeve penetrations and beam-duct conflicts prior to site works.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="bento-card p-3 p-sm-4">
-                            <h5 class="card-title-md mb-1" style="font-size: 0.98rem;"><i class="bi bi-graph-down-arrow me-2" style="color: var(--astra-teal);"></i>Material &amp; Cost Optimization</h5>
-                            <p class="card-text-sm mb-0" style="font-size: 0.86rem;">Comparative framing studies and Robot FEA prevent over-design and reduce concrete and steel tonnage.</p>
+                        <div class="bento-card p-4">
+                            <h5 class="card-title-md mb-2" style="font-size: 1.05rem;"><i class="bi bi-graph-down-arrow me-3" style="color: var(--astra-teal); font-size: 1.2rem;"></i>Cost Optimization</h5>
+                            <p class="card-text-sm mb-0" style="font-size: 0.9rem;">Comparative framing studies and Robot FEA prevent over-design and reduce concrete and steel tonnage.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="bento-card p-3 p-sm-4">
-                            <h5 class="card-title-md mb-1" style="font-size: 0.98rem;"><i class="bi bi-folder-check me-2" style="color: var(--astra-teal);"></i>Audit-Ready Calculation Dossiers</h5>
-                            <p class="card-text-sm mb-0" style="font-size: 0.86rem;">Complete with native analytical files (.rtd, .edb, .pro, .sdb), force diagrams, and anchorage reports.</p>
+                        <div class="bento-card p-4">
+                            <h5 class="card-title-md mb-2" style="font-size: 1.05rem;"><i class="bi bi-folder-check me-3" style="color: var(--astra-teal); font-size: 1.2rem;"></i>Audit-Ready Dossiers</h5>
+                            <p class="card-text-sm mb-0" style="font-size: 0.9rem;">Complete with native analytical files (.rtd, .edb, .pro, .sdb), force diagrams, and anchorage reports.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="bento-card p-3 p-sm-4">
-                            <h5 class="card-title-md mb-1" style="font-size: 0.98rem;"><i class="bi bi-lightning-charge me-2" style="color: var(--astra-teal);"></i>Faster Detailing &amp; BBS Turnaround</h5>
-                            <p class="card-text-sm mb-0" style="font-size: 0.86rem;">Automated 3D rebar modeling in Revit produces error-free Bar Bending Schedules in a fraction of 2D time.</p>
+                        <div class="bento-card p-4">
+                            <h5 class="card-title-md mb-2" style="font-size: 1.05rem;"><i class="bi bi-lightning-charge me-3" style="color: var(--astra-teal); font-size: 1.2rem;"></i>Faster BBS Turnaround</h5>
+                            <p class="card-text-sm mb-0" style="font-size: 0.9rem;">Automated 3D rebar modeling in Revit produces error-free Bar Bending Schedules in a fraction of 2D time.</p>
                         </div>
                     </div>
                     <div class="col-12">
-                        <div class="bento-card p-3 p-sm-4">
-                            <h5 class="card-title-md mb-1" style="font-size: 0.98rem;"><i class="bi bi-people me-2" style="color: var(--astra-teal);"></i>Scalable Capacity Without Permanent Overhead</h5>
-                            <p class="card-text-sm mb-0" style="font-size: 0.86rem;">Consulting engineers and contractors scale modeling and detailing output on demand during peak tender or construction periods without permanent payroll costs.</p>
+                        <div class="bento-card p-4">
+                            <h5 class="card-title-md mb-2" style="font-size: 1.05rem;"><i class="bi bi-people me-3" style="color: var(--astra-teal); font-size: 1.2rem;"></i>Scalable Capacity Without Permanent Overhead</h5>
+                            <p class="card-text-sm mb-0" style="font-size: 0.9rem;">Consulting engineers and contractors scale modeling and detailing output on demand during peak tender or construction periods without permanent payroll costs.</p>
                         </div>
                     </div>
                 </div>
@@ -1487,55 +868,55 @@
 
 <section id="engagement" class="cad-grid-dark text-white">
     <div class="container">
-        <div class="row align-items-end justify-content-between mb-4 mb-lg-5" data-animate>
+        <div class="row align-items-end justify-content-between mb-5" data-animate>
             <div class="col-lg-8">
                 <div class="eyebrow-pill" style="background: rgba(217, 233, 144, 0.12); border-color: rgba(217, 233, 144, 0.28); color: var(--astra-lime);">
                     <span>Flexible Engagement Models</span>
                 </div>
-                <h2 class="section-heading text-white mb-2">Tailored Technical Support Matched to Your Workflow</h2>
-                <p class="mb-0" style="color: rgba(255, 255, 255, 0.76); max-width: 620px;">Select an engagement structure aligned with your project scope, internal engineering capacity, and delivery timeline.</p>
+                <h2 class="section-heading text-white mb-3">Tailored Technical Support Matched to Your Workflow</h2>
+                <p class="mb-0 fs-5" style="color: rgba(255, 255, 255, 0.85); max-width: 700px;">Select an engagement structure aligned with your project scope, internal engineering capacity, and delivery timeline.</p>
             </div>
             <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
-                <a href="mailto:info@astrasoft.tech" class="btn-modern engagement-cta-btn" style="background: var(--astra-lime); color: var(--astra-navy); border-color: var(--astra-lime);">Request Proposal <i class="bi bi-arrow-up-right"></i></a>
+                <a href="mailto:info@astrasoft.tech" class="btn-modern engagement-cta-btn shadow-lg" style="background: var(--astra-lime); color: var(--astra-navy); border-color: var(--astra-lime);">Request Proposal <i class="bi bi-arrow-right"></i></a>
             </div>
         </div>
 
         <div class="row g-4">
             <div class="col-lg-4" data-animate>
                 <div class="dark-engagement-card">
-                    <div class="media-ratio-16-9">
+                    <div class="media-ratio-16-9" style="background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0;">
                         <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=850&q=85" alt="Turnkey structural BIM project delivery" onerror="this.style.display='none'">
                     </div>
                     <div class="dark-engagement-body">
                         <span class="audience-label">Developers, Architects &amp; Contractors</span>
-                        <h4 class="card-title-md text-white">Project-Based Turnkey Packages</h4>
-                        <p class="mb-0" style="color: rgba(255, 255, 255, 0.74); font-size: 0.91rem;">Defined fixed scope from schematic grid planning and 3D BIM coordination through to complete General Arrangement (GA) drawings, Bar Bending Schedules (BBS), and steel shop drawings on a milestone schedule.</p>
+                        <h4 class="card-title-md text-white fs-4 mb-3">Project-Based Turnkey Packages</h4>
+                        <p class="mb-0" style="color: rgba(255, 255, 255, 0.74); font-size: 0.95rem; line-height: 1.7;">Defined fixed scope from schematic grid planning and 3D BIM coordination through to complete General Arrangement (GA) drawings, Bar Bending Schedules (BBS), and steel shop drawings on a milestone schedule.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-4" data-animate data-delay="90">
+            <div class="col-lg-4" data-animate data-delay="100">
                 <div class="dark-engagement-card">
-                    <div class="media-ratio-16-9">
+                    <div class="media-ratio-16-9" style="background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0;">
                         <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=850&q=85" alt="On-demand detailing and clash audit sprints" onerror="this.style.display='none'">
                     </div>
                     <div class="dark-engagement-body">
                         <span class="audience-label">Contractors, Precast &amp; Steel Fabricators</span>
-                        <h4 class="card-title-md text-white">On-Demand Detailing &amp; Clash Sprints</h4>
-                        <p class="mb-0" style="color: rgba(255, 255, 255, 0.74); font-size: 0.91rem;">Rapid conversion of approved structural engineering drawings into 3D rebar models, verifiable Bar Bending Schedules (BBS), Navisworks clash reports, or CNC-ready steel fabrication packages.</p>
+                        <h4 class="card-title-md text-white fs-4 mb-3">On-Demand Detailing &amp; Clash Sprints</h4>
+                        <p class="mb-0" style="color: rgba(255, 255, 255, 0.74); font-size: 0.95rem; line-height: 1.7;">Rapid conversion of approved structural engineering drawings into 3D rebar models, verifiable Bar Bending Schedules (BBS), Navisworks clash reports, or CNC-ready steel fabrication packages.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-4" data-animate data-delay="180">
+            <div class="col-lg-4" data-animate data-delay="200">
                 <div class="dark-engagement-card">
-                    <div class="media-ratio-16-9">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=850&q=85" alt="Dedicated BIM seat embedded in engineering teams" onerror="this.style.display='none'">
+                    <div class="media-ratio-16-9" style="background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0;">
+                        <img src="assets/img/Dedicated_BIM_Detailing.jpg" alt="Dedicated BIM seat embedded in engineering teams" onerror="this.style.display='none'">
                     </div>
                     <div class="dark-engagement-body">
                         <span class="audience-label">Consulting Engineers &amp; Studios</span>
-                        <h4 class="card-title-md text-white">Dedicated BIM &amp; Detailing Seat</h4>
-                        <p class="mb-0" style="color: rgba(255, 255, 255, 0.74); font-size: 0.91rem;">Monthly retainer embedding an Astra Structural BIM modeler/detailer directly into your workflow under your lead engineer's supervision, accelerating Revit modeling, Robot FEA setup, and county submission sheets.</p>
+                        <h4 class="card-title-md text-white fs-4 mb-3">Dedicated BIM &amp; Detailing Seat</h4>
+                        <p class="mb-0" style="color: rgba(255, 255, 255, 0.74); font-size: 0.95rem; line-height: 1.7;">Monthly retainer embedding an Astra Structural BIM modeler/detailer directly into your workflow under your lead engineer's supervision, accelerating Revit modeling, Robot FEA setup, and county submission sheets.</p>
                     </div>
                 </div>
             </div>
@@ -1543,121 +924,53 @@
     </div>
 </section>
 
-
-
-<!-- whatsapp button -->
+<!-- Floating WhatsApp Button -->
 <a class="float-button" href="https://wa.me/254727405667" target="_blank" rel="noopener" aria-label="Chat with Astra on WhatsApp">
   <i class="fa fa-whatsapp" aria-hidden="true"></i>
   <span class="float-button-label">Chat with us</span>
 </a>
 
-<style>
-    .float-button {
-        text-decoration: none;
-        position: fixed;
-        display: inline-flex;
-        align-items: center;
-        padding: 10px 15px 10px 10px;
-        bottom: 30px;
-        right: 30px;
-        color: #fff;
-        background-color: #25D366;
-        border-radius: 25px 30px 5px 25px;
-        z-index: 100;
-        font-family: Arial, sans-serif;
-        font-size: 17px;
-        line-height: 1;
-        animation: whatsapp-animation 0.5s ease-in-out;
-        box-shadow: 1px 2px 5px 2px rgba(30,30,30,0.3);
-        transition: all 0.3s ease-out;
-    }
-
-    .float-button:hover {
-        background-color: #128C7E;
-        color: #fff;
-    }
-
-    .float-button:focus-visible {
-        outline: 3px solid #fff;
-        outline-offset: 3px;
-    }
-
-    .float-button .fa-whatsapp {
-        font-size: 20px !important;
-        padding-right: 5px;
-        padding-left: 5px;
-    }
-
-    @keyframes whatsapp-animation {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    @media screen and (max-width: 545px) {
-        .float-button {
-            bottom: 15px;
-            right: 15px;
-            width: 46px;
-            height: 46px;
-            padding: 0;
-            justify-content: center;
-            border-radius: 50%;
-        }
-
-        .float-button-label {
-            display: none;
-        }
-
-        .float-button .fa-whatsapp {
-            font-size: 22px !important;
-            padding: 0;
-        }
-    }
-</style>
-
-
-
 <footer class="modern-footer">
     <div class="container">
         <div class="statutory-panel">
-            <strong style="color: var(--astra-navy);">Operating Model &amp; Statutory Compliance Framework:</strong> Astra Structural BIM provides specialized computational analysis, building planning schematics, 3D BIM drafting, and detailing documentation. In compliance with statutory regulatory frameworks governing engineering practice, final structural engineering calculations intended for municipal/county building permits, statutory life-safety sign-offs, and site integrity certifications are executed in collaboration with licensed, registered Professional Engineers (PE / Consulting Engineers) who audit, verify, and stamp permit documentation packages.
+            <strong style="color: var(--astra-navy); font-weight: 800;">Operating Model &amp; Statutory Compliance Framework:</strong> Astra Structural BIM provides specialized computational analysis, building planning schematics, 3D BIM drafting, and detailing documentation. In compliance with statutory regulatory frameworks governing engineering practice, final structural engineering calculations intended for municipal/county building permits, statutory life-safety sign-offs, and site integrity certifications are executed in collaboration with licensed, registered Professional Engineers (PE / Consulting Engineers) who audit, verify, and stamp permit documentation packages.
         </div>
 
-        <div class="row g-4 align-items-start pb-4 border-bottom">
+        <div class="row g-5 align-items-start pb-5 border-bottom">
             <div class="col-lg-4">
-                <div class="d-flex align-items-center gap-2 mb-2">
-                    <svg viewBox="0 0 40 36" width="26" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <svg viewBox="0 0 40 36" width="30" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <polygon points="20,2 38,34 29,34 20,17 11,34 2,34" fill="#26697D"/>
                         <polygon points="20,2 29,18 20,18" fill="#0C3658"/>
                         <polygon points="11,34 38,34 33,26 15,26" fill="#4FA3BD"/>
                     </svg>
-                    <h5 class="fw-bold mb-0" style="font-size: 1.05rem; color: var(--astra-navy);">ASTRA BIM</h5>
+                    <h5 class="fw-bold mb-0" style="font-size: 1.2rem; color: var(--astra-navy);">ASTRA BIM</h5>
                 </div>
-                <p class="card-text-sm mb-1" style="font-size: 0.86rem;">Your Partner in Digital Structural Modeling and Computational Analysis (Astrasoft Division).</p>
+                <p class="card-text-sm mb-3" style="font-size: 0.95rem;">Your Partner in Digital Structural Modeling and Computational Analysis (Astrasoft Division).</p>
                 <span class="mono-tag" style="color: var(--astra-teal);">WE ARE THE FUTURE!</span>
             </div>
             <div class="col-md-6 col-lg-4">
-                <span class="mono-tag text-uppercase d-block mb-2" style="color: var(--astra-teal);">Nairobi Headquarters</span>
-                <p class="card-text-sm mb-1" style="font-size: 0.86rem;"><i class="bi bi-geo-alt me-2" style="color: var(--astra-teal);"></i>Western Heights, Karuna Rd, Nairobi, Kenya</p>
-                <p class="card-text-sm mb-0" style="font-size: 0.86rem;">
+                <span class="mono-tag text-uppercase d-block mb-3" style="color: var(--astra-teal);">Nairobi Headquarters</span>
+                <p class="card-text-sm mb-2" style="font-size: 0.95rem;"><i class="bi bi-geo-alt me-2" style="color: var(--astra-teal);"></i>Western Heights, Karuna Rd, Nairobi, Kenya</p>
+                <p class="card-text-sm mb-0" style="font-size: 0.95rem;">
                     <i class="bi bi-telephone me-2" style="color: var(--astra-teal);"></i>
-                    <a href="tel:+254727405667" class="footer-link">+254 727 405 667</a> / <a href="tel:+254726298561" class="footer-link">+254 726 298 561</a>
+                    <a href="tel:+254727405667" class="footer-link">+254 727 405 667</a> <span class="text-muted mx-1">/</span> <a href="tel:+254726298561" class="footer-link">+254 726 298 561</a>
                 </p>
             </div>
             <div class="col-md-6 col-lg-4">
-                <span class="mono-tag text-uppercase d-block mb-2" style="color: var(--astra-teal);">Direct Channels</span>
-                <p class="card-text-sm mb-1" style="font-size: 0.86rem;">
+                <span class="mono-tag text-uppercase d-block mb-3" style="color: var(--astra-teal);">Direct Channels</span>
+                <p class="card-text-sm mb-2" style="font-size: 0.95rem;">
                     <i class="bi bi-envelope me-2" style="color: var(--astra-teal);"></i>
-                    <a href="mailto:info@astrasoft.tech" class="footer-link">info@astrasoft.tech</a> / <a href="mailto:info@astrasoft.online" class="footer-link">info@astrasoft.online</a>
+                    <a href="mailto:info@astrasoft.tech" class="footer-link">info@astrasoft.tech</a> <span class="text-muted mx-1">/</span> <a href="mailto:info@astrasoft.online" class="footer-link">info@astrasoft.online</a>
                 </p>
-                <p class="card-text-sm mb-0" style="font-size: 0.86rem;">
+                <p class="card-text-sm mb-0" style="font-size: 0.95rem;">
                     <i class="bi bi-globe me-2" style="color: var(--astra-teal);"></i>
-                    <a href="https://www.astrasoft.tech" target="_blank" rel="noopener" class="footer-link">www.astrasoft.tech</a> / <a href="https://www.astrasoft.online" target="_blank" rel="noopener" class="footer-link">www.astrasoft.online</a>
+                    <a href="https://www.astrasoft.tech" target="_blank" rel="noopener" class="footer-link">www.astrasoft.tech</a> <span class="text-muted mx-1">/</span> <a href="https://www.astrasoft.online" target="_blank" rel="noopener" class="footer-link">www.astrasoft.online</a>
                 </p>
             </div>
         </div>
 
-        <div class="pt-4 text-center">
+        <div class="pt-5 text-center">
             <p class="text-muted small fw-semibold mb-0">&copy; 2026 Astra Structural BIM (Astrasoft). All rights reserved.</p>
         </div>
     </div>
@@ -1749,8 +1062,8 @@
         renderer.domElement.style.height = '100%';
         spaceContainer.appendChild(renderer.domElement);
 
-        const count = isMobile ? 18 : 34;
-        const connectDist = isMobile ? 5.2 : 6;
+        const count = isMobile ? 12 : 34; // Reduced for performance on mobile
+        const connectDist = isMobile ? 6 : 6;
         const nodes = [];
         const positions = new Float32Array(count * 3);
         const geom = new THREE.BufferGeometry();

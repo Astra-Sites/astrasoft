@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="k--D-ApfElqM7o6vShvMTO1HpMVdJ9yVL08DSc36-8s" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Astrasoft" />
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0EKQCJ3DH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-Z0EKQCJ3DH');
+    </script>
+
+    <title>Astrasoft | Access Control & Surveillance, Structural BIM & Custom Software</title>
+    <meta name="description" content="Astra Softwares (Astrasoft) delivers end-to-end Access Control & Video Surveillance, Digital Structural Modeling & Computational Analysis, and Custom Software Development in Nairobi, Kenya." />
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Open+Sans:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --astra-navy: #0C3658;
+            --astra-navy-deep: #072238;
+            --astra-teal: #26697D;
+            --astra-lime: #D9E990;
+            --surface-white: #FFFFFF;
+            --surface-slate: #F9FBFC; /* Slightly lighter, cleaner slate */
+            --border-subtle: rgba(12, 54, 88, 0.08); /* Crisper, alpha-based border */
+            --text-dark: #0A1624;
+            --text-muted: #5A6B7C;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --shadow-float: 0 24px 48px rgba(12, 54, 88, 0.06);
+            --shadow-hover: 0 32px 64px rgba(12, 54, 88, 0.12);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { max-width: 100%; overflow-x: hidden; }
+
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--surface-slate);
+            font-size: 16px;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6, .navbar-brand, .stat-figure {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+        }
+
+        .mono-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* --- Loader CSS (Untouched) --- */
+        .ui-abstergo { --primary: #fff; --secondary: rgba(255, 255, 255, 0.3); --shadow-blur: 3px; --text-shadow-blur: 3px; --animation-duration: 2s; --size: 1; display: flex; flex-direction: column; align-items: center; row-gap: 30px; scale: var(--size); }
+        .abstergo-loader * { box-sizing: content-box; }
+        .ui-abstergo .ui-text { color: var(--primary); text-shadow: 0 0 var(--text-shadow-blur) var(--secondary); font-family: 'JetBrains Mono', monospace; display: flex; align-items: baseline; column-gap: 3px; letter-spacing: 1px; }
+        .ui-abstergo .ui-dot { width: 3px; height: 3px; animation: dots var(--animation-duration) infinite linear; background-color: var(--primary); }
+        .ui-abstergo .ui-dot:nth-child(2) { animation-delay: .4s; }
+        .ui-abstergo .ui-dot:nth-child(3) { animation-delay: .8s; }
+        .abstergo-loader { width: 103px; height: 90px; position: relative; }
+        .abstergo-loader div { width: 50px; border-right: 12px solid transparent; border-left: 12px solid transparent; border-top: 21px solid var(--primary); position: absolute; filter: drop-shadow(0 0 var(--shadow-blur) var(--secondary)); }
+        .abstergo-loader div:nth-child(1) { top: 27px; left: 7px; rotate: -60deg; animation: line1 var(--animation-duration) linear infinite alternate; }
+        .abstergo-loader div:nth-child(2) { bottom: 2px; left: 0; rotate: 180deg; animation: line2 var(--animation-duration) linear infinite alternate; }
+        .abstergo-loader div:nth-child(3) { bottom: 16px; right: -9px; rotate: 60deg; animation: line3 var(--animation-duration) linear infinite alternate; }
+        @keyframes line1 { 0%, 40% { top: 27px; left: 7px; rotate: -60deg; } 60%, 100% { top: 22px; left: 14px; rotate: 60deg; } }
+        @keyframes line2 { 0%, 40% { bottom: 2px; left: 0; rotate: 180deg; } 60%, 100% { bottom: 5px; left: -8px; rotate: 300deg; } }
+        @keyframes line3 { 0%, 40% { bottom: 16px; right: -9px; rotate: 60deg; } 60%, 100% { bottom: 7px; right: -11px; rotate: 180deg; } }
+        @keyframes dots { 0%, 70%, 100% { opacity: 0.3; } 30% { opacity: 1; } }
+
+        #loader-container {
+            position: fixed; inset: 0; width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; background-color: var(--astra-navy-deep); z-index: 9999; transition: opacity 0.45s ease, visibility 0.45s;
+        }
+
+        #scroll-bar { position: fixed; top: 0; left: 0; height: 4px; width: 0%; background: linear-gradient(90deg, var(--astra-navy), var(--astra-teal), var(--astra-lime)); z-index: 2000; transition: width 0.08s linear; }
+
+        /* Background Surfaces */
+        .bg-white { background-color: var(--surface-white); }
+        
+        .cad-grid-bg {
+            background-color: var(--surface-slate);
+            background-image: linear-gradient(to right, rgba(12, 54, 88, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(12, 54, 88, 0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .cad-grid-dark {
+            background-color: var(--astra-navy-deep);
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        section { padding: 120px 0; position: relative; }
+        
+        /* Modernized Eyebrow Pill */
+        .eyebrow-pill {
+            display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 100px;
+            background: #FFFFFF; border: 1px solid var(--border-subtle);
+            color: var(--astra-teal); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(12, 54, 88, 0.03);
+        }
+        .eyebrow-pill .pulse-dot {
+            width: 8px; height: 8px; border-radius: 50%; background-color: var(--astra-teal); flex-shrink: 0;
+            animation: pulseGlow 2.2s infinite ease-in-out;
+        }
+        @keyframes pulseGlow { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.4; box-shadow: 0 0 8px var(--astra-teal); } }
+
+        /* Typography */
+        .section-heading { font-size: clamp(2rem, 3vw, 2.75rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 20px; }
+        .section-subcopy { font-size: clamp(1.05rem, 1.2vw, 1.15rem); color: var(--text-muted); line-height: 1.6; max-width: 680px; }
+        .card-title-md { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 12px; }
+        .card-text-sm { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* Scroll Reveal Utility */
+        [data-animate] { opacity: 0; transform: translateY(30px); transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo); }
+        [data-animate].in-view { opacity: 1; transform: translateY(0); }
+
+        /* Floating Capsule Navbar */
+        .navbar-wrapper {
+            position: sticky; top: 20px; z-index: 1050; padding: 0 20px;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.85) !important;
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 100px;
+            padding: 10px 24px;
+            box-shadow: 0 12px 32px rgba(12, 54, 88, 0.06);
+            max-width: 1400px; margin: 0 auto;
+        }
+        .navbar-brand { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.03em; }
+        .nav-link { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text-muted) !important; padding: 8px 18px !important; border-radius: 100px; transition: all 0.3s ease; }
+        .nav-link:hover { color: var(--astra-navy) !important; background-color: var(--surface-slate); }
+        .dropdown-menu { border: 1px solid var(--border-subtle); border-radius: 20px; padding: 12px; box-shadow: var(--shadow-float); border: none; background: #FFFFFF; }
+        .dropdown-item { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--text-dark); border-radius: 12px; padding: 10px 16px; margin-bottom: 4px; transition: all 0.2s ease; }
+        .dropdown-item:last-child { margin-bottom: 0; }
+        .dropdown-item:hover { background-color: var(--surface-slate); color: var(--astra-teal); }
+
+        /* Buttons */
+        .btn-modern {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+            padding: 14px 28px; border-radius: 100px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none;
+            transition: all 0.3s var(--ease-out-expo); cursor: pointer;
+        }
+        .btn-modern-primary { background-color: var(--astra-navy); color: #FFFFFF; border: none; box-shadow: 0 8px 24px rgba(12, 54, 88, 0.2); }
+        .btn-modern-primary:hover { background-color: var(--astra-teal); color: #FFFFFF; transform: translateY(-3px); box-shadow: 0 12px 32px rgba(38, 105, 125, 0.3); }
+        .btn-modern-outline { background-color: #FFFFFF; color: var(--astra-navy); border: 1px solid var(--border-subtle); box-shadow: 0 4px 12px rgba(12, 54, 88, 0.04); }
+        .btn-modern-outline:hover { border-color: var(--astra-navy); color: var(--astra-navy); transform: translateY(-3px); box-shadow: 0 12px 24px rgba(12, 54, 88, 0.08); }
+
+        /* Hero Section */
+        .hero-modern { position: relative; min-height: 90vh; display: flex; align-items: center; padding: 140px 0 80px; overflow: hidden; }
+        #neural-net-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.4; pointer-events: none; mask-image: linear-gradient(to bottom, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%); }
+        .hero-z { position: relative; z-index: 2; }
+        
+        .hero-title { font-size: clamp(2.5rem, 4.5vw, 4.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 24px; color: var(--astra-navy-deep); }
+        .hero-gradient-text { background: linear-gradient(135deg, var(--astra-navy) 0%, var(--astra-teal) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-lead { font-size: clamp(1.1rem, 1.3vw, 1.25rem); color: var(--text-muted); line-height: 1.6; max-width: 580px; margin-bottom: 40px; font-weight: 500; }
+
+        /* Hero Console Card (Bento Style) */
+        .hero-console { background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-float); display: flex; flex-direction: column; }
+        .hero-console-media { aspect-ratio: 16 / 10; position: relative; overflow: hidden; }
+        .hero-console-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease-out-expo); }
+        .hero-console:hover .hero-console-media img { transform: scale(1.05); }
+        .hero-console-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(7, 34, 56, 0.95) 0%, rgba(7, 34, 56, 0.2) 50%, transparent 100%); display: flex; align-items: flex-end; justify-content: space-between; padding: 24px 32px; color: #FFFFFF; }
+        
+        .hero-pillar-list { padding: 12px 24px 24px; }
+        .hero-pillar-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; border-radius: 16px; text-decoration: none; color: var(--astra-navy); transition: all 0.3s ease; margin-bottom: 8px; }
+        .hero-pillar-item:last-child { margin-bottom: 0; }
+        .hero-pillar-item:hover { background: var(--surface-slate); transform: translateX(6px); }
+        .pillar-num-badge { width: 40px; height: 40px; border-radius: 12px; background: rgba(38, 105, 125, 0.1); color: var(--astra-teal); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+        /* Media Elements */
+        .media-16-9, .media-4-3 { position: relative; overflow: hidden; background: var(--surface-slate); }
+        .media-16-9 { aspect-ratio: 16 / 9; }
+        .media-4-3 { width: 100%; height: 100%; min-height: 400px; border-radius: var(--radius-lg); }
+        .media-4-3 img, .media-16-9 img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease-out-expo); }
+        
+        .media-badge { position: absolute; top: 16px; right: 16px; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); color: var(--astra-navy); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700; padding: 6px 12px; border-radius: 100px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+        /* Bento Grid Style Feature Boxes */
+        .bento-box { background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: 20px; padding: 24px; height: 100%; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(12, 54, 88, 0.02); }
+        .bento-box:hover { border-color: rgba(38, 105, 125, 0.3); box-shadow: 0 12px 32px rgba(12, 54, 88, 0.06); transform: translateY(-4px); }
+
+        /* 3 Core Service Cards */
+        .pillar-card { background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; height: 100%; display: flex; flex-direction: column; transition: all 0.4s var(--ease-out-expo); box-shadow: 0 4px 20px rgba(12, 54, 88, 0.03); }
+        .pillar-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: rgba(38, 105, 125, 0.4); }
+        .pillar-card:hover .media-16-9 img { transform: scale(1.06); }
+        .pillar-card-body { padding: 32px; display: flex; flex-direction: column; flex-grow: 1; }
+        
+        .pillar-spec-list { list-style: none; padding: 20px 0 0; margin: auto 0 24px; border-top: 1px solid var(--border-subtle); font-size: 0.9rem; color: var(--text-dark); font-weight: 500; }
+        .pillar-spec-list li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+        .pillar-spec-list li:last-child { margin-bottom: 0; }
+        .pillar-spec-list i { color: var(--astra-teal); font-size: 1.1rem; margin-top: 2px; flex-shrink: 0; }
+
+        /* Deep-Dive Segmented Tabs */
+        .service-switcher { display: inline-flex; background: #FFFFFF; padding: 8px; border-radius: 100px; border: 1px solid var(--border-subtle); gap: 4px; box-shadow: 0 8px 24px rgba(12, 54, 88, 0.04); }
+        .service-switcher .nav-link { border-radius: 100px !important; padding: 12px 24px !important; font-size: 0.9rem; font-weight: 700; color: var(--text-muted) !important; background: transparent; display: inline-flex; align-items: center; gap: 8px; border: none; }
+        .service-switcher .nav-link.active { background: var(--astra-navy) !important; color: #FFFFFF !important; box-shadow: 0 4px 12px rgba(12, 54, 88, 0.2); }
+
+        .detail-panel { background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 48px; box-shadow: var(--shadow-float); }
+        .sub-feature-box { background: var(--surface-slate); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 32px; height: 100%; display: flex; flex-direction: column; transition: all 0.3s ease; }
+        .sub-feature-box:hover { background: #FFFFFF; border-color: rgba(38, 105, 125, 0.3); box-shadow: 0 16px 32px rgba(12, 54, 88, 0.06); }
+        
+        .sub-feature-box .tag-line { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--astra-teal); margin-bottom: 12px; display: block; }
+        .sub-feature-box .footer-meta { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border-subtle); font-size: 0.85rem; font-weight: 700; color: var(--astra-navy); }
+
+        /* Process Steps */
+        .process-step-card { background: transparent; padding: 0 16px; height: 100%; border-left: 2px solid var(--border-subtle); transition: all 0.3s ease; }
+        .process-step-card:hover { border-left-color: var(--astra-teal); padding-left: 24px; }
+
+        /* Partner Grid */
+        .partner-tile { background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: 20px; padding: 32px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.3s ease; aspect-ratio: 1; box-shadow: 0 4px 12px rgba(12, 54, 88, 0.02); }
+        .partner-tile:hover { border-color: var(--astra-teal); transform: translateY(-6px); box-shadow: 0 16px 32px rgba(12, 54, 88, 0.06); }
+        .partner-name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--astra-navy); letter-spacing: -0.02em; margin-bottom: 8px; }
+        .partner-domain { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--astra-teal); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+
+        /* Minimalist Accordion FAQ */
+        .accordion-item { border: 1px solid var(--border-subtle) !important; margin-bottom: 16px; border-radius: 20px !important; overflow: hidden; background: #FFFFFF; box-shadow: 0 4px 12px rgba(12, 54, 88, 0.02); }
+        .accordion-button { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--astra-navy); background-color: #FFFFFF; padding: 24px 32px; box-shadow: none !important; }
+        .accordion-button:not(.collapsed) { background-color: var(--surface-slate); color: var(--astra-navy); }
+        .accordion-body { padding: 0 32px 24px; background-color: var(--surface-slate); font-size: 1rem; line-height: 1.7; }
+        .accordion-button::after { filter: invert(20%) sepia(18%) saturate(1906%) hue-rotate(170deg) brightness(95%) contrast(90%); } /* Tints icon navy */
+
+        /* Conversion CTA */
+        .cta-band { background: linear-gradient(135deg, var(--astra-navy-deep), var(--astra-navy)); color: #FFFFFF; border-radius: var(--radius-xl); padding: 80px 64px; box-shadow: var(--shadow-hover); position: relative; overflow: hidden; }
+        .cta-band::before { content: ''; position: absolute; top: -50%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(38, 105, 125, 0.4) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+
+        /* Footer */
+        footer { background-color: var(--surface-white); padding: 100px 0 40px; border-top: 1px solid var(--border-subtle); }
+        .statutory-note { background: var(--surface-slate); border: 1px solid var(--border-subtle); border-left: 4px solid var(--astra-teal); border-radius: 16px; padding: 24px 32px; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 64px; }
+        .footer-link { color: var(--text-muted); text-decoration: none; transition: all 0.2s ease; font-weight: 500; display: inline-block; padding: 4px 0; }
+        .footer-link:hover { color: var(--astra-teal); transform: translateX(4px); }
+        
+        .whatsapp-float { background-color: #25d366; position: fixed; bottom: 32px; right: 32px; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1040; box-shadow: 0 16px 32px rgba(37, 211, 102, 0.4); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .whatsapp-float:hover { transform: translateY(-4px) scale(1.08); }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 991px) {
+            section { padding: 80px 0; }
+            .navbar-wrapper { padding: 10px; }
+            .navbar { border-radius: 20px; }
+            .navbar-collapse { background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: 16px; padding: 20px; margin-top: 16px; box-shadow: var(--shadow-float); }
+            .navbar-collapse .btn-modern { width: 100%; margin-top: 12px; }
+            .hero-modern { min-height: auto; padding: 100px 0 60px; }
+            .detail-panel { padding: 32px; }
+            .cta-band { padding: 48px 32px; }
+            .service-switcher { overflow-x: auto; width: 100%; justify-content: flex-start; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; border-radius: 20px; padding: 12px; }
+            .service-switcher .nav-link { white-space: nowrap; }
+        }
+
+        @media (max-width: 767px) {
+            section { padding: 64px 0; }
+            .hero-title { font-size: 2.25rem; }
+            .pillar-card-body, .sub-feature-box { padding: 24px; }
+            .cta-band { padding: 40px 24px; border-radius: 24px; }
+            .process-step-card { border-left: none; border-top: 2px solid var(--border-subtle); padding: 24px 0 0; margin-top: 16px; }
+            .process-step-card:hover { border-top-color: var(--astra-teal); padding-left: 0; padding-top: 32px; transform: none; }
+            .media-4-3 { min-height: 300px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            [data-animate] { opacity: 1 !important; transform: none !important; transition: none !important; }
+            .eyebrow-pill .pulse-dot { animation: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="scroll-bar" aria-hidden="true"></div>
+
+<!-- Signature Astrasoft Triangle Loader -->
+<div id="loader-container">
+    <div class="ui-abstergo">
+        <div class="abstergo-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="ui-text">
+            Astrasoft
+            <div class="ui-dot"></div>
+            <div class="ui-dot"></div>
+            <div class="ui-dot"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Floating Capsule Navigation -->
+<div class="navbar-wrapper">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid px-lg-3">
+            <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+                <img src="./scholars/assets/images/brand/logo1.png" height="36" alt="Astrasoft Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                <span style="display: none; width: 32px; height: 32px; align-items: center; justify-content: center;">
+                    <svg viewBox="0 0 40 36" width="32" height="30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <polygon points="20,2 38,34 29,34 20,17 11,34 2,34" fill="#26697D"/>
+                        <polygon points="20,2 29,18 20,18" fill="#0C3658"/>
+                        <polygon points="11,34 38,34 33,26 15,26" fill="#4FA3BD"/>
+                    </svg>
+                </span>
+                <span>ASTRASOFT</span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+                    <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#services" role="button" data-bs-toggle="dropdown" aria-expanded="false">Core Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#services" onclick="activateServiceTab('tab-security')"><i class="bi bi-shield-lock me-2 text-primary"></i>Access Control &amp; Surveillance</a></li>
+                            <li><a class="dropdown-item" href="#services" onclick="activateServiceTab('tab-bim')"><i class="bi bi-buildings me-2 text-primary"></i>Digital Structural Modeling &amp; BIM</a></li>
+                            <li><a class="dropdown-item" href="#services" onclick="activateServiceTab('tab-software')"><i class="bi bi-code-slash me-2 text-primary"></i>Custom Software Development</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#capabilities">Deep Dive</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#partners">Partners</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item ms-lg-4">
+                        <a href="#contact" class="btn-modern btn-modern-primary">Work With Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!-- Hero Section -->
+<section class="hero-modern bg-white">
+    <div id="neural-net-canvas"></div>
+    <div class="container hero-z">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-animate>
+                <div class="eyebrow-pill">
+                    <span class="pulse-dot"></span>
+                    <span>We Are The Future!</span>
+                </div>
+                <h1 class="hero-title">Engineering <br><span class="hero-gradient-text">Intelligent Security,</span><br> Structures &amp; Software.</h1>
+                <p class="hero-lead">Astra Softwares equips modern enterprises, engineering firms, and commercial facilities with end-to-end physical security systems, 3D structural BIM modeling, and tailored enterprise software.</p>
+                <div class="d-flex flex-wrap gap-3 hero-cta-group">
+                    <a href="#services" class="btn-modern btn-modern-primary">Explore Our 3 Services <i class="bi bi-arrow-right"></i></a>
+                    <a href="https://wa.me/254727405667" target="_blank" rel="noopener" class="btn-modern btn-modern-outline">Consult an Engineer</a>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-animate data-delay="150">
+                <div class="hero-console">
+                    <div class="hero-console-media">
+                        <img src="./assets/images/nairobi.jpg" alt="Astrasoft engineering and digital infrastructure solutions" onerror="this.src='https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1050&q=85'">
+                        <div class="hero-console-overlay">
+                            <div>
+                                <span class="mono-tag d-block" style="color: var(--astra-lime);">MULTIDISCIPLINARY EXECUTION</span>
+                                <span class="fw-bold d-block mt-1" style="font-size: 1.1rem;">Three Core Engineering &amp; Technology Pillars</span>
+                            </div>
+                            <span class="badge flex-shrink-0 rounded-pill shadow-sm" style="background: var(--astra-lime); color: var(--astra-navy); font-weight: 800; padding: 8px 16px;">Enterprise Grade</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-pillar-list">
+                        <a href="#capabilities" onclick="activateServiceTab('tab-security')" class="hero-pillar-item">
+                            <div class="d-flex align-items-center gap-4">
+                                <span class="pillar-num-badge">01</span>
+                                <div>
+                                    <span class="d-block fw-bold mb-1" style="font-size: 1rem;">Access Control &amp; Video Surveillance</span>
+                                    <span class="text-muted" style="font-size: 0.85rem; font-weight: 500;">Biometric access, ANPR boom barriers &amp; AI IP surveillance</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-arrow-right text-muted fs-5"></i>
+                        </a>
+
+                        <a href="#capabilities" onclick="activateServiceTab('tab-bim')" class="hero-pillar-item">
+                            <div class="d-flex align-items-center gap-4">
+                                <span class="pillar-num-badge">02</span>
+                                <div>
+                                    <span class="d-block fw-bold mb-1" style="font-size: 1rem;">Digital Structural Modeling &amp; Analysis</span>
+                                    <span class="text-muted" style="font-size: 0.85rem; font-weight: 500;">LOD 200 to 350 BIM, Finite Element Analysis &amp; GA/BBS detailing</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-arrow-right text-muted fs-5"></i>
+                        </a>
+
+                        <a href="#capabilities" onclick="activateServiceTab('tab-software')" class="hero-pillar-item">
+                            <div class="d-flex align-items-center gap-4">
+                                <span class="pillar-num-badge">03</span>
+                                <div>
+                                    <span class="d-block fw-bold mb-1" style="font-size: 1rem;">Custom Software Development</span>
+                                    <span class="text-muted" style="font-size: 0.85rem; font-weight: 500;">Bespoke web, mobile &amp; enterprise apps, AI agents &amp; Enterprise SEO</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-arrow-right text-muted fs-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Company Overview -->
+<section id="overview" class="cad-grid-bg">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-5" data-animate>
+                <div class="media-4-3 shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=950&q=85" alt="Astrasoft engineering consultancy and technology infrastructure" onerror="this.style.display='none'">
+                    <span class="media-badge">ASTRASOFT &bull; NAIROBI</span>
+                </div>
+            </div>
+
+            <div class="col-lg-7" data-animate data-delay="100">
+                <div class="eyebrow-pill"><span>Company Overview</span></div>
+                <h2 class="section-heading">Practical, High-Impact Execution From Initial Concept to Full Deployment.</h2>
+                <p class="section-subcopy mb-4 text-dark">Astra Softwares (Astrasoft) is a multidisciplinary engineering and technology solutions provider dedicated to equipping modern enterprises, construction and engineering firms, and commercial facilities with intelligent digital infrastructure.</p>
+                <p class="section-subcopy mb-5">By combining in-house engineering expertise with strategic global hardware and software partnerships, Astrasoft delivers tailored architectures across physical security and access control, digital structural engineering, and custom software development.</p>
+
+                <!-- Bento-style feature boxes -->
+                <div class="row g-4">
+                    <div class="col-sm-4">
+                        <div class="bento-box">
+                            <span class="mono-tag d-block mb-2" style="color: var(--astra-teal);">HARDWARE</span>
+                            <span class="fw-bold d-block" style="font-size: 1rem; color: var(--astra-navy);">Global Security Ecosystems</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="bento-box">
+                            <span class="mono-tag d-block mb-2" style="color: var(--astra-teal);">AEC / BIM</span>
+                            <span class="fw-bold d-block" style="font-size: 1rem; color: var(--astra-navy);">Clash-Free 3D Structural Packages</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="bento-box">
+                            <span class="mono-tag d-block mb-2" style="color: var(--astra-teal);">SOFTWARE</span>
+                            <span class="fw-bold d-block" style="font-size: 1rem; color: var(--astra-navy);">Workflow-First Apps &amp; AI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- The 3 Main Services Overview -->
+<section id="services" class="bg-white">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 pb-3" style="max-width: 800px;" data-animate>
+            <div class="eyebrow-pill"><span>Our 3 Core Services</span></div>
+            <h2 class="section-heading">Focused Engineering &amp; Enterprise Technology Pillars</h2>
+            <p class="section-subcopy mx-auto">Every solution is engineered around proven global ecosystems, regulatory compliance, and measurable operational reliability.</p>
+        </div>
+
+        <div class="row g-5">
+            <!-- Service 1 -->
+            <div class="col-lg-4" data-animate>
+                <div class="pillar-card">
+                    <div class="media-16-9">
+                        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=900&q=85" alt="Access control and IP video surveillance systems" onerror="this.style.display='none'">
+                        <span class="media-badge">01 / PHYSICAL SECURITY</span>
+                    </div>
+                    <div class="pillar-card-body">
+                        <h3 class="card-title-md">Access Control &amp; Video Surveillance</h3>
+                        <p class="card-text-sm">Delivered in partnership with Hikvision, Dahua, and Matrix Comsec for commercial, industrial, and residential environments with remote monitoring and maintenance.</p>
+                        <ul class="pillar-spec-list">
+                            <li><i class="bi bi-check2-circle"></i><span>Biometric &amp; Facial Door Access (COSEC ARGO)</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>ANPR License Plate Cameras &amp; Boom Barriers</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>Project Bullet, Dome &amp; Ruggedized IP Cameras</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>Centralized VMS &amp; NVR Recording (up to 144TB)</span></li>
+                        </ul>
+                        <a href="#capabilities" onclick="activateServiceTab('tab-security')" class="btn-modern btn-modern-outline w-100">View Security Specs <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="col-lg-4" data-animate data-delay="100">
+                <div class="pillar-card">
+                    <div class="media-16-9">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85" alt="Digital structural modeling and computational BIM analysis" onerror="this.style.display='none'">
+                        <span class="media-badge">02 / ASTRA STRUCTURAL BIM</span>
+                    </div>
+                    <div class="pillar-card-body">
+                        <h3 class="card-title-md">Digital Structural Modeling &amp; Computational Analysis</h3>
+                        <p class="card-text-sm">High-precision 3D BIM structural modeling, Finite Element Analysis (FEA), and code-compliant detailing that optimize load paths, material tonnage, and constructability.</p>
+                        <ul class="pillar-spec-list">
+                            <li><i class="bi bi-check2-circle"></i><span>Structural Grid, Shear Core &amp; Foundation Planning</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>3D Finite Element Modeling (.edb, .pro, .sdb)</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>LOD 200 to 350 Revit &amp; Navisworks Clash Audits</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>RC Detailing (GA &amp; BBS) &amp; Steel Shop Drafting</span></li>
+                        </ul>
+                        <a href="#capabilities" onclick="activateServiceTab('tab-bim')" class="btn-modern btn-modern-outline w-100">View Structural BIM <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="col-lg-4" data-animate data-delay="200">
+                <div class="pillar-card">
+                    <div class="media-16-9">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=85" alt="Custom web, mobile, and enterprise software development" onerror="this.style.display='none'">
+                        <span class="media-badge">03 / BESPOKE SOFTWARE</span>
+                    </div>
+                    <div class="pillar-card-body">
+                        <h3 class="card-title-md">Custom Software Development</h3>
+                        <p class="card-text-sm">Tailored web platforms, mobile apps, desktop software, and enterprise systems engineered around your exact daily workflows with optional AI and digital growth.</p>
+                        <ul class="pillar-spec-list">
+                            <li><i class="bi bi-check2-circle"></i><span>Custom Web, Mobile &amp; Enterprise Platforms</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>AI Assistants, Predictive Analytics &amp; APIs</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>5-Stage Agile Engineering &amp; QA Delivery</span></li>
+                            <li><i class="bi bi-check2-circle"></i><span>Enterprise SEO &amp; Targeted Digital Growth</span></li>
+                        </ul>
+                        <a href="#capabilities" onclick="activateServiceTab('tab-software')" class="btn-modern btn-modern-outline w-100">View Software Scope <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Deep-Dive Technical Explorer -->
+<section id="capabilities" class="cad-grid-bg">
+    <div class="container">
+        <div class="row align-items-end justify-content-between mb-5" data-animate>
+            <div class="col-lg-5">
+                <div class="eyebrow-pill"><span>Technical Specifications</span></div>
+                <h2 class="section-heading mb-0">Explore Each Service Division in Detail</h2>
+            </div>
+            <div class="col-lg-7 text-lg-end mt-4 mt-lg-0">
+                <ul class="nav service-switcher" id="divisionTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="tab-security" data-bs-toggle="pill" data-bs-target="#pane-security" type="button" role="tab" aria-controls="pane-security" aria-selected="true">
+                            <i class="bi bi-camera-video"></i> 01. Security &amp; Access
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab-bim" data-bs-toggle="pill" data-bs-target="#pane-bim" type="button" role="tab" aria-controls="pane-bim" aria-selected="false">
+                            <i class="bi bi-buildings"></i> 02. Structural BIM
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab-software" data-bs-toggle="pill" data-bs-target="#pane-software" type="button" role="tab" aria-controls="pane-software" aria-selected="false">
+                            <i class="bi bi-code-slash"></i> 03. Custom Software
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tab-content" id="divisionTabsContent" data-animate>
+            <!-- TAB 1: ACCESS CONTROL & VIDEO SURVEILLANCE -->
+            <div class="tab-pane fade show active" id="pane-security" role="tabpanel" aria-labelledby="tab-security">
+                <div class="detail-panel">
+                    <div class="row g-5 align-items-center mb-5 pb-5 border-bottom">
+                        <div class="col-lg-8">
+                            <span class="mono-tag d-block mb-3" style="color: var(--astra-teal);">HIKVISION &bull; DAHUA &bull; MATRIX COMSEC</span>
+                            <h3 class="section-heading mb-3" style="font-size: 2rem;">Access Control &amp; Video Surveillance Systems</h3>
+                            <p class="section-subcopy mb-0">End-to-end physical security, workforce attendance, and intelligent surveillance architectures for offices, banks, healthcare facilities, factories, gated communities, and transit fleets.</p>
+                        </div>
+                        <div class="col-lg-4 text-lg-end">
+                            <a href="mailto:info@astrasoft.tech?subject=Security%20and%20Access%20Control%20Inquiry" class="btn-modern btn-modern-primary">Request Site Survey</a>
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">BIOMETRIC &amp; FACIAL ACCESS</span>
+                                <h5 class="card-title-md">COSEC ARGO &amp; ARGO FACE Controllers</h5>
+                                <p class="card-text-sm">Touchless adaptive facial recognition and biometric door controllers supporting Face, BLE, QR, RFID, and PIN credentials with IP65 weather resistance and IK06/IK07 tamper protection.</p>
+                                <div class="footer-meta">Up to 50,000 Users &bull; Time Attendance &amp; Visitor Logs</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">PERIMETER &amp; FLEET</span>
+                                <h5 class="card-title-md">ANPR Cameras &amp; Motorized Boom Barriers</h5>
+                                <p class="card-text-sm">Real-time Optical Character Recognition (OCR) license plate scanning with IR night vision, anti-tailgating loops, and sub-second boom barrier actuation for touchless vehicle entry.</p>
+                                <div class="footer-meta">Wiegand &amp; TCP/IP &bull; Edge Storage Sync</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">OUTDOOR &amp; INDUSTRIAL</span>
+                                <h5 class="card-title-md">Project Series Bullet &amp; Dome IP Cameras</h5>
+                                <p class="card-text-sm">NDAA-compliant 2MP/5MP/8MP metal-body network cameras featuring True WDR, H.265 smart streaming, 512GB edge recording, and intelligent intrusion/tripwire analytics.</p>
+                                <div class="footer-meta">125&deg; Field of View &bull; Quad Stream Support</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">TRANSIT &amp; CENTRAL VMS</span>
+                                <h5 class="card-title-md">Ruggedized Cameras, VMS &amp; Enterprise NVR</h5>
+                                <p class="card-text-sm">Vibration-resistant mobile surveillance for buses, railways, and mining sites paired with centralized Video Management Systems and 4 to 96-channel NVRs.</p>
+                                <div class="footer-meta">Up to 144TB Storage &bull; Remote Maintenance</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: DIGITAL STRUCTURAL MODELING & COMPUTATIONAL ANALYSIS -->
+            <div class="tab-pane fade" id="pane-bim" role="tabpanel" aria-labelledby="tab-bim">
+                <div class="detail-panel">
+                    <div class="row g-5 align-items-center mb-5 pb-5 border-bottom">
+                        <div class="col-lg-8">
+                            <span class="mono-tag d-block mb-3" style="color: var(--astra-teal);">REVIT &bull; ROBOT FEA &bull; NAVISWORKS &bull; AUTOCAD &bull; FISCHER FIXPERIENCE</span>
+                            <h3 class="section-heading mb-3" style="font-size: 2rem;">Digital Structural Modeling &amp; Computational Analysis</h3>
+                            <p class="section-subcopy mb-0">Acting as a technical partner to consulting structural engineers, architects, main contractors, and developers to deliver clash-free, Eurocode/BS/NCA-aligned 3D structural packages.</p>
+                        </div>
+                        <div class="col-lg-4 text-lg-end">
+                            <a href="mailto:info@astrasoft.tech?subject=Structural%20BIM%20and%20Analysis%20Inquiry" class="btn-modern btn-modern-primary">Request BIM Dossier</a>
+                        </div>
+                    </div>
+
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">SCHEMATIC PHASE</span>
+                                <h5 class="card-title-md">Structural &amp; Building Planning</h5>
+                                <p class="card-text-sm">Architectural column grid alignment, lateral shear core positioning, framing system comparisons (flat, ribbed, PT slabs), and geotechnical foundation layouts.</p>
+                                <div class="footer-meta">Grid Layouts &bull; Cost/Quantity Matrix</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">FINITE ELEMENT ANALYSIS</span>
+                                <h5 class="card-title-md">Computational Structural Modeling</h5>
+                                <p class="card-text-sm">Full 3D analytical geometry configuration, gravity and wind/seismic load envelopes, member sizing, and baseplate/rebar anchor verification in fischer FiXperience.</p>
+                                <div class="footer-meta">Native .edb, .pro, .sdb &amp; Force Diagrams</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">LOD 200 TO 350</span>
+                                <h5 class="card-title-md">Multi-Disciplinary BIM Coordination</h5>
+                                <p class="card-text-sm">Parametric concrete and steel modeling in Autodesk Revit federated with Architectural and MEP models in Navisworks to eliminate site clashes before excavation.</p>
+                                <div class="footer-meta">.rvt, .ifc &amp; Navisworks Clearance Reports</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">FABRICATION PACKAGES</span>
+                                <h5 class="card-title-md">RC Detailing &amp; Steel Shop Drafting</h5>
+                                <p class="card-text-sm">3D rebar cage modeling with automated Bar Bending Schedules (BS 8666) plus fabrication-grade structural steel connection assemblies and CNC outputs.</p>
+                                <div class="footer-meta">GA Drawings, BBS &amp; CNC Steel Data</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-4 bg-light border d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                        <span class="text-muted fw-semibold"><strong style="color: var(--astra-navy); font-weight: 800;">Design Standards:</strong> Eurocode 0/1/2/3, BS 8110, BS 5950, EN 1992-4, Kenya Building Code &amp; NCA Alignment.</span>
+                        <span class="badge flex-shrink-0 p-2 px-3" style="background: rgba(38, 105, 125, 0.1); color: var(--astra-teal); font-family: 'JetBrains Mono'; font-weight: 700; letter-spacing: 0.05em;">5-STAGE PE AUDIT</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: CUSTOM SOFTWARE DEVELOPMENT -->
+            <div class="tab-pane fade" id="pane-software" role="tabpanel" aria-labelledby="tab-software">
+                <div class="detail-panel">
+                    <div class="row g-5 align-items-center mb-5 pb-5 border-bottom">
+                        <div class="col-lg-8">
+                            <span class="mono-tag d-block mb-3" style="color: var(--astra-teal);">WEB &bull; MOBILE &bull; ENTERPRISE SYSTEMS &bull; AI &bull; ENTERPRISE SEO</span>
+                            <h3 class="section-heading mb-3" style="font-size: 2rem;">Custom Software Development &amp; Digital Growth</h3>
+                            <p class="section-subcopy mb-0">Instead of forcing your organization into rigid off-the-shelf tools, we engineer secure, scalable software tailored to your exact operations, backed by technical SEO and conversion growth.</p>
+                        </div>
+                        <div class="col-lg-4 text-lg-end">
+                            <a href="mailto:info@astrasoft.tech?subject=Custom%20Software%20Development%20Inquiry" class="btn-modern btn-modern-primary">Start a Software Build</a>
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">CORE PLATFORMS</span>
+                                <h5 class="card-title-md">Web, Mobile &amp; Enterprise Apps</h5>
+                                <p class="card-text-sm">Custom SaaS platforms, cross-platform mobile applications, desktop tools, and internal ERP/workflow systems built with clean, maintainable architectures.</p>
+                                <div class="footer-meta">Full Ownership &bull; Scalable Cloud Hosting</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">APPLIED INTELLIGENCE</span>
+                                <h5 class="card-title-md">AI Assistants &amp; API Integrations</h5>
+                                <p class="card-text-sm">Embed intelligent AI assistants, predictive analytics, and bi-directional REST/webhook API integrations directly into your existing business databases.</p>
+                                <div class="footer-meta">Automated Workflows &amp; Legacy Bridges</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">STRUCTURED DELIVERY</span>
+                                <h5 class="card-title-md">5-Stage Software Engineering</h5>
+                                <p class="card-text-sm">1. Discovery &amp; Strategy, 2. Interactive UI/UX Prototyping, 3. Custom Development, 4. Security &amp; Speed QA Testing, and 5. Live Deployment &amp; Team Training.</p>
+                                <div class="footer-meta">On-Time Milestones &amp; Full Documentation</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="sub-feature-box">
+                                <span class="tag-line">VISIBILITY &amp; LEADS</span>
+                                <h5 class="card-title-md">Enterprise SEO &amp; Targeted Ads</h5>
+                                <p class="card-text-sm">Technical SEO audits, high-intent B2B keyword strategy, conversion rate optimization (CRO), and targeted Google/LinkedIn ad campaigns with ROI tracking.</p>
+                                <div class="footer-meta">Organic Search Authority &amp; Lead Analytics</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How We Execute -->
+<section class="bg-white">
+    <div class="container">
+        <div class="row align-items-end justify-content-between mb-5" data-animate>
+            <div class="col-lg-6">
+                <div class="eyebrow-pill"><span>Delivery Governance</span></div>
+                <h2 class="section-heading mb-0">Disciplined Engineering Across Every Deployment</h2>
+            </div>
+            <div class="col-lg-5 mt-4 mt-lg-0">
+                <p class="section-subcopy mb-0">Whether installing access control hardware, auditing a 3D structural model, or launching enterprise software, every engagement follows a transparent lifecycle.</p>
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-sm-6 col-lg-3" data-animate>
+                <div class="process-step-card">
+                    <span class="mono-tag mb-3" style="color: var(--astra-teal);">STEP 01</span>
+                    <h4 class="card-title-md">Site &amp; Workflow Audit</h4>
+                    <p class="card-text-sm mb-0">Technical assessment of facility security perimeters, architectural/geotechnical inputs, or business operational bottlenecks.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3" data-animate data-delay="100">
+                <div class="process-step-card">
+                    <span class="mono-tag mb-3" style="color: var(--astra-teal);">STEP 02</span>
+                    <h4 class="card-title-md">System Architecture</h4>
+                    <p class="card-text-sm mb-0">Camera/controller topology, parametric Revit &amp; Robot structural modeling, or interactive UI/UX software prototyping.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3" data-animate data-delay="200">
+                <div class="process-step-card">
+                    <span class="mono-tag mb-3" style="color: var(--astra-teal);">STEP 03</span>
+                    <h4 class="card-title-md">Verification &amp; QA</h4>
+                    <p class="card-text-sm mb-0">Navisworks clash clearance and PE audit dossiers, network stress testing, and cybersecurity hardening across all endpoints.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3" data-animate data-delay="300">
+                <div class="process-step-card">
+                    <span class="mono-tag mb-3" style="color: var(--astra-teal);">STEP 04</span>
+                    <h4 class="card-title-md">Commissioning &amp; Support</h4>
+                    <p class="card-text-sm mb-0">Live deployment, staff handover training, scheduled preventive maintenance, and ongoing technical &amp; SEO growth support.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technology & Hardware Partners -->
+<section id="partners" class="cad-grid-bg">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 pb-3" style="max-width: 680px;" data-animate>
+            <div class="eyebrow-pill"><span>Strategic Ecosystem</span></div>
+            <h2 class="section-heading">Industry-Leading Hardware &amp; Software Partners</h2>
+            <p class="section-subcopy mx-auto">We deploy certified enterprise hardware and globally recognized engineering platforms for long-term reliability.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center" data-animate>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="partner-tile">
+                    <span class="partner-name">HIKVISION</span>
+                    <span class="partner-domain">Video &amp; Access</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="partner-tile">
+                    <span class="partner-name">DAHUA</span>
+                    <span class="partner-domain">AI Surveillance</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="partner-tile">
+                    <span class="partner-name">MATRIX COMSEC</span>
+                    <span class="partner-domain">COSEC &amp; IP CCTV</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="partner-tile">
+                    <span class="partner-name">AUTODESK</span>
+                    <span class="partner-domain">Revit &bull; Robot &bull; Navis</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="partner-tile">
+                    <span class="partner-name">FISCHER</span>
+                    <span class="partner-domain">FiXperience Anchors</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="partner-tile">
+                    <span class="partner-name">CLOUD &amp; AI</span>
+                    <span class="partner-domain">Enterprise Stacks</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Focused FAQ Section -->
+<section id="faq" class="bg-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9" data-animate>
+                <div class="text-center mb-5 pb-3">
+                    <div class="eyebrow-pill"><span>Frequently Asked Questions</span></div>
+                    <h2 class="section-heading">Common Inquiries Across Our 3 Divisions</h2>
+                    <p class="section-subcopy mx-auto">Clear answers regarding security installations, structural BIM deliverables, and custom software engineering.</p>
+                </div>
+
+                <div class="accordion accordion-flush" id="accordionAstra">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">
+                                Which access control and surveillance brands do you supply and install?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#accordionAstra">
+                            <div class="accordion-body text-muted">
+                                We partner directly with <strong>Hikvision, Dahua, and Matrix Comsec</strong> to supply, install, and maintain biometric and facial recognition door controllers (such as the COSEC ARGO series), Automatic Number Plate Recognition (ANPR) cameras with motorized boom barriers, ruggedized transit cameras, and centralized NVR/VMS platforms.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false">
+                                What deliverables are included in Digital Structural Modeling &amp; Analysis?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
+                            <div class="accordion-body text-muted">
+                                Depending on project scope, we deliver schematic structural grid and framing studies, 3D Finite Element Analysis packages (<code>.edb</code>, <code>.pro</code>, <code>.sdb</code>), LOD 200 to 350 Autodesk Revit models (<code>.rvt</code> / <code>.ifc</code>), Navisworks clash clearance reports, General Arrangement (GA) drawings, Bar Bending Schedules (BBS), and CNC-ready structural steel shop drawings.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false">
+                                How do you handle statutory permit stamping for structural engineering packages?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
+                            <div class="accordion-body text-muted">
+                                In strict adherence to statutory engineering regulations, Astra Structural BIM prepares complete, audit-ready analytical models and detailing dossiers in collaboration with licensed, registered Professional Engineers (PEs / Consulting Engineers) who review, verify, and formally stamp documentation for county and NCA building permits.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false">
+                                Can you integrate AI assistants or connect custom software with our existing tools?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
+                            <div class="accordion-body text-muted">
+                                Yes. Our custom web, mobile, and enterprise software solutions are built around your existing operations. We develop secure API bridges to connect your current databases with intelligent AI assistants, automated reporting, and predictive analytics without disrupting daily operations.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false">
+                                Do you provide ongoing maintenance, technical support, and Enterprise SEO?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#accordionAstra">
+                            <div class="accordion-body text-muted">
+                                Yes. We offer scheduled maintenance and remote monitoring for all security and access control deployments, dedicated BIM modeling retainers for engineering studios, and ongoing post-launch software support paired with Enterprise Search Engine Optimization (SEO) and targeted digital advertising.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Conversion CTA Section -->
+<section id="contact" class="cad-grid-bg">
+    <div class="container">
+        <div class="cta-band" data-animate>
+            <div class="row align-items-center g-5 position-relative" style="z-index: 2;">
+                <div class="col-lg-7">
+                    <span class="mono-tag text-uppercase d-block mb-3" style="color: var(--astra-lime);">Start a Conversation</span>
+                    <h2 class="section-heading text-white mb-3">Ready to Secure, Model, or Build With Astrasoft?</h2>
+                    <p class="mb-0 fs-5" style="color: rgba(255, 255, 255, 0.85); max-width: 600px;">Reach our Nairobi engineering desk to schedule a physical security site survey, request a structural BIM proposal, or scope your custom software platform.</p>
+                </div>
+                <div class="col-lg-5 text-lg-end">
+                    <div class="d-flex flex-wrap justify-content-lg-end gap-3 cta-btn-group">
+                        <a href="mailto:info@astrasoft.tech" class="btn-modern shadow-lg" style="background: var(--astra-lime); color: var(--astra-navy); border: none;">
+                            <i class="bi bi-envelope fs-5"></i> Email Engineering Desk
+                        </a>
+                        <a href="https://wa.me/254727405667" target="_blank" rel="noopener" class="btn-modern" style="background: rgba(255,255,255,0.1); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px);">
+                            <i class="bi bi-whatsapp fs-5"></i> WhatsApp Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/254727405667" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat with Astrasoft on WhatsApp">
+    <i class="bi bi-whatsapp fs-3 text-white"></i>
+</a>
+
+<!-- Focused Footer -->
+<footer>
+    <div class="container">
+        <div class="statutory-note">
+            <strong style="color: var(--astra-navy); font-weight: 800;">Engineering Governance &amp; Statutory Compliance:</strong> For Digital Structural Modeling and Computational Analysis projects, Astra Structural BIM provides specialized computational analysis, building planning schematics, 3D BIM drafting, and detailing documentation. Final structural engineering calculations intended for municipal/county building permits, statutory life-safety sign-offs, and site integrity certifications are executed in collaboration with licensed, registered Professional Engineers (PE / Consulting Engineers) who audit, verify, and stamp permit documentation packages.
+        </div>
+
+        <div class="row g-5 align-items-start pb-5 border-bottom">
+            <div class="col-lg-4">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <svg viewBox="0 0 40 36" width="30" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <polygon points="20,2 38,34 29,34 20,17 11,34 2,34" fill="#26697D"/>
+                        <polygon points="20,2 29,18 20,18" fill="#0C3658"/>
+                        <polygon points="11,34 38,34 33,26 15,26" fill="#4FA3BD"/>
+                    </svg>
+                    <h5 class="fw-bold mb-0" style="font-size: 1.2rem; color: var(--astra-navy);">ASTRASOFT</h5>
+                </div>
+                <p class="card-text-sm mb-3" style="font-size: 0.95rem;">Astra Softwares &bull; Multidisciplinary Engineering, Physical Security &amp; Custom Software Solutions.</p>
+                <span class="mono-tag" style="color: var(--astra-teal);">WE ARE THE FUTURE!</span>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <span class="mono-tag text-uppercase d-block mb-3" style="color: var(--astra-teal);">Core Services</span>
+                <ul class="list-unstyled mb-0" style="font-size: 0.95rem;">
+                    <li class="mb-2"><a href="#capabilities" onclick="activateServiceTab('tab-security')" class="footer-link">Access Control &amp; Video Surveillance</a></li>
+                    <li class="mb-2"><a href="#capabilities" onclick="activateServiceTab('tab-bim')" class="footer-link">Digital Structural Modeling &amp; Analysis</a></li>
+                    <li><a href="#capabilities" onclick="activateServiceTab('tab-software')" class="footer-link">Custom Software Development &amp; SEO</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <span class="mono-tag text-uppercase d-block mb-3" style="color: var(--astra-teal);">Nairobi Office &amp; Contact</span>
+                <p class="card-text-sm mb-2" style="font-size: 0.95rem;"><i class="bi bi-geo-alt me-2" style="color: var(--astra-teal);"></i>Western Heights, Karuna Rd, Nairobi, Kenya</p>
+                <p class="card-text-sm mb-2" style="font-size: 0.95rem;">
+                    <i class="bi bi-telephone me-2" style="color: var(--astra-teal);"></i>
+                    <a href="tel:+254727405667" class="footer-link">+254 727 405 667</a> <span class="text-muted mx-1">/</span> <a href="tel:+254726298561" class="footer-link">+254 726 298 561</a>
+                </p>
+                <p class="card-text-sm mb-2" style="font-size: 0.95rem;">
+                    <i class="bi bi-envelope me-2" style="color: var(--astra-teal);"></i>
+                    <a href="mailto:info@astrasoft.tech" class="footer-link">info@astrasoft.tech</a> <span class="text-muted mx-1">/</span> <a href="mailto:info@astrasoft.online" class="footer-link">info@astrasoft.online</a>
+                </p>
+                <p class="card-text-sm mb-0" style="font-size: 0.95rem;">
+                    <i class="bi bi-globe me-2" style="color: var(--astra-teal);"></i>
+                    <a href="https://www.astrasoft.tech" target="_blank" rel="noopener" class="footer-link">www.astrasoft.tech</a> <span class="text-muted mx-1">/</span> <a href="https://www.astrasoft.online" target="_blank" rel="noopener" class="footer-link">www.astrasoft.online</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="pt-5 text-center">
+            <p class="text-muted small fw-semibold mb-0">&copy; 2026 Astra Softwares (Astrasoft). All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+    // 1. Astrasoft Triangle Loader Controller
+    const loaderStart = Date.now();
+    window.addEventListener('load', () => {
+        const loader = document.getElementById('loader-container');
+        if (!loader) return;
+        const minDuration = 1200;
+        const remaining = Math.max(0, minDuration - (Date.now() - loaderStart));
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            loader.style.visibility = 'hidden';
+        }, remaining);
+    });
+
+    // 2. Scroll Progress Hairline
+    const scrollBar = document.getElementById('scroll-bar');
+    window.addEventListener('scroll', () => {
+        const top = window.scrollY;
+        const height = document.documentElement.scrollHeight - window.innerHeight;
+        scrollBar.style.width = (height > 0 ? (top / height) * 100 : 0) + '%';
+    }, { passive: true });
+
+    // 3. Programmatic Service Tab Switcher
+    function activateServiceTab(tabId) {
+        const tabButton = document.getElementById(tabId);
+        if (tabButton && window.bootstrap) {
+            const tabInstance = bootstrap.Tab.getOrCreateInstance(tabButton);
+            tabInstance.show();
+        }
+    }
+
+    // 4. Auto-collapse Mobile Navbar on Navigation Click
+    const navbarCollapseEl = document.getElementById('navbarNav');
+    if (navbarCollapseEl && window.bootstrap) {
+        navbarCollapseEl.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item, .btn-modern').forEach((el) => {
+            el.addEventListener('click', () => {
+                if (window.innerWidth < 992 && navbarCollapseEl.classList.contains('show')) {
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapseEl);
+                    if (bsCollapse) bsCollapse.hide();
+                }
+            });
+        });
+    }
+
+    // 5. Staggered Scroll Reveals & Animated Metric Counters
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const targetEl = entry.target;
+            const delay = parseInt(targetEl.getAttribute('data-delay') || '0', 10);
+
+            setTimeout(() => {
+                targetEl.classList.add('in-view');
+            }, delay);
+
+            targetEl.querySelectorAll('[data-counter]').forEach((numEl) => {
+                const endVal = parseFloat(numEl.getAttribute('data-counter'));
+                const decimals = parseInt(numEl.getAttribute('data-decimals') || '0', 10);
+                if (endVal === 0) {
+                    numEl.textContent = '0';
+                    return;
+                }
+                const duration = 1100;
+                const start = performance.now();
+                function update(now) {
+                    const t = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - t, 3);
+                    const current = eased * endVal;
+                    numEl.textContent = decimals > 0 ? current.toFixed(decimals) : Math.round(current);
+                    if (t < 1) requestAnimationFrame(update);
+                }
+                requestAnimationFrame(update);
+            });
+
+            obs.unobserve(targetEl);
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-animate]').forEach((el) => revealObserver.observe(el));
+
+    // 6. Responsive 3D Structural & Neural Network Backdrop (Three.js)
+    const canvasContainer = document.getElementById('neural-net-canvas');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (canvasContainer && window.THREE && !prefersReducedMotion) {
+        const isMobile = window.innerWidth < 768;
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(
+            70,
+            canvasContainer.clientWidth / Math.max(canvasContainer.clientHeight, 1),
+            0.1,
+            1000
+        );
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: !isMobile });
+        renderer.setSize(canvasContainer.clientWidth, canvasContainer.clientHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.domElement.style.display = 'block';
+        renderer.domElement.style.width = '100%';
+        renderer.domElement.style.height = '100%';
+        canvasContainer.appendChild(renderer.domElement);
+
+        const count = isMobile ? 20 : 38;
+        const connectDist = isMobile ? 5.2 : 6;
+        const nodes = [];
+        const positions = new Float32Array(count * 3);
+        const geom = new THREE.BufferGeometry();
+
+        for (let i = 0; i < count; i++) {
+            positions[i * 3] = (Math.random() - 0.5) * 28;
+            positions[i * 3 + 1] = (Math.random() - 0.5) * 18;
+            positions[i * 3 + 2] = (Math.random() - 0.5) * 12;
+            nodes.push({
+                vel: new THREE.Vector3(
+                    (Math.random() - 0.5) * 0.0045,
+                    (Math.random() - 0.5) * 0.0045,
+                    (Math.random() - 0.5) * 0.003
+                )
+            });
+        }
+
+        geom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        const pts = new THREE.Points(
+            geom,
+            new THREE.PointsMaterial({ color: 0x26697D, size: 0.12, transparent: true, opacity: 0.45 })
+        );
+        scene.add(pts);
+
+        const segs = new THREE.LineSegments(
+            new THREE.BufferGeometry(),
+            new THREE.LineBasicMaterial({ color: 0x0C3658, transparent: true, opacity: 0.12 })
+        );
+        scene.add(segs);
+        camera.position.z = 12;
+
+        let rotX = 0;
+        let rotY = 0;
+        document.addEventListener('mousemove', (e) => {
+            rotY = (e.clientX - window.innerWidth / 2) * 0.00009;
+            rotX = (e.clientY - window.innerHeight / 2) * 0.00009;
+        }, { passive: true });
+
+        function tick() {
+            requestAnimationFrame(tick);
+            const p = geom.attributes.position.array;
+            const lineVerts = [];
+
+            for (let i = 0; i < count; i++) {
+                p[i * 3] += nodes[i].vel.x;
+                p[i * 3 + 1] += nodes[i].vel.y;
+                p[i * 3 + 2] += nodes[i].vel.z;
+
+                if (Math.abs(p[i * 3]) > 16) nodes[i].vel.x *= -1;
+                if (Math.abs(p[i * 3 + 1]) > 10) nodes[i].vel.y *= -1;
+                if (Math.abs(p[i * 3 + 2]) > 7) nodes[i].vel.z *= -1;
+
+                for (let j = i + 1; j < count; j++) {
+                    const dx = p[i * 3] - p[j * 3];
+                    const dy = p[i * 3 + 1] - p[j * 3 + 1];
+                    if (Math.sqrt(dx * dx + dy * dy) < connectDist) {
+                        lineVerts.push(p[i * 3], p[i * 3 + 1], p[i * 3 + 2], p[j * 3], p[j * 3 + 1], p[j * 3 + 2]);
+                    }
+                }
+            }
+
+            geom.attributes.position.needsUpdate = true;
+            segs.geometry.setAttribute('position', new THREE.Float32BufferAttribute(lineVerts, 3));
+            scene.rotation.y += (rotY - scene.rotation.y) * 0.04;
+            scene.rotation.x += (rotX - scene.rotation.x) * 0.04;
+            renderer.render(scene, camera);
+        }
+        tick();
+
+        window.addEventListener('resize', () => {
+            const w = canvasContainer.clientWidth;
+            const h = Math.max(canvasContainer.clientHeight, 1);
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        });
+    }
+</script>
+</body>
+</html>

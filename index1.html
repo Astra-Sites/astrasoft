@@ -3,438 +3,747 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astra Softwares | AI Innovation & Education</title>
+    <meta name="google-site-verification" content="k--D-ApfElqM7o6vShvMTO1HpMVdJ9yVL08DSc36-8s" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Astrasoft" />
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0EKQCJ3DH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-Z0EKQCJ3DH');
+    </script>
+
+    <title>Astrasoft | Security, Structural BIM & Custom Software</title>
+    <meta name="description" content="Astra Softwares (Astrasoft) delivers end-to-end Access Control & Video Surveillance, Digital Structural Modeling, and Custom Software Development in Nairobi, Kenya." />
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Open+Sans:wght@400;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --astra-dark-blue: #0C3658;
-            --astra-teal: #26697D;
+            --astra-bg: #FFFFFF;
+            --astra-bg-alt: #F4F7F9;
+            --astra-dark: #0A1929;
+            --astra-dark-soft: #132F4C;
+            --astra-primary: #0C3658;
+            --astra-accent: #26697D;
             --astra-lime: #D9E990;
-            --astra-light-grey: #f8fafc;
-            --dark-text: #1a1a1a;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+            --ease: cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        body { font-family: 'Open Sans', sans-serif; color: var(--dark-text); scroll-behavior: smooth; overflow-x: hidden; }
-        h1, h2, h3, h4, .navbar-brand { font-family: 'Plus Jakarta Sans', sans-serif; }
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-main);
+            background-color: var(--astra-bg);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
 
-        /* --- Navbar --- */
-        .navbar { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.95) !important; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .navbar-brand { font-weight: 800; color: var(--astra-dark-blue) !important; letter-spacing: -1px; }
-        .dropdown-menu { border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 8px; padding: 10px; }
-        .dropdown-item { font-weight: 600; color: var(--astra-dark-blue); padding: 8px 15px; border-radius: 4px; }
-        .dropdown-item:hover { background-color: var(--astra-light-grey); color: var(--astra-teal); }
+        h1, h2, h3, h4, h5, h6, .brand-font {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            color: var(--astra-dark);
+            letter-spacing: -0.02em;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Top Scroll Bar */
+        #scroll-bar {
+            position: fixed;
+            top: 0; left: 0; height: 3px; width: 0%;
+            background: linear-gradient(90deg, var(--astra-primary), var(--astra-accent), var(--astra-lime));
+            z-index: 2000;
+        }
+
+        /* --- Loader CSS --- */
+        .ui-abstergo {
+            --primary: #fff;
+            --secondary: rgba(255, 255, 255, 0.3);
+            display: flex; flex-direction: column; align-items: center; row-gap: 30px;
+        }
+        .ui-abstergo .ui-text {
+            color: var(--primary); font-family: 'JetBrains Mono', monospace;
+            display: flex; align-items: baseline; column-gap: 3px; letter-spacing: 1px;
+        }
+        .ui-abstergo .ui-dot {
+            width: 3px; height: 3px; background-color: var(--primary);
+            animation: dots 2s infinite linear;
+        }
+        .ui-abstergo .ui-dot:nth-child(2) { animation-delay: .4s; }
+        .ui-abstergo .ui-dot:nth-child(3) { animation-delay: .8s; }
+        .abstergo-loader { width: 103px; height: 90px; position: relative; }
+        .abstergo-loader div {
+            width: 50px; border-right: 12px solid transparent; border-left: 12px solid transparent;
+            border-top: 21px solid var(--primary); position: absolute;
+        }
+        .abstergo-loader div:nth-child(1) { top: 27px; left: 7px; rotate: -60deg; animation: line1 2s linear infinite alternate; }
+        .abstergo-loader div:nth-child(2) { bottom: 2px; left: 0; rotate: 180deg; animation: line2 2s linear infinite alternate; }
+        .abstergo-loader div:nth-child(3) { bottom: 16px; right: -9px; rotate: 60deg; animation: line3 2s linear infinite alternate; }
+        @keyframes line1 { 0%, 40% { top: 27px; left: 7px; rotate: -60deg; } 60%, 100% { top: 22px; left: 14px; rotate: 60deg; } }
+        @keyframes line2 { 0%, 40% { bottom: 2px; left: 0; rotate: 180deg; } 60%, 100% { bottom: 5px; left: -8px; rotate: 300deg; } }
+        @keyframes line3 { 0%, 40% { bottom: 16px; right: -9px; rotate: 60deg; } 60%, 100% { bottom: 7px; right: -11px; rotate: 180deg; } }
+        @keyframes dots { 0%, 70%, 100% { opacity: 0.3; } 30% { opacity: 1; } }
+
+        #loader-container {
+            position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+            background-color: var(--astra-dark); z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s;
+        }
+
+        /* --- Global Structural Components --- */
+        section { padding: 120px 0; }
+        .bg-alt { background-color: var(--astra-bg-alt); }
+        .bg-dark-mode { background-color: var(--astra-dark); color: #FFF; }
+        .bg-dark-mode h1, .bg-dark-mode h2, .bg-dark-mode h3, .bg-dark-mode h4, .bg-dark-mode h5 { color: #FFF; }
+        
+        .section-tag {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--astra-accent);
+            margin-bottom: 1rem; border-left: 2px solid var(--astra-accent); padding-left: 12px;
+        }
+        
+        .bg-dark-mode .section-tag { color: var(--astra-lime); border-color: var(--astra-lime); }
+
+        [data-reveal] {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+        }
+        [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+
+        /* --- Floating Navbar --- */
+        .navbar-wrapper {
+            position: fixed; top: 15px; left: 0; width: 100%; z-index: 1050;
+            transition: top 0.3s ease;
+        }
+        .navbar-custom {
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color); border-radius: 8px;
+            padding: 10px 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .nav-link {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem;
+            font-weight: 600; color: var(--astra-dark) !important;
+            padding: 8px 16px !important; transition: color 0.2s;
+        }
+        .nav-link:hover { color: var(--astra-accent) !important; }
 
         /* --- Buttons --- */
-        .btn-astra { padding: 12px 28px; font-weight: 700; border-radius: 6px; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem; }
-        .btn-primary-astra { background-color: var(--astra-dark-blue); color: white; border: none; }
-        .btn-primary-astra:hover { background-color: var(--astra-teal); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(12, 54, 88, 0.2); color: white; }
-
-        /* --- Hero & Floating Animation --- */
-        .hero-software { padding: 120px 0; background: radial-gradient(circle at top right, #f0f9ff, white); }
-        .hero-software h1 { font-size: 3.5rem; font-weight: 800; color: var(--astra-dark-blue); line-height: 1.1; }
-        .text-gradient { background: linear-gradient(45deg, var(--astra-dark-blue), var(--astra-teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+        .btn-solid, .btn-outline {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.5px; padding: 14px 28px;
+            border-radius: 4px; transition: all 0.3s var(--ease); text-decoration: none;
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
         }
-        .floating-circle { 
-            width: 300px; height: 300px; border: 20px solid var(--astra-teal); 
-            opacity: 0.1; border-radius: 50%; animation: float 6s ease-in-out infinite;
+        .btn-solid { background: var(--astra-primary); color: #FFF; border: 1px solid var(--astra-primary); }
+        .btn-solid:hover { background: var(--astra-accent); border-color: var(--astra-accent); color: #FFF; transform: translateY(-2px); }
+        .btn-outline { background: transparent; color: var(--astra-primary); border: 1px solid var(--border-color); }
+        .btn-outline:hover { background: var(--astra-bg-alt); border-color: var(--astra-primary); transform: translateY(-2px); }
+
+        /* --- Centered Immersive Hero --- */
+        .hero {
+            position: relative; height: 100vh; min-height: 700px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--astra-bg); overflow: hidden; text-align: center;
+        }
+        #hero-canvas {
+            position: absolute; inset: 0; z-index: 1; opacity: 0.4;
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; }
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem;
+        }
+        .hero-subtitle { font-size: clamp(1rem, 1.5vw, 1.15rem); color: var(--text-muted); margin-bottom: 2.5rem; }
+
+        /* --- Floating KPI Bar --- */
+        .kpi-board {
+            background: var(--astra-dark); border-radius: 8px; color: #FFF;
+            padding: 40px; box-shadow: 0 20px 40px rgba(10, 25, 41, 0.15);
+            transform: translateY(-50%); position: relative; z-index: 10;
+        }
+        .kpi-val { font-size: 2.2rem; font-weight: 800; color: var(--astra-lime); line-height: 1; margin-bottom: 5px; }
+        .kpi-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #94A3B8; margin: 0; }
+
+        /* --- Alternating Service Showcase --- */
+        .showcase-row { align-items: center; margin-bottom: 120px; }
+        .showcase-row:last-child { margin-bottom: 0; }
+        .showcase-img {
+            position: relative; width: 100%; aspect-ratio: 4/3;
+            border-radius: 4px; overflow: hidden; background: var(--astra-dark);
+        }
+        .showcase-img img {
+            width: 100%; height: 100%; object-fit: cover; opacity: 0.9;
+            transition: transform 0.8s var(--ease);
+        }
+        .showcase-row:hover .showcase-img img { transform: scale(1.05); }
+        .showcase-overlay-tag {
+            position: absolute; top: 20px; right: 20px;
+            background: rgba(10, 25, 41, 0.9); backdrop-filter: blur(5px);
+            color: var(--astra-lime); font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem; padding: 6px 12px; border-radius: 4px;
         }
 
-        /* --- Autoscroll Tech Stack --- */
-        .scroll-container { overflow: hidden; white-space: nowrap; padding: 40px 0; background: white; border-top: 1px solid #eee; }
-        .scroll-content { display: inline-flex; gap: 5rem; animation: scroll 35s linear infinite; }
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        .tech-item { display: flex; align-items: center; font-weight: 700; color: var(--astra-dark-blue); opacity: 0.7; font-size: 1.1rem; }
-        .tech-item i { font-size: 1.8rem; color: var(--astra-teal); }
+        .sub-feature-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 30px;
+        }
+        .sub-feature {
+            border-left: 1px solid var(--border-color); padding-left: 16px;
+        }
+        .sub-feature h5 { font-size: 0.95rem; margin-bottom: 6px; }
+        .sub-feature p { font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
 
-        /* --- Cards --- */
-        .service-card, .eco-card { border: 1px solid #edf2f7; border-radius: 20px; padding: 40px; transition: all 0.4s ease; background: white; height: 100%; }
-        .service-card:hover, .eco-card:hover { border-color: var(--astra-lime); box-shadow: 0 20px 40px rgba(0,0,0,0.05); transform: translateY(-10px); }
-        .icon-box { width: 64px; height: 64px; background: var(--astra-light-grey); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--astra-teal); margin-bottom: 25px; }
+        /* --- Horizontal Workflow Timeline --- */
+        .timeline-wrapper {
+            display: flex; justify-content: space-between; position: relative; margin-top: 60px;
+        }
+        .timeline-line {
+            position: absolute; top: 24px; left: 0; width: 100%; height: 1px; background: var(--border-color); z-index: 1;
+        }
+        .timeline-step {
+            position: relative; z-index: 2; width: 23%; background: var(--astra-bg-alt);
+        }
+        .step-dot {
+            width: 48px; height: 48px; background: var(--astra-bg-alt); border: 1px solid var(--border-color);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--astra-accent);
+            margin-bottom: 20px; transition: all 0.3s var(--ease);
+        }
+        .timeline-step:hover .step-dot { background: var(--astra-accent); color: #FFF; border-color: var(--astra-accent); }
 
-        /* --- Scholars Section --- */
-        .scholars-preview { background-color: var(--astra-dark-blue); border-radius: 24px; padding: 60px; color: white; position: relative; z-index: 5; margin-bottom: -80px; }
-        .scholars-tag { background: var(--astra-lime); color: var(--astra-dark-blue); padding: 5px 15px; border-radius: 4px; font-weight: 800; font-size: 0.7rem; letter-spacing: 1px; }
+        /* --- Simple Lists (Standards) --- */
+        .clean-list { list-style: none; padding: 0; margin: 0; }
+        .clean-list li {
+            padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; gap: 16px; align-items: flex-start;
+        }
+        .clean-list li:last-child { border-bottom: none; }
+        .clean-list .mono-icon {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+            background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; color: var(--astra-lime);
+        }
+
+        /* --- Partners --- */
+        .partner-logo { opacity: 0.4; filter: grayscale(100%); transition: all 0.3s; max-height: 40px; }
+        .partner-logo:hover { opacity: 1; filter: none; }
+
+        /* --- Footer --- */
+        footer { background: var(--astra-dark); color: #FFF; padding: 80px 0 40px; }
+        .footer-link { color: #94A3B8; text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 10px; transition: color 0.2s; }
+        .footer-link:hover { color: var(--astra-lime); }
+        .statutory-box { border: 1px solid rgba(255,255,255,0.1); padding: 24px; border-radius: 4px; font-size: 0.85rem; color: #94A3B8; margin-bottom: 40px; }
 
         @media (max-width: 991px) {
-            .hero-software h1 { font-size: 2.5rem; }
-            .scholars-preview { padding: 30px; margin-bottom: 0; }
-            .floating-circle { width: 150px; height: 150px; }
+            .navbar-wrapper { top: 0; padding: 0; }
+            .navbar-custom { border-radius: 0; border: none; border-bottom: 1px solid var(--border-color); padding: 10px 16px; }
+            .navbar-collapse { background: #FFF; padding: 20px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: absolute; top: 100%; left: 16px; right: 16px; }
+            .hero { min-height: 80vh; }
+            .kpi-board { transform: translateY(-30px); padding: 30px 20px; }
+            .showcase-row { flex-direction: column !important; gap: 40px; }
+            .showcase-text { order: 2; }
+            .showcase-img-col { order: 1; }
+        }
+
+        @media (max-width: 767px) {
+            section { padding: 80px 0; }
+            .sub-feature-grid { grid-template-columns: 1fr; }
+            .timeline-wrapper { flex-direction: column; gap: 30px; margin-top: 40px; }
+            .timeline-line { width: 1px; height: 100%; top: 0; left: 24px; }
+            .timeline-step { width: 100%; padding-left: 70px; display: flex; flex-direction: column; }
+            .step-dot { position: absolute; left: 0; top: 0; margin-bottom: 0; }
         }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#">
-            <i class="bi bi-asterisk me-2"></i>ASTRA SOFTWARES
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-center">
-                <li class="nav-item dropdown px-2">
-                    <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Solutions</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-wallet2 me-2"></i>AstraPay</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-rocket-takeoff me-2"></i>Astra Cosmo</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-cpu me-2"></i>Custom AI Dev</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown px-2">
-                    <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Astra Scholars</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">K-12 Programming</a></li>
-                        <li><a class="dropdown-item" href="#">AI Fellowship</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item ms-lg-3">
-                    <a href="#contact" class="btn btn-astra btn-primary-astra">Work With Us</a>
-                </li>
-            </ul>
+<div id="scroll-bar"></div>
+
+<!-- Loader -->
+<div id="loader-container">
+    <div class="ui-abstergo">
+        <div class="abstergo-loader">
+            <div></div><div></div><div></div>
+        </div>
+        <div class="ui-text">
+            Astrasoft
+            <div class="ui-dot"></div><div class="ui-dot"></div><div class="ui-dot"></div>
         </div>
     </div>
-</nav>
-
-<section class="hero-software">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-7" data-aos="fade-right">
-                <h6 class="text-uppercase fw-bold mb-3" style="color: var(--astra-teal); letter-spacing: 2px;">Innovating with Intelligence</h6>
-                <h1>Building the <span class="text-gradient">Intelligence</span> that Powers Tomorrow.</h1>
-                <p class="lead my-4 text-muted">Astra Softwares crafts bespoke AI solutions, automated ecosystems, and high-performance applications for the modern enterprise.</p>
-                <div class="d-flex gap-3">
-                    <a href="#solutions" class="btn btn-astra btn-primary-astra">View Our Apps</a>
-                    <a href="#contact" class="btn btn-astra btn-outline-dark border-2">Get a Quote</a>
-                </div>
-            </div>
-  <div class="col-lg-5 d-none d-lg-flex justify-content-center position-relative" style="height: 500px;">
-    <div id="neural-net-canvas" style="width: 100%; height: 100%;"></div>
 </div>
-        </div>
-    </div>
-</section>
 
-<section class="overflow-hidden">
-    <div class="scroll-container">
-        <div class="scroll-content">
-            <div class="tech-item"><i class="bi bi-code-slash me-2"></i><span>Laravel/PHP</span></div>
-            <div class="tech-item"><i class="bi bi-terminal me-2"></i><span>Python/AI</span></div>
-            <div class="tech-item"><i class="bi bi-database me-2"></i><span>MySQL/PostgreSQL</span></div>
-            <div class="tech-item"><i class="bi bi-cpu me-2"></i><span>C++ & Electronics</span></div>
-            <div class="tech-item"><i class="bi bi-layers me-2"></i><span>React/Next.js</span></div>
-            <div class="tech-item"><i class="bi bi-gpu-card me-2"></i><span>Computer Vision</span></div>
-            <div class="tech-item"><i class="bi bi-shield-lock me-2"></i><span>Cybersecurity</span></div>
-            <div class="tech-item"><i class="bi bi-code-slash me-2"></i><span>Laravel/PHP</span></div>
-            <div class="tech-item"><i class="bi bi-terminal me-2"></i><span>Python/AI</span></div>
-            <div class="tech-item"><i class="bi bi-database me-2"></i><span>MySQL/PostgreSQL</span></div>
-            <div class="tech-item"><i class="bi bi-cpu me-2"></i><span>C++ & Electronics</span></div>
-            <div class="tech-item"><i class="bi bi-layers me-2"></i><span>React/Next.js</span></div>
-            <div class="tech-item"><i class="bi bi-gpu-card me-2"></i><span>Computer Vision</span></div>
-            <div class="tech-item"><i class="bi bi-shield-lock me-2"></i><span>Cybersecurity</span></div>
-        </div>
-    </div>
-</section>
-
-<section id="solutions" class="py-5" style="padding: 100px 0;">
+<!-- Floating Navbar -->
+<div class="navbar-wrapper">
     <div class="container">
-        <div class="text-center mb-5" data-aos="fade-up">
-            <h2 class="fw-bold">Enterprise AI Solutions</h2>
-            <p class="text-muted">High-impact engineering tailored to your business needs.</p>
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <svg viewBox="0 0 40 36" width="28" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="20,2 38,34 29,34 20,17 11,34 2,34" fill="#26697D"/>
+                    <polygon points="20,2 29,18 20,18" fill="#0C3658"/>
+                    <polygon points="11,34 38,34 33,26 15,26" fill="#4FA3BD"/>
+                </svg>
+                <span>ASTRASOFT</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <i class="bi bi-list fs-3"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#security">Security</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bim">Structural BIM</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#software">Software</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#workflow">Workflow</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="mailto:info@astrasoft.tech" class="btn-solid w-100">Work With Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<!-- Hero -->
+<header class="hero">
+    <div id="hero-canvas"></div>
+    <div class="hero-content" data-reveal>
+        <span class="section-tag mb-4">Astrasoft Division &bull; Nairobi</span>
+        <h1 class="hero-title">Engineering Intelligent Security, Structures &amp; Software.</h1>
+        <p class="hero-subtitle">We equip modern enterprises, engineering firms, and commercial facilities with end-to-end physical security ecosystems, 3D structural BIM models, and tailored enterprise software.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="#overview" class="btn-solid">Explore Divisions</a>
+            <a href="https://wa.me/254727405667" target="_blank" class="btn-outline">Consult an Engineer</a>
         </div>
-        <div class="row g-4 text-center">
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-card">
-                    <div class="icon-box mx-auto"><i class="bi bi-cpu"></i></div>
-                    <h4 class="fw-bold">AI Integration</h4>
-                    <p class="text-muted small">Embedding Large Language Models and custom ML into existing legacy workflows.</p>
-                </div>
+    </div>
+</header>
+
+<!-- KPIs (Overlapping) -->
+<div class="container position-relative">
+    <div class="kpi-board" data-reveal>
+        <div class="row text-center text-md-start g-4">
+            <div class="col-6 col-md-3">
+                <div class="kpi-val"><span data-count="3">0</span></div>
+                <div class="kpi-label">Core Divisions</div>
             </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-card">
-                    <div class="icon-box mx-auto"><i class="bi bi-code-slash"></i></div>
-                    <h4 class="fw-bold">Custom Software</h4>
-                    <p class="text-muted small">Scalable web and mobile platforms built with robust backend architectures.</p>
-                </div>
+            <div class="col-6 col-md-3">
+                <div class="kpi-val">LOD <span data-count="350">0</span></div>
+                <div class="kpi-label">BIM Precision</div>
             </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-card">
-                    <div class="icon-box mx-auto"><i class="bi bi-robot"></i></div>
-                    <h4 class="fw-bold">Automation</h4>
-                    <p class="text-muted small">Autonomous agentic systems and RPA tools to streamline enterprise productivity.</p>
-                </div>
+            <div class="col-6 col-md-3">
+                <div class="kpi-val"><span data-count="24">0</span>/7</div>
+                <div class="kpi-label">System Support</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="kpi-val"><span data-count="99.9">0</span>%</div>
+                <div class="kpi-label">Uptime Reliability</div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<section class="py-5" style="background-color: var(--astra-dark-blue); color: white;">
+<!-- Overview -->
+<section id="overview" style="padding-top: 20px;">
     <div class="container">
-        <div class="row text-center g-4" data-aos="zoom-in">
-            <div class="col-md-4">
-                <h2 class="fw-bold display-5" style="color: var(--astra-lime);">500+</h2>
-                <p class="mb-0 text-uppercase small opacity-75 fw-bold">Scholars Trained</p>
+        <div class="row justify-content-between align-items-center">
+            <div class="col-lg-5" data-reveal>
+                <span class="section-tag">Company Overview</span>
+                <h2 class="mb-4">Practical, High-Impact Execution From Concept to Deployment.</h2>
+                <p class="text-muted">Astra Softwares (Astrasoft) is a multidisciplinary engineering and technology solutions provider. We combine in-house engineering expertise with strategic global hardware and software partnerships[cite: 19].</p>
+                <p class="text-muted">Whether securing a commercial facility, optimizing structural designs, or embedding autonomous intelligence into workflows, we deliver tailored architectures built for long-term reliability.</p>
             </div>
-            <div class="col-md-4">
-                <h2 class="fw-bold display-5" style="color: var(--astra-lime);">12+</h2>
-                <p class="mb-0 text-uppercase small opacity-75 fw-bold">AI Solutions Deployed</p>
-            </div>
-            <div class="col-md-4">
-                <h2 class="fw-bold display-5" style="color: var(--astra-lime);">99.9%</h2>
-                <p class="mb-0 text-uppercase small opacity-75 fw-bold">System Reliability</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="ecosystem" class="py-5 bg-light">
-    <div class="container">
-        <div class="row mb-5" data-aos="fade-right">
-            <div class="col-lg-6">
-                <h2 class="fw-bold">Our Living Ecosystem</h2>
-                <p class="text-muted">Proprietary products built to drive the future of fintech and agriculture.</p>
-            </div>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                <div class="eco-card">
-                    <i class="bi bi-wallet2 fs-2 text-primary mb-3"></i>
-                    <h5 class="fw-bold">AstraPay</h5>
-                    <p class="small text-muted">A borderless fintech gateway built for modern digital transactions.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                <div class="eco-card">
-                    <i class="bi bi-tree fs-2 text-success mb-3"></i>
-                    <h5 class="fw-bold">SalamaFarm</h5>
-                    <p class="small text-muted">Leveraging AI to optimize agricultural yields and monitoring.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                <div class="eco-card">
-                    <i class="bi bi-rocket-takeoff fs-2 text-info mb-3"></i>
-                    <h5 class="fw-bold">Astra Cosmo</h5>
-                    <p class="small text-muted">Enterprise resource planning (ERP) for hyper-growth companies.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                <div class="eco-card">
-                    <i class="bi bi-controller fs-2 text-danger mb-3"></i>
-                    <h5 class="fw-bold">Game Changer</h5>
-                    <p class="small text-muted">High-performance engines for educational and industrial simulations.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-5 mt-5">
-    <div class="container">
-        <div class="scholars-preview shadow-lg" data-aos="fade-up" data-aos-offset="300">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <span class="scholars-tag mb-3 d-inline-block text-uppercase">Educational Division</span>
-                    <h2 class="display-6 fw-bold mb-3 text-white">Astra Scholars: The Academy</h2>
-                    <p class="mb-4 opacity-75">We bridge the gap between education and industry by training engineers in high-demand technologies like Gemini AI and full-stack Laravel.</p>
-                    <div class="row g-3">
-                        <div class="col-md-4 small fw-bold"><i class="bi bi-check-circle-fill text-lime me-2"></i>K-12 Pathways</div>
-                        <div class="col-md-4 small fw-bold"><i class="bi bi-check-circle-fill text-lime me-2"></i>AI Fellowships</div>
-                        <div class="col-md-4 small fw-bold"><i class="bi bi-check-circle-fill text-lime me-2"></i>Career Coaching</div>
+            <div class="col-lg-6 mt-5 mt-lg-0" data-reveal>
+                <div class="row g-4">
+                    <div class="col-sm-6">
+                        <div class="p-4 bg-alt rounded border h-100">
+                            <span class="mono d-block text-muted small mb-2">01 // HARDWARE</span>
+                            <h5 class="mb-0">Global Security Ecosystems</h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="p-4 bg-alt rounded border h-100">
+                            <span class="mono d-block text-muted small mb-2">02 // AEC & BIM</span>
+                            <h5 class="mb-0">Clash-Free Structural Models</h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="p-4 bg-alt rounded border h-100">
+                            <span class="mono d-block text-muted small mb-2">03 // SOFTWARE</span>
+                            <h5 class="mb-0">Workflow-First Applications & AI</h5>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
-                    <a href="#" class="btn btn-astra px-5 py-3" style="background: var(--astra-lime); color: var(--astra-dark-blue);">Explore Academy</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Service 1: Security -->
+<section id="security" class="bg-alt">
+    <div class="container">
+        <div class="row showcase-row">
+            <div class="col-lg-6 showcase-img-col" data-reveal>
+                <div class="showcase-img">
+                    <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1000&q=80" alt="Access control systems">
+                    <span class="showcase-overlay-tag">DIVISION 01</span>
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-1 showcase-text" data-reveal>
+                <span class="section-tag">Physical Security</span>
+                <h2 class="mb-3">Access Control &amp; Video Surveillance</h2>
+                <p class="text-muted mb-4">Delivered in partnership with global industry leaders Hikvision, Dahua, and Matrix Comsec. We provide tailored deployments across commercial, industrial, and residential environments with remote monitoring[cite: 20, 21].</p>
+                
+                <div class="sub-feature-grid">
+                    <div class="sub-feature">
+                        <h5>Biometric &amp; Facial Access</h5>
+                        <p>COSEC ARGO touchless controllers supporting Face, BLE, QR, and RFID[cite: 22, 23].</p>
+                    </div>
+                    <div class="sub-feature">
+                        <h5>Perimeter &amp; Fleet</h5>
+                        <p>ANPR OCR cameras and automated boom barriers with anti-tailgating[cite: 25].</p>
+                    </div>
+                    <div class="sub-feature">
+                        <h5>Industrial Surveillance</h5>
+                        <p>Project Series Bullet/Dome IP cameras with True WDR and edge storage[cite: 24].</p>
+                    </div>
+                    <div class="sub-feature">
+                        <h5>Centralized VMS</h5>
+                        <p>Enterprise NVR systems up to 144TB and ruggedized transit cameras[cite: 26].</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<footer class="py-5 bg-white border-top pt-5 mt-lg-5">
-    <div class="container pt-5">
-        <div class="row g-5">
-            <div class="col-lg-4">
-                <h5 class="fw-bold mb-3">Astra Softwares</h5>
-                <p class="text-muted small">Building robust, secure, and intelligent systems for a better digital future.</p>
+<!-- Service 2: BIM -->
+<section id="bim">
+    <div class="container">
+        <div class="row showcase-row">
+            <div class="col-lg-5 showcase-text" data-reveal>
+                <span class="section-tag">AEC Engineering</span>
+                <h2 class="mb-3">Digital Structural Modeling &amp; Analysis</h2>
+                <p class="text-muted mb-4">Acting as a specialized technical partner to structural engineers and contractors, Astra Structural BIM bridges design intent with constructability through precision 3D computational modeling[cite: 28].</p>
+                
+                <div class="sub-feature-grid">
+                    <div class="sub-feature">
+                        <h5>Structural Planning</h5>
+                        <p>Schematic column grids, lateral shear cores, and foundation layouts[cite: 29].</p>
+                    </div>
+                    <div class="sub-feature">
+                        <h5>Computational FEA</h5>
+                        <p>Full 3D analytical geometry and load envelopes via Robot Structural Analysis[cite: 30, 31].</p>
+                    </div>
+                    <div class="sub-feature">
+                        <h5>BIM Coordination</h5>
+                        <p>LOD 200-350 Revit modeling with Navisworks MEP clash detection[cite: 30].</p>
+                    </div>
+                    <div class="sub-feature">
+                        <h5>Fabrication Detailing</h5>
+                        <p>Code-compliant GA drawings, Bar Bending Schedules (BBS), and CNC steel outputs[cite: 30].</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-2">
-                <h6 class="fw-bold mb-3">Products</h6>
-                <ul class="list-unstyled small text-muted">
-                    <li>AstraPay</li>
-                    <li>SalamaFarm</li>
-                    <li>Astra Cosmo</li>
-                </ul>
-            </div>
-            <div class="col-lg-2">
-                <h6 class="fw-bold mb-3">Academy</h6>
-                <ul class="list-unstyled small text-muted">
-                    <li>K-12 Coding</li>
-                    <li>AI Fellowship</li>
-                </ul>
-            </div>
-            <div class="col-lg-4">
-                <h6 class="fw-bold mb-3">Subscribe</h6>
-                <div class="input-group">
-                    <input type="text" class="form-control border-2" placeholder="Email Address">
-                    <button class="btn btn-primary-astra">Join</button>
+            <div class="col-lg-6 offset-lg-1 showcase-img-col" data-reveal>
+                <div class="showcase-img">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80" alt="BIM 3D Modeling">
+                    <span class="showcase-overlay-tag">DIVISION 02</span>
                 </div>
             </div>
         </div>
-        <hr class="my-5 opacity-10">
-        <div class="text-center text-muted small pb-4">
-            &copy; 2026 Astra Softwares Group. All Rights Reserved.
+    </div>
+</section>
+
+<!-- Service 3: Software -->
+<section id="software" class="bg-alt">
+    <div class="container">
+        <div class="row showcase-row">
+            <div class="col-lg-6 showcase-img-col" data-reveal>
+                <div class="showcase-img">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80" alt="Software Development">
+                    <span class="showcase-overlay-tag">DIVISION 03</span>
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-1 showcase-text" data-reveal>
+                <span class="section-tag">Enterprise Software</span>
+                <h2 class="mb-3">Custom Software Development</h2>
+                <p class="text-muted mb-4">We build custom mobile apps, web platforms, and enterprise systems designed specifically around your company's exact operations, ensuring you stay in full control of your digital growth[cite: 35].</p>
+                
+                <div class="sub-feature-grid">
+                    <div class="sub-feature">
+                        <h5>Core Platforms</h5>
+                        <p>Scalable web, cross-platform mobile, and internal ERP/workflow tools[cite: 36].</p>
+                    </div>
+                    <div class="sub-feature">
+                        <h5>Applied Intelligence</h5>
+                        <p>Integration of AI assistants, predictive analytics, and seamless API bridges[cite: 36].</p>
+                    </div>
+                    <div class="sub-feature">
+                        <h5>Agile Delivery</h5>
+                        <p>Structured 5-stage process from UI/UX prototyping to live deployment[cite: 36].</p>
+                    </div>
+                    <div class="sub-feature">
+                        <h5>Digital Growth</h5>
+                        <p>Enterprise Search Engine Optimization (SEO) and targeted digital marketing[cite: 37, 38].</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dual Specs / Standards (Dark Mode) -->
+<section class="bg-dark-mode">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6" data-reveal>
+                <span class="section-tag">Software Stack</span>
+                <h3 class="mb-4">Engineering &amp; BIM Toolset</h3>
+                <ul class="clean-list text-muted">
+                    <li><span class="mono-icon">RVT</span> <div><strong class="text-white">Autodesk Revit:</strong> Physical/analytical modeling (LOD 200-350) and BBS generation[cite: 31].</div></li>
+                    <li><span class="mono-icon">RSA</span> <div><strong class="text-white">Robot Structural Analysis:</strong> 3D frame FEA and load simulations[cite: 31].</div></li>
+                    <li><span class="mono-icon">NWD</span> <div><strong class="text-white">Navisworks Manage:</strong> Automated clash detection and interference reports[cite: 31].</div></li>
+                    <li><span class="mono-icon">DWG</span> <div><strong class="text-white">AutoCAD:</strong> 2D General Arrangement drafting and .dwg exchange[cite: 31].</div></li>
+                    <li><span class="mono-icon">FIX</span> <div><strong class="text-white">fischer FiXperience:</strong> Baseplate and post-installed rebar anchor verification[cite: 31].</div></li>
+                </ul>
+            </div>
+            <div class="col-lg-6" data-reveal data-delay="100">
+                <span class="section-tag">Compliance</span>
+                <h3 class="mb-4">Design Codes &amp; Standards</h3>
+                <ul class="clean-list text-muted">
+                    <li><span class="mono-icon">EC0/1</span> <div><strong class="text-white">Basis of Design:</strong> Eurocode 0 and 1 for gravity, wind, and seismic actions[cite: 8].</div></li>
+                    <li><span class="mono-icon">EC2</span> <div><strong class="text-white">Concrete:</strong> Eurocode 2, BS 8110, and BS 8666 standard detailing[cite: 8].</div></li>
+                    <li><span class="mono-icon">EC3</span> <div><strong class="text-white">Steelwork:</strong> Eurocode 3 and BS 5950 for connections and tolerances[cite: 8].</div></li>
+                    <li><span class="mono-icon">ETAG</span> <div><strong class="text-white">Anchors:</strong> EN 1992-4 and ETAG 001 guidelines[cite: 8].</div></li>
+                    <li><span class="mono-icon">NCA</span> <div><strong class="text-white">Local Regs:</strong> Kenya Building Code and NCA submission standards[cite: 8].</div></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Workflow Timeline -->
+<section id="workflow">
+    <div class="container">
+        <div class="text-center mx-auto" style="max-width: 600px;" data-reveal>
+            <span class="section-tag">Quality Assurance</span>
+            <h2>Disciplined Execution Workflow</h2>
+            <p class="text-muted">A clear, gated lifecycle applied to structural engineering, software builds, and security hardware deployments[cite: 32, 33, 36].</p>
+        </div>
+
+        <div class="timeline-wrapper" data-reveal>
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-step">
+                <div class="step-dot">01</div>
+                <h5>Audit &amp; Discovery</h5>
+                <p class="text-muted small">Technical assessment of architectural inputs, facility perimeters, or existing business workflows.</p>
+            </div>
+            
+            <div class="timeline-step">
+                <div class="step-dot">02</div>
+                <h5>Architecture</h5>
+                <p class="text-muted small">Hardware topology, parametric Revit structural modeling, or interactive UI/UX software prototyping.</p>
+            </div>
+            
+            <div class="timeline-step">
+                <div class="step-dot">03</div>
+                <h5>Verification</h5>
+                <p class="text-muted small">Navisworks clash clearance, network stress testing, and codebase quality assurance.</p>
+            </div>
+            
+            <div class="timeline-step">
+                <div class="step-dot">04</div>
+                <h5>Handover</h5>
+                <p class="text-muted small">Live deployment, PE-stamped dossier sign-offs, and ongoing scheduled maintenance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partners (Floating Inline) -->
+<section id="partners" class="bg-alt py-5">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center gap-4 gap-md-5" data-reveal>
+            <h6 class="m-0 text-muted me-3">Strategic Ecosystem:</h6>
+            <span class="brand-font fs-5 text-muted partner-logo">HIKVISION</span>
+            <span class="brand-font fs-5 text-muted partner-logo">DAHUA</span>
+            <span class="brand-font fs-5 text-muted partner-logo">MATRIX COMSEC</span>
+            <span class="brand-font fs-5 text-muted partner-logo">AUTODESK</span>
+            <span class="brand-font fs-5 text-muted partner-logo">FISCHER</span>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="statutory-box" data-reveal>
+            <strong class="text-white">Statutory Compliance Framework:</strong> For Digital Structural Modeling and Computational Analysis, final engineering calculations intended for municipal/county permits, life-safety sign-offs, and site integrity certifications are executed in collaboration with licensed, registered Professional Engineers (PE / Consulting Engineers) who audit, verify, and stamp permit documentation packages[cite: 34].
+        </div>
+
+        <div class="row g-4 border-bottom border-secondary pb-5">
+            <div class="col-lg-4">
+                <h4 class="text-white mb-2">ASTRASOFT</h4>
+                <p class="text-muted small mb-2">Multidisciplinary Engineering, Physical Security &amp; Custom Software Solutions.</p>
+                <span class="mono text-uppercase text-light small">We Are The Future!</span>
+            </div>
+
+            <div class="col-md-4 col-lg-3 offset-lg-1">
+                <span class="section-tag text-white mb-3" style="border-color: #FFF;">Divisions</span>
+                <a href="#security" class="footer-link">Security &amp; Access Control</a>
+                <a href="#bim" class="footer-link">Structural BIM Analysis</a>
+                <a href="#software" class="footer-link">Custom Software Engineering</a>
+            </div>
+
+            <div class="col-md-4 col-lg-4">
+                <span class="section-tag text-white mb-3" style="border-color: #FFF;">Nairobi Office</span>
+                <p class="footer-link mb-1"><i class="bi bi-geo-alt me-2 text-white"></i>Western Heights, Karuna Rd, Nairobi</p>
+                <p class="footer-link mb-1"><i class="bi bi-telephone me-2 text-white"></i>+254 727 405 667 / +254 726 298 561</p>
+                <p class="footer-link mb-0"><i class="bi bi-envelope me-2 text-white"></i>info@astrasoft.tech</p>
+            </div>
+        </div>
+
+        <div class="pt-4 text-center">
+            <p class="text-muted small mb-0">&copy; 2026 Astra Softwares (Astrasoft). All Rights Reserved.</p>
         </div>
     </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
 <script>
-    const container = document.getElementById('neural-net-canvas');
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    // Loader
+    window.addEventListener('load', () => {
+        const loader = document.getElementById('loader-container');
+        if(loader) setTimeout(() => { loader.style.opacity = '0'; loader.style.visibility = 'hidden'; }, 800);
+    });
 
-    renderer.setSize(container.offsetWidth, container.offsetHeight);
-    container.appendChild(renderer.domElement);
+    // Scroll Progress
+    const scrollBar = document.getElementById('scroll-bar');
+    window.addEventListener('scroll', () => {
+        const height = document.documentElement.scrollHeight - window.innerHeight;
+        scrollBar.style.width = height > 0 ? (window.scrollY / height * 100) + '%' : '0%';
+    }, {passive: true});
 
-    const particleCount = 60; // Fewer nodes for a cleaner, more professional look
-    const particlesData = [];
-    const positions = new Float32Array(particleCount * 3);
-    const particles = new THREE.BufferGeometry();
-
-    // Initialize positions and individual drift speeds
-    for (let i = 0; i < particleCount; i++) {
-        const x = (Math.random() - 0.5) * 8;
-        const y = (Math.random() - 0.5) * 8;
-        const z = (Math.random() - 0.5) * 8;
-
-        positions[i * 3] = x;
-        positions[i * 3 + 1] = y;
-        positions[i * 3 + 2] = z;
-
-        particlesData.push({
-            velocity: new THREE.Vector3(-1 + Math.random() * 2, -1 + Math.random() * 2, -1 + Math.random() * 2).multiplyScalar(0.01),
-            numConnections: 0
+    // Mobile Navbar Collapse
+    const navCollapse = document.getElementById('mainNav');
+    if(navCollapse && window.bootstrap) {
+        navCollapse.querySelectorAll('.nav-link').forEach(el => {
+            el.addEventListener('click', () => {
+                if(window.innerWidth < 992) bootstrap.Collapse.getInstance(navCollapse)?.hide();
+            });
         });
     }
 
-    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    // Scroll Reveals & Counters
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if(!entry.isIntersecting) return;
+            const el = entry.target;
+            setTimeout(() => el.classList.add('is-visible'), parseInt(el.dataset.delay || 0));
+            
+            el.querySelectorAll('[data-count]').forEach(num => {
+                const target = parseFloat(num.dataset.count);
+                const duration = 1500; const start = performance.now();
+                const update = now => {
+                    const progress = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const val = eased * target;
+                    num.textContent = target % 1 !== 0 ? val.toFixed(1) : Math.round(val);
+                    if(progress < 1) requestAnimationFrame(update);
+                };
+                requestAnimationFrame(update);
+            });
+            obs.unobserve(el);
+        });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
 
-    // Nodes: Glowing dots
-    const pMaterial = new THREE.PointsMaterial({
-        color: 0xD9E990, // Astra Lime
-        size: 0.18,
-        transparent: true,
-        opacity: 0.9,
-        blending: THREE.AdditiveBlending // Makes them glow when they overlap
-    });
+    // Three.js Hero Background
+    const canvas = document.getElementById('hero-canvas');
+    if(canvas && window.THREE && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(70, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({alpha: true, antialias: window.innerWidth > 768});
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        canvas.appendChild(renderer.domElement);
 
-    const pointCloud = new THREE.Points(particles, pMaterial);
-    scene.add(pointCloud);
+        const count = window.innerWidth < 768 ? 40 : 80;
+        const geom = new THREE.BufferGeometry();
+        const pos = new Float32Array(count * 3);
+        const vel = [];
+        
+        for(let i=0; i<count; i++) {
+            pos[i*3] = (Math.random() - 0.5) * 30;
+            pos[i*3+1] = (Math.random() - 0.5) * 20;
+            pos[i*3+2] = (Math.random() - 0.5) * 10;
+            vel.push(new THREE.Vector3((Math.random()-0.5)*0.01, (Math.random()-0.5)*0.01, (Math.random()-0.5)*0.01));
+        }
+        geom.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+        
+        const pts = new THREE.Points(geom, new THREE.PointsMaterial({color: 0x26697D, size: 0.12, opacity: 0.5, transparent: true}));
+        const lines = new THREE.LineSegments(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({color: 0x0C3658, opacity: 0.15, transparent: true}));
+        
+        scene.add(pts); scene.add(lines);
+        camera.position.z = 12;
 
-    // Lines: Connections
-    const lineMaterial = new THREE.LineBasicMaterial({
-        color: 0x26697D, // Astra Teal
-        transparent: true,
-        opacity: 0.3
-    });
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', e => {
+            mouseX = (e.clientX - window.innerWidth/2) * 0.0001;
+            mouseY = (e.clientY - window.innerHeight/2) * 0.0001;
+        }, {passive: true});
 
-    const linesGeometry = new THREE.BufferGeometry();
-    const lineMesh = new THREE.LineSegments(linesGeometry, lineMaterial);
-    scene.add(lineMesh);
-
-    camera.position.z = 6;
-
-    // Mouse Interaction Logic
-    let targetRotationX = 0;
-    let targetRotationY = 0;
-    let mouseX = 0;
-    let mouseY = 0;
-
-    document.addEventListener('mousemove', (event) => {
-        // We calculate target rotation based on mouse position
-        mouseX = (event.clientX - window.innerWidth / 2);
-        mouseY = (event.clientY - window.innerHeight / 2);
-    });
-
-    function animate() {
-        requestAnimationFrame(animate);
-
-        const posArray = particles.attributes.position.array;
-        let linePositions = [];
-
-        // 1. Move individual particles slightly (Organic Drift)
-        for (let i = 0; i < particleCount; i++) {
-            const data = particlesData[i];
-
-            posArray[i * 3] += data.velocity.x;
-            posArray[i * 3 + 1] += data.velocity.y;
-            posArray[i * 3 + 2] += data.velocity.z;
-
-            // Boundary check: bounce particles back if they drift too far
-            if (posArray[i * 3] < -4 || posArray[i * 3] > 4) data.velocity.x *= -1;
-            if (posArray[i * 3 + 1] < -4 || posArray[i * 3 + 1] > 4) data.velocity.y *= -1;
-            if (posArray[i * 3 + 2] < -4 || posArray[i * 3 + 2] > 4) data.velocity.z *= -1;
-
-            // 2. Look for nearby particles to draw lines
-            for (let j = i + 1; j < particleCount; j++) {
-                const dx = posArray[i * 3] - posArray[j * 3];
-                const dy = posArray[i * 3 + 1] - posArray[j * 3 + 1];
-                const dz = posArray[i * 3 + 2] - posArray[j * 3 + 2];
-                const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-
-                if (dist < 2.2) {
-                    linePositions.push(
-                        posArray[i * 3], posArray[i * 3 + 1], posArray[i * 3 + 2],
-                        posArray[j * 3], posArray[j * 3 + 1], posArray[j * 3 + 2]
-                    );
+        const tick = () => {
+            requestAnimationFrame(tick);
+            const p = geom.attributes.position.array;
+            const segments = [];
+            for(let i=0; i<count; i++) {
+                p[i*3] += vel[i].x; p[i*3+1] += vel[i].y; p[i*3+2] += vel[i].z;
+                if(Math.abs(p[i*3])>15) vel[i].x *= -1;
+                if(Math.abs(p[i*3+1])>10) vel[i].y *= -1;
+                if(Math.abs(p[i*3+2])>8) vel[i].z *= -1;
+                
+                for(let j=i+1; j<count; j++) {
+                    const dx = p[i*3]-p[j*3], dy = p[i*3+1]-p[j*3+1];
+                    if(Math.sqrt(dx*dx + dy*dy) < 4.5) {
+                        segments.push(p[i*3], p[i*3+1], p[i*3+2], p[j*3], p[j*3+1], p[j*3+2]);
+                    }
                 }
             }
-        }
+            geom.attributes.position.needsUpdate = true;
+            lines.geometry.setAttribute('position', new THREE.Float32BufferAttribute(segments, 3));
+            scene.rotation.y += (mouseX - scene.rotation.y) * 0.05;
+            scene.rotation.x += (mouseY - scene.rotation.x) * 0.05;
+            renderer.render(scene, camera);
+        };
+        tick();
 
-        particles.attributes.position.needsUpdate = true;
-        lineMesh.geometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
-
-        // 3. Smooth Mouse Follow (The "Premium" feel)
-        targetRotationY = mouseX * 0.0005;
-        targetRotationX = mouseY * 0.0005;
-
-        // Easing: The network follows the mouse with a slight lag/smoothness
-        scene.rotation.y += (targetRotationY - scene.rotation.y) * 0.05;
-        scene.rotation.x += (targetRotationX - scene.rotation.x) * 0.05;
-
-        renderer.render(scene, camera);
+        window.addEventListener('resize', () => {
+            camera.aspect = canvas.clientWidth / canvas.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+        });
     }
-
-    animate();
-
-    // Proper resizing
-    window.addEventListener('resize', () => {
-        camera.aspect = container.offsetWidth / container.offsetHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(container.offsetWidth, container.offsetHeight);
-    });
 </script>
-<script>
-    AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100
-    });
-</script>
-
 </body>
 </html>
